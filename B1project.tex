@@ -3,7 +3,7 @@
 %% Last update 24/4/2020
 
 \documentclass[11pt]{article}
-%\usepackage{fontspec}
+\usepackage{fontspec}
 \usepackage{graphicx}
 \usepackage{parskip}
 \usepackage{multicol}
@@ -16,11 +16,11 @@
 % There is some scope for changing the paragraph spacing and spacing around section headers if you are short of space
 
 % Use Arial
-%\setmainfont[
-%BoldFont=Arial Bold.ttf,
-%ItalicFont=Arial Italic.ttf,
-%BoldItalicFont=Arial Bold Italic.ttf
-%]{Arial.ttf}
+\setmainfont[
+BoldFont=Arial Bold.ttf,
+ItalicFont=Arial Italic.ttf,
+BoldItalicFont=Arial Bold Italic.ttf
+]{Arial.ttf}
 
 
 \begin{document}
@@ -40,9 +40,9 @@ Trinity Term 2020\\ % enter the date
 
 \newpage
 % You do not need a contents page in such a short report. Nor do you need a list of figures etc. However, if you think this is necessary you can uncomment the following
-%\tableofcontents
-%\thispagestyle{empty} % Remove page number
-%\newpage
+\tableofcontents
+\thispagestyle{empty} % Remove page number
+\newpage
 
 \setcounter{page}{1}
 
@@ -52,6 +52,8 @@ Testing to see if commits using overleaf (paid account) works - Josh.
 SMALL CHANGE
 
 Final Test - using Latex on computer again - will this cause issues? Will make it so that commits are correctly labelled.
+
+Think I have got this working with TexStudio now - need to change compiler from default to XeLaTeX (\textit{Options > Configure TexStudio > Build > Default Compiler > XeLaTeX})
 
 
 
@@ -128,7 +130,7 @@ This document uses bibtex for managing references. If you want to cite something
 {\small
 %\renewcommand{\section}[2]{}
 \begin{multicols}{2}
-\bibliographystyle{unsrt}
+\bibliographystyle{ieeetr}
 %\bibliographystyle{elsarticle-num}
 % \bibliographystyle{elsarticle-harv}
 % \bibliographystyle{elsarticle-num-names}
