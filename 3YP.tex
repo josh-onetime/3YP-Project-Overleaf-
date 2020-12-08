@@ -37,9 +37,9 @@ BoldItalicFont=Arial Bold Italic.ttf
 		\vspace*{2cm}
 		Trinity Term 2020\\ % enter the date
 		\vspace*{6cm}
-		 \huge{\textbf{{}3YP Project}}\\ 
+		\huge{\textbf{3YP Project: Pipe Inspection Robot}}\\ 
 		\vspace*{6cm}
-		{\large{My candidate number}} % Not your Bod card number
+		\large{Jim Laney, Joshua Gei, Louis Emanuel \& Monty Beresford} % Not your Bod card number
 		\thispagestyle{empty} % Remove page number
 	\end{center}
 
@@ -53,9 +53,25 @@ BoldItalicFont=Arial Bold Italic.ttf
 	
 	\section{Introduction}
 	
+	The pipe inspection robot works in underground pipes in urban areas, with a pipe diameter from 152.4 mm to 406.4 mm and with pipes at any angle, providing a map of the pipe with the location of any failures to the operator. % Needs citation for pipe sizes?
+	The robot reduces the disruption caused by having to dig up large areas of pipe for inspection, since the issue can be located and smaller, less disruptive work can be undertaken.
+	It is intended to provide an inspection method for pipes which cannot be inspected by the current leading method, Pipe Inspection Gauges (PIGs), which only work in horizontal or near horizontal straight pipes\textsuperscript{\cite{mills2017advances}}.
+	It enters a pipe using a launch tube, and travels autonomously along the inside of the pipe, checking for evidence of cracks and corrosion and logging their location for future maintenance.
+	\\
+	While inside the pipe, the robot uses three legs to maintain contact and provide the required normal force to move inside the pipe.
+	Two of these legs can be rotated to provide improved speeds over pipes at different angles, and all three legs can be extended and retracted to fit the pipe diameter the robot is currently in.
+	It can navigate around bends and through pipes at different angles, without prior knowledge of the location or angle of these, and will automatically feedback to the control system in order to create an accurate map.
+	\\
+	The robot uses computer vision to identify cracks and corrosion, allowing it to mark where these occur for human maintenance, and then combines this with knowledge of its position to create a map of the pipe it has travelled and where issues have occurred.
+	It can transmit its location using a small transmitter, which has a separate power supply so that if the robot breaks down it can be located with minimal excavation.
+	
 	\section{Hardware}
 	
 		\subsection{Locomotion}
+		
+			The main locomotion of the robot is a set of 3 legs with a pantograph mechanism  to allow for the adaptation to different diameters, with tracks at the end to drive the motion.
+			There is one leg which remains stationary at the top of the robot, and two legs which are able to rotate about the body of the robot between $10^o$ and $90^o$ to the vertical.
+			At the end of each leg there is a passive joint between the leg and the track to allow for the robot to travel along surfaces which are not perpendicular to the legs, such as around bends or over uneven surfaces.
 		
 		\subsection{Power}
 		
