@@ -58,7 +58,13 @@ BoldItalicFont=Arial Bold Italic.ttf
 	It is intended to provide an inspection method for pipes which cannot be inspected by the current leading method, Pipe Inspection Gauges (PIGs), which only work in horizontal or near horizontal straight pipes\textsuperscript{\cite{mills2017advances}}.
 	It enters a pipe using a launch tube, and travels autonomously along the inside of the pipe, checking for evidence of cracks and corrosion and logging their location for future maintenance.
 	\\
-	While inside the pipe, the robot uses three legs to maintain contact and provide the required normal force to move inside the pipe.
+	\begin{figure}[h] % Would like to do this as a text wrapped figure but that can be finnicky so would like to agree on this as a group before attempting it
+		\centering
+		\includegraphics[width=0.4\textwidth]{overviewDrawing}
+		\caption{3D Sketch of robot}		% Maybe replace with 3D CAD model if possible
+		\label{3DSketch}
+	\end{figure}
+	While inside the pipe, the robot uses three legs to maintain contact and provide the required normal force to move inside the pipe, as shown in \hyperref[3DSketch]{Figure \ref*{3DSketch}}.
 	Two of these legs can be rotated to provide improved speeds over pipes at different angles, and all three legs can be extended and retracted to fit the pipe diameter the robot is currently in.
 	It can navigate around bends and through pipes at different angles, without prior knowledge of the location or angle of these, and will automatically feedback to the control system in order to create an accurate map.
 	\\
