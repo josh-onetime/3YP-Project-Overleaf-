@@ -1,10 +1,10 @@
 \documentclass[11pt]{article}		% Sets font size and document type
 \usepackage{fontspec}				% Allows us to use custom fonts
-\usepackage{graphicx}				% Does pictures I think?
-\usepackage{parskip}
+\usepackage{graphicx}				% Does pictures
+\usepackage{parskip}				% Removes paragraph indents
 \usepackage{multicol}				% Allows for multiple columns
-\usepackage{titlesec}
-\usepackage{setspace}
+\usepackage{titlesec}				% Changes section title appearance
+\usepackage{setspace}				% Allows you to set line spacing
 \usepackage{amsmath}				% Maths typesetting
 \usepackage[margin=20 mm]{geometry}	% Sets page margin
 \usepackage[hidelinks]{hyperref}	% Allows for hypertext for references (links) - edited to hake links look like normal text rather than having a border
@@ -81,13 +81,20 @@ BoldItalicFont=Arial Bold Italic.ttf
 	
 	\pagebreak		% Temp page break for references - might end up replacing with a multicolumn environment later
 	
-	\begingroup 
-	\onehalfspacing
-	{\small
-		\bibliographystyle{ieeetr}
-		\bibliography{mybib}
-	}
+	% In order to make a reference to an entry in the bibliography, use \cite{}
+	% TexStudio will suggest names from the bib file - not sure about overleaf but otherwise use the first entry in the string
+	% Make sure bibliography is set to use BibTex rather than BibLatex
+	% See mybib.bib for an example bib file format - most things should be able to give it to you in this format
+	% Our actual bibliography will be 3YPbib.bib
+	% Currently using google scholar default ids - should help prevent duplication of references but will need to be checked
+	
+	\nocite{*} 				% By default Latex will not show uncited references, uncomment this line to show all references in the bib file
+	
+	\begingroup\onehalfspacing
+		{\small
+			\bibliographystyle{ieeetr}
+			\bibliography{3YPbib}
+		}
 	\endgroup
-	\thispagestyle{empty} % Remove page number
 
 \end{document}
