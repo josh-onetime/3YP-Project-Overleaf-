@@ -7,11 +7,13 @@
 \usepackage{setspace}				% Allows you to set line spacing
 \usepackage{amsmath}				% Maths typesetting
 \usepackage[margin=20 mm]{geometry}	% Sets page margin
-\usepackage[hidelinks]{hyperref}	% Allows for hypertext for references (links) - edited to hake links look like normal text rather than having a border
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}	
+									% Allows for hypertext for references (links) - edited to hake links look like normal text rather than having a border
 \doublespacing						% Double spaces - this annoys me but is unavoidable I think
 
 %Add any more packages needed here:
-\usepackage[justification=centering]{caption}	% Centres captions
+\usepackage[justification=centering,font=small]{caption}	
+									% Centres captions and makes them smaller
 \usepackage[none]{hyphenat}			% Lines end cleanly - no hyphenation mid word
 \usepackage{fancyhdr}				% Nicer headers/footers
 
@@ -94,10 +96,21 @@ BoldItalicFont=Arial Bold Italic.ttf
 	
 		\subsection{Locomotion}
 		
-			The main locomotion of the robot is a set of 3 legs with a pantograph mechanism  to allow for the adaptation to different diameters, with tracks at the end to drive the motion.
+			The main locomotion of the robot is a set of 3 legs with a pantograph mechanism  to allow for the adaptation to different diameters, with tracks at the end to drive the motion, as shown in \hyperref[legDesign]{Figure \ref*{legDesign}}.
 			There is one leg which remains stationary at the top of the robot, and two legs which are able to rotate about the body of the robot between $10^o$ and $90^o$ to the vertical.
 			At the end of each leg there is a passive joint between the leg and the track to allow for the robot to travel along surfaces which are not perpendicular to the legs, such as around bends or over uneven surfaces.
-		
+			\begin{figure}[h]
+				\centering
+				\begin{multicols}{2}
+					\includegraphics[width=0.4\textwidth]{legDesign}
+					\caption{Diagrammatic representation of the pantograph mechanism used for the robot's legs.}
+					\label{legDesign}
+					\columnbreak
+					\includegraphics[width=0.4\textwidth]{example-image-a}
+					\caption{Labelled Diagram indicating angles referenced in the text.}
+					\label{legMaths}
+				\end{multicols}
+			\end{figure}		
 		\subsection{Power}
 		
 		\subsection{Sensing}
