@@ -38,6 +38,10 @@
 %\fancyhead[R]{\topmarks\writtenBy}
 %\fancyfoot[R]{\botmarks\writtenBy}
 
+% Set a variable for image height, so all images are the same size and easy to change
+\newlength{\imageheight}	 % Creates the variable
+\setlength{\imageheight}{0.3\textwidth}  % Sets the variable
+
 % Use Arial
 \setmainfont[
 BoldFont=Arial Bold.ttf,
@@ -81,7 +85,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 	\\
 	\begin{figure}[h] % Would like to do this as a text wrapped figure but that can be finnicky so would like to agree on this as a group before attempting it
 		\centering
-		\includegraphics[width=0.4\textwidth]{overviewDrawing}
+		\includegraphics[height=\imageheight]{overviewDrawing}
 		\caption{3D Sketch of robot}		% Maybe replace with 3D CAD model if possible
 		\label{3DSketch}
 	\end{figure}
@@ -97,20 +101,55 @@ BoldItalicFont=Arial Bold Italic.ttf
 		\subsection{Locomotion}
 		
 			The main locomotion of the robot is a set of 3 legs with a pantograph mechanism  to allow for the adaptation to different diameters, with tracks at the end to drive the motion, as shown in \hyperref[legDesign]{Figure \ref*{legDesign}}.
-			There is one leg which remains stationary at the top of the robot, and two legs which are able to rotate about the body of the robot between $10^o$ and $90^o$ to the vertical.
+			There is one leg which remains stationary at the top of the robot, and two legs which are able to rotate about the body of the robot between $10^\circ$ and $90^\circ$ to the vertical.
 			At the end of each leg there is a passive joint between the leg and the track to allow for the robot to travel along surfaces which are not perpendicular to the legs, such as around bends or over uneven surfaces.
+			\\
+			The length of the pantograph is controlled by the force from two opposing linear actuators, which extend to a given length to set the distance of the pantograph.
+			The track at the end of the pantograph is connected to a freely turning joint, which can be measured using two angular sensors to give the angle $\phi$, shown in \hyperref[legDiagram]{Figure \ref*{legDiagram}}, with the springs acting to restore $\phi$ to $0^\circ$ when under no external effects.
+			In addition to this, the tracks use an active compliance joint, as shown in \hyperref[activeCompliance]{Figures \ref*{activeCompliance} \& \ref*{unevenBehaviour}}, which allows for the robot to maintain maximum surface contact at all times.
+						
 			\begin{figure}[h]
 				\centering
 				\begin{multicols}{2}
-					\includegraphics[width=0.4\textwidth]{legDesign}
-					\caption{Diagrammatic representation of the pantograph mechanism used for the robot's legs.}
+					\includegraphics[height=\imageheight]{activeCompliance}
+					\caption{Function and construction of an active compliance joint. Figure from \cite{park2010normal}}
+					\label{activeCompliance}
+					\columnbreak
+					\includegraphics[height=\imageheight]{unevenBehaviour}
+					\caption{Behaviour of active compliance joint over uneven surfaces (travelling upwards). Figure from \cite{park2010normal}}
+					\label{unevenBehaviour}
+				\end{multicols}
+			\end{figure}
+		
+			The ratio between the longer base links of the pantograph and then shorter tip links is 2:1, which gives the greatest range of diameters for the smallest change in the base distance\textsuperscript{\cite{okada1987mogrer}}, so we can calculate the required link length $L$ to allow the robot to adapt to the chosen range of diameters, 152.4 - 406.4 mm.
+			The pantograph angles are shown in \hyperref[legDiagram]{Figure \ref*{legDiagram}}, and we can find that:
+			
+			\begin{align}
+				r_{min} = \frac{3L}{2} \sin \left( \theta_{min} \right)
+				\\
+				r_{max} = \frac{3L}{2} \sin \left( \theta_{max} \right)
+				\\
+				\implies \Delta r = \frac{3L}{2} \left( \sin \left( \theta_{max} \right) - \sin \left( \theta_{min} \right) \right)
+				\\
+				L=\frac{2 \Delta r}{3 \left( \sin \left( \theta_{max} \right) - \sin \left( \theta_{min} \right) \right)}
+			\end{align}
+			
+			If we assume that the pantograph will ideally move from an angle of $\theta_{min} = 10^\circ$ to $\theta_{max} = 60^\circ$, spanning a change in radius of 127 mm, we find that $L =$ 122.3 mm, and our smallest leg radius $r_{min} =$ 31.9 mm, not including the depth of the tracks.
+			This means that our body diameter has a maximum of 88.6 mm, reduced by the track thickness, setting a constraint on the dimensions of the inner body based on our design criteria.
+			
+			\begin{figure}[h]
+				\centering
+				\begin{multicols}{2}
+					\includegraphics[height=\imageheight]{legDesign}
+					\caption{Diagrammatic representation of the pantograph mechanism used for the robot's legs}
 					\label{legDesign}
 					\columnbreak
-					\includegraphics[width=0.4\textwidth]{example-image-a}
-					\caption{Labelled Diagram indicating angles referenced in the text.}
-					\label{legMaths}
+					\includegraphics[height=\imageheight]{legDiagram}
+					\caption{Labelled Diagram indicating angles referenced in the text}
+					\label{legDiagram}
 				\end{multicols}
-			\end{figure}		
+			\end{figure}
+				
 		\subsection{Power}
 		
 		\subsection{Sensing}
