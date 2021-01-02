@@ -99,7 +99,8 @@ BoldItalicFont=Arial Bold Italic.ttf
 	\section{Hardware}
 	
 		\subsection{Locomotion}
-		
+			
+			%By Jim
 			The main locomotion of the robot is a set of 3 legs with a pantograph mechanism  to allow for the adaptation to different diameters, with tracks at the end to drive the motion, as shown in \hyperref[legDesign]{Figure \ref*{legDesign}}.
 			There is one leg which remains stationary at the top of the robot, and two legs which are able to rotate about the body of the robot between $10^\circ$ and $90^\circ$ to the vertical.
 			At the end of each leg there is a passive joint between the leg and the track to allow for the robot to travel along surfaces which are not perpendicular to the legs, such as around bends or over uneven surfaces.
@@ -107,35 +108,6 @@ BoldItalicFont=Arial Bold Italic.ttf
 			The length of the pantograph is controlled by the force from two opposing linear actuators, which extend to a given length to set the distance of the pantograph.
 			The track at the end of the pantograph is connected to a freely turning joint, which can be measured using two angular sensors to give the angle $\phi$, shown in \hyperref[legDiagram]{Figure \ref*{legDiagram}}, with the springs acting to restore $\phi$ to $0^\circ$ when under no external effects.
 			In addition to this, the tracks use an active compliance joint, as shown in \hyperref[activeCompliance]{Figures \ref*{activeCompliance} \& \ref*{unevenBehaviour}}, which allows for the robot to maintain maximum surface contact at all times.
-						
-			\begin{figure}[h]
-				\centering
-				\begin{multicols}{2}
-					\includegraphics[height=\imageheight]{activeCompliance}
-					\caption{Function and construction of an active compliance joint. Figure from \cite{park2010normal}}
-					\label{activeCompliance}
-					\columnbreak
-					\includegraphics[height=\imageheight]{unevenBehaviour}
-					\caption{Behaviour of active compliance joint over uneven surfaces (travelling upwards). Figure from \cite{park2010normal}}
-					\label{unevenBehaviour}
-				\end{multicols}
-			\end{figure}
-		
-			The ratio between the longer base links of the pantograph and then shorter tip links is 2:1, which gives the greatest range of diameters for the smallest change in the base distance\textsuperscript{\cite{okada1987mogrer}}, so we can calculate the required link length $L$ to allow the robot to adapt to the chosen range of diameters, 152.4 - 406.4 mm.
-			The pantograph angles are shown in \hyperref[legDiagram]{Figure \ref*{legDiagram}}, and we can find that:
-			
-			\begin{align}
-				r_{min} = \frac{3L}{2} \sin \left( \theta_{min} \right)
-				\\
-				r_{max} = \frac{3L}{2} \sin \left( \theta_{max} \right)
-				\\
-				\implies \Delta r = \frac{3L}{2} \left( \sin \left( \theta_{max} \right) - \sin \left( \theta_{min} \right) \right)
-				\\
-				L=\frac{2 \Delta r}{3 \left( \sin \left( \theta_{max} \right) - \sin \left( \theta_{min} \right) \right)}
-			\end{align}
-			
-			If we assume that the pantograph will ideally move from an angle of $\theta_{min} = 10^\circ$ to $\theta_{max} = 60^\circ$, spanning a change in radius of 127 mm, we find that $L =$ 122.3 mm, and our smallest leg radius $r_{min} =$ 31.9 mm, not including the depth of the tracks.
-			This means that our body diameter has a maximum of 88.6 mm, reduced by the track thickness, setting a constraint on the dimensions of the inner body based on our design criteria.
 			
 			\begin{figure}[h]
 				\centering
@@ -149,7 +121,74 @@ BoldItalicFont=Arial Bold Italic.ttf
 					\label{legDiagram}
 				\end{multicols}
 			\end{figure}
-				
+									
+			\begin{figure}[h]
+				\centering
+				\begin{multicols}{2}
+					\includegraphics[height=\imageheight]{activeCompliance}
+					\caption{Function and construction of an active compliance joint. Figure from \cite{park2010normal}}
+					\label{activeCompliance}
+					\columnbreak
+					\includegraphics[height=\imageheight]{unevenBehaviour}
+					\caption{Behaviour of active compliance joint over uneven surfaces (travelling upwards). Figure from \cite{park2010normal}}
+					\label{unevenBehaviour}
+				\end{multicols}
+			\end{figure}
+		
+			The rotation of the two base legs relative to the body of the robot occurs using a motor to drive each end of the rotation mechanism.
+			The motors drive two planetary gear systems each, shown in \hyperref[planetaryDrive]{Figure \ref*{planetaryDrive}}, with the direction being reversed for the further planetary drive system using a small differential gearbox, shown in \hyperref[diffGearbox]{Figure \ref*{diffGearbox}}.
+			These allow the legs to move around the body, and since they are both driven from the same source at both ends, both legs should be at an equal angle from the vertical leg at all times.
+			The rotation allows the robot to adapt to different angles of the pipe more easily, as it will be quicker to drive along horizontal pipes with a more vertical drive system, whereas vertical pipes require a more even distribution of contact points for optimal behaviour.
+									
+			\begin{figure}[h]
+				\centering
+				\begin{multicols}{2}
+					\includegraphics[height=\imageheight]{planetaryDrive}
+					\caption{Planetary drive used to move the legs relative to the main body}
+					\label{planetaryDrive}
+					\columnbreak
+					\includegraphics[height=\imageheight]{example-image-a}
+					\caption{Differential gearbox for coaxial direction reversing}
+					\label{diffGearbox}
+				\end{multicols}
+			\end{figure}
+			
+			The ratio between the longer base links of the pantograph and then shorter tip links is 2:1, which gives the greatest range of diameters for the smallest change in the base distance\textsuperscript{\cite{okada1987mogrer}}, so we can calculate the required link length $L$ to allow the robot to adapt to the chosen range of diameters, 152.4 - 406.4 mm.
+			The pantograph angles are shown in \hyperref[legDiagram]{Figure \ref*{legDiagram}}, and we can find that:
+			
+			\begin{align}
+				r_{min} &= \frac{3L}{2} \sin \left( \theta_{min} \right)
+				\\
+				r_{max} &= \frac{3L}{2} \sin \left( \theta_{max} \right)
+				\\
+				\implies \Delta r &= \frac{3L}{2} \left( \sin \left( \theta_{max} \right) - \sin \left( \theta_{min} \right) \right)
+				\\
+				L &= \frac{2 \Delta r}{3 \left( \sin \left( \theta_{max} \right) - \sin \left( \theta_{min} \right) \right)}
+			\end{align}
+			
+			If we assume that the pantograph will ideally move from an angle of $\theta_{min} = 10^\circ$ to $\theta_{max} = 60^\circ$, spanning a change in radius of 127 mm, we find that $L = 122.3$ mm, and our smallest leg radius $r_{min} = 31.9$ mm, not including the depth of the tracks.
+			This means that our body diameter has a maximum of 88.6 mm, reduced by the track thickness, setting a constraint on the dimensions of the inner body based on our design criteria.
+			\\
+			We can also use \hyperref[legDiagram]{Figure \ref*{legDiagram}} to calculate the required force output of the linear actuators in order for the robot to operate at all angles.
+			As such, we consider the worse case scenario, where the robot is climbing vertically, and thus must create enough normal force for friction to support its entire weight.
+			We find that:
+			
+			\begin{align}
+				N &= \frac{2 F \tan \left( \theta \right)}{\cos \left( \phi \right)}
+				\\
+				F_f &= \mu_{t,p} N
+				\\
+				&= \frac{2 \mu_{t,p} F \tan \left( \theta \right)}{\cos \left( \phi \right)}
+				\intertext{where $F_f$ is the frictional force on one track, and $\mu_{t,p}$ is the coefficient of friction between the tracks and the pipe. \newline In order for this to balance the weight W:}
+				W &= 3 F_f
+				\\
+				&= \frac{6 \mu_{t,p} F \tan \left( \theta \right)}{\cos \left( \phi \right)}
+				\\
+				\implies F &= \frac{W \cos \left( \phi \right)}{6 \mu_{t,p} \tan \left( \theta \right)}
+			\end{align}
+			
+			Since testing would be required to find the greatest angle $\phi$ that is experienced by the robot in general use, as well as an estimate for the coefficient of friction $\mu_{t,p}$ it is not sensible to find an estimate for the required force without further testing.
+							
 		\subsection{Power}
 		
 		\subsection{Sensing}
