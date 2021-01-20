@@ -52,6 +52,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 % Have got this working with TexStudio now - need to change compiler from default to XeLaTeX (Options > Configure TexStudio > Build > Default Compiler > XeLaTeX)
 % Will be slow at first, but once the fonts have installed should work more quickly
 
+% Overleaf link - https://www.overleaf.com/project/5fce665153f1701e8414d47b
 
 \begin{document}
 	
@@ -78,7 +79,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 	
 	\section{Introduction}
 	
-	The pipe inspection robot works in underground pipes in urban areas, with a pipe diameter from 152.4 mm to 406.4 mm and with pipes at any angle, providing a map of the pipe with the location of any failures to the operator. % Needs citation for pipe sizes?
+	The pipe inspection robot works in underground pipes in urban areas, with a pipe diameter from 609.6 mm to 914.4 mm and with pipes at any angle, providing a map of the pipe with the location of any failures to the operator. % 24 - 36 inches; Needs citation for pipe sizes?
 	The robot reduces the disruption caused by having to dig up large areas of pipe for inspection, since the issue can be located and smaller, less disruptive work can be undertaken.
 	It is intended to provide an inspection method for pipes which cannot be inspected by the current leading method, Pipe Inspection Gauges (PIGs), which only work in horizontal or near horizontal straight pipes\textsuperscript{\cite{mills2017advances}}.
 	It enters a pipe using a launch tube, and travels autonomously along the inside of the pipe, checking for evidence of cracks and corrosion and logging their location for future maintenance.
@@ -166,8 +167,9 @@ BoldItalicFont=Arial Bold Italic.ttf
 				L &= \frac{2 \Delta r}{3 \left( \sin \left( \theta_{max} \right) - \sin \left( \theta_{min} \right) \right)}
 			\end{align}
 			
-			If we assume that the pantograph will ideally move from an angle of $\theta_{min} = 10^\circ$ to $\theta_{max} = 60^\circ$, spanning a change in radius of 127 mm, we find that $L = 122.3$ mm, and our smallest leg radius $r_{min} = 31.9$ mm, not including the depth of the tracks.
-			This means that our body diameter has a maximum of 88.6 mm, reduced by the track thickness, setting a constraint on the dimensions of the inner body based on our design criteria.
+			If we assume that the pantograph will ideally move from an angle of $\theta_{min} = 20^\circ$ to $\theta_{max} = 60^\circ$, spanning a change in radius of 304.8 mm, we find that $L = 387.8$ mm, and our smallest leg radius $r_{min} = 199.0$ mm, not including the depth of the tracks.
+			This means that, if we assume our track depth is 40 mm, our body diameter has a maximum of 436.4 mm, setting a constraint on the dimensions of the inner body based on our design criteria.
+			The minimum length of the body is also set by this, as it means that the body can be not shorter than $L \cos \left( \theta_{min} \right) = 364.4$ mm.
 			\\
 			We can also use \hyperref[legDiagram]{Figure \ref*{legDiagram}} to calculate the required force output of the linear actuators in order for the robot to operate at all angles.
 			As such, we consider the worse case scenario, where the robot is climbing vertically, and thus must create enough normal force for friction to support its entire weight.
