@@ -16,6 +16,7 @@
 									% Centres captions and makes them smaller
 \usepackage[none]{hyphenat}			% Lines end cleanly - no hyphenation mid word
 \usepackage{fancyhdr}				% Nicer headers/footers
+\usepackage{amssymb}				% Allows for more maths symbols including not less than
 
 % There is some scope for changing the paragraph spacing and spacing around section headers if you are short of space
 
@@ -148,13 +149,13 @@ BoldItalicFont=Arial Bold Italic.ttf
 					\caption{Planetary drive used to move the legs relative to the main body}
 					\label{planetaryDrive}
 					\columnbreak
-					\includegraphics[height=\imageheight]{example-image-a}
-					\caption{Differential gearbox for coaxial direction reversing}
+					\includegraphics[height=\imageheight]{diffGearbox}
+					\caption{Differential gearbox for coaxial rotational direction reversing}
 					\label{diffGearbox}
 				\end{multicols}
 			\end{figure}
 			
-			The ratio between the longer base links of the pantograph and then shorter tip links is 2:1, which gives the greatest range of diameters for the smallest change in the base distance\textsuperscript{\cite{okada1987mogrer}}, so we can calculate the required link length $L$ to allow the robot to adapt to the chosen range of diameters, 152.4 - 406.4 mm.
+			The ratio between the longer base links of the pantograph and then shorter tip links is 2:1, which gives the greatest range of diameters for the smallest change in the base distance\textsuperscript{\cite{okada1987mogrer}}, so we can calculate the required link length $L$ to allow the robot to adapt to the chosen range of diameters, 609.6 - 914.4 mm.
 			The pantograph angles are shown in \hyperref[legDiagram]{Figure \ref*{legDiagram}}, and we can find that:
 			
 			\begin{align}
@@ -169,7 +170,16 @@ BoldItalicFont=Arial Bold Italic.ttf
 			
 			If we assume that the pantograph will ideally move from an angle of $\theta_{min} = 20^\circ$ to $\theta_{max} = 60^\circ$, spanning a change in radius of 304.8 mm, we find that $L = 387.8$ mm, and our smallest leg radius $r_{min} = 199.0$ mm, not including the depth of the tracks.
 			This means that, if we assume our track depth is 40 mm, our body diameter has a maximum of 436.4 mm, setting a constraint on the dimensions of the inner body based on our design criteria.
-			The minimum length of the body is also set by this, as it means that the body can be not shorter than $L \cos \left( \theta_{min} \right) = 364.4$ mm.
+			\\
+			The minimum length of the body is also set by this, as it means that the body length $l_{min} = L \cos \left( \theta_{min} \right) = 364.4$ mm.
+			A maximum body length can be found by considering the ability of the robot to turn corners inside the pipe, and it is necessary to consider how this compares to the minimum to make sure there is no loss of mobility.
+			For the duration of this calculation, we will assume we are in the smallest possible pipe diameter $D = 609.6$ mm, and we will assume that the curvature radius $r_c = \frac{3}{2} D = 914.4$ mm.
+			As our robot diameter $D_r \nless 2D \sin \left( 45^\circ \right) - D = 252.5$ mm we can use the following equation \textsuperscript{\cite{roh2005differential}}:
+			\begin{align}
+				l_{max} &= 2 \sqrt{4D^2 - \left( D + D_r\right) ^ 2}
+				\intertext{which, using our maximum $D_r = 436.4$ mm}
+				l_{max} &= 1252.7 \ \mathrm{mm} \notag
+			\end{align}
 			\\
 			We can also use \hyperref[legDiagram]{Figure \ref*{legDiagram}} to calculate the required force output of the linear actuators in order for the robot to operate at all angles.
 			As such, we consider the worse case scenario, where the robot is climbing vertically, and thus must create enough normal force for friction to support its entire weight.
@@ -190,6 +200,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 			\end{align}
 			
 			Since testing would be required to find the greatest angle $\phi$ that is experienced by the robot in general use, as well as an estimate for the coefficient of friction $\mu_{t,p}$ it is not sensible to find an estimate for the required force without further testing.
+			However, from this equation we can see that the worst case scenario is with the lowest pipe diameter, as this minimises $\theta$, and we can hypothesise that bends, where $\phi$ is likely to be the largest during normal operation, will require the most linear actuator force.
 							
 		\subsection{Power}
 		
@@ -212,6 +223,8 @@ BoldItalicFont=Arial Bold Italic.ttf
 		\subsection{Mapping and Location}
 		
 		\subsection{Communications}
+		
+	\section{Estimated Cost}
 	
 	\pagebreak		% Temp page break for references - might end up replacing with a multicolumn environment later
 	
