@@ -80,17 +80,19 @@ BoldItalicFont=Arial Bold Italic.ttf
 	
 	\section{Introduction}
 	
-	The pipe inspection robot works in underground pipes in urban areas, with a pipe diameter from 609.6 mm to 914.4 mm and with pipes at any angle, providing a map of the pipe with the location of any failures to the operator. % 24 - 36 inches; Needs citation for pipe sizes?
+	The pipe inspection robot works in underground pipes in urban areas, with a pipe diameter from $609.6$ mm to $914.4$ mm and with pipes at any angle, providing a map of the pipe with the location of any failures to the operator. % 24 - 36 inches; Needs citation for pipe sizes?
 	The robot reduces the disruption caused by having to dig up large areas of pipe for inspection, since the issue can be located and smaller, less disruptive work can be undertaken.
 	It is intended to provide an inspection method for pipes which cannot be inspected by the current leading method, Pipe Inspection Gauges (PIGs), which only work in horizontal or near horizontal straight pipes\textsuperscript{\cite{mills2017advances}}.
 	It enters a pipe using a launch tube, and travels autonomously along the inside of the pipe, checking for evidence of cracks and corrosion and logging their location for future maintenance.
 	\\
+	
 	\begin{figure}[h] % Would like to do this as a text wrapped figure but that can be finnicky so would like to agree on this as a group before attempting it
 		\centering
-		\includegraphics[height=\imageheight]{overviewDrawing}
-		\caption{3D Sketch of robot}		% Maybe replace with 3D CAD model if possible
+		\includegraphics[height=\imageheight]{overviewCAD}
+		\caption{3D CAD model of robot}		% Maybe replace with 3D CAD model if possible
 		\label{3DSketch}
 	\end{figure}
+	
 	While inside the pipe, the robot uses three legs to maintain contact and provide the required normal force to move inside the pipe, as shown in \hyperref[3DSketch]{Figure \ref*{3DSketch}}.
 	Two of these legs can be rotated to provide improved speeds over pipes at different angles, and all three legs can be extended and retracted to fit the pipe diameter the robot is currently in.
 	It can navigate around bends and through pipes at different angles, without prior knowledge of the location or angle of these, and will automatically feedback to the control system in order to create an accurate map.
@@ -104,7 +106,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 			
 			%By Jim
 			The main locomotion of the robot is a set of 3 legs with a pantograph mechanism  to allow for the adaptation to different diameters, with tracks at the end to drive the motion, as shown in \hyperref[legDesign]{Figure \ref*{legDesign}}.
-			There is one leg which remains stationary at the top of the robot, and two legs which are able to rotate about the body of the robot between $10^\circ$ and $90^\circ$ to the vertical.
+			There is one leg which remains stationary at the top of the robot, and two legs which are able to rotate about the body of the robot between $20^\circ$ and $90^\circ$ to the vertical.
 			At the end of each leg there is a passive joint between the leg and the track to allow for the robot to travel along surfaces which are not perpendicular to the legs, such as around bends or over uneven surfaces.
 			\\
 			The length of the pantograph is controlled by the force from two opposing linear actuators, which extend to a given length to set the distance of the pantograph.
@@ -139,8 +141,9 @@ BoldItalicFont=Arial Bold Italic.ttf
 		
 			The rotation of the two base legs relative to the body of the robot occurs using a motor to drive each end of the rotation mechanism.
 			The motors drive two planetary gear systems each, shown in \hyperref[planetaryDrive]{Figure \ref*{planetaryDrive}}, with the direction being reversed for the further planetary drive system using a small differential gearbox, shown in \hyperref[diffGearbox]{Figure \ref*{diffGearbox}}.
-			These allow the legs to move around the body, and since they are both driven from the same source at both ends, both legs should be at an equal angle from the vertical leg at all times.
-			The rotation allows the robot to adapt to different angles of the pipe more easily, as it will be quicker to drive along horizontal pipes with a more vertical drive system, whereas vertical pipes require a more even distribution of contact points for optimal behaviour.
+			These allow the legs to move around the body, from almost directly below the robot to in a horizontal plane at $90^\circ$ to the top leg.
+			As both legs are driven from the same motor at each end, both legs should be symmetrical about the vertical leg at all times.
+			The rotation allows the robot to adapt to different angles of the pipe more easily, as it will be quicker to drive along horizontal pipes with the almost vertical drive system, whereas vertical pipes require a more even distribution of contact points for optimal behaviour, probably requiring an angle of $120^\circ$ for the most even distribution of contact points.
 									
 			\begin{figure}[h]
 				\centering
@@ -155,7 +158,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 				\end{multicols}
 			\end{figure}
 			
-			The ratio between the longer base links of the pantograph and then shorter tip links is 2:1, which gives the greatest range of diameters for the smallest change in the base distance\textsuperscript{\cite{okada1987mogrer}}, so we can calculate the required link length $L$ to allow the robot to adapt to the chosen range of diameters, 609.6 - 914.4 mm.
+			The ratio between the longer base links of the pantograph and then shorter tip links is 2:1, which gives the greatest range of diameters for the smallest change in the base distance\textsuperscript{\cite{okada1987mogrer}}, so we can calculate the required link length $L$ to allow the robot to adapt to the chosen range of diameters, $609.6 - 914.4$ mm.
 			The pantograph angles are shown in \hyperref[legDiagram]{Figure \ref*{legDiagram}}, and we can find that:
 			
 			\begin{align}
@@ -173,14 +176,15 @@ BoldItalicFont=Arial Bold Italic.ttf
 			\\
 			The minimum length of the body is also set by this, as it means that the body length $l_{min} = L \cos \left( \theta_{min} \right) = 364.4$ mm.
 			A maximum body length can be found by considering the ability of the robot to turn corners inside the pipe, and it is necessary to consider how this compares to the minimum to make sure there is no loss of mobility.
-			For the duration of this calculation, we will assume we are in the smallest possible pipe diameter $D = 609.6$ mm, and we will assume that the curvature radius $r_c = \frac{3}{2} D = 914.4$ mm.
-			As our robot diameter $D_r \nless 2D \sin \left( 45^\circ \right) - D = 252.5$ mm we can use the following equation \textsuperscript{\cite{roh2005differential}}:
+			For the duration of this calculation, we will assume we are in the smallest possible pipe diameter $D_{pipe} = 609.6$ mm, and we will assume that the curvature radius $r_c = \frac{3}{2} D_{pipe} = 914.4$ mm.
+			As our robot diameter $D_r \nless \left( 2 \sin \left( 45^\circ \right) - 1 \right) D_{pipe} = 252.5$ mm we can use the following equation \textsuperscript{\cite{roh2005differential}}:
+
 			\begin{align}
-				l_{max} &= 2 \sqrt{4D^2 - \left( D + D_r\right) ^ 2}
+				l_{max} &= 2 \sqrt{4D_{pipe}^2 - \left( D_{pipe} + D_r\right) ^ 2}
 				\intertext{which, using our maximum $D_r = 436.4$ mm}
 				l_{max} &= 1252.7 \ \mathrm{mm} \notag
 			\end{align}
-			\\
+		
 			We can also use \hyperref[legDiagram]{Figure \ref*{legDiagram}} to calculate the required force output of the linear actuators in order for the robot to operate at all angles.
 			As such, we consider the worse case scenario, where the robot is climbing vertically, and thus must create enough normal force for friction to support its entire weight.
 			We find that:
@@ -196,7 +200,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 				\\
 				&= \frac{6 \mu_{t,p} F \tan \left( \theta \right)}{\cos \left( \phi \right)}
 				\\
-				\implies F &= \frac{W \cos \left( \phi \right)}{6 \mu_{t,p} \tan \left( \theta \right)}
+				\implies F &= \frac{W \cos \left( \phi \right)}{6 \mu_{t,p} \tan \left( \theta \right)} \label{reqMaxNorm}
 			\end{align}
 			
 			Since testing would be required to find the greatest angle $\phi$ that is experienced by the robot in general use, as well as an estimate for the coefficient of friction $\mu_{t,p}$ it is not sensible to find an estimate for the required force without further testing.
@@ -219,11 +223,55 @@ BoldItalicFont=Arial Bold Italic.ttf
 		% TBD after 14/2/21 - needs pressure force calcs etc
 	
 	\section{Software}
-	
-		\subsection{Actuation Control}
 		
 		\subsection{Bend \& Angle Detection}
 		
+		\begin{align}
+			1 &= 1 \label{angleEq} % Temp equation to label for later
+		\end{align}
+		
+		\subsection{Actuation Control}
+		
+		The robot needs to be able to accurately control the length of its legs in order to maintain the correct normal force for operation.
+		We know the required linear actuator force for climbing vertically from \hyperref[reqMaxNorm]{Equation \ref*{reqMaxNorm}}, which we can modify to find that:
+	
+		\begin{align}
+			F &= \frac{W \sin \left( \psi \right) \cos \left( \phi \right)}{6 \mu_{t,p} \tan \left( \theta \right)}
+		\end{align}
+	
+		where $\psi$ is the inclination of pipe worked out from \hyperref[angleEq]{Equation \ref*{angleEq}}.
+		\\
+		Thus, if we know the weight of the robot, and we can estimate the pipe inclination $\psi$, as well as measuring the leg and foot angles $ \theta \&  \phi$, we can estimate the required actuator force.
+		This means that the robot can set a target actuator force at all times in order to ensure that it able to traverse the pipe.
+		\\
+		While we initially considered having sensors on the robot to work out the pipe diameter, a much simpler solution was to use the linear actuators themselves. 
+		Since we know the required normal force, we can extend the actuators, updating our value of theta until we reach that force, or close to it, using a $H_{\infty}$ controller.
+		Thus, the force can be controlled to the point where the target value is reached, and the pipe diameter can be estimated by finding the base angle $\theta$.
+	
+		\begin{align}
+			\cos \left( \theta \right) &= \cos \left( \theta_{min} \right) + \frac{E}{L}
+			\intertext{where E is the extension of a single actuator. \newline We can then find that}
+			D_{pipe} &= D_r + \frac{3 L}{2} \sin \left( \cos ^{-1} \left( \theta \right) \right)
+			\\
+			&= D_r + \frac{3 L}{2} \sin \left( \cos ^{-1} \left( \cos \left( \theta_{min} \right) + \frac{E}{L} \right) \right)
+		\end{align}
+	
+		\hyperref[legDiagram]{Figure \ref*{legDiagram}} is reproduced as \hyperref[legDiagramRep]{Figure \ref*{legDiagramRep}} for reference of other variables.
+		\\
+	
+		\begin{figure}
+			\centering
+			\includegraphics[height=\imageheight]{legDiagram}
+			\captionsetup{list=no}
+			\caption{Labelled Diagram indicating angles referenced in the text}
+			\label{legDiagramRep}			
+		\end{figure}
+	
+		 $H_{\infty}$ control was chosen as the system dynamics can be well modelled for the extension of the leg, and fast performance is required.
+		 This is because too little normal force is possible catastrophic, if the robot is travelling up a steeply inclined pipe, and too much normal force for too long could damage critical components.
+		 While the system is non-linear, most of the variables simply contribute as fixed values, with the system only being non-linear in $\theta$.
+		 However, in the region $20^\circ - 60^\circ, \sin \left( \theta \right)$ is relatively linear, so a linear control method was chosen.
+				
 		\subsection{Crack \& Corrosion Detection}
 		
 		\subsection{Mapping and Location}
@@ -243,7 +291,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 	% Our actual bibliography will be 3YPbib.bib
 	% Currently using google scholar default ids - should help prevent duplication of references but will need to be checked
 	
-	\nocite{*} 				% By default Latex will not show uncited references, uncomment this line to show all references in the bib file
+	%\nocite{*} 				% By default Latex will not show uncited references, uncomment this line to show all references in the bib file
 	
 	\begingroup\onehalfspacing
 		{\small
