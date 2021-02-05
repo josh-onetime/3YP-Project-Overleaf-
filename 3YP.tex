@@ -140,10 +140,11 @@ BoldItalicFont=Arial Bold Italic.ttf
 			\end{figure}
 		
 			The rotation of the two base legs relative to the body of the robot occurs using a motor to drive each end of the rotation mechanism.
-			The motors drive two planetary gear systems each, shown in \hyperref[planetaryDrive]{Figure \ref*{planetaryDrive}}, with the direction being reversed for the further planetary drive system using a small differential gearbox, shown in \hyperref[diffGearbox]{Figure \ref*{diffGearbox}}.
+			The motor drives the sun gears of two planetary gear systems, shown in \hyperref[planetaryDrive]{Figure \ref*{planetaryDrive}},which rotate in opposite direction so the legs move symmetrically.
+			The direction is reversed for the further planetary drive system using a small differential gearbox, shown in \hyperref[diffGearbox]{Figure \ref*{diffGearbox}}, which allows for compact reversal of motion.
 			These allow the legs to move around the body, from almost directly below the robot to in a horizontal plane at $90^\circ$ to the top leg.
-			As both legs are driven from the same motor at each end, both legs should be symmetrical about the vertical leg at all times.
-			The rotation allows the robot to adapt to different angles of the pipe more easily, as it will be quicker to drive along horizontal pipes with the almost vertical drive system, whereas vertical pipes require a more even distribution of contact points for optimal behaviour, probably requiring an angle of $120^\circ$ for the most even distribution of contact points.
+			As both legs are driven from the same motor at each end, both legs are symmetrical about the vertical leg at all times, and the leg position can be summarised by a single body rotation angle $\beta$, measured from the top leg, which varies from $\beta = 90^\circ$ to $\beta = 160^\circ$.
+			The rotation allows the robot to adapt to different angles of the pipe more easily, as it will be quicker to drive along horizontal pipes with the almost vertical drive system, whereas vertical pipes require a more even distribution of contact points for optimal behaviour, probably requiring an angle of $\beta = 120^\circ$ for the most even distribution of contact points.
 									
 			\begin{figure}[h]
 				\centering
@@ -224,11 +225,102 @@ BoldItalicFont=Arial Bold Italic.ttf
 	
 	\section{Software}
 		
-		\subsection{Bend \& Angle Detection}
+		\subsection{Inclination Detection}
 		
 		\begin{align}
 			1 &= 1 \label{angleEq} % Temp equation to label for later
 		\end{align}
+		
+		\subsection{Bend Behaviour}
+		
+		The robot requires knowledge of where it is in the pipe, and being able to calculate the position of bends in the pipe is important.
+		The robot is designed to travel around bends autonomously, and then report back to the mapping software that it has turned a bend, as well as calculating the angle turned through.
+		When turning a bend, the robot uses angular sensors at the end of each leg to tell the individual leg bends $\phi_T, \ \phi_L \ \& \ \phi_R$.
+		These are detected from angular sensor connected to each leg link which are averaged, so $\phi_L = \frac{\phi_{L1} + \phi_{L2}}{2}$ and equivalent for the other legs.
+		The robot can then vary the speed of the tracks at the end of each leg in order to try and get the angles to be parallel, such that $\phi_L = \phi_R = \phi_T$.
+		This is done by setting the top leg angle $\phi_T$ as a reference, and controlling the speed using the difference between this and $\phi_R$ or $\phi_L$ with a PID controller.
+		This controller only needs a very low natural frequency, as faster changes in the angle are probably due to surface unevenness, which should be dealt with by the active compliance joint.
+		\\
+		\begin{figure}[h]
+			\centering
+			\includegraphics[height=\imageheight]{pipeAngle}
+			\caption{Position of the robot within the pipe. (i) Within a horizontal or vertical bend, (ii) Within a bend at angle $\alpha$ to the vertical, view shown relative to the bend rather than relative to the outside world}
+			\label{pipeAngle}
+		\end{figure}
+		The robot is able to estimate the magnitude of the bend angle based on the distance travelled and the pipe diameter.
+		If the bend is in the horizontal plane, as shown in \hyperref[pipeAngle]{Figure \ref*{pipeAngle}(i)}, the robot has to look at the differences between the non vertical legs in order to determine bend angles and directions.
+		The robot integrates the speed of each track over the travel of the robot in order to determine the distance travelled.
+		When there is disparity between the measured distance by each of the legs, but all tracks are travelling at the same speed, it can be concluded that a bend has been turned, and the robot is again travelling straight.
+		Once the bend angle has been determined, this difference can be subtracted in order to realign the values of the track distances covered so that future bends can be identified.
+		\\
+		If the body rotation angle $\beta = 90^\circ$, so that the side legs form a plane across the diameter of the pipe, the angle change can simply be found by using
+		\begin{align}
+			d_{inner} &= \theta_{bend} \left( r_c  - \frac{ D_{pipe} }{2} \right)
+			\\
+			d_{outer} &= \theta_{bend} \left( r_c  + \frac{ D_{pipe} }{2} \right)
+			\\
+			\implies \Delta d &= \theta_{bend} D_{pipe}
+		\end{align}
+		where d is the distance calculated from the integration of the track speed.
+		\\
+		The robot legs are typically not going to be in this position, so instead the $\beta$ needs to be factored in, which can be achieved by adjusting the effective pipe diameter:
+		\begin{align}
+			D_{eff} &= D_{pipe} \sin \left( \beta \right)
+			\\
+			\Delta d &= \theta_{bend} D_{eff}
+			\\
+			\Delta d &= \theta_{bend} D_{pipe} \sin \left( \beta \right)
+			\intertext{Thus the bend angle in the horizontal plane can be caluclated as}
+			\theta_{bend} &= \frac{\Delta d}{D_{pipe} \sin \left( \beta \right)}
+		\end{align}
+		This means that the angle $\beta$ cannot be $180^\circ$, since this would result in the angle being incalculable, since there is no differential between the two rotating tracks.
+		However, this position is obviously not possible, as the tracks cannot occupy the same space, and thus there will always be a differential to calculate the bend angle over.
+		\\
+		If the bend is instead in the vertical plane, also shown in \hyperref[pipeAngle]{Figure \ref*{pipeAngle}(i)}, then both the bend angle detection and inclination detection systems can be used in tangent to generate a more precise estimate of the bend angle.
+		Only the top leg's distance will be different, as the two side legs should be moving around an equally spaced area.
+		The bend angle can thus be found by comparing the distance of the outer leg with the distance of the side legs, which must again be adjusted for $\beta$.
+		Assuming an upwards bend:
+		\begin{align}
+			d_{top} &= \theta_{bend} \left( r_c  - \frac{ D_{pipe} }{2} \right)
+			\\
+			d_{side} &= \theta_{bend} \left( r_c - \frac{D_{pipe} \cos \left( \beta \right)} {2} \right)
+			\\
+			\Delta d &= \theta_{bend} \frac{ D_{pipe} \left( 1 - \cos \left( \beta \right) \right)}{2}
+			\\
+			\implies \theta_{bend} &= \frac{2 \Delta d}{D_{pipe} \left( 1 - \cos \left( \beta \right) \right)}
+		\end{align}
+		While we have worked out the bends in the horizontal or vertical directions, it is also possible for bends to at an angle somewhere between the two.
+		If we call this angle $\alpha$, as labelled in \hyperref[pipeAngle]{Figure \ref*{pipeAngle}(ii)}, we can calculate expressions for all distances travelled:
+		\begin{align}
+			d_{top} &= \theta_{bend} \left( r_c - \frac{D_{pipe} \cos \left( \alpha \right)}{2} \right) \label{d_top}
+			\\
+			d_{left} &= \theta_{bend} \left( r_c +  \frac{D_{pipe} \sin \left( \alpha + \beta \right)}{2} \right) \label{d_left}
+			\\
+			d_{right} &= \theta_{bend} \left( r_c +  \frac{D_{pipe} \sin \left( \beta - \alpha \right)}{2} \right) \label{d_right}
+		\end{align}
+		This can be solved computationally using the MATLAB symbolic toolbox function \verb|solve()| to find that:
+		\begin{align}
+			\theta_{bend} = \frac{ \sqrt{ \left[ \left( d_{left} - d_{top} \right)^2 + \left( d_{right} - d_{top} \right)^2 \right] \left( 1 - \sin \left( \beta \right) \right)  + \left( d_{left} - d_{right} \right)^2 \sin \left( \beta \right) } } {D_{pipe} \sin \left( \frac{2 \beta + \pi}{4} \right) \cos \left( \beta \right)} \label{generalTheta}
+			\\
+			\alpha = 2 \tan^{-1} \left( \frac{\theta_{bend} D_{pipe} \cos \left( \beta \right)}{\left( d_{left} - d_{right} \right)} + \frac{\left(d_{left} + d_{right} - 2 d_{top} \right) \sin \left( \frac{\beta - \pi}{4} \right)}{\sqrt{2} \sin \left( \frac{2 \beta + \pi}{4} \right) \left( d_{left} - d_{right} \right)}\right) \label{alphaEq}
+		\end{align}
+		Where $\sqrt{ \ }$ is assumed to be the positive square root, since $\theta_{bend}$ is assumed to take a positive value.
+		This can then be combined with the detected inclination to ensure the robot is aware of whether it is travelling upwards or downwards.
+		\\
+		\hyperref[generalTheta]{Equation \ref*{generalTheta}} is only valid under the conditions that:
+		\begin{align*}
+			2 D_{pipe} \theta_{bend} &< 2 d_{top} + D_{pipe} \theta_{bend} \cos \left( \alpha \right) \tag{\ref*{generalTheta}.1} \label{thetaCond1}
+			\\
+			d_{left} + d_{right} &\neq 2 d_{top} \tag{\ref*{generalTheta}.2} \label{thetaCond2}
+		\end{align*}
+		Considering each in turn, \hyperref[thetaCond1]{Condition \ref*{thetaCond1}} can be simplified by substituting in the value of $d_{top}$ from \hyperref[d_top]{Equation \ref*{d_top}}.
+		We find that this constraint simply specifies that $r_c > D_{pipe}$ and, since we have assumed urban pipe have a bend radius of $r_c =  1.5D_{pipe} $ \textsuperscript{\cite{roh2005differential}}, this constraint should never be violated, as it required pipes which bend much more sharply than we will encounter.
+		\\
+		\hyperref[thetaCond2]{Condition \ref*{thetaCond2}} can also be simplified by substituting in \hyperref[d_left]{Equations \ref*{d_left} \& \ref*{d_right}}. 
+		Thus we find that the failure criteria $d_{left} + d_{right} = 2 d_{top}$ occurs when $\sin \left( \beta \right) = 2$, which means that this constraint can never occur.
+		\\
+		Finally, \hyperref[alphaEq]{Equation \ref*{alphaEq}} is derived from a constraint that specified that the difference between $alpha$ and the right hand side is a multiple of $2 \pi$ (in radians).
+		Since we know the value of $\alpha$ is between $0^\circ$ and $90^\circ$, which are both less than $2 \pi$, this constraint sets the value of $\alpha - (\ref*{alphaEq}) = 0$, allowing us to calculate $\alpha$ directly as in \hyperref[alphaEq]{Equation \ref*{alphaEq}}.
 		
 		\subsection{Actuation Control}
 		
@@ -256,7 +348,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 			&= D_r + \frac{3 L}{2} \sin \left( \cos ^{-1} \left( \cos \left( \theta_{min} \right) + \frac{E}{L} \right) \right)
 		\end{align}
 	
-		\hyperref[legDiagram]{Figure \ref*{legDiagram}} is reproduced as \hyperref[legDiagramRep]{Figure \ref*{legDiagramRep}} for reference of other variables.
+		\hyperref[legDiagram]{Figure \ref*{legDiagram}} is reproduced as \hyperref[legDiagramRep]{Figure \ref*{legDiagramRep}} for reference of variables used.
 		\\
 	
 		\begin{figure}
