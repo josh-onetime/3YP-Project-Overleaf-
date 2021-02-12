@@ -62,7 +62,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 
 	\begin{center}
 		\vspace*{2cm}
-		Trinity Term 2020\\ % enter the date
+		Michaelmas \& Hilary Term 2020 / 2021\\ % enter the date
 		\vspace*{6cm}
 		\huge{\textbf{3YP Project: Pipe Inspection Robot}}\\ 
 		\vspace*{6cm}
@@ -112,7 +112,12 @@ BoldItalicFont=Arial Bold Italic.ttf
 			The length of the pantograph is controlled by the force from two opposing linear actuators, which extend to a given length to set the distance of the pantograph.
 			The track at the end of the pantograph is connected to a freely turning joint, which can be measured using two angular sensors to give the angle $\phi$, shown in \hyperref[legDiagram]{Figure \ref*{legDiagram}}, with the springs acting to restore $\phi$ to $0^\circ$ when under no external effects.
 			In addition to this, the tracks use an active compliance joint, as shown in \hyperref[activeCompliance]{Figures \ref*{activeCompliance} \& \ref*{unevenBehaviour}}, which allows for the robot to maintain maximum surface contact at all times.
-			%Need to explain active compliance joint - also needs section in software
+			\\
+			The active compliance joint consists of a torsional spring and radio-controlled servo motor, which are both attached around the same axis.
+			However, the servo motor is attached to the rear tracks, whereas the spring is attached between the front track and the servo motor itself.
+			When the robot passes over an uneven surface, the servo motor forces the front track down, maintaining contact with the pipe wall, as shown in \hyperref[unevenBehaviour]{Figure \ref*{unevenBehaviour}(a)}
+			If instead the robot is in a section where the pipe wall is concave, the torsional spring will allow it to fold, shown in \hyperref[unevenBehaviour]{Figure \ref*{unevenBehaviour}(b)}, and maintaining contact with as much of the wall as possible.
+			The servo motor also has an angular sensor to tell how much the front track has been bent, allowing for the active compliance joint to be better controlled.
 			\begin{figure}[h]
 				\centering
 				\begin{multicols}{2}
@@ -124,8 +129,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 					\caption{Labelled Diagram indicating angles referenced in the text}
 					\label{legDiagram}
 				\end{multicols}
-			\end{figure}
-									
+			\end{figure}			
 			\begin{figure}[h]
 				\centering
 				\begin{multicols}{2}
@@ -138,7 +142,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 					\label{unevenBehaviour}
 				\end{multicols}
 			\end{figure}
-		
+			\\
 			The rotation of the two base legs relative to the body of the robot occurs using a motor to drive each end of the rotation mechanism.
 			The motor drives the sun gears of two planetary gear systems, shown in \hyperref[planetaryDrive]{Figure \ref*{planetaryDrive}},which rotate in opposite direction so the legs move symmetrically.
 			The direction is reversed for the further planetary drive system using a small differential gearbox, shown in \hyperref[diffGearbox]{Figure \ref*{diffGearbox}}, which allows for compact reversal of motion.
@@ -159,7 +163,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 				\end{multicols}
 			\end{figure}
 			
-			The ratio between the longer base links of the pantograph and then shorter tip links is 2:1, which gives the greatest range of diameters for the smallest change in the base distance\textsuperscript{\cite{okada1987mogrer}}, so we can calculate the required link length $L$ to allow the robot to adapt to the chosen range of diameters, $609.6 - 914.4$ mm.
+			The ratio between the longer base links of the pantograph and then shorter tip links is $2:1$, which gives the greatest range of diameters for the smallest change in the base distance\textsuperscript{\cite{okada1987mogrer}}, so we can calculate the required link length $L$ to allow the robot to adapt to the chosen range of diameters, $609.6 - 914.4$ mm.
 			The pantograph angles are shown in \hyperref[legDiagram]{Figure \ref*{legDiagram}}, and we can find that:
 			
 			\begin{align}
@@ -172,8 +176,8 @@ BoldItalicFont=Arial Bold Italic.ttf
 				L &= \frac{2 \Delta r}{3 \left( \sin \left( \theta_{max} \right) - \sin \left( \theta_{min} \right) \right)}
 			\end{align}
 			
-			If we assume that the pantograph will ideally move from an angle of $\theta_{min} = 20^\circ$ to $\theta_{max} = 60^\circ$, spanning a change in radius of 304.8 mm, we find that $L = 387.8$ mm, and our smallest leg radius $r_{min} = 199.0$ mm, not including the depth of the tracks.
-			This means that, if we assume our track depth is 70 mm, our body diameter has a maximum of $376.4$ mm, setting a constraint on the dimensions of the inner body based on our design criteria.
+			If we assume that the pantograph will ideally move from an angle of $\theta_{min} = 20^\circ$ to $\theta_{max} = 60^\circ$, spanning a change in radius of $304.8$ mm, we find that $L = 387.8$ mm, and our smallest leg radius $r_{min} = 199.0$ mm, not including the depth of the tracks.
+			This means that, if we assume our track depth is $70$ mm, our body diameter has a maximum of $376.4$ mm, setting a constraint on the dimensions of the inner body based on our design criteria.
 			\\
 			The minimum length of the body is also set by this, as it means that the body length $l_{min} = L \cos \left( \theta_{min} \right) = 364.4$ mm.
 			A maximum body length can be found by considering the ability of the robot to turn corners inside the pipe, and it is necessary to consider how this compares to the minimum to make sure there is no loss of mobility.
@@ -248,7 +252,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 			\caption{Position of the robot within the pipe. (i) Within a horizontal or vertical bend, (ii) Within a bend at angle $\xi$ to the vertical, view shown relative to the bend rather than relative to the outside world}
 			\label{pipeAngle}
 		\end{figure}
-		As in \hyperref[pipeOrientation]{Figure \ref*{pipeOrientation}}\textsuperscript{\cite{park2010normal}}, the angle of the robot within the pipe can be decomposed into two orthogonal rotations, of $\alpha$ about the pipe diameter, and then $\beta$ about the robot centre, shown as $z'$ in the figure.
+		As in \hyperref[pipeOrientation]{Figure \ref*{pipeOrientation}}, the angle of the robot within the pipe can be decomposed into two orthogonal rotations, of $\alpha$ about the pipe diameter, and then $\beta$ about the robot centre, shown as $z'$ in the figure.
 		Since the angle of the top leg, $\phi_T$, is $\alpha$ on the $y'$ axis ($\beta = 0$), but zero on the x axis ($\beta = 90^\circ$), we can estimate our angle using:
 		\begin{align}
 			\phi_T &= \cos \left( \beta \right) \alpha
@@ -290,17 +294,17 @@ BoldItalicFont=Arial Bold Italic.ttf
 			\end{smallmatrix} 
 			\right] \notag
 			\\
-			\psi_x &= \sin^{-1} \left( \mathbf{R}_{P,W} \left[ 3, 1\right] \right) \label{pipeX}
+			\psi_x &= \sin^{-1} \left( \ \mathbf{R}_{P,W} \left[ 3, 1\right] \ \right) \label{pipeX}
 			\\
-			\psi_y &= \tan^{-1} \left( \frac{\mathbf{R}_{P,W} \left[ 2, 1\right]}{\mathbf{R}_{P,W} \left[ 1, 1\right]} \right) \label{pipeY}
+			\psi_y &= \tan^{-1} \left( \frac{\ \mathbf{R}_{P,W} \left[ 2, 1\right] \ }{\mathbf{R}_{P,W} \left[ 1, 1\right]} \right) \label{pipeY}
 			\\
-			\psi_z &= \tan^{-1} \left( \frac{\mathbf{R}_{P,W} \left[ 3,2 \right]}{\mathbf{R}_{P,W} \left[ 3,3 \right]} \right) \label{pipeZ}
+			\psi_z &= \tan^{-1} \left( \frac{ \ \mathbf{R}_{P,W} \left[ 3,2 \right] \ }{\mathbf{R}_{P,W} \left[ 3,3 \right] } \right) \label{pipeZ}
 		\end{align}
 		Thus, in order to increase the efficiency of the algorithm, we only need to calculate the relevant entries of $\mathbf{R}_{P,W}$, meaning that the number of computations required can be reduced to $\frac{5}{9}$ of the original value.
 		These angles can also be used to help with the identification of other things within the robot, but the reliability of these is not guaranteed, as the angle of the legs can be affected by other factors, such as unevenness in the pipe wall.
 		As such, the value for the inclination of the pipe should be averaged out to give better results for pipe inclination, and giving a smoother projection of the map overall.
 		
-		\subsection{Actuation Control}
+		\subsection{Leg Actuation Control}
 		
 		The robot needs to be able to accurately control the length of its legs in order to maintain the correct normal force for operation.
 		We know the required linear actuator force for climbing vertically from \hyperref[reqMaxNorm]{Equation \ref*{reqMaxNorm}}, which we can modify to find that:
@@ -444,6 +448,26 @@ BoldItalicFont=Arial Bold Italic.ttf
 		\\
 		Finally, \hyperref[alphaEq]{Equation \ref*{alphaEq}} is derived from a constraint that specified that the difference between $\xi$ and the right hand side is a multiple of $2 \pi$ (in radians).
 		Since we know the value of $\xi$ is between $0^\circ$ and $90^\circ$, which are both less than $2 \pi$, this constraint sets the value of $\xi - (\ref*{alphaEq}) = 0$, allowing us to calculate $\xi$ directly as in \hyperref[alphaEq]{Equation \ref*{alphaEq}}.
+		
+		\subsection{Active Compliance Joint}
+		
+		The active compliance joint acts to ensure that the surface area contact with the wall is maximised at all times.
+		In order for this to work, the robot needs to estimate the required angle of the front joint.
+		\\
+		If the foot angle $\phi$ is negative, then the robot knows that no action is required, as the robot is in a concave section and the flexing and returning will be maintained by the torsional spring.
+		However, if the angle $\phi$ is positive, the robot know it is going over a bump, and a rotation of the front track is necessary.
+		\\
+		The robot must actuate the servo motor until the current required increases above a certain limit, as this will occur when the track has hit a physical barrier, the pipe wall.
+		As well as doing this with a control system, there should also be a electrical short circuit to bypass the motor if any large currents are required, in order to prevent damage.
+		The servo motor then maintains the angle, and only needs to change it if the current is no longer at the level determined to mean that the front track is in contact with the pipe wall.
+		\\
+		In this position, the robot needs to determine whether the angle needs to be increased or decreased, in order to maintain contact.
+		Since it is preferable to have the flattest track profile, if the angle $\phi$ has not increased, or has decreased, then the robot will assume that the pipe has flattened out, and will attempt to return the front track to being parallel with the back two.
+		If instead the angle $\phi$ has become greater, the robot will once again increment the servo motor, to attempt to make contact with the pipe surface.
+		\\
+		The angle of the front track also needs to be limited, to prevent over rotation which could cause damage.
+		Since this method is designed to cover small levels of unevenness in the pipe wall, as well as providing better grip around bends, the maximum angle to be expected can be estimated through experimentation.
+		However, a limit of $45^\circ$ seems sensible as a first estimate without further testing and examination of pipe conditions.
 				
 		\subsection{Crack \& Corrosion Detection}
 		
