@@ -219,8 +219,69 @@ BoldItalicFont=Arial Bold Italic.ttf
 		\subsection{Power}
 		
 		\subsection{Sensing}
-		
 		\subsection{Communications}
+		%by Louis
+
+		Communication is an important capability for the autonomous robot as in order to operate it safely and efficiently, it's critical to know the whereabouts of the robot within the pipe at any given time. An additional and more complex requirement is also the ability for bidirectional communication so the robot can be updated on its position and given instructions when necessary. \\
+	    \hspace*{3ex}The difficulty arises in finding a suitable communication method that is capable of operating in the difficult pipeline environment. With pipe bends, thick steel walls, metres of soil, and noise interference, the choice of communication must be able to overcome these barriers without inhibiting locomotion. Figure 8 outlines several communication methods which have been widely practiced in the Oil and Gas industry. 
+        \cite{acoustic2020} \\
+        \begin{figure}[h]
+			\centering
+			\includegraphics[scale=0.6]{commstable.pdf}
+			\caption{Communication methods - Comparison Table}
+			\label{comparison comms}
+		\end{figure}
+
+        
+        The choice of communication for the robot is a combination of wired and ELF. Although this may seem to introduce redundancy, both methods are required in order for the robot to function.
+         A critical requirement of the robot is for it to have a real time understanding of its location in order to navigate pipes and localise pipe damage. From the solutions in Figure 8, the only methods capable of this are ELF and wiring. However, ELF communications requires a significantly sized receiver [6] which is unfeasible to house in the robot without inhibiting speed, locomotion and range. Consequently, for feeding data to the robot, a wire will be used.\\ 
+         \hspace*{3ex}Although a wire allows bidirectional communication, it is incapable of determining the position of the robot. Therefore, a method of communicating with surface receivers must be used in order to determine its position. Given the size constraints and interference challenges, acoustic and magnetic methods are unsuitable for this application. Instead, ELF communication is used which with present technology [x] is capable of traveling through up to 20m of soil. This allows location to be determined, and fed back to the robot through the wiring in order to compensate for the the accumulated locating error generated in the on board INS.
+
+         
+        $\textbf{Communication Map}$
+        
+        \begin{figure}[h]
+			\centering
+			\includegraphics[scale=1]{COMMS.pdf}
+			\caption{Communications layout}
+			\label{comparison comms}
+		\end{figure}
+
+        Map explanation
+
+        \textbf{Wired connection}\\
+        The wired communication line presents a challenge for the locomotion of the robot. In order to satisfy the communication requirements, it must deliver data at a suitable rate without creating a hindrance to locomotion along the pipe and around corners. The proposed solution uses a kevlar lined wire with an optical fibre. 
+        Through making assumptions on a constant frictional coefficient throughout the pipe and steady speed, we arrive at the following inital equation for drag. 
+        \begin{align}
+				F_0 = \mu_g L_{wire}   g \rho
+		\end{align}
+        
+        Where $L_{wire}$ is the length of wire at current time, $\mu_g$ is the coefficient of friction between the cable and ground and $\rho$ is the mass per unit length of the cable.
+        
+        This equation is very simple and does not take into account the corners our robot is designed to navigate. Therefore, through modelling corners as segments of a cylinder, we can justify the use of the capstan equation [x] which describes the resistance to sliding of a flexible but inextensible cord wrapped around a cylinder. For a series of corners, the following equation is derived.
+        \begin{align}
+                F_D = F_0 \boldsymbol{\cdot} {e}^{\mu_c \sum \alpha}
+        \end{align}
+
+		Where $\mu_c$ is the coefficient of friction between the cable and corners and $\alpha$ is the angle swept by the cable around the cylinder in radians. 
+	    Hence, in order to minimise this drag force, a solution must be found that satisfies our bandwidth capabilities whilst minimising the mass per length and friction coefficients.  
+	    In this case, a Fiber optic cable is better in almost every sense over alternatives. For example, a typical fiber cable weighs 4Lbs/1000ft, requires a power of 2W and is immune to noise. In comparison, the next best alternative is copper wire which weighs 36Lbs/1000ft, requires >10W of power and is susceptible to EM interference [x]. \\
+	    \hspace*{3ex}Finally, in order to minimise friction coefficients and absorb the large tensile strength in the wire, a protective coating must be applied to the cable. Again, this solution is widely developed and smoothed Kevlar reinforced cable has a low friction coefficient whilst resisting tensile strengths up to 2800MPa [x]. For the case of a 5mm Kevlar reinforced optical fibre cable, a breaking force of 54kN can be achieved. Considering an upper estimate of Equation 12 using $\mu$ = 0.2 [x] L = 500m $\rho$ = 0.04 $Kgm^-1$ [x] $\sum \alpha = 10\pi/2$, a tensile force of $F_D$ = 907N is estimated which is well below maximum. 
+	    
+	    \textbf{Reel and GPS}
+
+        From Equation 12,
+
+
+
+
+
+        \textbf{ELF transmitter and Receiver:}
+        
+
+		
+		
+		
 		
 		\subsection{External Hardware}
 		
