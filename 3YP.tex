@@ -11,6 +11,12 @@
 									% Allows for hypertext for references (links) - edited to hake links look like normal text rather than having a border
 \doublespacing						% Double spaces - this annoys me but is unavoidable I think
 
+% Makes it so all equations have full sized numbers, independent of font size used		
+\makeatletter
+\def\tagform@#1{\maketag@@@{\normalsize(#1)\@@italiccorr}}
+\makeatother
+
+
 %Add any more packages needed here:
 \usepackage[justification=centering,font=small]{caption}	
 									% Centres captions and makes them smaller
@@ -21,23 +27,6 @@
 % There is some scope for changing the paragraph spacing and spacing around section headers if you are short of space
 
 \graphicspath{{Images/}}	% Images are in a folder called 'Images'
-
-% Code which should allow us to attribute sections to each author - will then show the current author (mostly) at the start and end of the page
-%\usepackage{etex}
-%
-%\newmarks\writtenBy
-%
-%\newcommand{\by}[1]
-%{
-%	\marks\writtenBy{#1}
-%}
-%
-%\pagestyle{fancy}
-%\renewcommand{\headrulewidth}{0pt}
-%\renewcommand{\footrulewidth}{0pt}
-%\fancyhead{}
-%\fancyhead[R]{\topmarks\writtenBy}
-%\fancyfoot[R]{\botmarks\writtenBy}
 
 % Set a variable for image height, so all images are the same size and easy to change
 \newlength{\imageheight}	 % Creates the variable
@@ -217,7 +206,8 @@ BoldItalicFont=Arial Bold Italic.ttf
 		\subsection{Power}
 		
 		\subsection{Sensing}
-		\subsection{Communications}
+		
+		\subsection[Communications]{Communications - Louis Emmanuel}
 		%by Louis
 
 		Communication is an important capability for the autonomous robot as in order to operate it safely and efficiently, it's critical to know the whereabouts of the robot within the pipe at any given time. An additional and more complex requirement is also the ability for bidirectional communication so the robot can be updated on its position and given instructions when necessary. \\
@@ -253,6 +243,8 @@ BoldItalicFont=Arial Bold Italic.ttf
         \begin{align}
 				F_0 = \mu_g L_{wire}   g \rho
 		\end{align}
+        
+        % Not sure about this value of F0
         
         Where $L_{wire}$ is the length of wire at current time, $\mu_g$ is the coefficient of friction between the cable and ground and $\rho$ is the mass per unit length of the cable.
         
@@ -457,7 +449,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 			\\
 			\Delta d &= \theta_{bend} D_{pipe} \sin \left( \lambda \right)
 			\intertext{Thus the bend angle in the horizontal plane can be caluclated as}
-			\theta_{bend} &= \frac{\Delta d}{D_{pipe} \sin \left( \lambda \right)}
+			\theta_{bend} &= \frac{d_{left} - d_{right}}{D_{pipe} \sin \left( \lambda \right)}
 		\end{align}
 		This means that the angle $\lambda$ cannot be $180^\circ$, since this would result in the angle being incalculable, since there is no differential between the two rotating tracks.
 		However, this position is obviously not possible, as the tracks cannot occupy the same space, and thus there will always be a differential to calculate the bend angle over.
@@ -468,46 +460,58 @@ BoldItalicFont=Arial Bold Italic.ttf
 		\begin{align}
 			d_{top} &= \theta_{bend} \left( r_c  - \frac{ D_{pipe} }{2} \right)
 			\\
-			d_{side} &= \theta_{bend} \left( r_c - \frac{D_{pipe} \cos \left( \lambda \right)} {2} \right)
+			d_{side} &= \theta_{bend} \left( r_c + \frac{D_{pipe} \cos \left( \lambda \right)} {2} \right)
 			\\
-			\Delta d &= \theta_{bend} \frac{ D_{pipe} \left( 1 - \cos \left( \lambda \right) \right)}{2}
+			\Delta d &= \theta_{bend} \frac{ D_{pipe} \left( 1 + \cos \left( \lambda \right) \right)}{2}
 			\\
-			\implies \theta_{bend} &= \frac{2 \Delta d}{D_{pipe} \left( 1 - \cos \left( \lambda \right) \right)}
+			\implies \theta_{bend} &= \frac{2 \left( d_{right} - d_{top} \right)}{D_{pipe} \left( 1 + \cos \left( \lambda \right) \right)}
 		\end{align}
 		While we have worked out the bends in the horizontal or vertical directions, it is also possible for bends to at an angle somewhere between the two.
 		If we call this angle $\xi$, as labelled in \hyperref[pipeAngle]{Figure \ref*{pipeAngle}(ii)}, we can calculate expressions for all distances travelled:
 		\begin{align}
 			d_{top} &= \theta_{bend} \left( r_c - \frac{D_{pipe} \cos \left( \xi \right)}{2} \right) \label{d_top}
 			\\
-			d_{left} &= \theta_{bend} \left( r_c +  \frac{D_{pipe} \sin \left( \lambda + \xi \right)}{2} \right) \label{d_left}
+			d_{left} &= \theta_{bend} \left( r_c +  \frac{D_{pipe} \cos \left( \lambda + \xi \right)}{2} \right) \label{d_left}
 			\\
-			d_{right} &= \theta_{bend} \left( r_c +  \frac{D_{pipe} \sin \left( \lambda - \xi \right)}{2} \right) \label{d_right}
+			d_{right} &= \theta_{bend} \left( r_c +  \frac{D_{pipe} \cos \left( \lambda - \xi \right)}{2} \right) \label{d_right}
 		\end{align}
-		This can be solved computationally using the MATLAB symbolic toolbox function \verb|solve()| to find that:
+		This can be solved computationally using the MATLAB symbolic toolbox function \verb|solve()| to find that:	
+		\fontsize{10}{\baselineskip}
 		\begin{align}
-			\theta_{bend} = \frac{ \sqrt{ \left[ \left( d_{left} - d_{top} \right)^2 + \left( d_{right} - d_{top} \right)^2 \right] \left( 1 - \sin \left( \lambda \right) \right)  + \left( d_{left} - d_{right} \right)^2 \sin \left( \lambda \right) } } {D_{pipe} \sin \left( \frac{2 \lambda + \pi}{4} \right) \cos \left( \lambda \right)} \label{generalTheta}
+			&\theta_{bend} = \frac{ \sec \left( \frac{\lambda}{2} \right)^2 \sqrt{ \left( d_{left} - d_{right} \right)^2 +  \tan \left( \frac{\lambda}{2} \right)^2 \left[ \left( d_{left} + d_{right} \right)^2 + 4 d_{top} \left( d_{top} - d_{left} - d_{right} \right) \right] } }{2 D_{pipe} \tan \left( \frac{\lambda}{2} \right)} \label{generalTheta}
 			\\
-			\xi = 2 \tan^{-1} \left( \frac{\theta_{bend} D_{pipe} \cos \left( \lambda \right)}{\left( d_{left} - d_{right} \right)} + \frac{\left(d_{left} + d_{right} - 2 d_{top} \right) \sin \left( \frac{\lambda - \pi}{4} \right)}{\sqrt{2} \sin \left( \frac{2 \lambda + \pi}{4} \right) \left( d_{left} - d_{right} \right)}\right) \label{alphaEq}
+			&\xi = 2 \tan^{-1} \left( \tan \left( \frac{\lambda}{2} \right) \left[\frac{ \theta_{bend} D_{pipe}}{2} + \frac{\left( d_{left}^2 - d_{right}^2 \right) \sec \left( \frac{\lambda}{2} \right)^4 - d_{top} \left(4 + \left( d_{left} - d_{right} \right) \sec \left( \frac{\lambda}{2} \right)^2 \right)}{2 \left( d_{left} - d_{right} \right) \sec \left( \frac{\lambda}{2} \right)^2} \right] \right) \label{alphaEq}
 		\end{align}
+		\fontsize{11}{\baselineskip}
 		The sign of $\theta_{bend}$ can be determined by considering the sign of the differences between the top, left and right legs.
-		The leg which is on the outside of the bend will have the longest path, and the one which is on the inside will travel the smallest, which will help differentiate between the different values of $\xi$ \& $\theta_{bend}$.
+		The leg which is on the outside of the bend will have the longest path, and the one which is on the inside will travel the shortest, which will help differentiate between the different values of $\xi$ \& $\theta_{bend}$.
 		This can then also be combined with the detected inclination to ensure the robot is aware of whether it is travelling upwards or downwards as a secondary check.
 		\\
-		\hyperref[generalTheta]{Equation \ref*{generalTheta}} is only valid under the conditions that:
-		\begin{align*}
-			2 D_{pipe} \theta_{bend} &< 2 d_{top} + D_{pipe} \theta_{bend} \cos \left( \xi \right) \tag{\ref*{generalTheta}.1} \label{thetaCond1}
-			\\
-			d_{left} + d_{right} &\neq 2 d_{top} \tag{\ref*{generalTheta}.2} \label{thetaCond2}
-		\end{align*}
-		Considering each in turn, \hyperref[thetaCond1]{Condition \ref*{thetaCond1}} can be simplified by substituting in the value of $d_{top}$ from \hyperref[d_top]{Equation \ref*{d_top}}.
-		We find that this constraint simply specifies that $r_c > D_{pipe}$ and, since we have assumed urban pipe have a bend radius of $r_c =  1.5 D_{pipe} $ \textsuperscript{\cite{roh2005differential}}, this constraint should never be violated, as it required pipes which bend much more sharply than we will encounter.
-		\\
-		\hyperref[thetaCond2]{Condition \ref*{thetaCond2}} can also be simplified by substituting in \hyperref[d_left]{Equations \ref*{d_top} - \ref*{d_right}}. 
-		Thus we find that the failure criteria $d_{left} + d_{right} = 2 d_{top}$ occurs when $\sin \left( \lambda \right) = 2$, which means that this constraint can never occur.
-		\\
-		Finally, \hyperref[alphaEq]{Equation \ref*{alphaEq}} is derived from a constraint that specified that the difference between $\xi$ and the right hand side is a multiple of $2 \pi$ (in radians).
+		\hyperref[alphaEq]{Equation \ref*{alphaEq}} is derived from a constraint that specified that the difference between $\xi$ and the right hand side is a multiple of $2 \pi$ (in radians).
 		Since we know the value of $\xi$ is between $0^\circ$ and $90^\circ$, which are both less than $2 \pi$, this constraint sets the value of $\xi - (\ref*{alphaEq}) = 0$, allowing us to calculate $\xi$ directly as in \hyperref[alphaEq]{Equation \ref*{alphaEq}}.
-		
+		\\
+		We can validate our expressions in \hyperref[generalTheta]{Equation \ref*{generalTheta}} by substituting in our already explored cases.
+		\\
+		In the case of a horizontal bend, we know that $d_{left} + d_{right} = 2 r_c \theta_{bend} $ and $d_{top} = r_c \theta_{bend}$.
+		Our equation for $\theta_{bend}$ then becomes:
+		\begin{align*}
+			\theta_{bend} &= \frac{ \sec \left( \frac{\lambda}{2} \right)^2 \sqrt{ \left( d_{left} - d_{right} \right)^2 +  \tan \left( \frac{\lambda}{2} \right)^2 \left[ \left( 2 r_c \theta_{bend} \right)^2 + 4 r_c \theta_{bend} \left( r_c \theta_{bend}  - 2 r_c \theta_{bend} \right) \right] } }{2 D_{pipe} \tan \left( \frac{\lambda}{2} \right)}
+			\\
+			&= \frac{d_{left} - d_{right}}{2 D_{pipe} \cos \left( \frac{\lambda}{2} \right) \sin \left( \frac{\lambda}{2} \right)}
+			\\
+			\theta_{bend} &= \frac{d_{left} - d_{right}}{D_{pipe} \sin \left( \lambda \right)}
+		\end{align*}
+		For the vertical bend case, $d_{left} = d_{right}$, so the equation for $\theta_{bend}$ is:
+		\begin{align*}
+			\theta_{bend} &= \frac{ \sec \left( \frac{\lambda}{2} \right)^2 \sqrt{ \tan \left( \frac{\lambda}{2} \right)^2 \left[ \left( 2 d_{right} \right)^2 + 4 d_{top} \left( d_{top} - 2 d_{right} \right) \right] } }{2 D_{pipe} \tan \left( \frac{\lambda}{2} \right)}
+			\\
+			&= \frac{2 \left( d_{right} - d_{top} \right)}{2 D_{pipe} \cos \left( \frac{\lambda}{2} \right)^2}
+			\\
+			\theta_{bend} &= \frac{2 \left( d_{right} - d_{top} \right)}{D_{pipe} \left( 1 + \cos \left( \lambda \right) \right)}
+		\end{align*}
+		Thus we have verified that our computer created equation is valid for the simple cases we have already analysed, which suggests that the equation we have found for calculating $\theta_{bend}$ is accurate.
+		The robot can now use this equation to quickly estimate the angle of the bend which the robot has just travelled around based on the track differentials.
+		 		
 		\subsection[Active Compliance Joint]{Active Compliance Joint - Jim Laney}
 		
 		The active compliance joint acts to ensure that the surface area contact with the wall is maximised at all times.
