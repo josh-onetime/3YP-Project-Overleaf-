@@ -30,7 +30,7 @@
 
 % Set a variable for image height, so all images are the same size and easy to change
 \newlength{\imageheight}	 % Creates the variable
-\setlength{\imageheight}{0.3\textwidth}  % Sets the variable
+\setlength{\imageheight}{0.35\textwidth}  % Sets the variable
 
 % Use Arial
 \setmainfont[
@@ -67,8 +67,9 @@ BoldItalicFont=Arial Bold Italic.ttf
 
 	\setcounter{page}{1}
 	
-	\section[Introduction]{Introduction - Jim Laney}
+	\section{Introduction}
 	
+	\subsection[Product Description]{Product Description - Jim Laney}
 	The pipe inspection robot works in underground pipes in urban areas, with a pipe diameter from $609.6$ mm to $914.4$ mm and with pipes at any angle, providing a map of the pipe with the location of any failures to the operator. % 24 - 36 inches; Needs citation for pipe sizes?
 	The robot reduces the disruption caused by having to dig up large areas of pipe for inspection, since the issue can be located and smaller, less disruptive work can be undertaken.
 	It is intended to provide an inspection method for pipes which cannot be inspected by the current leading method, Pipe Inspection Gauges (PIGs), which only work in horizontal or near horizontal straight pipes\textsuperscript{\cite{mills2017advances}}.
@@ -78,7 +79,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 	\begin{figure}[h] % Would like to do this as a text wrapped figure but that can be finnicky so would like to agree on this as a group before attempting it
 		\centering
 		\includegraphics[height=\imageheight]{overviewCAD}
-		\caption{3D CAD model of robot}		% Maybe replace with 3D CAD model if possible
+		\caption{3D CAD model of robot}
 		\label{3DSketch}
 	\end{figure}
 	
@@ -88,6 +89,24 @@ BoldItalicFont=Arial Bold Italic.ttf
 	\\
 	The robot uses computer vision to identify cracks and corrosion, allowing it to mark where these occur for human maintenance, and then combines this with knowledge of its position to create a map of the pipe it has travelled and where issues have occurred.
 	It can transmit its location using a small transmitter, which has a separate power supply so that if the robot breaks down it can be located with minimal excavation.
+	
+	\subsection[Patent Analysis]{Patent Analysis - Jim Laney}
+	
+	It was decided to look at patents classified as \verb|F16L55/26| - "Pigs or moles, i.e. devices movable in a pipe or conduit with or without self-contained propulsion means" or \verb|F16L2101/30| - "Inspecting, measuring or testing [as a use or application of pigs or moles]" as these are most similar to the purpose which our robot fulfils.
+	In these patents the use of "pigs" refers to Pipeline Inspection Gauges (PIGs from here on), and moles are used as a synonymous term, and will thus also be referred to as PIGs from now on.
+	While our robot is not a PIG as PIGs are typically unpowered and cannot deal with bends in the pipe, this is the closest patent classification which we can consider.
+	\begin{figure}[h]
+			\centering
+			\includegraphics[height=\imageheight]{patentGraph}
+			\caption{Cumulative number of published patents in the European Patent Office database classified as \texttt{F16L55/26}\textsuperscript{\cite{patent26}} or \texttt{F16L2101/30}\textsuperscript{\cite{patent30}} }
+			\label{patentGraph}
+	\end{figure}
+	\\
+	As you can see from \hyperref[patentGraph]{Figure \ref*{patentGraph}}, the rate of patent publication in both classifications is still growing at a rapid rate, suggesting the technology is in a period of rapid innovation and development.
+	This suggests that industry is still in the initial period of product design ferment, where no dominant design has occurred\textsuperscript{\cite{christensen1998innovation}}.
+	Thus there is a much greater chance of survival, as this dominant design has not yet been established, and the space for new innovators is greater.
+	While there is also a risk to entering the industry too early, we believe that period has passed, due to the sustained period of development in the last 20 years.
+	
 	
 	\section{Hardware}
 	
@@ -99,14 +118,14 @@ BoldItalicFont=Arial Bold Italic.ttf
 			At the end of each leg there is a passive joint between the leg and the track to allow for the robot to travel along surfaces which are not perpendicular to the legs, such as around bends or over uneven surfaces.
 			\\
 			The length of the pantograph is controlled by the force from two opposing linear actuators, which extend to a given length to set the distance of the pantograph.
-			The track at the end of the pantograph is connected to a freely turning joint, which can be measured using two angular sensors to give the angle $\phi$, shown in \hyperref[legDiagram]{Figure \ref*{legDiagram}}, with the springs acting to restore $\phi$ to $0^\circ$ when under no external effects.
+			The track at the end of the pantograph is connected to a freely turning joint, which can be measured using two angular encoders to give the angle $\phi$, shown in \hyperref[legDiagram]{Figure \ref*{legDiagram}}, with the springs acting to restore $\phi$ to $0^\circ$ when under no external effects.
 			In addition to this, the tracks use an active compliance joint, as shown in \hyperref[activeCompliance]{Figures \ref*{activeCompliance} \& \ref*{unevenBehaviour}}, which allows for the robot to maintain maximum surface contact at all times.
 			\\
 			The active compliance joint consists of a torsional spring and radio-controlled servo motor, which are both attached around the same axis.
 			However, the servo motor is attached to the rear tracks, whereas the spring is attached between the front track and the servo motor itself.
 			When the robot passes over an uneven surface, the servo motor forces the front track down, maintaining contact with the pipe wall, as shown in \hyperref[unevenBehaviour]{Figure \ref*{unevenBehaviour}(a)}
 			If instead the robot is in a section where the pipe wall is concave, the torsional spring will allow it to fold, shown in \hyperref[unevenBehaviour]{Figure \ref*{unevenBehaviour}(b)}, and maintaining contact with as much of the wall as possible.
-			The servo motor also has an angular sensor to tell how much the front track has been bent, allowing for the active compliance joint to be better controlled.
+			The active compliance joint also includes an angular encoder to tell how much the front track has been bent, allowing for the active compliance joint to be better controlled.
 			\begin{figure}[h]
 				\centering
 				\begin{multicols}{2}
@@ -171,7 +190,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 			The minimum length of the body is also set by this, as it means that the body length $l_{min} = L \cos \left( \theta_{min} \right) = 364.4$ mm.
 			A maximum body length can be found by considering the ability of the robot to turn corners inside the pipe, and it is necessary to consider how this compares to the minimum to make sure there is no loss of mobility.
 			For the duration of this calculation, we will assume we are in the smallest possible pipe diameter $D_{pipe} = 609.6$ mm, and we will assume that the curvature radius $r_c = \frac{3}{2} D_{pipe} = 914.4$ mm.
-			As our robot diameter $D_r \nless \left( 2 \sin \left( 45^\circ \right) - 1 \right) D_{pipe} = 252.5$ mm we can use the following equation \textsuperscript{\cite{roh2005differential}}:
+			As our robot diameter $D_r \nless \left( 2 \sin \left( 45^\circ \right) - 1 \right) D_{pipe} = 252.5$ mm we can use the following equation\textsuperscript{\cite{roh2005differential}}:
 
 			\begin{align}
 				l_{max} &= 2 \sqrt{4D_{pipe}^2 - \left( D_{pipe} + D_r\right) ^ 2}
@@ -200,7 +219,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 			\end{align}
 			
 			Since testing would be required to find the greatest angle $\phi$ that is experienced by the robot in general use, as well as an estimate for the coefficient of friction $\mu_{t,p}$, it is tricky to estimate the force required for the actuators.
-			However, estimates from other papers for $\mu_{t,p}$,which are $1.21$ \textsuperscript{\cite{sato2011development}} - $1.6$ \textsuperscript{\cite{park2010normal}}, allow us to create a worst case estimate for the required force of $1.21$.
+			However, estimates from other papers for $\mu_{t,p}$,which are $1.21$\textsuperscript{\cite{sato2011development}} - $1.6$\textsuperscript{\cite{park2010normal}}, allow us to create a worst case estimate for the required force of $1.21$.
 			From \hyperref[reqMaxNorm]{Equation \ref*{reqMaxNorm}}, we can see that the worst case scenario is with the lowest pipe diameter, as this minimises $\theta$, and we can hypothesise that straight sections, where $\phi$ is expected to be close to $0^\circ$, will require the most linear actuator force.
 							
 		\subsection{Power}
@@ -211,8 +230,8 @@ BoldItalicFont=Arial Bold Italic.ttf
 		%by Louis
 
 		Communication is an important capability for the autonomous robot as in order to operate it safely and efficiently, it's critical to know the whereabouts of the robot within the pipe at any given time. An additional and more complex requirement is also the ability for bidirectional communication so the robot can be updated on its position and given instructions when necessary. \\
-	    \hspace*{3ex}The difficulty arises in finding a suitable communication method that is capable of operating in the difficult pipeline environment. With pipe bends, thick steel walls, metres of soil, and noise interference, the choice of communication must be able to overcome these barriers without inhibiting locomotion. Figure 8 outlines several communication methods which have been widely practiced in the Oil and Gas industry. 
-        \cite{acoustic2020} \\
+	    The difficulty arises in finding a suitable communication method that is capable of operating in the difficult pipeline environment. With pipe bends, thick steel walls, metres of soil, and noise interference, the choice of communication must be able to overcome these barriers without inhibiting locomotion. Figure 8 outlines several communication methods which have been widely practiced in the Oil and Gas industry\textsuperscript{\cite{acoustic2020}}.
+	    \\
         \begin{figure}[h]
 			\centering
 			\includegraphics[scale=0.6]{commstable.pdf}
@@ -223,7 +242,7 @@ BoldItalicFont=Arial Bold Italic.ttf
         
         The choice of communication for the robot is a combination of wired and ELF. Although this may seem to introduce redundancy, both methods are required in order for the robot to function.
          A critical requirement of the robot is for it to have a real time understanding of its location in order to navigate pipes and localise pipe damage. From the solutions in Figure 8, the only methods capable of this are ELF and wiring. However, ELF communications requires a significantly sized receiver [6] which is unfeasible to house in the robot without inhibiting speed, locomotion and range. Consequently, for feeding data to the robot, a wire will be used.\\ 
-         \hspace*{3ex}Although a wire allows bidirectional communication, it is incapable of determining the position of the robot. Therefore, a method of communicating with surface receivers must be used in order to determine its position. Given the size constraints and interference challenges, acoustic and magnetic methods are unsuitable for this application. Instead, ELF communication is used which with present technology [x] is capable of traveling through up to 20m of soil. This allows location to be determined, and fed back to the robot through the wiring in order to compensate for the the accumulated locating error generated in the on board INS.
+         Although a wire allows bidirectional communication, it is incapable of determining the position of the robot. Therefore, a method of communicating with surface receivers must be used in order to determine its position. Given the size constraints and interference challenges, acoustic and magnetic methods are unsuitable for this application. Instead, ELF communication is used which with present technology [x] is capable of traveling through up to 20m of soil. This allows location to be determined, and fed back to the robot through the wiring in order to compensate for the the accumulated locating error generated in the on board INS.
 
          
         $\textbf{Communication Map}$
@@ -256,7 +275,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 		Where $\mu_c$ is the coefficient of friction between the cable and corners and $\alpha$ is the angle swept by the cable around the cylinder in radians. 
 	    Hence, in order to minimise this drag force, a solution must be found that satisfies our bandwidth capabilities whilst minimising the mass per length and friction coefficients.  
 	    In this case, a Fiber optic cable is better in almost every sense over alternatives. For example, a typical fiber cable weighs 4Lbs/1000ft, requires a power of 2W and is immune to noise. In comparison, the next best alternative is copper wire which weighs 36Lbs/1000ft, requires >10W of power and is susceptible to EM interference [x]. \\
-	    \hspace*{3ex}Finally, in order to minimise friction coefficients and absorb the large tensile strength in the wire, a protective coating must be applied to the cable. Again, this solution is widely developed and smoothed Kevlar reinforced cable has a low friction coefficient whilst resisting tensile strengths up to 2800MPa [x]. For the case of a 5mm Kevlar reinforced optical fibre cable, a breaking force of 54kN can be achieved. Considering an upper estimate of Equation 12 using $\mu$ = 0.2 [x] L = 500m $\rho$ = 0.04 $Kgm^-1$ [x] $\sum \alpha = 10\pi/2$, a tensile force of $F_D$ = 907N is estimated which is well below maximum. 
+	    Finally, in order to minimise friction coefficients and absorb the large tensile strength in the wire, a protective coating must be applied to the cable. Again, this solution is widely developed and smoothed Kevlar reinforced cable has a low friction coefficient whilst resisting tensile strengths up to 2800MPa [x]. For the case of a 5mm Kevlar reinforced optical fibre cable, a breaking force of 54kN can be achieved. Considering an upper estimate of Equation 12 using $\mu$ = 0.2 [x] L = 500m $\rho$ = 0.04 $Kgm^-1$ [x] $\sum \alpha = 10\pi/2$, a tensile force of $F_D$ = 907N is estimated which is well below maximum. 
 	    
 	    \textbf{Reel and GPS}
 
@@ -401,7 +420,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 		\hyperref[legDiagram]{Figure \ref*{legDiagram}} is reproduced as \hyperref[legDiagramRep]{Figure \ref*{legDiagramRep}} for reference of variables used.
 		\\
 	
-		\begin{figure}
+		\begin{figure}[h]
 			\centering
 			\includegraphics[height=\imageheight]{legDiagram}
 			\captionsetup{list=no}
@@ -418,8 +437,8 @@ BoldItalicFont=Arial Bold Italic.ttf
 		
 		The robot requires knowledge of where it is in the pipe, and being able to calculate the position of bends in the pipe is important.
 		The robot is designed to travel around bends autonomously, and then report back to the mapping software that it has turned a bend, as well as calculating the angle turned through.
-		When turning a bend, the robot uses angular sensors at the end of each leg to tell the individual leg bends $\phi_T$, $\phi_L$ \& $\phi_R$.
-		These are detected from angular sensor connected to each leg link which are averaged, so $\phi_L = \frac{\phi_{L1} + \phi_{L2}}{2}$ and equivalent for the other legs.
+		When turning a bend, the robot uses angular encoders at the end of each leg to tell the individual leg bends $\phi_T$, $\phi_L$ \& $\phi_R$.
+		These are detected from angular encoders connected to each leg link which are averaged, so $\phi_L = \frac{\phi_{L1} + \phi_{L2}}{2}$ and equivalent for the other legs.
 		The robot can then vary the speed of the tracks at the end of each leg in order to try and get the angles to be parallel, such that $\phi_L = \phi_R = \phi_T$.
 		This is done by setting the top leg angle $\phi_T$ as a reference, and controlling the speed using the difference between this and $\phi_R$ or $\phi_L$ with a PID controller.
 		This controller only needs a very low natural frequency, as faster changes in the angle are probably due to surface unevenness, which should be dealt with by the active compliance joint.
@@ -549,20 +568,21 @@ BoldItalicFont=Arial Bold Italic.ttf
 		In order to determine suitable components, we must consider the main parts of the locomotion system which require acquisition.
 		The parts which will be considered here are the track modules, the linear actuators, the internal rotation motors and the legs and gears.
 		\\
-		For the track module, the best reference point was the Inuktun MiniTrac, a larger version of the Inuktun MicroTrac module used by Ciszewski et al. \textsuperscript{\cite{ciszewski2015design}} for their testing of a pipe inspection robot.
+		For the track module, the best reference point was the Inuktun Minitrac, a larger version of the Inuktun Microtrac module used by Ciszewski et al.\textsuperscript{\cite{ciszewski2015design}} for their testing of a pipe inspection robot.
 		These cost $£ \ xxx$ each, and three are required for each leg of the robot, bringing the overall cost to $£ \ 9xxx$.
-		They are however probably over specified, as each has a pull rating of roughly $30$ kg for continuous duty, meaning our robot can weight up to $270$ kg, which would be an unrealistic and impractical figure to aim for \textsuperscript{\cite{inuktunTracks}}.
+		They are probably over specified, as each has a pull rating of roughly $30$ kg for continuous duty, meaning our robot can weight up to $270$ kg, which would be an unrealistic and impractical figure to aim for\textsuperscript{\cite{inuktunTracks}}.
 		Each module can be provided in either aluminium, brass or steel, with the main difference being the weight.
 		We have chosen to use aluminium as it is the lightest of the three, but each module still weighs $5.7$ kg taking the track weight to $51.3$ kg for all 9 track modules.
 		As this is quite heavy, we have considered changing to a different design with a motor driving the tracks instead, so we can design our own system to minimise the weight.
+		Additionally, while discussing the pricing and operation with a representative from Eddyfi Technologies, it was made clear that the Minitrac is no longer for sale for commercial uses, as they found that they were often being used in products which compete with Eddyfi's own pipe inspection robots.
 		However, for an estimate of cost, these track modules give a baseline of the cost which we could expect to incur with this system.
 		\\
-		The sample linear actuators chosen were selected as they have $200$N of force output and a potentiometer to measure the extension of the actuator \textsuperscript{\cite{rsproLinear}}.
+		The sample linear actuators chosen were selected as they have $200$N of force output and a potentiometer to measure the extension of the actuator\textsuperscript{\cite{rsproLinear}}.
 		Using \hyperref[maxWeight]{Equation \ref*{maxWeight}}, reproduced below, we need to estimate some values for our worst case scenario.
 		\begin{align*}
 			W &= \frac{6 \mu_{t,p} F \tan \left( \theta \right)}{\cos \left( \phi \right)}
 		\end{align*}
-		We already know that our worst case scenario occurs when when $ \mu = 1.21$ \textsuperscript{\cite{sato2011development}}, $\theta = 20^\circ$ and $\phi = 0^\circ$
+		We already know that our worst case scenario occurs when when $ \mu = 1.21$\textsuperscript{\cite{sato2011development}}, $\theta = 20^\circ$ and $\phi = 0^\circ$
 		This gives us a maximum weight of $528.5 N = 53.9$ kg, which is quite large, although comparatively small compared to the estimated weight of 9 Inuktun MiniTrac modules, hence why they would be considered inappropriate.
 		With a safety margin of 1.5 for the linear actuator output, limiting their output to $130 N$, our weight maximum becomes $343.5 N = 35.0$ kg which is still reasonable and significantly larger than similar robots.
 		These cost $£ \ 121.46 - £ \ 132.02$ each depending on quantity, but we can use the lower price as this is for 10 or more actuators, which is for less than 2 robots. 
@@ -570,31 +590,31 @@ BoldItalicFont=Arial Bold Italic.ttf
 		The overall weight of these linear actuators would be $0.504$ kg, which is negligible compared to the weight of most of the other components, as well as the estimated weight of the robot shell.
 		\\
 		The next part to consider is the motor used for rotation of the legs relative to the body. We have ne specifications required for this, but a high torque motor would be ideal.
-		A sample product which is both relatively small and high torque was selected \textsuperscript{\cite{rsproRotation}} as it has a maximum output torque (at stall) of $1.46$ Nm.
+		A sample product which is both relatively small and high torque was selected\textsuperscript{\cite{rsproRotation}} as it has a maximum output torque (at stall) of $1.46$ Nm.
 		The diameter of the actual motor is only $42.8$ mm, meaning that there is plenty of space to use a larger more powerful motor if testing reveals that it will be necessary.
 		The cost of these drives is $£ \ 141.84$ per motor, and we would require 2 for the main body of the robot, and similar motors could be used as the RC servo motors in the active compliance joint, so we can factor in another 3, bringing the total cost for 5 rotation motors to $£ \ 709.20$.
 		\\
-		\begin{figure}
+		\begin{figure}[h]
 			\centering
 			\begin{multicols}{3}
-				\includegraphics[height=0.8\imageheight]{gearCAD}
+				\includegraphics[height=0.25\textwidth]{gearCAD}
 				\caption{Aluminium gear used as the outside of the planetary gear, with dimensions}
 				\label{gearCAD}
 				\columnbreak
-				\includegraphics[height=0.8\imageheight]{shortLinkCAD}
+				\includegraphics[height=0.25\textwidth]{shortLinkCAD}
 				\caption{Stainless steel short link of the leg mechanism with dimensions}
 				\label{shortLinkCAD}
 				\columnbreak
-				\includegraphics[height=0.8\imageheight]{longLinkCAD}
+				\includegraphics[height=0.25\textwidth]{longLinkCAD}
 				\caption{Stainless steel long link of the leg mechanism with dimensions}
 				\label{longLinkCAD}
 			\end{multicols}
 		\end{figure}
 		The remaining components of the locomotion system were estimated using the 3D CAD models, shown in \hyperref[gearCAD]{Figures \ref*{gearCAD}, \ref*{shortLinkCAD} \& \ref*{longLinkCAD}} to estimate their volume.
 		The leg pieces were assumed to be made out of stainless steel, and the gear was to be made of aluminium.
-		The density of stainless steel is $7900$ kg m\textsuperscript{-3} \textsuperscript{\cite{HLT}}, so the longer link weighs $0.653$ kg and the shorter link weighs $0.350$ kg.
+		The density of stainless steel is $7900$ kg m\textsuperscript{-3}\textsuperscript{\cite{HLT}}, so the longer link weighs $0.653$ kg and the shorter link weighs $0.350$ kg.
 		Thus, a single leg, which is made up of 2 short links and 2 longer links, weighs $2.00$ kg, bringing the total contribution of the three legs to $6.02$ kg for the whole robot.
-		The density of aluminium was assumed to be $2700$ kg m\textsuperscript{-3} \textsuperscript{\cite{HLT}}, which makes the weight of a single gear $3.42$ kg, and there are 4 inside the robot, bring the total weight up to $13.68$ kg
+		The density of aluminium was assumed to be $2700$ kg m\textsuperscript{-3}\textsuperscript{\cite{HLT}}, which makes the weight of a single gear $3.42$ kg, and there are 4 inside the robot, bring the total weight up to $13.68$ kg
 		This could be mitigated by refining the design, as this is a very rough sketch of the gear, and is probably thicker than would be necessary in reality.
 		
 		\subsection{Power}
@@ -606,6 +626,38 @@ BoldItalicFont=Arial Bold Italic.ttf
 		\subsection{External Hardware}
 		% Does not need to be included in the weight calc obviously
 			
+	\section{Industry Analysis}
+		
+		It was decided to use the Porter's Five Forces model\textsuperscript{\cite{porter2008five}} to analyse the in-pipe inspection robot industry, in order to provide a systematic analysis of the existing and possible threats to our company in the future.
+		
+		\subsection[Threat of Entry]{Threat of New Entry}
+				
+		\subsection[Power of Suppliers]{Power of Suppliers}
+		
+		\subsection[Power of Buyers]{Power of Buyers}
+		
+		\subsection[Threat of Substitutes]{Threat of Substitutes - Jim Laney}
+			
+			The threat of substitutes in the in-pipe inspection robot industry is medium, as there are many established substitutes which currently dominate pipe inspection services.
+			\\
+			The main threat is the manual inspection of pipelines as these can inspect all kinds of pipes, just like robotic solutions and have a much lower up front cost.
+			As well as this, manual inspection has the advantage of familiarity as it is an established practice which gas pipe companies know they can rely on.
+			Manual inspection uses different methods for inspecting pipes dependent on the the kind of damage being inspected for.
+			\\
+			For external corrosion inspection, a pre-assessment is performed, followed by both indirect and direct inspection techniques being used, the latter of which requires excavation to occur for that section of the pipe\textsuperscript{\cite{kishawy2010review}}. 
+			For internal corrosion inspection, a similar process is followed, with pipes that have the greatest inclination being inspected first to identify the location of localised corrosion. 
+			However, both these methods require excavation in order to confirm the location of the corrosion, which is disruptive, especially in urban environments.
+			\\
+			When checking for cracks manual inspection can typically only find these when a leak has occurred, as there is otherwise very little change in behaviour of the gas inside the pipe.
+			Thus, manual methods rely on constant assessment of conditions within the pipe, such as the mass-balance method, pressure-drop method and using gas smelling dogs\textsuperscript{\cite{kishawy2010review}}.
+			Ground penetrating radar is also used as another method for looking for cracks without excavation, but visual inspection is also typically used to ensure accuracy of the readings, which does require excavation.
+			Computer models can also be used to predict the behaviour of the pipeline in order to predict faults, but as this requires modelling of complex fluid dynamics, these are not always reliable.
+			\\
+			Pipeline Inspection Gauges (PIGs) are the other main substitute to robotic in-pipe inspection, as these are passive devices which are forced along the pipeline by the gas flow.
+			However, PIGs are uncontrollable and cannot operate in pipelines containing sharp bends\textsuperscript{\cite{mills2017advances}}, making them unsuitable for urban pipelines.
+			As such the threat from PIGs is minimal since we have specifically chosen to enter an area where they are not currently suitable, although it is possible that more advanced PIGs may be developed in the future which compete in the area of urban pipelines.
+		
+		\subsection[Rivalry Among Existing Competitors]{Rivalry Among Existing Competitors}
 	
 	\pagebreak		% Temp page break for references - might end up replacing with a multicolumn environment later
 	
