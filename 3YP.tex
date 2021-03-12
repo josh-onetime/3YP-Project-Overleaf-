@@ -30,7 +30,7 @@
 
 % Set a variable for image height, so all images are the same size and easy to change
 \newlength{\imageheight}	 % Creates the variable
-\setlength{\imageheight}{0.35\textwidth}  % Sets the variable
+\setlength{\imageheight}{0.3\textwidth}  % Sets the variable
 
 % Use Arial
 \setmainfont[
@@ -229,12 +229,23 @@ BoldItalicFont=Arial Bold Italic.ttf
 		\subsection[Communications]{Communications - Louis Emmanuel}
 		%by Louis
 
-		Communication is an important capability for the autonomous robot as in order to operate it safely and efficiently, it's critical to know the whereabouts of the robot within the pipe at any given time. An additional and more complex requirement is also the ability for bidirectional communication so the robot can be updated on its position and given instructions when necessary. 
+		Communication is an important capability for the autonomous robot as in order to operate it safely and efficiently, it's critical to know the whereabouts of the robot within the pipe at any given time. 
+		An additional and more complex requirement is also the ability for bidirectional communication so the robot can be updated on its position and given instructions when necessary. 
 		\\
-	    The difficulty arises in finding a suitable communication method that is capable of operating in the difficult pipeline environment. With pipe bends, thick steel walls, metres of soil, and noise interference, the choice of communication must be able to overcome these barriers without inhibiting locomotion. Figure 8 outlines several communication methods which have been widely practiced in the Oil and Gas industry\textsuperscript{\cite{acoustic2020}}.
+	    The difficulty arises in finding a suitable communication method that is capable of operating in the difficult pipeline environment. 
+	    With pipe bends, thick steel walls, metres of soil, and noise interference, the choice of communication must be able to overcome these barriers without inhibiting locomotion. 
+	    Figure 8 outlines several communication methods which have been widely practiced in the Oil and Gas industry\textsuperscript{\cite{acoustic2020}}. % Louis this figure no longer exists - you need to make sure it is in and that the figure reference is dynamic rather than static - see what I did with the commsLayout below
 	    \\
-         A critical requirement of the robot is for it to have a real time understanding of its location in order to navigate pipes and localise pipe damage. From the solutions in Figure 8, the only methods capable of this are ELF and wiring. However, ELF communications requires a significantly sized receiver [6] which is infeasible to house in the robot without inhibiting speed, locomotion and range. Consequently, for feeding data to the robot, a wire will be used.\\ 
-         \hspace*{3ex}Although a wire allows bidirectional communication, it is incapable of determining the position of the robot. Therefore, a method of communicating with surface receivers must be used in order to determine its position. Given the size constraints and interference challenges, acoustic and magnetic methods are unsuitable for this application. Instead, ELF communication is used which with present technology [x] is capable of traveling through up to 20m of soil. This allows location to be determined, and fed back to the robot through the wiring in order to compensate for the the accumulated locating error generated in the on board INS.
+     	A critical requirement of the robot is for it to have a real time understanding of its location in order to navigate pipes and localise pipe damage. 
+     	From the solutions in Figure 8, the only methods capable of this are ELF and wiring. 
+     	However, ELF communications requires a significantly sized receiver [6] which is infeasible to house in the robot without inhibiting speed, locomotion and range. 
+     	Consequently, for feeding data to the robot, a wire will be used.
+        \\ 
+        \hspace*{3ex}Although a wire allows bidirectional communication, it is incapable of determining the position of the robot. 
+        Therefore, a method of communicating with surface receivers must be used in order to determine its position. 
+        Given the size constraints and interference challenges, acoustic and magnetic methods are unsuitable for this application. 
+        Instead, ELF communication is used which with present technology [x] is capable of travelling through up to 20m of soil. 
+        This allows location to be determined, and fed back to the robot through the wiring in order to compensate for the the accumulated locating error generated in the on board INS.
          
         $\textbf{Communication Map}$
         
@@ -242,13 +253,19 @@ BoldItalicFont=Arial Bold Italic.ttf
 			\centering
 			\includegraphics[scale=1]{comms layout.pdf}
 			\caption{Communications layout}
-			\label{comparison comms}
+			\label{commsLayout}
 		\end{figure}
         
-        Figure 9 provides an overview of the communication architecture. Starting from the operator, an optical fibre which is capable of bidirectional communication is fed down to the robot by an automatic cable reel. On board the robot is an ELF transmitter which pulses ELF waves at 22Hz to to the receivers above ground. These receivers then calculate the global position of the robot, and feed it back down to the robot via the optical fibre.
+        \hyperref[commsLayout]{Figure \ref*{commsLayout}} provides an overview of the communication architecture. 
+        Starting from the operator, an optical fibre which is capable of bidirectional communication is fed down to the robot by an automatic cable reel. 
+        On board the robot is an ELF transmitter which pulses ELF waves at 22Hz to to the receivers above ground. 
+        These receivers then calculate the global position of the robot, and feed it back down to the robot via the optical fibre.
        
-        \textbf{Wired connection}\\
-        The wired communication line presents a challenge for the locomotion of the robot. In order to satisfy the communication requirements, it must deliver data at a suitable rate without creating a hindrance to locomotion along the pipe and around corners. The proposed solution uses a kevlar lined wire with an optical fibre. 
+        \textbf{Wired connection}
+        \\
+        The wired communication line presents a challenge for the locomotion of the robot. 
+        In order to satisfy the communication requirements, it must deliver data at a suitable rate without creating a hindrance to locomotion along the pipe and around corners. 
+        The proposed solution uses a kevlar lined wire with an optical fibre. 
         Through making assumptions on a constant frictional coefficient throughout the pipe and steady speed, we arrive at the following initial equation for drag. 
         \begin{align}
 				F_0 = \mu_g L_{wire}   g \rho
@@ -258,47 +275,44 @@ BoldItalicFont=Arial Bold Italic.ttf
         
         Where $L_{wire}$ is the length of wire at current time, $\mu_g$ is the coefficient of friction between the cable and ground and $\rho$ is the mass per unit length of the cable.
         
-        This equation is very simple and does not take into account the corners our robot is designed to navigate. Therefore, through modelling corners as segments of a cylinder, we can justify the use of the capstan equation [x] which describes the resistance to sliding of a flexible but inextensible cord wrapped around a cylinder. For a series of corners, the following equation is derived.
+        This equation is very simple and does not take into account the corners our robot is designed to navigate. 
+        Therefore, through modelling corners as segments of a cylinder, we can justify the use of the capstan equation [x] which describes the resistance to sliding of a flexible but inextensible cord wrapped around a cylinder. 
+        For a series of corners, the following equation is derived.
         \begin{align}
                 F_D = F_0 \boldsymbol{\cdot} {e}^{\mu_c \sum \alpha}
         \end{align}
 
 		Where $\mu_c$ is the coefficient of friction between the cable and corners and $\alpha$ is the angle swept by the cable around the cylinder in radians. 
 	    Hence, in order to minimise this drag force, a solution must be found that satisfies our bandwidth capabilities whilst minimising the mass per length and friction coefficients.  
-	    In this case, a Fiber optic cable is better in almost every sense over alternatives. For example, a typical fiber cable weighs 4Lbs/1000ft, requires a power of 2W and is immune to noise. In comparison, the next best alternative is copper wire which weighs 36Lbs/1000ft, requires >10W of power and is susceptible to EM interference [x]. \\
-
-	    Finally, in order to minimise friction coefficients and absorb the large tensile strength in the wire, a protective coating must be applied to the cable. This technology is widely developed with smoothed Kevlar reinforced cable offering a low friction coefficient whilst resisting tensile strengths up to 2800MPa [x]. For the case of a 5mm Kevlar reinforced optical fibre cable, a breaking force of 54kN can be achieved. Considering an upper estimate of Equation 12 using $\mu$ = 0.2 [x] L = 500m $\rho$ = 0.04 $Kgm^-1$ [x] $\sum \alpha = 10\pi/2$, a tensile force of $F_D$ = 907N is estimated which is well below maximum. 
+	    In this case, a Fiber optic cable is better in almost every sense over alternatives. 
+	    For example, a typical fiber cable weighs 4Lbs/1000ft, requires a power of 2W and is immune to noise. 
+	    In comparison, the next best alternative is copper wire which weighs 36Lbs/1000ft, requires >10W of power and is susceptible to EM interference [x].
+	    \\
+	    Finally, in order to minimise friction coefficients and absorb the large tensile strength in the wire, a protective coating must be applied to the cable. 
+	    This technology is widely developed with smoothed Kevlar reinforced cable offering a low friction coefficient whilst resisting tensile strengths up to 2800MPa [x]. For the case of a 5mm Kevlar reinforced optical fibre cable, a breaking force of 54kN can be achieved. 
+	    Considering an upper estimate of Equation 12 using $\mu$ = 0.2 [x] L = 500m $\rho$ = 0.04 $Kgm^-1$ [x] $\sum \alpha = 10\pi/2$, a tensile force of $F_D$ = 907N is estimated which is well below maximum. 
 	    
 	    \textbf{Automatic Cable Reel}
 
-        From Equation 12, it is demonstrated that the drag force on the robot is directly proportional to the length of wire. Therefore, a requirement for the reel is for it to supply the minimum amount of wire without introducing significant tension. Further, the reel must be capable of self winding when the robot makes its return journey, otherwise it will impede it.\\ 
-        \hspace*{3ex}Fortunately there are established solutions which provide this capability. The automatic cable reels offered by Minicam and IPEK both offer motorised winding which is specialised for robot pipe inspection. 
-        Figure 10 compares the weight, size, power consumption and cost of each solution. The MiniCam ACR 500 is chosen as it is lighter and smaller. 
+        From Equation 12, it is demonstrated that the drag force on the robot is directly proportional to the length of wire. 
+        Therefore, a requirement for the reel is for it to supply the minimum amount of wire without introducing significant tension. 
+        Further, the reel must be capable of self winding when the robot makes its return journey, otherwise it will impede it.
+        \\ 
+        \hspace*{3ex}Fortunately there are established solutions which provide this capability. 
+        The automatic cable reels offered by Minicam and IPEK both offer motorised winding which is specialised for robot pipe inspection. 
+        \hyperref[comparisonComms]{Figure \ref*{comparisonComms}} compares the weight, size, power consumption and cost of each solution. 
+        The MiniCam ACR 500 is chosen as it is lighter and smaller. 
 
-
-        
         %INSERT QUOTE PRICE
         \begin{figure}[h]
 			\centering
 			\includegraphics[scale=1]{cablereel.png}
 			\caption{Comparison of Existing Cable Reel solutions}
-			\label{comparison comms}
+			\label{comparisonComms}
 		\end{figure}
         
-
-
-
-
-
-
-
         \textbf{ELF transmitter and Receiver:}
-        
 
-		
-		
-		
-		
 		\subsection{External Hardware}
 		
 		% Launch Tube
@@ -362,11 +376,9 @@ BoldItalicFont=Arial Bold Italic.ttf
 			\mathbf{R}_{P,W} &= \left[
 			\begin{smallmatrix}
 				\cos(\psi_x) \cos(\psi_y) & \quad & \sin(\psi_x) \cos(\psi_y) \sin(\psi_z) - \sin(\psi_y) \cos(\psi_z) & \quad & \sin(\psi_x) \cos(\psi_y) \cos(\psi_z) + \sin(\psi_y) \sin(\psi_z)
-				\\
-				\\
+				\\ \\
 				\cos(\psi_x) \sin(\psi_y) & \quad & \sin(\psi_x) \sin(\psi_y) \sin(\psi_z) + \cos(\psi_y) \cos(\psi_z) & \quad & \sin(\psi_x) \sin(\psi_y) \cos(\psi_z) - \cos(\psi_y) \sin(\psi_z)
-				\\
-				\\
+				\\ \\
 				- \sin(\psi_x) & \quad & \cos(\psi_x) \sin(\psi_z) & \quad & \cos(\psi_x) \cos(\psi_z)
 			\end{smallmatrix} 
 			\right] \notag
@@ -423,7 +435,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 			\\
 			&= D_r + \frac{3 L}{2} \sin \left( \cos ^{-1} \left( \cos \left( \theta_{min} \right) + \frac{E}{L} \right) \right)
 		\end{align}
-	
+		
 		\hyperref[legDiagram]{Figure \ref*{legDiagram}} is reproduced as \hyperref[legDiagramRep]{Figure \ref*{legDiagramRep}} for reference of variables used.
 		\\
 	
@@ -604,15 +616,15 @@ BoldItalicFont=Arial Bold Italic.ttf
 		\begin{figure}[h]
 			\centering
 			\begin{multicols}{3}
-				\includegraphics[height=0.25\textwidth]{gearCAD}
+				\includegraphics[height=0.23\textwidth]{gearCAD}
 				\caption{Aluminium gear used as the outside of the planetary gear, with dimensions}
 				\label{gearCAD}
 				\columnbreak
-				\includegraphics[height=0.25\textwidth]{shortLinkCAD}
+				\includegraphics[height=0.23\textwidth]{shortLinkCAD}
 				\caption{Stainless steel short link of the leg mechanism with dimensions}
 				\label{shortLinkCAD}
 				\columnbreak
-				\includegraphics[height=0.25\textwidth]{longLinkCAD}
+				\includegraphics[height=0.23\textwidth]{longLinkCAD}
 				\caption{Stainless steel long link of the leg mechanism with dimensions}
 				\label{longLinkCAD}
 			\end{multicols}
@@ -639,7 +651,28 @@ BoldItalicFont=Arial Bold Italic.ttf
 		
 		\subsection[Threat of Entry]{Threat of New Entry}
 				
-		\subsection[Power of Suppliers]{Power of Suppliers}
+		\subsection[Power of Suppliers]{Power of Suppliers - Jim Laney}
+			
+			The power of suppliers in the in-pipe robotics industry is typically very minimal, due to the large number of substitutes for a given product.
+			However there are some key players
+			As an example, we will discuss the components selected for our robot in order to evaluate the overall power which suppliers hold in the industry.
+			\\
+			The non electrical components, such as the robot body, robot legs and leg gears are all made of either aluminium or steel, which are readily available from many sources, meaning it is very difficult for a single supplier to exert any influence over the user.
+			Similarly, all of the generic electrical components, such as the motors used for rotating the legs and eventually the wheels, the linear actuators and different sensors used for measuring the position of the robot are easily replaced, as there are many suppliers of similar products.
+			There are some specific products, such as the industrial cameras, AHRS and the laser scanner, which have far fewer substitutes, due to their more specialised nature, but these still can be replaced with competitive products relatively easily without making major changes to the robot.
+			\\
+			The other electronics, such as the graphical processing unit (GPU) and  also have alternatives to a greater or lesser degree.
+			There are not many major GPU manufacturers, with AMD, Nvidia and Intel dominating the commercial market \textsuperscript{\cite{rake2020graphic}} due to long term presence in the market.
+			Thus these manufacturers have greater power over companies which have on board image processing, and can dictate the cost and functionality of  products.
+			As such, these suppliers offer the greatest threat to the in-pipe robotics industry.
+			\\
+			Within the fibre optic industry in the UK there are only 3 major companies\textsuperscript{\cite{neve2020fibreoptic}}, which have a total market share of $22.8$\%, but of these only Leviton and Prysmian are possible suppliers.
+			The rest of the industry is made up of much smaller firms who supply niche products for optical fibres, so there are a maximum of 3 or 4 suppliers.
+			This means that these companies will also exert significant pressure on the in pipe robotics industry, but still do not have the level of influence that the GPU manufacturers do.
+			\\
+			Finally, the threat of forward vertical integration is practically non-existent, due to the large variety of suppliers.
+			While there are a few key suppliers who exert significant influence over the industry, none of these are in a position to easily move into the in-pipe inspection industry as they would be required to have many of the same suppliers that current companies do.
+			
 		
 		\subsection[Power of Buyers]{Power of Buyers}
 		
