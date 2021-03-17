@@ -237,17 +237,17 @@ BoldItalicFont=Arial Bold Italic.ttf
 		\\
 	    The difficulty arises in finding a suitable communication method that is capable of operating in the difficult pipeline environment. 
 	    With pipe bends, thick steel walls, metres of soil, and noise interference, the choice of communication must be able to overcome these barriers without inhibiting locomotion. 
-	    Figure 8 outlines several communication methods which have been widely practiced in the Oil and Gas industry\textsuperscript{\cite{acoustic2020}}. % Louis this figure no longer exists - you need to make sure it is in and that the figure reference is dynamic rather than static - see what I did with the commsLayout below
+	    \hyperref[commsTable]{Figure \ref*{commsTable}} outlines several communication methods which have been widely practiced in the Oil and Gas industry\textsuperscript{\cite{acoustic2020}}.
 	    \\
 	    
         \begin{figure}[h]
 			\centering
 			\includegraphics[scale=0.6]{commstable.pdf}
 			\caption{Communications Comparison}
-			\label{commsLayout}
+			\label{commsTable}
 		\end{figure}
      	A critical requirement of the robot is for it to have a real time understanding of its location in order to navigate pipes and localise pipe damage. 
-     	From the solutions in Figure 8, the only methods capable of this are ELF and wiring. 
+     	From the solutions in \hyperref[commsTable]{Figure \ref*{commsTable}}, the only methods capable of this are ELF and wiring. 
      	However, ELF communications requires a significantly sized receiver [x] which is infeasible to house in the robot without inhibiting speed, locomotion and range. 
      	Consequently, for feeding data to the robot, a wire will be used.
         \\ 
@@ -289,7 +289,7 @@ BoldItalicFont=Arial Bold Italic.ttf
         Therefore, through modelling corners as segments of a cylinder, we can justify the use of the capstan equation [x] which describes the resistance to sliding of a flexible but inextensible cord wrapped around a cylinder. 
         For a series of corners, the following equation is derived.
         \begin{align}
-                F_D = F_0 \boldsymbol{\cdot} {e}^{\mu_c \sum \alpha}
+                F_D = F_0 \boldsymbol{\cdot} {e}^{\mu_c \sum \alpha} \label{cableDrag}
         \end{align}
 
 		Where $\mu_c$ is the coefficient of friction between the cable and corners and $\alpha$ is the angle swept by the cable around the cylinder in radians. 
@@ -300,17 +300,17 @@ BoldItalicFont=Arial Bold Italic.ttf
 	    \\
 	    Finally, in order to minimise friction coefficients and absorb the large tensile strength in the wire, a protective coating must be applied to the cable. 
 	    This technology is widely developed with smoothed Kevlar reinforced cable offering a low friction coefficient whilst resisting tensile strengths up to 2800MPa [x]. For the case of a 5mm Kevlar reinforced optical fibre cable, a breaking force of 54kN can be achieved. 
-	    Considering an upper estimate of Equation 12 using $\mu$ = 0.2 [x] L = 500m $\rho$ = 0.04 $Kgm^-1$ [x] $\sum \alpha = 10\pi/2$, a tensile force of $F_D$ = 907N is estimated which is well below maximum. 
+	    Considering an upper estimate of \hyperref[cableDrag]{Equation \ref*{cableDrag}} using $\mu$ = 0.2 [x] L = 500m $\rho$ = 0.04 $Kgm^-1$ [x] $\sum \alpha = 10\pi/2$, a tensile force of $F_D$ = 907N is estimated which is well below maximum. 
 	    
 	    \textbf{Automatic Cable Reel}
 
-        From Equation 12, it is demonstrated that the drag force on the robot is directly proportional to the length of wire. 
+        From \hyperref[cableDrag]{Equation \ref*{cableDrag}}, it is demonstrated that the drag force on the robot is directly proportional to the length of wire. 
         Therefore, a requirement for the reel is for it to supply the minimum amount of wire without introducing significant tension. 
         Further, the reel must be capable of self winding when the robot makes its return journey, otherwise it will impede it.
         \\ 
         \hspace*{3ex}Fortunately there are established solutions which provide this capability. 
         The automatic cable reels offered by Minicam and IPEK both offer motorised winding which is specialised for robot pipe inspection. 
-        \hyperref[comparisonComms]{Figure \ref*{comparisonComms}} compares the weight, size, power consumption and cost of each solution. 
+        \hyperref[comparisonReels]{Figure \ref*{comparisonReels}} compares the weight, size, power consumption and cost of each solution. 
         The MiniCam ACR 500 is chosen as it is lighter and smaller. 
 
         %%%INSERT QUOTE PRICE
@@ -319,16 +319,19 @@ BoldItalicFont=Arial Bold Italic.ttf
 			\centering
 			\includegraphics[scale=1]{cablereel.png}
 			\caption{Comparison of Existing Cable Reel solutions}
-			\label{comparisonComms}
+			\label{comparisonReels}
 		\end{figure}
         
         \textbf{ELF transmitter}
-
-    
-        In the system, the robot is located using the magnetic field generated by the ELF electromagnetic emitter. The emitter consists of a signal generator, Ni–Zn magnetic core, power amplifier and an emitting winding in order to create the resonant frequency. Also, the emitting coil is divided into two equal parts in parallel connection. This method is helpful for improving the emitting power and reducing the power consumption. \\
-        \hspace*{3ex}The structure of the emitter is shown below. As a precautionary measure, on board batteries are also included in the transmitter to ensure that in the case of a wire and robot breakdown, the robot can still be recovered. 
         
-        
+        In the system, the robot is located using the magnetic field generated by the ELF electromagnetic emitter. 
+        The emitter consists of a signal generator, Ni–Zn magnetic core, power amplifier and an emitting winding in order to create the resonant frequency. 
+        Also, the emitting coil is divided into two equal parts in parallel connection. 
+        This method is helpful for improving the emitting power and reducing the power consumption. 
+        \\
+        \hspace*{3ex}The structure of the emitter is shown below. 
+        As a precautionary measure, on board batteries are also included in the transmitter to ensure that in the case of a wire and robot breakdown, the robot can still be recovered. 
+                
         %Wrap fig?
          \begin{figure}[h]
 			\centering
@@ -337,11 +340,6 @@ BoldItalicFont=Arial Bold Italic.ttf
 			\label{ELF transmitter}
 		\end{figure}
 
-     
-
-
-
-    
 		\subsection{External Hardware}
 		
 		% Launch Tube
@@ -603,57 +601,82 @@ BoldItalicFont=Arial Bold Italic.ttf
 		
 		\subsection{Mapping and Location}
 		
-		\subsection{Communications}
+		\subsection[Communications]{Communications - Louis Emmanuel}
 		
-		As described in communications hardware, the above ground receivers must detect the ELF electromagnetic waves from the emitter in order to localise the robot. This presents a challenge as the waves that pass through the pipe wall are heavily attenuated. Therefore, in order to accurately localise the robot, the received waves must first be pre-processed in order to extract the emitted signal and minimise the amount of noise.\\ 
-	    \hspace*{3ex}Figure  demonstrates a finite element analysis of the amplitudes of the ELF signals along the X-axis, changing with the pipe wall thickness and burial depth. The thickness and burial depth is set to a linear scale, while the magnetic flux density is set to a logarithmic scale. The figure highlights that the amplitude decreases logarithmically as the thickness and burial depth increase linearly.
+		As described in communications hardware, the above ground receivers must detect the ELF electromagnetic waves from the emitter in order to localise the robot.
+		This presents a challenge as the waves that pass through the pipe wall are heavily attenuated. 
+		Therefore, in order to accurately localise the robot, the received waves must first be pre-processed in order to extract the emitted signal and minimise the amount of noise.
+		\\
+	    \hspace*{3ex}\hyperref[ELFAttenuation]{Figure \ref*{ELFAttenuation}}  demonstrates a finite element analysis of the amplitudes of the ELF signals along the X-axis, changing with the pipe wall thickness and burial depth.
+	    The thickness and burial depth is set to a linear scale, while the magnetic flux density is set to a logarithmic scale.
+	    The figure highlights that the amplitude decreases logarithmically as the thickness and burial depth increase linearly.
 	    
 	    \begin{figure}[h]
 			\centering
 			\includegraphics[scale=1]{Attenuation.png}
 			\caption{ELF Attenuation Finite Element Analysis}
-			\label{comparisonComms}
+			\label{ELFAttenuation}
 		\end{figure}
 
 		\textbf{Solutions}
 		
 		\textbf{Filter}:
-        One potential solution in order to overcome this challenge is the use of a simple filter and amplifier circuit. The sensors are wide-band antennas and many other frequency components are received together. This is a problem as low signal to noise ratio is a disadvantage for tracing and localization algorithm. Therefore, band-pass filter with high gain and high quality factor is one possible solution.\\
-        \hspace*{3ex}Figure below highlights the function of a sensor circuit. The output of the sensor is sent to filter and amplifier to detect the useful signal. In this system, five-grade active filter is designed in order to get high gain and advanced quality. The filter consists of five segments including amplifier I (high pass filter), band pass filter I, amplifier II (band pass filter), band pass filter II and amplifier III (high pass filter). The output signal then consists of the emitted signal separated from the other frequency components. 
+        One potential solution in order to overcome this challenge is the use of a simple filter and amplifier circuit.
+        The sensors are wide-band antennas and many other frequency components are received together. This is a problem as low signal to noise ratio is a disadvantage for tracing and localization algorithm.
+        Therefore, band-pass filter with high gain and high quality factor is one possible solution.
+        \\
+        \hspace*{3ex}\hyperref[filterDesign]{Figure \ref*{filterDesign}} highlights the function of a sensor circuit. 
+        The output of the sensor is sent to filter and amplifier to detect the useful signal. 
+        In this system, five-grade active filter is designed in order to get high gain and advanced quality.
+        The filter consists of five segments including amplifier I (high pass filter), band pass filter I, amplifier II (band pass filter), band pass filter II and amplifier III (high pass filter).
+        The output signal then consists of the emitted signal separated from the other frequency components. 
         
         \begin{figure}[h]
 			\centering
 			\includegraphics[scale=1.5]{Filtering.jpg}
 			\caption{Filter Design}
-			\label{comparisonComms}
+			\label{filterDesign}
 		\end{figure}
 		
-		Unfortunately, in order to attain a more ideal filter, a higher order filter must be used. This presents an issue as the impulse response is longer which pushes the latency higher and hence decreases accuracy in localisation. Another issue is demonstrated in Figure below. The normalized power spectrum of three different signals, including noiseless ELF signals, narrow-band noise and ELF signals with noise are shown. Since the frequency of narrow-band noise is concentrated at 23 Hz, it is difficult to discriminate between ELF signals and noise by frequency domain, which indicates that the frequency-domain information may not be useful for the detection. Thus, the performance of the time-frequency analysis based filtering method is lower than a time-domain characteristic based FDT method.
+		Unfortunately, in order to attain a more ideal filter, a higher order filter must be used.
+		This presents an issue as the impulse response is longer which pushes the latency higher and hence decreases accuracy in localisation. 
+		Another issue is demonstrated in \hyperref[SNRPower]{Figure \ref*{SNRPower}}.
+		The normalized power spectrum of three different signals, including noiseless ELF signals, narrow-band noise and ELF signals with noise are shown. 
+		Since the frequency of narrow-band noise is concentrated at 23 Hz, it is difficult to discriminate between ELF signals and noise by frequency domain, which indicates that the frequency-domain information may not be useful for the detection. 
+		Thus, the performance of the time-frequency analysis based filtering method is lower than a time-domain characteristic based FDT method.
 
          \begin{figure}[h]
 			\centering
 			\includegraphics[height=\imageheight]{SNRPower.png}
 			\caption{Normalized power spectrum when SNR is 0 dB and speed is 15 m/s.}
-			\label{comparisonComms}
+			\label{SNRPower}
 		\end{figure}
 	    
 	    \textbf{Fast Decision Tree (FDT)}:
-		Following the argument against the time-frequency based method outlined above, an improved solution is a time-domain method followed using a Fast Decision Tree. \\
-    	\hspace*{3ex}The overall architecture of the algorithm is shown in the figure below. Firstly, a data fusion model was implemented in order to get a better signal representation by fusing the envelope decay rates through a least squares method. In this case, the envelope decay rates are the rate of the decay of the envelopes of the received X and Y axis ELF signals. Then, a Fast Decision Tree (FDT) algorithm is proposed to detect the ELF signals. The FDT first estimates the fused envelope decay rate to maximize the orthogonal signal power of ELF signals, and the maximized orthogonal signal power is used as the test statistic for the signal detection, which provides an excellent detection performance.
+		Following the argument against the time-frequency based method outlined above, an improved solution is a time-domain method followed using a Fast Decision Tree. 
+		\\
+    	\hspace*{3ex}The overall architecture of the algorithm is shown in \hyperref[FDTFlowcahrt]{Figure \ref*{FDTFlowcahrt}}. 
+    	Firstly, a data fusion model was implemented in order to get a better signal representation by fusing the envelope decay rates through a least squares method. 
+    	In this case, the envelope decay rates are the rate of the decay of the envelopes of the received X and Y axis ELF signals. 
+    	Then, a Fast Decision Tree (FDT) algorithm is proposed to detect the ELF signals. 
+    	The FDT first estimates the fused envelope decay rate to maximize the orthogonal signal power of ELF signals, and the maximized orthogonal signal power is used as the test statistic for the signal detection, which provides an excellent detection performance.
         
          \begin{figure}[h]
 			\centering
 			\includegraphics[scale=0.12]{FDT.png}
 			\caption{Flow chart of FDT method }
-			\label{comparisonComms}
+			\label{FDTFlowcahrt}
 		\end{figure}
 		
-		
-		One of the main advantages of this approach is the low latency. The fast calculation process of the FDT method removes the need for large matrix multiplication in the frequency domain. This is particularly important as relaying the robots position as fast as possible ensures the GPS position it receives is as accurate as possible. \\
-    	\hspace*{3ex}Through following a time-domain method, the analysis of the normalized power spectrum suggests that it will improve detection performance over a time-frequency domain method. This is validated through field testing on a PIG containing an ELF transmitter of frequency 23Hz. Upon testing, the FDT method is close to the upper theoretical bound and the difference between them is less than 5\%  when SNR is 0 dB. The experimental results further validate that the proposed FDT method can detect the short transient very weak ELF signals in real time. Based on these results, the proposed FDT method is validated to be effective in real-time pre-processing of the signal for localisation uses.
-		
-		
-		
+		One of the main advantages of this approach is the low latency. 
+		The fast calculation process of the FDT method removes the need for large matrix multiplication in the frequency domain. 
+		This is particularly important as relaying the robots position as fast as possible ensures the GPS position it receives is as accurate as possible. 
+		\\
+    	\hspace*{3ex}Through following a time-domain method, the analysis of the normalized power spectrum suggests that it will improve detection performance over a time-frequency domain method. 
+    	This is validated through field testing on a PIG containing an ELF transmitter of frequency 23Hz. 
+    	Upon testing, the FDT method is close to the upper theoretical bound and the difference between them is less than 5\%  when SNR is 0 dB.
+    	The experimental results further validate that the proposed FDT method can detect the short transient very weak ELF signals in real time. 
+    	Based on these results, the proposed FDT method is validated to be effective in real-time pre-processing of the signal for localisation uses.
 		
 	\section{Estimated Cost \& Weight}
 		
