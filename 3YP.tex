@@ -58,7 +58,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 		\vspace*{6cm}
 		\huge{\textbf{3YP Project: Pipe Inspection Robot}}\\ 
 		\vspace*{6cm}
-		\large{Monty Beresford, Louis Emanuel, Joshua Gei \& Jim Laney} % Not your Bod card number
+		\large{Monty Beresford, Louis Emanuel, Joshua Gei \& Jim Laney}
 		\thispagestyle{empty} % Remove page number
 	\end{center}
 
@@ -95,9 +95,9 @@ BoldItalicFont=Arial Bold Italic.ttf
 	
 	\subsection[Patent Analysis]{Patent Analysis - Jim Laney}
 	
-	It was decided to look at patents classified as \verb|F16L55/26| - "Pigs or moles, i.e. devices movable in a pipe or conduit with or without self-contained propulsion means" or \verb|F16L2101/30| - "Inspecting, measuring or testing [as a use or application of pigs or moles]" as these are most similar to the purpose which our robot fulfils.
+	It was decided to look at patents classified as \verb|F16L55/26| - "Pigs or moles, i.e. devices movable in a pipe or conduit with or without self-contained propulsion means" or \verb|F16L2101/30| - "Inspecting, measuring or testing [as a use or application of pigs or moles]" as these are most similar to the purpose which the robot fulfils.
 	In these patents the use of "pigs" refers to Pipeline Inspection Gauges (PIGs from here on), and moles are used as a synonymous term, and will thus also be referred to as PIGs from now on.
-	While our robot is not a PIG as PIGs are typically unpowered and cannot deal with bends in the pipe, this is the closest patent classification which we can consider.
+	While the robot is not a PIG as PIGs are typically unpowered and cannot deal with bends in the pipe, this is the closest patent classification to consider.
 	\begin{figure}[h]
 			\centering
 			\includegraphics[height=\imageheight]{patentGraph}
@@ -108,7 +108,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 	As you can see from \hyperref[patentGraph]{Figure \ref*{patentGraph}}, the rate of patent publication in both classifications is still growing at a rapid rate, suggesting the technology is in a period of rapid innovation and development.
 	This suggests that industry is still in the initial period of product design ferment, where no dominant design has occurred\textsuperscript{\cite{christensen1998innovation}}.
 	Thus there is a much greater chance of survival, as this dominant design has not yet been established, and the space for new innovators is greater.
-	While there is also a risk to entering the industry too early, we believe that period has passed, due to the sustained period of development in the last 20 years.
+	While there is also a risk to entering the industry too early, the sustained period of development in the last 20 years suggests that period has passed.
 	
 	
 	\section{Hardware}
@@ -174,8 +174,8 @@ BoldItalicFont=Arial Bold Italic.ttf
 				\end{multicols}
 			\end{figure}
 			
-			The ratio between the longer base links of the pantograph and then shorter tip links is $2:1$, which gives the greatest range of diameters for the smallest change in the base distance\textsuperscript{\cite{okada1987mogrer}}, so we can calculate the required link length $L$ to allow the robot to adapt to the chosen range of diameters, $609.6 - 914.4$ mm.
-			The pantograph angles are shown in \hyperref[legDiagram]{Figure \ref*{legDiagram}}, and we can find that:
+			The ratio between the longer base links of the pantograph and then shorter tip links is $2:1$, which gives the greatest range of diameters for the smallest change in the base distance\textsuperscript{\cite{okada1987mogrer}}, to calculate the required link length $L$ to allow the robot to adapt to the chosen range of diameters, $609.6 - 914.4$ mm.
+			The pantograph angles are shown in \hyperref[legDiagram]{Figure \ref*{legDiagram}}, which results in:
 			
 			\begin{align}
 				r_{min} &= \frac{3L}{2} \sin \left( \theta_{min} \right)
@@ -187,23 +187,23 @@ BoldItalicFont=Arial Bold Italic.ttf
 				L &= \frac{2 \Delta r}{3 \left( \sin \left( \theta_{max} \right) - \sin \left( \theta_{min} \right) \right)}
 			\end{align}
 			
-			If we assume that the pantograph will ideally move from an angle of $\theta_{min} = 20^\circ$ to $\theta_{max} = 60^\circ$, spanning a change in radius of $304.8$ mm, we find that $L = 387.8$ mm, and our smallest leg radius $r_{min} = 199.0$ mm, not including the depth of the tracks.
-			This means that, if we assume our track depth is $70$ mm, our body diameter has a maximum of $376.4$ mm, setting a constraint on the dimensions of the inner body based on our design criteria.
+			Assuming the pantograph will ideally move from an angle of $\theta_{min} = 20^\circ$ to $\theta_{max} = 60^\circ$, spanning a change in radius of $304.8$ mm, $L = 387.8$ mm, and the smallest leg radius $r_{min} = 199.0$ mm, not including the depth of the tracks.
+			This means that, if the track depth is $70$ mm, the body diameter has a maximum of $376.4$ mm, setting a constraint on the dimensions of the inner body based on the design criteria.
 			\\
 			The minimum length of the body is also set by this, as it means that the body length $l_{min} = L \cos \left( \theta_{min} \right) = 364.4$ mm.
 			A maximum body length can be found by considering the ability of the robot to turn corners inside the pipe, and it is necessary to consider how this compares to the minimum to make sure there is no loss of mobility.
-			For the duration of this calculation, we will assume we are in the smallest possible pipe diameter $D_{pipe} = 609.6$ mm, and we will assume that the curvature radius $r_c = \frac{3}{2} D_{pipe} = 914.4$ mm.
-			As our robot diameter $D_r \nless \left( 2 \sin \left( 45^\circ \right) - 1 \right) D_{pipe} = 252.5$ mm we can use the following equation\textsuperscript{\cite{roh2005differential}}:
+			For the duration of this calculation, it is assumed that the robot is in the smallest possible pipe diameter $D_{pipe} = 609.6$ mm, and the curvature radius $r_c = \frac{3}{2} D_{pipe} = 914.4$ mm.
+			As the robot diameter $D_r \nless \left( 2 \sin \left( 45^\circ \right) - 1 \right) D_{pipe} = 252.5$ mm the maximum length can be found from the following equation\textsuperscript{\cite{roh2005differential}}:
 
 			\begin{align}
 				l_{max} &= 2 \sqrt{4D_{pipe}^2 - \left( D_{pipe} + D_r\right) ^ 2}
-				\intertext{which, using our maximum $D_r = 436.4$ mm}
+				\intertext{which, using the maximum $D_r = 436.4$ mm}
 				l_{max} &= 1252.7 \ \mathrm{mm} \notag
 			\end{align}
 			% Makes max volume 187*10^6 mm^3
-			We can also use \hyperref[legDiagram]{Figure \ref*{legDiagram}} to calculate the required force output of the linear actuators in order for the robot to operate at all angles.
-			As such, we consider the worse case scenario, where the robot is climbing vertically, and thus must create enough normal force for friction to support its entire weight.
-			We find that:
+			Using \hyperref[legDiagram]{Figure \ref*{legDiagram}} to calculate the required force output of the linear actuators in order for the robot to operate at all angles.
+			As such, the worse case scenario is considered, where the robot is climbing vertically and must create enough normal force for friction to support its entire weight.
+			This results in:
 			
 			\begin{align}
 				N &= \frac{2 F \tan \left( \theta \right)}{\cos \left( \phi \right)}
@@ -223,7 +223,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 			
 			Since testing would be required to find the greatest angle $\phi$ that is experienced by the robot in general use, as well as an estimate for the coefficient of friction $\mu_{t,p}$, it is tricky to estimate the force required for the actuators.
 			However, estimates from other papers for $\mu_{t,p}$,which are $1.21$\textsuperscript{\cite{sato2011development}} - $1.6$\textsuperscript{\cite{park2010normal}}, allow us to create a worst case estimate for the required force of $1.21$.
-			From \hyperref[reqMaxNorm]{Equation \ref*{reqMaxNorm}}, we can see that the worst case scenario is with the lowest pipe diameter, as this minimises $\theta$, and we can hypothesise that straight sections, where $\phi$ is expected to be close to $0^\circ$, will require the most linear actuator force.
+			From \hyperref[reqMaxNorm]{Equation \ref*{reqMaxNorm}}, it is clear that the worst case scenario occurs in straight sections, where $\phi$ is expected to be close to $0^\circ$, with the smallest pipe diameter, as this minimises $\theta$, which will require the most linear actuator force.
 							
 		\subsection{Power}
 		
@@ -285,7 +285,7 @@ BoldItalicFont=Arial Bold Italic.ttf
         
         Where $L_{wire}$ is the length of wire at current time, $\mu_g$ is the coefficient of friction between the cable and ground and $\rho$ is the mass per unit length of the cable.
         
-        This equation is very simple and does not take into account the corners our robot is designed to navigate. 
+        This equation is very simple and does not take into account the corners the robot is designed to navigate. 
         Therefore, through modelling corners as segments of a cylinder, we can justify the use of the capstan equation [x] which describes the resistance to sliding of a flexible but inextensible cord wrapped around a cylinder. 
         For a series of corners, the following equation is derived.
         \begin{align}
@@ -293,7 +293,7 @@ BoldItalicFont=Arial Bold Italic.ttf
         \end{align}
 
 		Where $\mu_c$ is the coefficient of friction between the cable and corners and $\alpha$ is the angle swept by the cable around the cylinder in radians. 
-	    Hence, in order to minimise this drag force, a solution must be found that satisfies our bandwidth capabilities whilst minimising the mass per length and friction coefficients.  
+	    Hence, in order to minimise this drag force, a solution must be found that satisfies the bandwidth capabilities whilst minimising the mass per length and friction coefficients.  
 	    In this case, a Fiber optic cable is better in almost every sense over alternatives. 
 	    For example, a typical fiber cable weighs 4Lbs/1000ft, requires a power of 2W and is immune to noise. 
 	    In comparison, the next best alternative is copper wire which weighs 36Lbs/1000ft, requires >10W of power and is susceptible to EM interference [x].
@@ -373,7 +373,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 			\label{pipeAngle}
 		\end{figure}
 		As in \hyperref[pipeOrientation]{Figure \ref*{pipeOrientation}}, the angle of the robot within the pipe can be decomposed into two orthogonal rotations, of $\alpha$ about the pipe diameter, and then $\beta$ about the robot centre, shown as $z'$ in the figure.
-		Since the angle of the top leg, $\phi_T$, is $\alpha$ on the $y'$ axis ($\beta = 0$), but zero on the x axis ($\beta = 90^\circ$), we can estimate our angle using:
+		Since the angle of the top leg, $\phi_T$, is $\alpha$ on the $y'$ axis ($\beta = 0$), but zero on the x axis ($\beta = 90^\circ$), the angle can be estimated using:
 		\begin{align}
 			\phi_T &= \cos \left( \beta \right) \alpha
 			\\
@@ -385,10 +385,10 @@ BoldItalicFont=Arial Bold Italic.ttf
 			\\
 			\alpha &= \frac{\phi_T}{\cos \left( \beta \right)}
 		\end{align}
-		Once we have found the individual rotations of the robot, we can combine this with the AHRS data to find the pipe angle relative to the outside world.
+		Once the individual rotations of the robot are found, they can combine this with the AHRS data to find the pipe angle relative to the outside world.
 		\\
-		Since we are working in 3D we assume that the AHRS returns rotations in a matrix $\mathbf{R}_{R,W}$, which gives the angle of the robot relative to the world.
-		We want to find $\mathbf{R}_{P,W}$, the rotation of the pipe relative to the world, so we create a matrix $\mathbf{R}_{P,R}$ which gives the rotations of the pipe, relative to the robot:
+		Working in 3D space, the AHRS returns rotations in a matrix $\mathbf{R}_{R,W}$, which gives the angle of the robot relative to the world.
+		In order to find $\mathbf{R}_{P,W}$, the rotation of the pipe relative to the world, a matrix $\mathbf{R}_{P,R}$ is created, which gives the rotations of the pipe, relative to the robot:
 		\begin{align}
 			\mathbf{R}_{P,R} &=
 			\begin{bmatrix}
@@ -401,7 +401,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 			% Matrices can be shrunk using smallmatrix rather than bmatrix but for now no need to - smallmatrix requires you to pu \left[ and \right] on either side of the smallmatrix environment
 			\\
 			\mathbf{R}_{P,W} &= \mathbf{R}_{P,R} \ \mathbf{R}_{R,W}
-			\intertext{We then use the general form of a rotation matrix to determine the yaw, roll and pitch from $\mathbf{R}_{P,W}$:}
+			\intertext{The general form of a rotation matrix can then be used to determine the yaw, roll and pitch from $\mathbf{R}_{P,W}$:}
 			\mathbf{R}_{P,W} &= \left[
 			\begin{smallmatrix}
 				\cos(\psi_x) \cos(\psi_y) & \quad & \sin(\psi_x) \cos(\psi_y) \sin(\psi_z) - \sin(\psi_y) \cos(\psi_z) & \quad & \sin(\psi_x) \cos(\psi_y) \cos(\psi_z) + \sin(\psi_y) \sin(\psi_z)
@@ -418,14 +418,14 @@ BoldItalicFont=Arial Bold Italic.ttf
 			\\
 			\psi_z &= \tan^{-1} \left( \frac{ \ \mathbf{R}_{P,W} \left[ 3,2 \right] \ }{\mathbf{R}_{P,W} \left[ 3,3 \right] } \right) \label{pipeZ}
 		\end{align}
-		Thus, in order to increase the efficiency of the algorithm, we only need to calculate the relevant entries of $\mathbf{R}_{P,W}$, meaning that the number of computations required can be reduced to $\frac{5}{9}$ of the original value.
+		Thus, in order to increase the efficiency of the algorithm, only the relevant entries of $\mathbf{R}_{P,W}$ need to be calculated, meaning that the number of computations required can be reduced to $\frac{5}{9}$ of the original value.
 		These angles can also be used to help with the identification of other things within the robot, but the reliability of these is not guaranteed, as the angle of the legs can be affected by other factors, such as unevenness in the pipe wall.
 		As such, the value for the inclination of the pipe should be averaged out to give better results for pipe inclination, and giving a smoother projection of the map overall.
 		
 		\subsection[Leg Actuation Control]{Leg Actuation Control - Jim Laney}
 		
 		The robot needs to be able to accurately control the length of its legs in order to maintain the correct normal force for operation.
-		We know the required linear actuator force for climbing vertically from \hyperref[reqMaxNorm]{Equation \ref*{reqMaxNorm}}, which we can modify to find that:
+		The required linear actuator force for climbing vertically is given \hyperref[reqMaxNorm]{Equation \ref*{reqMaxNorm}}, which can be modified to find that:
 	
 		\begin{align}
 			F &= \frac{W \sin \left( \psi_x \right) \cos \left( \phi \right)}{6 \mu_{t,p} \tan \left( \theta \right)} \label{idealForce}
@@ -433,9 +433,9 @@ BoldItalicFont=Arial Bold Italic.ttf
 	
 		where $\psi_x$ is the inclination of pipe in the vertical plane, worked out from \hyperref[pipeX]{Equation \ref*{pipeX}}.
 		\\
-		However, when the pipe inclination is zero - i.e we are travelling in a horizontal direction - \hyperref[idealForce]{Equation \ref*{idealForce}} breaks down and the required force $F$ becomes $0$.
+		However, when the pipe inclination is zero - i.e travelling in a horizontal direction - \hyperref[idealForce]{Equation \ref*{idealForce}} breaks down and the required force $F$ becomes $0$.
 		The required normal force when travelling in the horizontal pipe is the weight $W$.
-		Thus our new equation for the normal force:
+		Thus the new equation for the normal force:
 		\begin{align}
 			\begin{split}
 				N &= \left( N_{max} - W \right) \sin \left( \psi_x \right) + W
@@ -446,20 +446,20 @@ BoldItalicFont=Arial Bold Italic.ttf
 			N_{max} &= \frac{W}{3 \mu_{t,p}}
 			\\
 			\implies \frac{2 F \tan \left( \theta \right)}{\cos \left( \phi \right)} &= W \sin \left( \psi_x \right) \left( \frac{1}{3 \mu_{t,p}} - 1 \right)  + W
-			\intertext{Thus our equation for $F$ becomes:}
+			\intertext{Thus the equation for $F$ becomes:}
 			F &= \frac{ W \cos \left( \phi \right)}{ 2 \tan \left( \theta \right) } \left( \sin \left( \psi_x \right) \left( \frac{1}{3 \mu_{t,p}} - 1 \right) + 1 \right)
 		\end{align}
 		\\
-		Thus, if we know the weight of the robot, and we can estimate the pipe inclination $\psi_x$, as well as measuring the leg and foot angles $ \theta \ \& \ \phi$, we can estimate the required actuator force.
+		Thus, if the weight of the robot is known, and the pipe inclination $\psi_x$ is estimated, as well as measuring the leg and foot angles $ \theta \ \& \ \phi$, the required actuator force can be estimated.
 		This means that the robot can set a target actuator force at all times in order to ensure that it able to traverse the pipe.
 		\\
-		While we initially considered having sensors on the robot to work out the pipe diameter, a much simpler solution was to use the linear actuators themselves. 
-		Since we know the required normal force, we can extend the actuators, updating our value of theta until we reach that force, or close to it, using a $H_{\infty}$ controller.
+		While sensors were initially considered to work out the pipe diameter, a much simpler solution was to use the linear actuators themselves. 
+		Since the required normal force is known, the actuators can be extended, updating the value of theta until the desired force is reached, using a $H_{\infty}$ controller.
 		Thus, the force can be controlled to the point where the target value is reached, and the pipe diameter can be estimated by finding the base angle $\theta$.
 	
 		\begin{align}
 			\cos \left( \theta \right) &= \cos \left( \theta_{min} \right) + \frac{E}{L}
-			\intertext{where E is the extension of a single actuator. \newline We can then find that}
+			\intertext{where E is the extension of a single actuator. \newline The pipe diameter can then be found as:}
 			D_{pipe} &= D_r + \frac{3 L}{2} \sin \left( \cos ^{-1} \left( \theta \right) \right)
 			\\
 			&= D_r + \frac{3 L}{2} \sin \left( \cos ^{-1} \left( \cos \left( \theta_{min} \right) + \frac{E}{L} \right) \right)
@@ -533,8 +533,8 @@ BoldItalicFont=Arial Bold Italic.ttf
 			\\
 			\implies \theta_{bend} &= \frac{2 \left( d_{right} - d_{top} \right)}{D_{pipe} \left( 1 + \cos \left( \lambda \right) \right)}
 		\end{align}
-		While we have worked out the bends in the horizontal or vertical directions, it is also possible for bends to at an angle somewhere between the two.
-		If we call this angle $\xi$, as labelled in \hyperref[pipeAngle]{Figure \ref*{pipeAngle}(ii)}, we can calculate expressions for all distances travelled:
+		While the horizontal and vertical bend cases have been calculated, it is also possible for bends to at an angle somewhere between the two.
+		If this angle is called $\xi$, as labelled in \hyperref[pipeAngle]{Figure \ref*{pipeAngle}(ii)}, all distances travelled can be calculated as:
 		\begin{align}
 			d_{top} &= \theta_{bend} \left( r_c - \frac{D_{pipe} \cos \left( \xi \right)}{2} \right) \label{d_top}
 			\\
@@ -555,12 +555,12 @@ BoldItalicFont=Arial Bold Italic.ttf
 		This can then also be combined with the detected inclination to ensure the robot is aware of whether it is travelling upwards or downwards as a secondary check.
 		\\
 		\hyperref[alphaEq]{Equation \ref*{alphaEq}} is derived from a constraint that specified that the difference between $\xi$ and the right hand side is a multiple of $2 \pi$ (in radians).
-		Since we know the value of $\xi$ is between $0^\circ$ and $90^\circ$, which are both less than $2 \pi$, this constraint sets the value of $\xi - (\ref*{alphaEq}) = 0$, allowing us to calculate $\xi$ directly as in \hyperref[alphaEq]{Equation \ref*{alphaEq}}.
+		Since $\xi$ is limited between $0^\circ$ and $90^\circ$, which are both less than $2 \pi$, this constraint sets the value of $\xi - (\ref*{alphaEq}) = 0$, allowing us to calculate $\xi$ directly as in \hyperref[alphaEq]{Equation \ref*{alphaEq}}.
 		\\
-		We can validate our expressions in \hyperref[generalTheta]{Equation \ref*{generalTheta}} by substituting in our already explored cases.
+		\hyperref[generalTheta]{Equation \ref*{generalTheta}} can be validated by substituting in the previously explored cases.
 		\\
-		In the case of a horizontal bend, we know that $d_{left} + d_{right} = 2 r_c \theta_{bend} $ and $d_{top} = r_c \theta_{bend}$.
-		Our equation for $\theta_{bend}$ then becomes:
+		In the case of a horizontal bend, $d_{left} + d_{right} = 2 r_c \theta_{bend} $ and $d_{top} = r_c \theta_{bend}$.
+		\hyperref[generalTheta]{Equation \ref*{generalTheta}} then becomes:
 		\begin{align*}
 			\theta_{bend} &= \frac{ \sec \left( \frac{\lambda}{2} \right)^2 \sqrt{ \left( d_{left} - d_{right} \right)^2 +  \tan \left( \frac{\lambda}{2} \right)^2 \left[ \left( 2 r_c \theta_{bend} \right)^2 + 4 r_c \theta_{bend} \left( r_c \theta_{bend}  - 2 r_c \theta_{bend} \right) \right] } }{2 D_{pipe} \tan \left( \frac{\lambda}{2} \right)}
 			\\
@@ -576,7 +576,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 			\\
 			\theta_{bend} &= \frac{2 \left( d_{right} - d_{top} \right)}{D_{pipe} \left( 1 + \cos \left( \lambda \right) \right)}
 		\end{align*}
-		Thus we have verified that our computer created equation is valid for the simple cases we have already analysed, which suggests that the equation we have found for calculating $\theta_{bend}$ is accurate.
+		Thus, the computationally derived equation is valid for the simple cases already analysed, which suggests that the equation is accurate.
 		The robot can now use this equation to quickly estimate the angle of the bend which the robot has just travelled around based on the track differentials.
 		 		
 		\subsection[Active Compliance Joint]{Active Compliance Joint - Jim Laney}
@@ -649,34 +649,35 @@ BoldItalicFont=Arial Bold Italic.ttf
 		% Also get estimated weight from selected components?
 		\subsection[Locomotion]{Locomotion - Jim Laney}
 		
-		In order to determine suitable components, we must consider the main parts of the locomotion system which require acquisition.
+		In order to determine suitable components, the main parts of the locomotion system which require acquisition must be considered.
 		The parts which will be considered here are the track modules, the linear actuators, the internal rotation motors and the legs and gears.
 		\\
 		For the track module, the best reference point was the Inuktun Minitrac, a larger version of the Inuktun Microtrac module used by Ciszewski et al.\textsuperscript{\cite{ciszewski2015design}} for their testing of a pipe inspection robot.
 		These cost $£ \ xxx$ each, and three are required for each leg of the robot, bringing the overall cost to $£ \ 9xxx$.
-		They are probably over specified, as each has a pull rating of roughly $30$ kg for continuous duty, meaning our robot can weight up to $270$ kg, which would be an unrealistic and impractical figure to aim for\textsuperscript{\cite{inuktunTracks}}.
+		They are probably over specified, as each has a pull rating of roughly $30$ kg for continuous duty, meaning the robot can weight up to $270$ kg, which would be an unrealistic and impractical figure to aim for\textsuperscript{\cite{inuktunTracks}}.
 		Each module can be provided in either aluminium, brass or steel, with the main difference being the weight.
-		We have chosen to use aluminium as it is the lightest of the three, but each module still weighs $5.7$ kg taking the track weight to $51.3$ kg for all 9 track modules.
-		As this is quite heavy, we have considered changing to a different design with a motor driving the tracks instead, so we can design our own system to minimise the weight.
+		Aluminium was chosen, as it is the lightest of the three, but each module still weighs $5.7$ kg taking the track weight to $51.3$ kg for all 9 track modules.
+		As this is quite heavy, a different design could be considered, with a motor driving the tracks instead, so a new system can be designed to minimise the weight.
 		Additionally, while discussing the pricing and operation with a representative from Eddyfi Technologies, it was made clear that the Minitrac is no longer for sale for commercial uses, as they found that they were often being used in products which compete with Eddyfi's own pipe inspection robots.
-		However, for an estimate of cost, these track modules give a baseline of the cost which we could expect to incur with this system.
+		However, these track modules give a reasonable indication of the eventual cost to expect for the robot.
 		\\
 		The sample linear actuators chosen were selected as they have $200$N of force output and a potentiometer to measure the extension of the actuator\textsuperscript{\cite{rsproLinear}}.
-		Using \hyperref[maxWeight]{Equation \ref*{maxWeight}}, reproduced below, we need to estimate some values for our worst case scenario.
+		Using \hyperref[maxWeight]{Equation \ref*{maxWeight}}, reproduced below, values for the worst case scenario can be estimated.
 		\begin{align*}
 			W &= \frac{6 \mu_{t,p} F \tan \left( \theta \right)}{\cos \left( \phi \right)}
 		\end{align*}
-		We already know that our worst case scenario occurs when when $ \mu = 1.21$\textsuperscript{\cite{sato2011development}}, $\theta = 20^\circ$ and $\phi = 0^\circ$
+		The worst case scenario occurs when when $ \mu = 1.21$\textsuperscript{\cite{sato2011development}}, $\theta = 20^\circ$ and $\phi = 0^\circ$, as stated before.
 		This gives us a maximum weight of $528.5 N = 53.9$ kg, which is quite large, although comparatively small compared to the estimated weight of 9 Inuktun MiniTrac modules, hence why they would be considered inappropriate.
-		With a safety margin of 1.5 for the linear actuator output, limiting their output to $130 N$, our weight maximum becomes $343.5 N = 35.0$ kg which is still reasonable and significantly larger than similar robots.
-		These cost $£ \ 121.46 - £ \ 132.02$ each depending on quantity, but we can use the lower price as this is for 10 or more actuators, which is for less than 2 robots. 
+		With a safety margin of 1.5 for the linear actuator output, limiting their output to $130 N$, the maximum weight becomes $343.5 N = 35.0$ kg which is still reasonable and significantly larger than similar robots.
+		These cost $£ \ 121.46 - £ \ 132.02$ each depending on quantity, but the lower price can be used as this is for 10 or more actuators, which is less than 2 robots. 
 		Thus the actuator cost for a single robot would be $£ \ 728.76$ since 2 linear actuators are used for each leg, meaning a total of 6.
 		The overall weight of these linear actuators would be $0.504$ kg, which is negligible compared to the weight of most of the other components, as well as the estimated weight of the robot shell.
 		\\
-		The next part to consider is the motor used for rotation of the legs relative to the body. We have ne specifications required for this, but a high torque motor would be ideal.
+		The next part to consider is the motor used for rotation of the legs relative to the body. There is no specifications required for this at the moment, but a high torque motor would be ideal.
 		A sample product which is both relatively small and high torque was selected\textsuperscript{\cite{rsproRotation}} as it has a maximum output torque (at stall) of $1.46$ Nm.
 		The diameter of the actual motor is only $42.8$ mm, meaning that there is plenty of space to use a larger more powerful motor if testing reveals that it will be necessary.
-		The cost of these drives is $£ \ 141.84$ per motor, and we would require 2 for the main body of the robot, and similar motors could be used as the RC servo motors in the active compliance joint, so we can factor in another 3, bringing the total cost for 5 rotation motors to $£ \ 709.20$.
+		The cost of these drives is $£ \ 141.84$ per motor, and 2 are required for the main body of the robot.
+		Since similar motors could be used as the RC servo motors in the active compliance joint, another 3 would be included in the robot, bringing the total cost for 5 rotation motors to $£ \ 709.20$.
 		\\
 		\begin{figure}[h]
 			\centering
@@ -712,15 +713,14 @@ BoldItalicFont=Arial Bold Italic.ttf
 			
 	\section{Industry Analysis}
 		
-		It was decided to use the Porter's Five Forces model\textsuperscript{\cite{porter2008five}} to analyse the in-pipe inspection robot industry, in order to provide a systematic analysis of the existing and possible threats to our company in the future.
+		It was decided to use the Porter's Five Forces model\textsuperscript{\cite{porter2008five}} to analyse the in-pipe inspection robot industry, in order to provide a systematic analysis of the existing and possible threats to the company in the future.
 		
 		\subsection[Threat of Entry]{Threat of New Entry}
 				
 		\subsection[Power of Suppliers]{Power of Suppliers - Jim Laney}
 			
 			The power of suppliers in the in-pipe robotics industry is typically very minimal, due to the large number of substitutes for a given product.
-			However there are some key players
-			As an example, we will discuss the components selected for our robot in order to evaluate the overall power which suppliers hold in the industry.
+			As an example,the components selected for the robot will be used to evaluate the overall power which suppliers hold in the industry.
 			\\
 			The non electrical components, such as the robot body, robot legs and leg gears are all made of either aluminium or steel, which are readily available from many sources, meaning it is very difficult for a single supplier to exert any influence over the user.
 			Similarly, all of the generic electrical components, such as the motors used for rotating the legs and eventually the wheels, the linear actuators and different sensors used for measuring the position of the robot are easily replaced, as there are many suppliers of similar products.
@@ -759,14 +759,14 @@ BoldItalicFont=Arial Bold Italic.ttf
 			\\
 			Pipeline Inspection Gauges (PIGs) are the other main substitute to robotic in-pipe inspection, as these are passive devices which are forced along the pipeline by the gas flow.
 			However, PIGs are uncontrollable and cannot operate in pipelines containing sharp bends\textsuperscript{\cite{mills2017advances}}, making them unsuitable for urban pipelines.
-			As such the threat from PIGs is minimal since we have specifically chosen to enter an area where they are not currently suitable, although it is possible that more advanced PIGs may be developed in the future which compete in the area of urban pipelines.
+			As such the threat from PIGs is minimal since the robot has been specifically chosen to enter an area where they are not currently suitable, although it is possible that more advanced PIGs may be developed in the future which could compete in urban pipelines.
 		
 		\subsection[Rivalry Among Existing Competitors]{Rivalry Among Existing Competitors}
 		
 	\section{Customer Industry Analysis}
 		% Insert Monty's P5F here
-		Since we have only one customer industry, we felt it was important to analyse the safety and sustainability of that industry to ensure that our business was secure.
-		We once again used the Porter's Five Forces model\textsuperscript{\cite{porter2008five}} to analyse the gas pipeline inspection industry.
+		Since there is only one customer industry, it is important to analyse the safety and sustainability of that industry to ensure that the business was secure.
+		The Porter's Five Forces model\textsuperscript{\cite{porter2008five}} was once again used to analyse the gas pipeline inspection industry.
 			
 		\subsection[Threat of Entry]{Threat of New Entry}
 				
@@ -775,18 +775,71 @@ BoldItalicFont=Arial Bold Italic.ttf
 		\subsection[Power of Buyers]{Power of Buyers}
 		
 		\subsection[Threat of Substitutes]{Threat of Substitutes}
+
+		\subsection[Rivalry Among Existing Competitors]{Rivalry Among Existing Competitors}
+		
+	\section{Stakeholder Analysis}
+	
+		The main stakeholders for the project are individually analysed below.
+		There were 3 major stakeholders identified - gas distributors, regulatory bodies and traditional inspection \& maintenance companies - and 3 minor stakeholders identified - gas suppliers, local councils and the general public.
+		
+		\subsection[Gas Distributors]{Gas Distributors}
+		
+		\subsection[Regulatory Bodies]{Regulatory Bodies - Jim Laney}
 			
+			The main regulatory bodies to consider are the Office of Gas and Electricity Markets (OFGEM), the Energy Networks Association (ENA) and the Health and Safety Executive (HSE).
+			As well as this, regulations enforced by the Institution of Gas Engineers and Managers (IGEM) and the International Standards Organisation (ISO) are also of interest.
+ 			\\
+			OFGEM is the UK government body which provides codes and regulations for the gas pipeline companies to follow, but these are mainly focused on reducing competition between gas transporters and ensuring a fair playing field for all companies.
+			The Uniform Network Code (UNC)\textsuperscript{\cite{joint2005uniform}} covers the transition from a single national system to the current 4 provider network, as well as the rights of customers and independent gas transporters.
+			The UNC also ensure that there is a fair market and safe operation for the gas pipe system, as well as encouraging the implementation of robust computer systems and daily energy balancing.
+			While the safety sections of the UNC could be relevant to the robot, they are far too general, and are simply an overview of the responsibilities of the gas providers to ensure safe pipelines.
+			The Independent Gas Transporter Uniform Network Code (iGT UNC)\textsuperscript{\cite{igt2021independent}} defines more about the interrelations between different smaller, independent providers and helps to standardise the interactions with gas providers.
+			It refers to the UNC in large part, but focuses more on the responsibilities of Independent Transporters who are not the customers for the robot, and as such do not need to be focused on.
+			The Supply Point Administration Agreement (SPAA)\textsuperscript{\cite{spaa2021supply}} is about supplier-supplier relationships which may not be covered by existing contracts, and contributes to the smooth running of the industry, and allows for smooth transfer of customers between different gas carriers.
+			Finally, the Smart Energy Code (SEC)\textsuperscript{\cite{smart2021smart}} defines the rights and obligations of energy suppliers, transmission companies and other companies involved in metering in Great Britain.
+			Since inspection of the pipeline is the main focus of the robot, the rights given by the SEC are not a concern.
+			\\
+			The ENA is the industry body for all the energy suppliers in the UK \& Ireland, allowing them to publish all their own guidance as to what is required to operate safely within pipes.
+			For the gas industry, these fall under the Gas Industry Standards (GIS), which define both how the robot can operate within pipes as well as how the pipes should be built and maintained.
+			However, most of these standards refer to traditional methods of pipe inspection and as such are not directly applicable to the robot.
+			The most likely to affect the robot design is GIS/F10:2015 “Ancillary fittings used for the live insertion of gas mains operating at pressures equal to or less than 75 mbar”\textsuperscript{\cite{energy2015gas}}.
+			GIS/F10:2015 describes how the insertion of polyethylene pipes into steel gas mains must be performed on low pressure lines, which may provide guidance on the insertion of the robot into similar pipes.
+			However the pipes specified by 	GIS/F10:2015 are 8 inches (203.2 mm) in diameter, which is much smaller than the pipes the robot is designed to operate in and operating pressures are higher, so this standard will be of limited use.
+			\\
+			The HSE is the government agency responsible for the regulation of workplace safety, and as such provides information on how to ensure safe working conditions in and around gas pipelines.
+			They provide guidance and interpretation\textsuperscript{\cite{books1996guide}} of the Pipeline Safety Regulations 1996, allowing us to more easily select the most important regulations for the robot to follow.
+			The regulations which apply to us most clearly are Regulations 10, 15 and 16, with regulation 28 encouraging gas transporters to do their due diligence to ensure that outside companies do not cause an unsafe pipeline.
+			Regulations 10 ("The operator shall ensure that modification, maintenance or other work on a pipeline is carried out in such a way that its soundness and fitness for the purpose for which it has been designed will not be prejudiced") and 15 ("No person shall cause such damage to a pipeline as may give rise to a danger to persons") are similar as both cover the obligation of the robot to avoid causing damage to the pipe.
+			The HSE also clarifies that this means that testing must be undertaken with a standardised pipe to ensure that the robot does not cause damage or structural instability to the pipe.
+			As well as this it is necessary for us to be able to report when there is a possibility that damage to a pipeline has occurred, even when accidental, so the robot should also check for damage caused by the robot on the return journey.
+			\\
+			The IGEM provides technical standards for the gas industry, which are captured in several key areas.
+			Based on the IGEM list of standards\textsuperscript{\cite{institution2021igem}}, as the standards themselves are not freely available, some of the Safety (SR) regulations  as well as the Transmission and Distribution (TD) standards will need to be followed
+			Considering the safety regulations first, SR/22 ("Purging operations for fuel gases in transmission, distribution and storage"), covers the issues faced when removing the robot from the pipeline, and SR/28 ("Trenchless techniques") discusses methods for operating in pipes with minimal or no excavation of the surrounding area.
+			The main Transmission and Distribution considerations are TD/1 ("Steel pipelines for high pressure gas transmission"), which are the main environment which the robot will be operating in, as well as TD/3 ("Steel and PE pipelines for gas distribution") and TD/4 ("PE and steel gas services and service pipework") which are more general standards for all kinds of pipeline, and may provide some requirements not captured by TD/1.
+			\\
+			The International Association of Oil \& Gas Producers (IOGP) provides guidance on the selection of relevant ISO standards\textsuperscript{\cite{iogp2017standards}}, which allows us to narrow down which relevant standards to consider.
+			While the ISO standards are also not freely available, the ISO website provides a short summary of the main points in the standard before purchase, allowing us to evaluate which standards to consider.
+			ISO 21457:2010\textsuperscript{\cite{iso21457}} is important as it identifies the possible corrosion mechanisms and parameters for prediction in pipelines.
+			Thus it helps select suitable materials for the robot, in order to avoid corrosion, as well as helping to identify what corrosion signs to look for.
+			Another important standard is ISO 15649:2001\textsuperscript{\cite{iso15649}} which specifies required design and construction parameters for gas pipelines, as well as requirements for pipeline inspection.
+			This will greatly influence the requirements for the robot, and while many of the necessary safety features for inspection have been considered, the standard will formalise this and emphasise any which are missing.
 			
 		
-		\subsection[Rivalry Among Existing Competitors]{Rivalry Among Existing Competitors}
+		\subsection[Traditional Inspection \& Maintenance Companies]{Traditional Inspection \& Maintenance Companies}
+		
+		\subsection[Gas Suppliers]{Gas Suppliers}
+		
+		\subsection[Local Councils]{Local Councils - Jim Laney}
+		
+		\subsection[General Public]{General Public}
 	
 	\pagebreak		% Temp page break for references - might end up replacing with a multicolumn environment later
 	
 	% In order to make a reference to an entry in the bibliography, use \cite{}
 	% TexStudio will suggest names from the bib file - not sure about overleaf but otherwise use the first entry in the string
 	% Make sure bibliography is set to use BibTex rather than BibLatex
-	% See mybib.bib for an example bib file format - most things should be able to give it to you in this format
-	% Our actual bibliography will be 3YPbib.bib
 	% Currently using google scholar default ids - should help prevent duplication of references but will need to be checked
 	
 	% For websites use the misc tag - see how I've done rsproLinear - the author is in 2 brackets so it doesn't get made into initials
