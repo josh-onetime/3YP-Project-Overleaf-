@@ -638,6 +638,20 @@ BoldItalicFont=Arial Bold Italic.ttf
 		\end{figure}
 	    
 	    \textbf{Fast Decision Tree (FDT)}:
+		Following the argument against the time-frequency based method outlined above, an improved solution is a time-domain method followed using a Fast Decision Tree. \\
+    	\hspace*{3ex}The overall architecture of the algorithm is shown in the figure below. Firstly, a data fusion model was implemented in order to get a better signal representation by fusing the envelope decay rates through a least squares method. In this case, the envelope decay rates are the rate of the decay of the envelopes of the received X and Y axis ELF signals. Then, a Fast Decision Tree (FDT) algorithm is proposed to detect the ELF signals. The FDT first estimates the fused envelope decay rate to maximize the orthogonal signal power of ELF signals, and the maximized orthogonal signal power is used as the test statistic for the signal detection, which provides an excellent detection performance.
+        
+         \begin{figure}[h]
+			\centering
+			\includegraphics[scale=0.12]{FDT.png}
+			\caption{Flow chart of FDT method }
+			\label{comparisonComms}
+		\end{figure}
+		
+		
+		One of the main advantages of this approach is the low latency. The fast calculation process of the FDT method removes the need for large matrix multiplication in the frequency domain. This is particularly important as relaying the robots position as fast as possible ensures the GPS position it receives is as accurate as possible. \\
+    	\hspace*{3ex}Through following a time-domain method, the analysis of the normalized power spectrum suggests that it will improve detection performance over a time-frequency domain method. This is validated through field testing on a PIG containing an ELF transmitter of frequency 23Hz. Upon testing, the FDT method is close to the upper theoretical bound and the difference between them is less than 5\%  when SNR is 0 dB. The experimental results further validate that the proposed FDT method can detect the short transient very weak ELF signals in real time. Based on these results, the proposed FDT method is validated to be effective in real-time pre-processing of the signal for localisation uses.
+		
 		
 		
 		
