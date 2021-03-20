@@ -73,42 +73,47 @@ BoldItalicFont=Arial Bold Italic.ttf
 	\section{Introduction}
 	
 	\subsection[Product Description]{Product Description - Jim Laney}
-	The pipe inspection robot works in underground pipes in urban areas, with a pipe diameter from $609.6$ mm to $914.4$ mm and with pipes at any angle, providing a map of the pipe with the location of any failures to the operator. % 24 - 36 inches; Needs citation for pipe sizes?
-	The robot reduces the disruption caused by having to dig up large areas of pipe for inspection, since the issue can be located and smaller, less disruptive work can be undertaken.
-	It is intended to provide an inspection method for pipes which cannot be inspected by the current leading method, Pipe Inspection Gauges (PIGs), which only work in horizontal or near horizontal straight pipes\textsuperscript{\cite{mills2017advances}}.
-	It enters a pipe using a launch tube, and travels autonomously along the inside of the pipe, checking for evidence of cracks and corrosion and logging their location for future maintenance.
-	\\
 	
-	\begin{figure}[h] % Would like to do this as a text wrapped figure but that can be finnicky so would like to agree on this as a group before attempting it
-		\centering
-		\includegraphics[trim={6cm 2cm 7cm 4cm},clip,height=\imageheight]{overviewCAD}
-		\caption{3D CAD model of robot}
-		\label{3DSketch}
-	\end{figure}
-	
-	While inside the pipe, the robot uses three legs to maintain contact and provide the required normal force to move inside the pipe, as shown in \hyperref[3DSketch]{Figure \ref*{3DSketch}}.
-	Two of these legs can be rotated to provide improved speeds over pipes at different angles, and all three legs can be extended and retracted to fit the pipe diameter the robot is currently in.
-	It can navigate around bends and through pipes at different angles, without prior knowledge of the location or angle of these, and will automatically feedback to the control system in order to create an accurate map.
-	\\
-	The robot uses computer vision to identify cracks and corrosion, allowing it to mark where these occur for human maintenance, and then combines this with knowledge of its position to create a map of the pipe it has travelled and where issues have occurred.
-	It can transmit its location using a small transmitter, which has a separate power supply so that if the robot breaks down it can be located with minimal excavation.
+		The pipe inspection robot works in underground pipes in urban areas, with a pipe diameter from $457.2$ mm to $914.4$ mm and with pipes at any angle, providing a map of the pipe with the location of any failures to the operator. % 18 - 36 inches; Needs citation for pipe sizes?
+		The robot reduces the disruption caused by having to dig up large areas of pipe for inspection, since the issue can be located and smaller, less disruptive work can be undertaken.
+		It is intended to provide an inspection method for pipes which cannot be inspected by the current leading method, Pipe Inspection Gauges (PIGs), which only work in horizontal or near horizontal straight pipes\textsuperscript{\cite{mills2017advances}}.
+		It enters a pipe using a launch tube, and travels autonomously along the inside of the pipe, checking for evidence of cracks and corrosion and logging their location for future maintenance.
+		\\
+		
+		\begin{figure}[h] % Would like to do this as a text wrapped figure but that can be finnicky so would like to agree on this as a group before attempting it
+			\centering
+			\includegraphics[trim={6cm 2cm 7cm 4cm},clip,height=\imageheight]{overviewCAD}
+			\caption{3D CAD model of robot}
+			\label{3DSketch}
+		\end{figure}
+		
+		While inside the pipe, the robot uses three legs to maintain contact and provide the required normal force to move inside the pipe, as shown in \hyperref[3DSketch]{Figure \ref*{3DSketch}}.
+		Two of these legs can be rotated to provide improved speeds over pipes at different angles, and all three legs can be extended and retracted to fit the pipe diameter the robot is currently in.
+		It can navigate around bends and through pipes at different angles, without prior knowledge of the location or angle of these, and will automatically feedback to the control system in order to create an accurate map.
+		\\
+		The robot uses computer vision to identify cracks and corrosion, allowing it to mark where these occur for human maintenance, and then combines this with knowledge of its position to create a map of the pipe it has travelled and where issues have occurred.
+		It can transmit its location using a small transmitter, which has a separate power supply so that if the robot breaks down it can be located with minimal excavation.
 	
 	\subsection[Patent Analysis]{Patent Analysis - Jim Laney}
 	
-	It was decided to look at patents classified as \verb|F16L55/26| - "Pigs or moles, i.e. devices movable in a pipe or conduit with or without self-contained propulsion means" or \verb|F16L2101/30| - "Inspecting, measuring or testing [as a use or application of pigs or moles]" as these are most similar to the purpose which the robot fulfils.
-	In these patents the use of "pigs" refers to Pipeline Inspection Gauges (PIGs from here on), and moles are used as a synonymous term, and will thus also be referred to as PIGs from now on.
-	While the robot is not a PIG as PIGs are typically unpowered and cannot deal with bends in the pipe, this is the closest patent classification to consider.
-	\begin{figure}[h]
-			\centering
-			\includegraphics[height=\imageheight]{patentGraph}
-			\caption{Cumulative number of published patents in the European Patent Office database classified as \texttt{F16L55/26}\textsuperscript{\cite{patent26}} or \texttt{F16L2101/30}\textsuperscript{\cite{patent30}} }
-			\label{patentGraph}
-	\end{figure}
-	\\
-	As you can see from \hyperref[patentGraph]{Figure \ref*{patentGraph}}, the rate of patent publication in both classifications is still growing at a rapid rate, suggesting the technology is in a period of rapid innovation and development.
-	This suggests that industry is still in the initial period of product design ferment, where no dominant design has occurred\textsuperscript{\cite{christensen1998innovation}}.
-	Thus there is a much greater chance of survival, as this dominant design has not yet been established, and the space for new innovators is greater.
-	While there is also a risk to entering the industry too early, the sustained period of development in the last 20 years suggests that period has passed.
+		It was decided to look at patents classified as \verb|F16L55/26| - "Pigs or moles, i.e. devices movable in a pipe or conduit with or without self-contained propulsion means" or \verb|F16L2101/30| - "Inspecting, measuring or testing [as a use or application of pigs or moles]" as these are most similar to the purpose which the robot fulfils.
+		In these patents the use of "pigs" refers to Pipeline Inspection Gauges (PIGs from here on), and moles are used as a synonymous term, and will thus also be referred to as PIGs from now on.
+		While the robot is not a PIG as PIGs are typically unpowered and cannot deal with bends in the pipe, this is the closest patent classification to consider.
+		\begin{figure}[h]
+				\centering
+				\includegraphics[height=\imageheight]{patentGraph}
+				\caption{Cumulative number of published patents in the European Patent Office database classified as \texttt{F16L55/26}\textsuperscript{\cite{patent26}} or \texttt{F16L2101/30}\textsuperscript{\cite{patent30}} }
+				\label{patentGraph}
+		\end{figure}
+		\\
+		As you can see from \hyperref[patentGraph]{Figure \ref*{patentGraph}}, the rate of patent publication in both classifications is still growing at a rapid rate, suggesting the technology is in a period of rapid innovation and development.
+		This suggests that industry is still in the initial period of product design ferment, where no dominant design has occurred\textsuperscript{\cite{christensen1998innovation}}.
+		Thus there is a much greater chance of survival, as this dominant design has not yet been established, and the space for new innovators is greater.
+		While there is also a risk to entering the industry too early, the sustained period of development in the last 20 years suggests that period has passed.
+		
+	\subsection[Constraint Justification]{Constraint Justification}
+		
+		% SEction about how we decided pipe diameters and other important things - gas pressure, etc?
 	
 	
 	\section{Hardware}
@@ -174,7 +179,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 				\end{multicols}
 			\end{figure}
 			
-			The ratio between the longer base links of the pantograph and then shorter tip links is $2:1$, which gives the greatest range of diameters for the smallest change in the base distance\textsuperscript{\cite{okada1987mogrer}}, to calculate the required link length $L$ to allow the robot to adapt to the chosen range of diameters, $609.6 - 914.4$ mm.
+			The ratio between the longer base links of the pantograph and then shorter tip links is $2:1$, which gives the greatest range of diameters for the smallest change in the base distance\textsuperscript{\cite{okada1987mogrer}}, to calculate the required link length $L$ to allow the robot to adapt to the chosen range of diameters, $457.2 - 914.4$ mm.
 			The pantograph angles are shown in \hyperref[legDiagram]{Figure \ref*{legDiagram}}, which results in:
 			
 			\begin{align}
@@ -187,18 +192,18 @@ BoldItalicFont=Arial Bold Italic.ttf
 				L &= \frac{2 \Delta r}{3 \left( \sin \left( \theta_{max} \right) - \sin \left( \theta_{min} \right) \right)}
 			\end{align}
 			
-			Assuming the pantograph will ideally move from an angle of $\theta_{min} = 20^\circ$ to $\theta_{max} = 60^\circ$, spanning a change in radius of $304.8$ mm, $L = 387.8$ mm, and the smallest leg radius $r_{min} = 199.0$ mm, not including the depth of the tracks.
-			This means that, if the track depth is $70$ mm, the body diameter has a maximum of $376.4$ mm, setting a constraint on the dimensions of the inner body based on the design criteria.
+			Assuming the pantograph will ideally move from an angle of $\theta_{min} = 10^\circ$ to $\theta_{max} = 60^\circ$, spanning a change in radius of $228.6$ mm, $L = 220.1$ mm, and the smallest leg radius $r_{min} = 57.3$ mm, not including the depth of the tracks.
+			This means that, if the track depth is $70$ mm, the body diameter $D_r$ has a maximum of $202.5$ mm, setting a constraint on the dimensions of the inner body based on the design criteria.
 			\\
-			The minimum length of the body is also set by this, as it means that the body length $l_{min} = L \cos \left( \theta_{min} \right) = 364.4$ mm.
+			The minimum length of the body is also set by this, as it means that the body length $l_{min} = L \cos \left( \theta_{min} \right) = 216.8$ mm.
 			A maximum body length can be found by considering the ability of the robot to turn corners inside the pipe, and it is necessary to consider how this compares to the minimum to make sure there is no loss of mobility.
-			For the duration of this calculation, it is assumed that the robot is in the smallest possible pipe diameter $D_{pipe} = 609.6$ mm, and the curvature radius $r_c = \frac{3}{2} D_{pipe} = 914.4$ mm.
-			As the robot diameter $D_r \nless \left( 2 \sin \left( 45^\circ \right) - 1 \right) D_{pipe} = 252.5$ mm the maximum length can be found from the following equation\textsuperscript{\cite{roh2005differential}}:
+			For the duration of this calculation, it is assumed that the robot is in the smallest possible pipe diameter $D_{pipe} = 457.2$ mm, and the curvature radius $r_c = \frac{3}{2} D_{pipe} = 685.8$ mm.
+			As the robot diameter $D_r \nless \left( 2 \sin \left( 45^\circ \right) - 1 \right) D_{pipe}$ mm the maximum length can be found from the following equation\textsuperscript{\cite{roh2005differential}}:
 
 			\begin{align}
 				l_{max} &= 2 \sqrt{4D_{pipe}^2 - \left( D_{pipe} + D_r\right) ^ 2}
 				\intertext{which, using the maximum $D_r = 436.4$ mm}
-				l_{max} &= 1252.7 \ \mathrm{mm} \notag
+				l_{max} &= 1266.3 \ \mathrm{mm} \notag
 			\end{align}
 			% Makes max volume 187*10^6 mm^3
 			Using \hyperref[legDiagram]{Figure \ref*{legDiagram}} to calculate the required force output of the linear actuators in order for the robot to operate at all angles.
@@ -477,7 +482,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 		 $H_{\infty}$ control was chosen as the system dynamics can be well modelled for the extension of the leg, and fast performance is required.
 		 This is because too little normal force is possible catastrophic, if the robot is travelling up a steeply inclined pipe, and too much normal force for too long could damage critical components.
 		 While the system is non-linear, most of the variables simply contribute as fixed values, with the system only being non-linear in $\theta$.
-		 However, in the region $20^\circ - 60^\circ, \sin \left( \theta \right)$ is relatively linear, so a linear control method was chosen.
+		 However, in the region $10^\circ - 60^\circ, \sin \left( \theta \right)$ is relatively linear, so a linear control method was chosen.
 		
 		\subsection[Bend Behaviour]{Bend Behaviour - Jim Laney}
 		
@@ -703,7 +708,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 		\begin{align*}
 			W &= \frac{6 \mu_{t,p} F \tan \left( \theta \right)}{\cos \left( \phi \right)}
 		\end{align*}
-		The worst case scenario occurs when when $ \mu = 1.21$\textsuperscript{\cite{sato2011development}}, $\theta = 20^\circ$ and $\phi = 0^\circ$, as stated before.
+		The worst case scenario occurs when when $ \mu = 1.21$\textsuperscript{\cite{sato2011development}}, $\theta = 10^\circ$ and $\phi = 0^\circ$, as stated before.
 		This gives us a maximum weight of $528.5 N = 53.9$ kg, which is quite large, although comparatively small compared to the estimated weight of 9 Inuktun MiniTrac modules, hence why they would be considered inappropriate.
 		With a safety margin of 1.5 for the linear actuator output, limiting their output to $130 N$, the maximum weight becomes $343.5 N = 35.0$ kg which is still reasonable and significantly larger than similar robots.
 		These cost $£ \ 121.46 - £ \ 132.02$ each depending on quantity, but the lower price can be used as this is for 10 or more actuators, which is less than 2 robots. 
@@ -840,7 +845,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 			OFGEM also awards money to companies which they believe are innovating in new technologies as part of the National Innovation Competition (NIC).
 			The NIC provides up to £20 million funding for innovation in the gas energy networks, although in 2020 £27.17 million was awarded under plans to move to increase overall funding to £28 million\textsuperscript{\cite{ofgem2020nic}}.
 			However it also significantly easier to get the gas funding than electricity funding as the competition is significantly smaller - in 2020 there were only 2 applications, both of which were funded.
-			Thus providing a compelling reason why our product is suitable for NIC funding will be incredibly important in order to secure funding for development of the robot.
+			Thus providing a compelling reason for the robot to receive NIC funding will be incredibly important in order to secure funding for development.
 			\\
 			The ENA is the industry body for all the energy suppliers in the UK \& Ireland, allowing them to publish all their own guidance as to what is required to operate safely within pipes.
 			For the gas industry, these fall under the Gas Industry Standards (GIS), which define both how the robot can operate within pipes as well as how the pipes should be built and maintained.
@@ -874,6 +879,17 @@ BoldItalicFont=Arial Bold Italic.ttf
 		\subsection[Gas Suppliers]{Gas Suppliers}
 		
 		\subsection[Local Councils]{Local Councils - Jim Laney}
+			
+			Local councils are a stakeholder since they are required to organise the excavation work to inspect and repair pipes.
+			As such, they would be aiming to minimise the number of inspections in their area, and would also be aiming to excavate the smallest area possible to minimise disruption.
+			However they have relatively little power over the choice of inspection method used by the gas transmission companies, and as such are relatively unimportant stakeholders to impress.
+			The power of local councils is also significantly reduced outside of large cities like London, where the area covered by a single council is greatly increased, and as such the amount of control they have over any single incident will be reduced.
+			However, despite their smaller influence, the effect of councils is still worth considering as they may be the tipping point which causes preference over other options.
+			\\
+			Due to the reduced number of excavations the robot is attractive to local councils, as they do not have to excavate roads as often or as widely.
+			This is a budgetary saving since, in 2018 - 2019, local councils in England spent £$3,857$ million on Highways and Transport, which will include roadworks required to access gas pipes for inspection and replacement, which makes up $4.22$\% of total service expenditure\textsuperscript{\cite{ministry2020local}}.
+			As such the reduction in amount of excavation has the possibility to save a significant amount of funding in the UK, allowing for funding to be redirected to other important services such as education and fire services.
+			As well as this, there is the environmental impact of traffic and excavation, which local governments are aiming to reduce, in order to meet government targets of lowered emissions.
 		
 		\subsection[General Public]{General Public}
 	
