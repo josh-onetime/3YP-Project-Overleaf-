@@ -235,79 +235,214 @@ BoldItalicFont=Arial Bold Italic.ttf
 		
 		\subsubsection{Rotary Sensors}
             		
-            There will be rotary sensors will be placed at the connection between the legs and the tracks. This will allow the robot to know the angle of the legs and therefore compute the distance to the walls and how much the legs must extend in order to produce a particular force. Rotary sensors will also be placed at the top of the arms. This will allow the robot to know the angle at which the arms are so that they can be rotated appropriately. For this job arms magneto resistive sensors and hall effect sensors were investigated. The benefits of Magneto resistive sensors are that they are highly accurate, not sensitive to noise caused by external vibrations, very small and consume little energy. However they do not measure 360 rotations and can be sensitive to temperature fluctuations. Meanwhile Hall effect sensors have the advantage of being able to measure 360 degrees of motion but they are not as accurate as Magneto resistive sensors. Since in this application accuracy is the most important factor and 360 degrees motion is not required magneto resistive sensors will be used.
-            There are three main types of magneto resistive sensors that had to be considered. These are anisotropic magenetoresistance sensorts (AMR), tunnel-magentoresistance sensors (TMR) and giant magnetoresistance sensors (GMR). Table [] compares them. MR is the magnetoresistance ratio and it describes how sensitive the sensor is to changing its electrical resistance with changes in external magnetic fields.[  https://en.wikipedia.org/wiki/Magnetoresistance]
-            TMR sensors are made of three layers, the ferromagnetic free layer, the insulator barrier layer and the ferromagnet pin layer [https://en.wikipedia.org/wiki/Tunnel_magnetoresistance]  The barrier layer is an insulating material. The free layer changes it magnetic orientation to align with externally applied magnetic fields whilst the pin layer has its magnetic orientation in a constant direction. This means that when the externally applied magnetic field is aligned in parallel with the magnetic field of the pin layer there is low resistance and therefore large current, but as the external magnetic field changes direction so that it is becomes more anti-parallel to the pin layer’s magnetic field the resistance increases. The changes in current that this causes can be detected. [https://ieeexplore.ieee.org/document/1003148]
-            GMR sensors are very similar to TMR however the current in these flows parallel to the layers whereas in the TMR it flows perpendicularly across it. There is a change in resistance due to electron scattering that is dependent on the spin orientation of the atoms within the ferromagnetic layers.
-            AMR sensors the other hand only have one layer of permalloy. Changes in resistance in AMR sensors vary depending on the material, but largely it is due to changes in spin-dependent scattering.[  https://www.sciencedirect.com/topics/materials-science/anisotropic-magnetoresistance]  The anisotropic effect is the dependence of resistance in the angle between the electric current and the external magnetic field.
-            Between these TMR was chosen because it has less age deterioration and temperature drift that the other two. This is important when the accuracy is the most important factor. Further it can be seen that it has greater sensitivity which provides greater resolution. Further because it produces a high output it does not require extra amplification reducing cost and complexity. 
-
-
-Table
-
+            There will be rotary sensors will be placed at the connection between the legs and the tracks. 
+            This will allow the robot to know the angle of the legs and therefore compute the distance to the walls and how much the legs must extend in order to produce a particular force. 
+            Rotary sensors will also be placed at the top of the arms. 
+            This will allow the robot to know the angle at which the arms are so that they can be rotated appropriately. 
+            For this job arms magneto resistive sensors and hall effect sensors were investigated. 
+            The benefits of Magneto resistive sensors are that they are highly accurate, not sensitive to noise caused by external vibrations, very small and consume little energy. 
+            However they do not measure 360 rotations and can be sensitive to temperature fluctuations. 
+            Meanwhile Hall effect sensors have the advantage of being able to measure 360 degrees of motion but they are not as accurate as Magneto resistive sensors. 
+            Since in this application accuracy is the most important factor and 360 degrees motion is not required magneto resistive sensors will be used.
+            \\
+            There are three main types of magneto resistive sensors that had to be considered.
+            These are anisotropic magenetoresistance sensorts (AMR), tunnel-magentoresistance sensors (TMR) and giant magnetoresistance sensors (GMR). 
+            Table [] compares them. 
+            MR is the magnetoresistance ratio and it describes how sensitive the sensor is to changing its electrical resistance with changes in external magnetic fields.[https://en.wikipedia.org/wiki/Magnetoresistance]
+            \\
+            TMR sensors are made of three layers, the ferromagnetic free layer, the insulator barrier layer and the ferromagnet pin layer [\url{https://en.wikipedia.org/wiki/Tunnel_magnetoresistance}].
+            The barrier layer is an insulating material.
+            The free layer changes it magnetic orientation to align with externally applied magnetic fields whilst the pin layer has its magnetic orientation in a constant direction.
+            This means that when the externally applied magnetic field is aligned in parallel with the magnetic field of the pin layer there is low resistance and therefore large current, but as the external magnetic field changes direction so that it is becomes more anti-parallel to the pin layer’s magnetic field the resistance increases. 
+            The changes in current that this causes can be detected. [https://ieeexplore.ieee.org/document/1003148]
+            \\
+            GMR sensors are very similar to TMR however the current in these flows parallel to the layers whereas in the TMR it flows perpendicularly across it.
+            There is a change in resistance due to electron scattering that is dependent on the spin orientation of the atoms within the ferromagnetic layers.
+            \\
+            AMR sensors the other hand only have one layer of permalloy. 
+            Changes in resistance in AMR sensors vary depending on the material, but largely it is due to changes in spin-dependent scattering.[  https://www.sciencedirect.com/topics/materials-science/anisotropic-magnetoresistance]
+            The anisotropic effect is the dependence of resistance in the angle between the electric current and the external magnetic field.
+            \\
+            Between these TMR was chosen because it has less age deterioration and temperature drift that the other two. 
+            This is important when the accuracy is the most important factor. 
+            Further it can be seen that it has greater sensitivity which provides greater resolution. Further because it produces a high output it does not require extra amplification reducing cost and complexity. 
+            
+            % Insert table here
 
             \subsubsection{IMU vs AHRS vs INS}
             
-            The robot needs to be able to determine its orientation so that it can calculate its pose. This information is fed into the localisation system as well as the navigation control system. Three options were considered to provide this information, an attitude heading reference system (AHRS), an inertial measurement unit (IMU) and an inertial navigation system (INS). 
-            The main consideration for this is providing as accurate information as possible since the accuracy of the robots systems is highly dependent on the accuracy of its knowledge of its pose. The table below compares the three options. It was decided to use the AHRS because it provided attitude values and also suffers less drift than the IMU due to its application of a Kalman filter. The INS is more expensive but can provide more accurate information if regular GNSS information is available. However this is not available, therefore the extra expense would not be justified. For this reason an AHRS was chosen to be used.
-            In particular the Ellipse 2 Micro AHRS was picked. This is because it is light and compact. It has a weight of 10g and size of 26.8 x 19.8 x 9.5 mm. [ https://www.sbg-systems.com/products/ellipse-micro-series/?gclid=CjwKCAiArbv_BRA8EiwAYGs23MIy00g-YW8iNNNozsH9mjSeER1raROv2mD2hZ86wU91BhrPTuxHTBoCyocQAvD_BwE#ellipse-micro-inertial-navigation-system]
-    
-    
-    add table
+            The robot needs to be able to determine its orientation so that it can calculate its pose. 
+            This information is fed into the localisation system as well as the navigation control system. 
+            Three options were considered to provide this information, an attitude heading reference system (AHRS), an inertial measurement unit (IMU) and an inertial navigation system (INS). 
+            \\
+            The main consideration for this is providing as accurate information as possible since the accuracy of the robots systems is highly dependent on the accuracy of its knowledge of its pose.
+            The table below compares the three options.
+            It was decided to use the AHRS because it provided attitude values and also suffers less drift than the IMU due to its application of a Kalman filter. 
+            The INS is more expensive but can provide more accurate information if regular GNSS information is available. 
+            However this is not available, therefore the extra expense would not be justified. For this reason an AHRS was chosen to be used.
+            \\
+            In particular the Ellipse 2 Micro AHRS was picked.
+            This is because it is light and compact. It has a weight of 10g and size of 26.8 x 19.8 x 9.5 mm. [ \url{https://www.sbg-systems.com/products/ellipse-micro-series/?gclid=CjwKCAiArbv_BRA8EiwAYGs23MIy00g-YW8iNNNozsH9mjSeER1raROv2mD2hZ86wU91BhrPTuxHTBoCyocQAvD_BwE#ellipse-micro-inertial-navigation-system}]
+            
+            % Insert table
 
 
         \subsubsection{Odometers}
         
-        Physical odometers are required to past information into the localisation system. These suffer drift however, as described in the localisation section, can provide useful information to produce a more accurate overall system.
-        One odometry method would be to use the relation between the motor power and track speed. This would have the benefit of not requiring any extra sensors. It would therefore be the cheapest and least complex solution. However its accuracy would be too low due to the non-linear relationship between the power and the motor that would be dependent on that angle the robot is travelling, the weight of the robot, and the coefficient of friction between the robot and ground, among other things, all of which would vary. For this reason this method would not be used.
-        Wheel rotary encoders are another solution that is reasonably uncomplex and cheap. The use of the robots clock and s=ut would allow the displacement to be calculated. Such a method does incur errors such as the tracks slipping which can lead to odometer drift.
-        For these odometers there was the option of using encoders or resolvers. Resolvers were discounted due to their complexity and lower speed range. For the encoders there was an option to use relative or absolute encoders. Absolute encoders were found to not be required since it is only the relative shaft position that would need to be measured.
-        There were three main types of encoders to consider: magnetic, optical and capacitive. Magnetic encoders have the advantage of being more robust and not as sensitive to environmental contamination as optical sensors. However, they are often not as accurate. Further, they can suffer interference from electrical motors and since the electrical motors in the tracks will in close proximity to the encoders this would be a significant factor. Optical encoders have a much higher accuracy. However, they consumer more power and are more likely to break. The LEDs in encoders can burn out after 10,000 to 20,000 hours of use.[https://www.machinedesign.com/automation-iiot/article/21833929/capacitive-encoders-deliver-durability-and-precision] Since the effectiveness of the localisation is highly affected by  the effectiveness of its odometers, this risk of failure of the odometer has high significance. 
-        Capacitive encoders have greater robustness, and do not consume as much power due to not using an LED. They required 6 to 10mA of current compared to 20 to 50mA required by optical encoders Capacitive encoders are also more compact than optical and magnetic encoders and are less expensive [https://www.machinedesign.com/automation-iiot/article/21833929/capacitive-encoders-deliver-durability-and-precision]. They have a downside of being prone to electrical interference however modern packages housing the encoders tend to make this less significant than the noise that the other encoders face. [https://www.machinedesign.com/automation-iiot/article/21833929/capacitive-encoders-deliver-durability-and-precision]
-        The table below compares the metrics that it need to be considered when choosing which type to use. Due to the relative inexpense of these compared to other parts of the robot it was not considered to be a factor worth considering. From this decision matrix it was decided to use a capacitive odometer. In particular the Murata electronics’ capacitive encoder will be used. On an order of 1000 the unit price is £0.694. It has an operating range of -49 to 85C.
+        Physical odometers are required to past information into the localisation system. 
+        These suffer drift however, as described in the localisation section, can provide useful information to produce a more accurate overall system.
+        \\
+        One odometry method would be to use the relation between the motor power and track speed.
+        This would have the benefit of not requiring any extra sensors. 
+        It would therefore be the cheapest and least complex solution.
+        However its accuracy would be too low due to the non-linear relationship between the power and the motor that would be dependent on that angle the robot is travelling, the weight of the robot, and the coefficient of friction between the robot and ground, among other things, all of which would vary.
+        For this reason this method would not be used.
+        \\
+        Wheel rotary encoders are another solution that is reasonably uncomplex and cheap.
+        The use of the robots clock and $s=ut$ would allow the displacement to be calculated. 
+        Such a method does incur errors such as the tracks slipping which can lead to odometer drift.
+        \\
+        For these odometers there was the option of using encoders or resolvers.
+        Resolvers were discounted due to their complexity and lower speed range.
+        For the encoders there was an option to use relative or absolute encoders. 
+        Absolute encoders were found to not be required since it is only the relative shaft position that would need to be measured.
+        \\
+        There were three main types of encoders to consider: magnetic, optical and capacitive.
+        Magnetic encoders have the advantage of being more robust and not as sensitive to environmental contamination as optical sensors.
+        However, they are often not as accurate. 
+        Further, they can suffer interference from electrical motors and since the electrical motors in the tracks will in close proximity to the encoders this would be a significant factor. 
+        Optical encoders have a much higher accuracy. 
+        However, they consumer more power and are more likely to break. 
+        The LEDs in encoders can burn out after 10,000 to 20,000 hours of use. [https://www.machinedesign.com/automation-iiot/article/21833929/capacitive-encoders-deliver-durability-and-precision]
+        Since the effectiveness of the localisation is highly affected by  the effectiveness of its odometers, this risk of failure of the odometer has high significance.
+        \\
+        Capacitive encoders have greater robustness, and do not consume as much power due to not using an LED. 
+        They required 6 to 10mA of current compared to 20 to 50mA required by optical encoders.
+        Capacitive encoders are also more compact than optical and magnetic encoders and are less expensive [https://www.machinedesign.com/automation-iiot/article/21833929/capacitive-encoders-deliver-durability-and-precision]. 
+        They have a downside of being prone to electrical interference however modern packages housing the encoders tend to make this less significant than the noise that the other encoders face. [https://www.machinedesign.com/automation-iiot/article/21833929/capacitive-encoders-deliver-durability-and-precision]
+        \\
+        The table below compares the metrics that it need to be considered when choosing which type to use. 
+        Due to the relative inexpense of these compared to other parts of the robot it was not considered to be a factor worth considering. 
+        From this decision matrix it was decided to use a capacitive odometer. 
+        In particular the Murata electronics’ capacitive encoder will be used. 
+        On an order of 1000 the unit price is £0.694. 
+        It has an operating range of -49 to 85C.
 
         \subsubsection{Sensing pipe damage}
         
-        For the robot to provide value to its users it must be able to identify several features within the pipes. Firstly it must be able damage so that it can be determined whether the pipes need to be replaced. The robot will be primarily used on cast iron pipes. Corrosion and cracks are the major categories of damage that can be found within these pipes.    Secondly, the robot can be used to provide information about the location connecting pipes, joints, valves and other objects within the pipes. 
-        In order to determine how to detect the damage features 3 main steps were used. Firstly determining the type of sensor to use and therefore the type of data that will be processed. Secondly having determined the type of sensor looking into the best types of that type of sensor.
-        Secondly having determined the type of sensor looking into the best types of that type of sensor. Thirdly investigating how to best process the data provided by the sensor so as to extract the desired information.
+        For the robot to provide value to its users it must be able to identify several features within the pipes. 
+        Firstly it must be able damage so that it can be determined whether the pipes need to be replaced.
+        The robot will be primarily used on cast iron pipes. 
+        Corrosion and cracks are the major categories of damage that can be found within these pipes.    
+        Secondly, the robot can be used to provide information about the location connecting pipes, joints, valves and other objects within the pipes.
+        \\
+        In order to determine how to detect the damage features 3 main steps were used. 
+        Firstly determining the type of sensor to use and therefore the type of data that will be processed. 
+        Secondly having determined the type of sensor looking into the best types of that type of sensor. 
+        Thirdly investigating how to best process the data provided by the sensor so as to extract the desired information.
         
-        Constraints to consider
+        \textbf{Constraints to consider}
         
-        When assessing the type of sensor the constraints of the application as well as the desired outcomes must be considered. The robot would be involved in inspecting pipes of varying diameters, they may vary as the robot goes along the pipe as well as in different locations. Therefore the detection systems must be able to adapt to different diameter pipes. Secondly, it is important to maximise the amount of valuable information that can be gained from an excursion since a large amount of investment goes into providing the robot with access to the pipes. Further since in some places it is disruptive to provide access to the pipes and the cost of doing so is a function of time, it is important to use a method that allows the robot to move relatively quickly through the pipes. Thirdly, the robot should be able to adapt to pipes of different materials since although the main use case will be in cast-iron pipes it could also be applied in steel pipes or PE pipes.
+        When assessing the type of sensor the constraints of the application as well as the desired outcomes must be considered. 
+        The robot would be involved in inspecting pipes of varying diameters, they may vary as the robot goes along the pipe as well as in different locations. 
+        Therefore the detection systems must be able to adapt to different diameter pipes. 
+        Secondly, it is important to maximise the amount of valuable information that can be gained from an excursion since a large amount of investment goes into providing the robot with access to the pipes.
+        Further since in some places it is disruptive to provide access to the pipes and the cost of doing so is a function of time, it is important to use a method that allows the robot to move relatively quickly through the pipes. 
+        Thirdly, the robot should be able to adapt to pipes of different materials since although the main use case will be in cast-iron pipes it could also be applied in steel pipes or PE pipes.
 
-        Type of sensors
+        \textbf{Type of sensors}
         
-        MFL
-        Magnetic Flux Leakage inline inspection tools is an array of sensor placed in a circular configuration. The arrays have magnets which produce a magnetic that flows through the pipes between the poles of each of the arrays. Damage in the pipe wall leads to variation in the flow of flux. A flux sensor is placed between the poles of the magnets and detects this variation which it uses to determine if there is damage present. The flux increases in pipe for tensile stresses and decrease for compressive stresses.
-        This type of detection is beneficial because it can detect stresses in the material which might predict damage in the future. Further, it allows damage within the pipe walls to be detected. It is also less sensitive surface condition compared to ultrasonic which is useful when considering that there may be dirt build up on the walls.
-        However, the MFL requires a constant gap between it and the sides of the walls and this gap needs to be small find the exact numbers. In order to get around this problem it was considered designing a mechanism which had the detectors on extendable arms which extended outwards in order to adapt to the pipe diameter. However, this technique would mean in larger pipe diameters there would be less resolution. What’s more the circular geometry meant gave the mechanism an added complexity which would introduce greater cost and weight to the robot. What’s more the requirement to have an array of magnets would have considerably increased the weight of the robot get data on the weights of mfls. Another negative is that corrosion products can build up on the magnets which decreases its accuracy. It was therefore decided not to use an MFL.
-        Piezoceramic UT
-        Piezoceramic Ultrasonic Transducer Detection is a method that measure the time it takes for an emitted ultrasonic pulse to return to the sensor having reflected off a medium boundary. This sensor is usually a piezoceramic transducer.  By using short pulses internal flaws of the pipe can be detected.  It can detect these flaws at greater depths into the wall than MFL.  Further it can detect these flaws to a greater degree of accuracy than the MFL technique. Find data for this claim. However, most UT techniques require a couplant fluid between the sensor and the wall. This would make it difficult to adapt to different diameters and would require the robot to be supplied with a fluid, something that would reduce its range considerably. Further, it would not be desired to introduce a foreign fluid into live gas pipes. On top of this it needs to be calibrated with the thickness of the pipe. In a pipe system in which there is imperfect information and the pipe thickness changes as the diameter changes this would not be feasible. Therefore Ultrasound Detection was decided against.
-        ECT
-        Eddy Current Testing (ECT) uses a probe that produces an alternating magnetic field using an electromagnet. This induces an eddy current in the side of the pipe. The eddy current is then measured and an algorithm can from this information produce information about any cracks that it has passed over. This has an advantage over MFL because it can be used in both ferromagnetic and non-ferromagnetic material for surface inspection, however for tubing inspection it cannot be used for ferromagnetic material which would therefore not be useful when inspecting cast iron pipes. The ECT  also has the benefit of being non-contact.   On the other hand ECT is more sensitive to differing permeability of the wall when compared to MFL and the data is therefore harder to interpret. Get source. Beside this ECT is another technique which requires the sensor to be in close proximity to the wall which would make it hard to adapt to different diameters. For these reasons it was decided against.
-        Thermal
-        A innovative technique that is being developed for use in live pipe conditions involves the robot carrying a heater and a IR camera. When there is a crack in the gas pipe the acceleration of the gas through the crack which creates friction causes temperature changes to the gas that can be detected by the IR camera. This technique has the benefits of not requiring sophisticated computer vision as well as being able to work for many different diameters. However its downside is that it can only detect through cracks thus meaning reducing the value that it can provide to a consumer. 
-        EMAT
-        Electro Magnetic Acoustic Transducers (EMAT) are a non-contact ultrasonic testing technique that does not require a couplant. The EMAT works by using magnetic fields to induce ultrasonic waves into the wall of the pipe. The waves that go through the pipewall when they return induce a current in the EMAT’s receiving coil. EMATs can be used to provide information about the thickness of the wall and wall loss due to damage such as corrosion. The fact that it can provide information about defects within the walls of the pipe and that gas distribution companies already know how to use EMAT data is their risk models means that it has a major advantage. The downside is that on the robot it will only be able to be deployed at certain angles and will miss out on damage over the majority of the circumference of the pipe. For this reason it  cannot be used alone.
+        Magnetic Flux Leakage inline inspection tools is an array of sensor placed in a circular configuration. 
+        The arrays have magnets which produce a magnetic that flows through the pipes between the poles of each of the arrays. 
+        Damage in the pipe wall leads to variation in the flow of flux. 
+        A flux sensor is placed between the poles of the magnets and detects this variation which it uses to determine if there is damage present. 
+        The flux increases in pipe for tensile stresses and decrease for compressive stresses.
+        \\
+        This type of detection is beneficial because it can detect stresses in the material which might predict damage in the future.
+        Further, it allows damage within the pipe walls to be detected. 
+        It is also less sensitive surface condition compared to ultrasonic which is useful when considering that there may be dirt build up on the walls.
+        \\
+        However, the MFL requires a constant gap between it and the sides of the walls and this gap needs to be small find the exact numbers. 
+        In order to get around this problem it was considered designing a mechanism which had the detectors on extendable arms which extended outwards in order to adapt to the pipe diameter. 
+        However, this technique would mean in larger pipe diameters there would be less resolution. 
+        What’s more the circular geometry meant gave the mechanism an added complexity which would introduce greater cost and weight to the robot. 
+        What’s more the requirement to have an array of magnets would have considerably increased the weight of the robot get data on the weights of mfls. 
+        Another negative is that corrosion products can build up on the magnets which decreases its accuracy. It was therefore decided not to use an MFL.
+        \\
+        Piezoceramic Ultrasonic Transducer Detection is a method that measure the time it takes for an emitted ultrasonic pulse to return to the sensor having reflected off a medium boundary. 
+        This sensor is usually a piezoceramic transducer.
+        By using short pulses internal flaws of the pipe can be detected.
+        It can detect these flaws at greater depths into the wall than MFL.  
+        Further it can detect these flaws to a greater degree of accuracy than the MFL technique.  % Find data for this claim. 
+        However, most UT techniques require a couplant fluid between the sensor and the wall. 
+        This would make it difficult to adapt to different diameters and would require the robot to be supplied with a fluid, something that would reduce its range considerably.
+        Further, it would not be desired to introduce a foreign fluid into live gas pipes. 
+        On top of this it needs to be calibrated with the thickness of the pipe. 
+        In a pipe system in which there is imperfect information and the pipe thickness changes as the diameter changes this would not be feasible. 
+        Therefore Ultrasound Detection was decided against.
+        \\
+        Eddy Current Testing (ECT) uses a probe that produces an alternating magnetic field using an electromagnet.
+        This induces an eddy current in the side of the pipe. 
+        The eddy current is then measured and an algorithm can from this information produce information about any cracks that it has passed over. 
+        This has an advantage over MFL because it can be used in both ferromagnetic and non-ferromagnetic material for surface inspection, however for tubing inspection it cannot be used for ferromagnetic material which would therefore not be useful when inspecting cast iron pipes.
+        The ECT  also has the benefit of being non-contact.
+        On the other hand ECT is more sensitive to differing permeability of the wall when compared to MFL and the data is therefore harder to interpret. % Get source. 
+        Beside this ECT is another technique which requires the sensor to be in close proximity to the wall which would make it hard to adapt to different diameters. 
+        For these reasons it was decided against.
+        \\
+        A innovative technique that is being developed for use in live pipe conditions involves the robot carrying a heater and a IR camera. 
+        When there is a crack in the gas pipe the acceleration of the gas through the crack which creates friction causes temperature changes to the gas that can be detected by the IR camera. 
+        This technique has the benefits of not requiring sophisticated computer vision as well as being able to work for many different diameters. 
+        However its downside is that it can only detect through cracks thus meaning reducing the value that it can provide to a consumer. 
+        \\
+        Electro Magnetic Acoustic Transducers (EMAT) are a non-contact ultrasonic testing technique that does not require a couplant. 
+        The EMAT works by using magnetic fields to induce ultrasonic waves into the wall of the pipe.
+        The waves that go through the pipewall when they return induce a current in the EMAT’s receiving coil.
+        EMATs can be used to provide information about the thickness of the wall and wall loss due to damage such as corrosion. 
+        The fact that it can provide information about defects within the walls of the pipe and that gas distribution companies already know how to use EMAT data is their risk models means that it has a major advantage. 
+        The downside is that on the robot it will only be able to be deployed at certain angles and will miss out on damage over the majority of the circumference of the pipe. 
+        For this reason it  cannot be used alone.
+		\\
+        Visual sensing using computer vision techniques to visually identify with a camera damage to the interior of the pipe. 
+        This has the benefit that the information produced is to interpret and the data collection can occur at a faster pace. % Get data 
+        Further the camera equipment required for it is relatively uncomplex and inexpensive and would be required for the navigation of the robot anyway. 
+        Further visual detection can be used with a wide range of diameters since the camera does not need to be in close proximity with the wall. 
+        Further it can be used with any pipe material. 
+        The downsides is that it is has lower precision. Further, its ability to accurately detect damage can be affected by lighting conditions and build up of dirt on the surface of the pipes. 
+        On top of that it cannot detect internal defects in the pipe. % get data to show that this does not matter. 
+        Despite this, its adaptability to the different pipe environments meant that this would be taken forward for further consideration.
+        \\
+        A laser scanner provides higher resolution information about the inner surface of pipes. % Give a resolution number 
+        It allows the depth of pits and cracks to be determined and the integrity of different sections of the pipe. 
+        From this information a laser scanner allows the company to know how much material is left, what the remaining life of the asset is and what the risk of leakage is.  
+        These can be used for a range of pipe diameters so are therefore adaptable. The downside of laser scanners compared to visual sensing is that it is a slow process to acquire detailed high-resolution information. 
+        For a 1 metre diameter pipe it was calculated the robot would need to stop every 0.37m and carry out a 360 degree scan that takes 6 minutes. 
+        This scan covers 0.466m along the axis of the pipe. 
+        This means that the average rate when the laser function is activated is 6.1cm of pipe length per minute. 
+        This calculation was made using data from 2grobotics. [  https://www.2grobotics.com/laser-scanning-crawler-integration-for-internal-pipe-inspection/]
+        \\
+        The laser scanner therefore offers major advantages for providing more detailed information about the pipes than visual sensing. 
+        However, because of its speed of acquiring data it cannot be used all the time if a large distance of pipe needs to be inspected.
+        \\
+        Ideally metrics would be looked at to determine the accuracy of these techniques in the environment that the robot would be in. 
+        This would involve looking at false poistives, false negatives, recall and precision.
+        However, since the robot is not constructed and there is currently no access to these environments this would not be possible.
+        \\
+        It has been decided that the robot would use a combination of laser scanning, visual detection and EMATs.
+        The visual detection would allow the robot to move more quickly through the pipe where there is not any damage, saving time and providing extra range. 
+        The EMAT can be deployed when that data is desired by the gas distribution company in order to form risk models. 
+        Once the visual system detects damage  above a certain threshold it activates the laser scanner to extract greater resolution data about the damage. 
+        This threshold will be decided after test runs are done with the partnered company and will be adapted based on the difference risk preferences of the different clients.
+    	\\
+        \textbf{Constraints imposed on the rest of the robot by the visual detection system}
+        The visual detection system provides constraints on the processing of images. The FPS of the camera chosen is 40.
+        The robot is moving along at $0.1ms^-1$. 
+        Therefore to detect provide a detection every 1cm the robot must be able to process images at 10 FPS.
+        \\
+        Firstly the inverse of the computation time for one frame would need to be less than frame rate otherwise there would be a backlog of images, which would require a large memory saving device prior to the processing of the images. 
+        In case some images do occasionally take longer to be processed than the frame rate there is a small amount of memory allocated to saving the pre-processed images. 
+        This uses a first in first out system.
 
-        Visual
-        Visual sensing using computer vision techniques to visually identify with a camera damage to the interior of the pipe. This has the benefit that the information produced is to interpret and the data collection can occur at a faster pace. Get data Further the camera equipment required for it is relatively uncomplex and inexpensive and would be required for the navigation of the robot anyway. Further visual detection can be used with a wide range of diameters since the camera does not need to be in close proximity with the wall. Further it can be used with any pipe material. The downsides is that it is has lower precision. Further, its ability to accurately detect damage can be affected by lighting conditions and build up of dirt on the surface of the pipes. On top of that it cannot detect internal defects in the pipe. get data to show that this does not matter. Despite this, its adaptability to the different pipe environments meant that this would be taken forward for further consideration.
-        Laser Scanner
-         A laser scanner provides higher resolution information about the inner surface of pipes. Give a resolution number It allows the depth of pits and cracks to be determined and the integrity of different sections of the pipe. From this information a laser scanner allows the company to know how much material is left, what the remaining life of the asset is and what the risk of leakage is.  These can be used for a range of pipe diameters so are therefore adaptable. The downside of laser scanners compared to visual sensing is that it is a slow process to acquire detailed high-resolution information. For a 1 metre diameter pipe it was calculated the robot would need to stop every 0.37m and carry out a 360 degree scan that takes 6 minutes. This scan covers 0.466m along the axis of the pipe. This means that the average rate when the laser function is activated is 6.1cm of pipe length per minute. This calculation was made using data from 2grobotics. [  https://www.2grobotics.com/laser-scanning-crawler-integration-for-internal-pipe-inspection/]
-         
-        The laser scanner therefore offers major advantages for providing more detailed information about the pipes than visual sensing. However, because of its speed of acquiring data it cannot be used all the time if a large distance of pipe needs to be inspected.
-        Decision
-        Ideally metrics would be looked at to determine the accuracy of these techniques in the environment that the robot would be in. This would involve looking at false poistives, false negatives, recall and precision. However, since the robot is not constructed and there is currently no access to these environments this would not be possible.
-        It has been decided that the robot would use a combination of laser scanning, visual detection and EMATs. The visual detection would allow the robot to move more quickly through the pipe where there is not any damage, saving time and providing extra range. The EMAT can be deployed when that data is desired by the gas distribution company in order to form risk models. Once the visual system detects damage  above a certain threshold it activates the laser scanner to extract greater resolution data about the damage. This threshold will be decided after test runs are done with the partnered company and will be adapted based on the difference risk preferences of the different clients.
-    
-        Constraints imposed on the rest of the robot by the visual detection system
-        The visual detection system provides constraints on the processing of images. The FPS of the camera chosen is 40. The robot is moving along at 0.1ms^-1. Therefore to detect provide a detection every 1cm the robot must be able to process images at 10 FPS
-        Firstly the inverse of the computation time for one frame would need to be less than frame rate otherwise there would be a backlog of images, which would require a large memory saving device prior to the processing of the images. In case some images do occasionally take longer to be processed than the frame rate there is a small amount of memory allocated to saving the pre-processed images. This uses a first in first out system.
-
-
-        
-		
 		\subsection[Communications]{Communications - Louis Emmanuel}
 		%by Louis
 
@@ -680,86 +815,194 @@ Table
 		
 		\subsubsection{Computer Vision}
 		
-		The robot’s computer vision functionality has three main roles. One is to detect corrosion, the second is to detect cracks and the third is to detect obstacles and pipe features.
-        To consider how to do this first the significance of different attributes of the detection system were considered. Since there will be a cable that connects the robot to the ground station and there will be a power supply at the ground station the power constraints are less important than if the robot had an on board power supply. The time it takes to process an image is also important because it is desired to process the images live, both to allow the robot to know when to activate the laser scanner and so as to save time. The most important factor however is the accuracy of the feature detections since this is the attribute that the value provided to the client is based upon.
+		The robot’s computer vision functionality has three main roles. 
+		One is to detect corrosion, the second is to detect cracks and the third is to detect obstacles and pipe features.
+		\\
+        To consider how to do this first the significance of different attributes of the detection system were considered. 
+        Since there will be a cable that connects the robot to the ground station and there will be a power supply at the ground station the power constraints are less important than if the robot had an on board power supply. 
+        The time it takes to process an image is also important because it is desired to process the images live, both to allow the robot to know when to activate the laser scanner and so as to save time. 
+        The most important factor however is the accuracy of the feature detections since this is the attribute that the value provided to the client is based upon.
+        \\
         The environment also poses constraints on the algorithm, since it has poor lighting conditions and repetitive scenery.
-        The metrics to judge the algorithms on are sensitivity, recall, false positives, negative positives and F1. Corrosion and crack detection need to have a high degree of sensitivity. This is because it is important that no damage is missed. It is better to have a large number of false positives than false negatives because the images that are flagged as having damage will be manually reviewed whereas those that are not will not be reviewed. However, the algorithms should also be as precise as possible since too high a number of false positives would increase the amount of time required by humans to review the images, thus decreasing the value of the robot’s service.
+        \\
+        The metrics to judge the algorithms on are sensitivity, recall, false positives, negative positives and F1. % What is F1?
+        Corrosion and crack detection need to have a high degree of sensitivity. 
+        This is because it is important that no damage is missed. 
+        It is better to have a large number of false positives than false negatives because the images that are flagged as having damage will be manually reviewed whereas those that are not will not be reviewed. 
+        However, the algorithms should also be as precise as possible since too high a number of false positives would increase the amount of time required by humans to review the images, thus decreasing the value of the robot’s service.
         
         \subsubsection{Corrosion Detection}
-        
-        
-        The detection of corrosion it was considered whether to use a CNN algorithm, a wavelet NN algorithm, a Weak-classifier Colour-Based Corrosion detector or an AdaBoost Corrosion Detector.
-        I first investigated the WCCD and the AdaBoost Corrosion Detector since they have a much lower computational expense. The WCCD classified images within 7.25ms and had a False Positive ratio of 9.23\% and False Negative of 5.99\%. The AdaBoost Corrosion Detector on the other hand had a more complicated training time, longer processing time and false positive ratio of 17.16\% and false negative of 3.39\%. Because these ratios are for semantic segmentation and the algorithm only needs to determine whether there is corrosion within a frame. Therefore the difference in their improved false negative ratio for the AdaBoost Corrosion Detector is not worth the worse false positive ratio and longer processing time. Out of these it was decided the WCCD would be preferable.
-        In order to decide whether the computational expense of the WCCD could be reduced further I investigated the use of the roughness step alone on data set. To calculate the GLCM firstly each image was transformed into patches each 32 x32 pixels. The glcm of the patch was calculated used the MATLAB gracomatrix function. The energy of this matrix is then calculated using the gracoprops function. These energies were then saved into a matrix. A for loop then went through the matrix made up of the energy of each patch and selected the patches that were above a certain threshold. This was tested on a sample of 12 non-rusty inside of pipe images and 18 rusty images on the inside of pipes. It was found that it could not classify the images correctly. Ideally, it would have been tested on a data set of a larger number of images however these were the only ones that could be found on the internet. From this it was concluded that the training and colour-based part of the WCCD algorithm was necessary to produce the results.
-        For the CNN and wavelet NNs the paper “Evaluation of deep learning approaches based on convolutional neural networks for corrosion detection” by Atha et al was reviewed. The best performing CNN based algorithm used single image fusion with a VGG16 fine-tuned algorithm. This provided recall of 98.81\% and precision of 98.64\%. The best performing wavelet NN algorithm provided recall of 93.01\% and Precision of 93.65\%.  This showed that a CNN algorithm would outperform the wavelet NN algorithm. However the VGG16 took 256(ms) to classify 256 windows of size 128x128. Since the images being provided is 2048 x 2048 pixels this means it took 256 (ms) to process an image which would allow for 3.91 fps. This would be a satisfactory framerate however the GPU used to achieve this performance was the NVIDIA TITAN X Pascal which has a thermal design power of 250W [https://www.techpowerup.com/gpu-specs/titan-x-pascal.c2863] and has a theoretical Pixel rate of 147 GPixel/s and FP32 (float) performance of 10.97 TFLOPS. This power consumption is too high, therefore a less powerful GPU would be used which would mean the fps rate of classification would be reduced. For this reason the Corrosion7 network which has can process an image in 33ms giving 30.3fps being processed would be better, given that its performance is not substantially less with 97.01\% Recall and 96.17\% Precision.
-        
-        To determine whether to use the WCCD or the Corrosion7 algorithm the datasets that they were tested on were examined. The dataset of the Corrosion7 was primarily of corrosion in well lit images in natural light, and the paper warned of a risk of overfitting. The WCCD on the other hand was trained and tested on a dataset more similar to the images that the robot would be processing, these were images in non-natural light for example on the inside of storage tanks. Therefore, since it is currently not possible to validate the data on our own dataset it was decided that the WCCD algorithm was more likely to transfer its performance to the new dataset. Its potentially not that low false positive and false negative ratios are not concerning because this algorithm is semantic segmentation. Therefore if there is considerable corrosion to the extent it is concerning the algorithm may not pick up on all of the corrosion but since the main purpose is to highlight an image containing corrosion to the user and the accurate identification of the location of the corrosion in that image is an added bonus then it does not matter as long as some of the corrosion has been detected.
 
-		
-		Two tables
+        The detection of corrosion it was considered whether to use a CNN algorithm, a wavelet NN algorithm, a Weak-classifier Colour-Based Corrosion detector or an AdaBoost Corrosion Detector.
+        \\
+        I first investigated the WCCD and the AdaBoost Corrosion Detector since they have a much lower computational expense. 
+        The WCCD classified images within 7.25ms and had a False Positive ratio of 9.23\% and False Negative of 5.99\%. 
+        The AdaBoost Corrosion Detector on the other hand had a more complicated training time, longer processing time and false positive ratio of 17.16\% and false negative of 3.39\%. 
+        Because these ratios are for semantic segmentation and the algorithm only needs to determine whether there is corrosion within a frame. 
+        Therefore the difference in their improved false negative ratio for the AdaBoost Corrosion Detector is not worth the worse false positive ratio and longer processing time. 
+        Out of these it was decided the WCCD would be preferable.
+        \\
+        In order to decide whether the computational expense of the WCCD could be reduced further I investigated the use of the roughness step alone on data set. 
+        To calculate the GLCM firstly each image was transformed into patches each 32 x32 pixels. 
+        The glcm of the patch was calculated used the MATLAB gracomatrix function.
+        The energy of this matrix is then calculated using the gracoprops function. 
+        These energies were then saved into a matrix. 
+        A for loop then went through the matrix made up of the energy of each patch and selected the patches that were above a certain threshold. 
+        This was tested on a sample of 12 non-rusty inside of pipe images and 18 rusty images on the inside of pipes. 
+        It was found that it could not classify the images correctly.
+        Ideally, it would have been tested on a data set of a larger number of images however these were the only ones that could be found on the internet. 
+        From this it was concluded that the training and colour-based part of the WCCD algorithm was necessary to produce the results.
+        \\
+        For the CNN and wavelet NNs the paper “Evaluation of deep learning approaches based on convolutional neural networks for corrosion detection” by Atha et al was reviewed. 
+        The best performing CNN based algorithm used single image fusion with a VGG16 fine-tuned algorithm. 
+        This provided recall of 98.81\% and precision of 98.64\%. 
+        The best performing wavelet NN algorithm provided recall of 93.01\% and Precision of 93.65\%.  
+        This showed that a CNN algorithm would outperform the wavelet NN algorithm. However the VGG16 took 256(ms) to classify 256 windows of size 128x128. 
+        Since the images being provided is 2048 x 2048 pixels this means it took 256 (ms) to process an image which would allow for 3.91 fps. 
+        This would be a satisfactory framerate however the GPU used to achieve this performance was the NVIDIA TITAN X Pascal which has a thermal design power of 250W [https://www.techpowerup.com/gpu-specs/titan-x-pascal.c2863] and has a theoretical Pixel rate of 147 GPixel/s and FP32 (float) performance of 10.97 TFLOPS. 
+        This power consumption is too high, therefore a less powerful GPU would be used which would mean the fps rate of classification would be reduced. 
+        For this reason the Corrosion7 network which has can process an image in 33ms giving 30.3fps being processed would be better, given that its performance is not substantially less with 97.01\% Recall and 96.17\% Precision.
+        \\
+        To determine whether to use the WCCD or the Corrosion7 algorithm the datasets that they were tested on were examined. 
+        The dataset of the Corrosion7 was primarily of corrosion in well lit images in natural light, and the paper warned of a risk of overfitting. 
+        The WCCD on the other hand was trained and tested on a dataset more similar to the images that the robot would be processing, these were images in non-natural light for example on the inside of storage tanks. 
+        Therefore, since it is currently not possible to validate the data on our own dataset it was decided that the WCCD algorithm was more likely to transfer its performance to the new dataset. 
+        Its potentially not that low false positive and false negative ratios are not concerning because this algorithm is semantic segmentation. 
+        Therefore if there is considerable corrosion to the extent it is concerning the algorithm may not pick up on all of the corrosion but since the main purpose is to highlight an image containing corrosion to the user and the accurate identification of the location of the corrosion in that image is an added bonus then it does not matter as long as some of the corrosion has been detected.
+	
+		% Two tables
 		
 		\subsubsection{Crack detection}
 		
-		For crack detection it would be useful information to highlight the location of the crack within the image. For this reason an image classification algorithm would not suffice. Cracks are morphological objects that can have unlimited dimensions which is a property that makes them hard to identify using object detection. Therefore it was decided to find a semantic segmentation algorithm to find the cracks.
-        A paper authored by Zhang et al compared several semantic segmentation algorithm’s for detecting cracks. Within this paper 3 algorithm’s stood out due to them being the highest performing in one the Pregion Rregion and F1region metrics.
-        table
-        
-        Precision=\ \frac{{\rm TP}_{region}}{{\rm TP}_{region}+{\rm FP}_{region}}
-        Sensitivity=\ \frac{{\rm TP}_{region}}{{\rm TP}_{region}+{\rm FN}_{region}}
-        F1=\ \frac{2\ \times\ Precision\ x\ Sensitivity}{Prection\ +\ Sensitivity}
+		For crack detection it would be useful information to highlight the location of the crack within the image.
+		For this reason an image classification algorithm would not suffice. 
+		Cracks are morphological objects that can have unlimited dimensions which is a property that makes them hard to identify using object detection. 
+		Therefore it was decided to find a semantic segmentation algorithm to find the cracks.
+		\\
+        A paper authored by Zhang et al compared several semantic segmentation algorithm’s for detecting cracks. 
+        Within this paper 3 algorithm’s stood out due to them being the highest performing in one the Pregion Rregion and F1region metrics.
+        % table
+        \begin{align}
+        	Precision = \frac{{\rm TP}_{region}}{{\rm TP}_{region}+{\rm FP}_{region}}
+        	\\
+        	Sensitivity=\ \frac{{\rm TP}_{region}}{{\rm TP}_{region}+{\rm FN}_{region}}
+        	\\
+        	F1=\ \frac{2\ \times\ Precision\ \times Sensitivity}{Prection\ +\ Sensitivity}
+        \end{align}
     
-        Since an important factor is that the algorithm does not miss any cracks the sensitivity factor is more important than precision. Since CrackIT has a very low sensitivity score it was then removed from consideration. In the pipes there will also be features such as dirt build up which may be characterized as cracks. It is undesirable to categorize too many of these as cracks because that increase the amount of time required for a human to check the results. Therefore even though CrackForest has a slightly higher sensitivity than CrackGAN its substantially lower precision makes CrackGAN a more desirable algorithm. This can be seen from its higher F1 score. Secondly CrackGAN is much more computationally efficient which will allow the robot to process the images more quickly and therefore classify video images at a better pace. [https://arxiv.org/pdf/1909.08216.pdf]
-		
-		CrackGAN is a generative adversial network. CrackGAN is an image-to-image translation network which involves a generative adversial loss that helps it solve an “All Black” problem which is seen in crack detection when only the background is detected.
-		
-		two images
-		
-		It firstly pre-trains a DC-GAN and implements transfer learning by taking the discriminator from this and putting it on the end of the CrackGAN model. First stage is to train a DC-GAN which uses crack patch only images. It uses a generative model to produce the fake data and the algorithm looks to maximise two objective functions. This pre-trained discriminator provides an adversarial loss function and is then put at the end of an asymmetric U-net generator. The problem here is that the DC-GAN discriminator has only be trained using crack patches in order to stop the “All Black” scenario. But CrackGAN needs to be able to process both cracked and non-cracked images. Using an asymmetric U-Net generator allows non-cracked translation with only cracked-image inputs because it allows a larger image to be input which has patches which are cracked and parts which are non-cracked this is then down sampled by the asymmetric U-Net network so that its output is the same size as the required input by the discriminator. It then uses dilated ground truths in the L1 pixel loss function. The images are dilated to ensure that the crack locations are definitely covered. This combination with the the DC-GAN adversarial loss function allow produced the overall objective function which is desired to be optimised by Crack-GAN.
+        Since an important factor is that the algorithm does not miss any cracks the sensitivity factor is more important than precision. 
+        Since CrackIT has a very low sensitivity score it was then removed from consideration. 
+        In the pipes there will also be features such as dirt build up which may be characterized as cracks. 
+        It is undesirable to categorize too many of these as cracks because that increase the amount of time required for a human to check the results.
+        Therefore even though CrackForest has a slightly higher sensitivity than CrackGAN its substantially lower precision makes CrackGAN a more desirable algorithm. 
+        This can be seen from its higher F1 score. % Where do we see this
+        Secondly CrackGAN is much more computationally efficient which will allow the robot to process the images more quickly and therefore classify video images at a better pace. [https://arxiv.org/pdf/1909.08216.pdf]
+		\\
+		CrackGAN is a generative adversial network. 
+		CrackGAN is an image-to-image translation network which involves a generative adversial loss that helps it solve an “All Black” problem which is seen in crack detection when only the background is detected.
+		% two images
+		\\
+		It firstly pre-trains a DC-GAN and implements transfer learning by taking the discriminator from this and putting it on the end of the CrackGAN model.
+		First stage is to train a DC-GAN which uses crack patch only images.
+		It uses a generative model to produce the fake data and the algorithm looks to maximise two objective functions. 
+		This pre-trained discriminator provides an adversarial loss function and is then put at the end of an asymmetric U-net generator. 
+		The problem here is that the DC-GAN discriminator has only be trained using crack patches in order to stop the “All Black” scenario. 
+		But CrackGAN needs to be able to process both cracked and non-cracked images. 
+		Using an asymmetric U-Net generator allows non-cracked translation with only cracked-image inputs because it allows a larger image to be input which has patches which are cracked and parts which are non-cracked this is then down sampled by the asymmetric U-Net network so that its output is the same size as the required input by the discriminator. 
+		It then uses dilated ground truths in the L1 pixel loss function. 
+		The images are dilated to ensure that the crack locations are definitely covered. 
+		This combination with the the DC-GAN adversarial loss function allow produced the overall objective function which is desired to be optimised by Crack-GAN.
 		
 		\subsubsection{Detecting objects inside the pipes}
 		
-		There are several features inside the pipes which are important to detect. Firstly the location of pipes connecting to the pipe that the robot is in need to be localised so that they are not damaged in any potential excavations. Secondly the location of the joints need to be determined because these are the parts of the pipe most prone to damage and the robot needs to be able to stop in front of each one in order to ensure a detailed image is captured. Thirdly there may be obstacles in the pipes such as equipment that was left there when the pipes were layed.
-        It is important to know the location of these objects within the image, therefore object classification is not sufficient. Between object detection, semantic segmentation, instance segmentation and panoptic segmentation, [  https://medium.com/swlh/object-detection-and-instance-segmentation-a-detailed-overview-94ca109274f2] object detection is preferable because segmentation algorithms tend to be more computationally expensive and the added value of pixel labels is not worth it. Further semantic segmentation could not be used because if there were multiple objects of a certain type within the image it would not be possible to distinguish the two.
-        There are several features of the object detection algorithm that are desirable due to the constraints imposed by the environment and the desired outcomes. Firstly it is important to be able to detect small objects since some connecting pipes can be very small in size. Secondly, being able to implement the algorithm in real time would mean that the objects location can be known more assuredly since it would not be moving a large amount between frames, this also helps with the object tracking. Further there will be scale change and motion blur as well as changes in lighting.
-        Four main algorithm’s were considered. Single Shot Detector, Faster R-CNN Yolo v1 and Yolo v3. The processing speed of Faster R-CNN was determined to be undesirably slow therefore it was decided not to be used. The fastest of the algorithms is Yolov1. However it is ineffective in identifying small objects, therefore it was decided not to be used. When comparing the Single Shot Detector and Yolov3 it was found that both could identify small objects. The Yolov3 however was slighting faster in implementation and had a slightly higher accuracy in a test on MS-COCO when running on a Pascal Titan X GPU.
+		There are several features inside the pipes which are important to detect. 
+		Firstly the location of pipes connecting to the pipe that the robot is in need to be localised so that they are not damaged in any potential excavations. 
+		Secondly the location of the joints need to be determined because these are the parts of the pipe most prone to damage and the robot needs to be able to stop in front of each one in order to ensure a detailed image is captured. 
+		Thirdly there may be obstacles in the pipes such as equipment that was left there when the pipes were layed.
+		\\
+        It is important to know the location of these objects within the image, therefore object classification is not sufficient. 
+        Between object detection, semantic segmentation, instance segmentation and panoptic segmentation, [  https://medium.com/swlh/object-detection-and-instance-segmentation-a-detailed-overview-94ca109274f2] object detection is preferable because segmentation algorithms tend to be more computationally expensive and the added value of pixel labels is not worth it. 
+        Further semantic segmentation could not be used because if there were multiple objects of a certain type within the image it would not be possible to distinguish the two.
+        \\
+        There are several features of the object detection algorithm that are desirable due to the constraints imposed by the environment and the desired outcomes. 
+        Firstly it is important to be able to detect small objects since some connecting pipes can be very small in size. 
+        Secondly, being able to implement the algorithm in real time would mean that the objects location can be known more assuredly since it would not be moving a large amount between frames, this also helps with the object tracking. 
+        Further there will be scale change and motion blur as well as changes in lighting.
+        \\
+        Four main algorithm’s were considered. 
+        Single Shot Detector, Faster R-CNN Yolo v1 and Yolo v3. 
+        The processing speed of Faster R-CNN was determined to be undesirably slow therefore it was decided not to be used. 
+        The fastest of the algorithms is Yolov1. However it is ineffective in identifying small objects, therefore it was decided not to be used. 
+        When comparing the Single Shot Detector and Yolov3 it was found that both could identify small objects. 
+        The Yolov3 however was slighting faster in implementation and had a slightly higher accuracy in a test on MS-COCO when running on a Pascal Titan X GPU.
+        \\
         For these reasons it was decided to use the Yolov3.
         
         \subsubsection{Object Detection}
         
-        In order to ensure that the same object that is identified in two subsequent images is known by the robot to be the same object some form of tracking is required. Optical flow was considered, which tracks features between subsequent frames. However, this would require certain features to be extracted from the image. Therefore a preferable algorithm would make use of the object detection that has already taken place and produced bounding boxes. SORT is an algorithm that does this. It tracks images across frames aiming to maximise the intersection of union metric. Bewley et al demonstrated that SORT had a much higher speed than similarly accurate algorithms, which confirmed that it would be the ideal algorithm to use. [  “SIMPLE ONLINE AND REALTIME TRACKING” Bewley et al]
-        
-        image
-        
-        
+        In order to ensure that the same object that is identified in two subsequent images is known by the robot to be the same object some form of tracking is required. 
+        Optical flow was considered, which tracks features between subsequent frames. 
+        However, this would require certain features to be extracted from the image. 
+        Therefore a preferable algorithm would make use of the object detection that has already taken place and produced bounding boxes. 
+        SORT is an algorithm that does this. 
+        It tracks images across frames aiming to maximise the intersection of union metric. 
+        Bewley et al demonstrated that SORT had a much higher speed than similarly accurate algorithms, which confirmed that it would be the ideal algorithm to use. [  “SIMPLE ONLINE AND REALTIME TRACKING” Bewley et al]
+        % image
+       
         \subsubsection{Training}
         
-        Once this data sets have been collected they will be split into training and testing sets. In order to find the best tuning parameters and to the test the models have been used in the algorithms cross validation will be used. An example of the former is how the WCCD model requires different thresholds to be chosen for the HSV values when classifying pixels as corrosion. Cross validation involves splitting the data set into k folds. One is made the validation fold and the other k-1 are training folds. The performance of this set is calculated. Then the validation fold is iterated through the five folds and the same process is carried out k-1 more times. [  https://www.cs.cmu.edu/~schneide/tut5/node42.html] [  History of the scientific standards of QEEG normative databases – Thathcher et al 2009]   The average performance is used to evaluate the model used. The advantage of this compared to the holdout method is that increasing the number of folds reduces the variance which is worth the increased computational cost. However if the number of folds is increased too much then the bias is too high. Thus k will be chosen to be 5 in order to gain a trade off between variance bias and computation time. [https://codesachin.wordpress.com/2015/08/30/cross-validation-and-the-bias-variance-tradeoff-for-dummies/]  Another benefit of the cross validation model is that the performance is not affected by which fold is chosen to validate instead of testing because all the folds have a turn at being the validation fold. [  https://www.cs.cmu.edu/~schneide/tut5/node42.html]
- 
+        Once this data sets have been collected they will be split into training and testing sets. 
+        In order to find the best tuning parameters and to the test the models have been used in the algorithms cross validation will be used. 
+        An example of the former is how the WCCD model requires different thresholds to be chosen for the HSV values when classifying pixels as corrosion. 
+        Cross validation involves splitting the data set into k folds. 
+        One is made the validation fold and the other k-1 are training folds. 
+        The performance of this set is calculated. 
+        Then the validation fold is iterated through the five folds and the same process is carried out k-1 more times. [  https://www.cs.cmu.edu/~schneide/tut5/node42.html] [  History of the scientific standards of QEEG normative databases – Thathcher et al 2009]   
+        The average performance is used to evaluate the model used. 
+        The advantage of this compared to the holdout method is that increasing the number of folds reduces the variance which is worth the increased computational cost. 
+        However if the number of folds is increased too much then the bias is too high. 
+        Thus k will be chosen to be 5 in order to gain a trade off between variance bias and computation time. [https://codesachin.wordpress.com/2015/08/30/cross-validation-and-the-bias-variance-tradeoff-for-dummies/]  
+        Another benefit of the cross validation model is that the performance is not affected by which fold is chosen to validate instead of testing because all the folds have a turn at being the validation fold. [  https://www.cs.cmu.edu/~schneide/tut5/node42.html]
 
-		
-		
 		\subsection{Mapping and Location}
-		
-		
-		
-		
-		I don't know if this is something we want to use but I have added it and can remove later
+
+		% I don't know if this is something we want to use but I have added it and can remove later
 		
 		\subsubsection{Landmark detection}
-        In order to improve the accuracy of the odometry the robot needs to be able to identify certain landmarks. Through the way that the robot navigates corners, the odometers will be able to detect that a corner is being navigated. However since the purpose of his extra odometry is to be able to make corrections to errors in the mechanical odometry another method should also be used.
-        The most simple solution to this is to place ultrasonic detectors on the sides of the robot. This allows the robot to detect the distance between it and the side of the wall. When the distance increases then the robot knows that it is going around a bend. The downside to this solution is that if there are any builds up on the pipe wall or the pipe is deformed then it may not register since the distance to the wall would not change as expected.
-        A laser spot array and camera would use an array of laser projected onto the wall. The distances between the dots would be measured and this would allow for landmarks to be assessed. This an effective solution in a well known environment. However, the dimensions of the pipe needs to be known exactly for the calculations to be accurate, which means that this is a solution that does not provide the flexibility desired.
-        Using a stereo camera and laser was a solution suggested by Ahraray et al. [https://www.researchgate.net/publication/29451329_Navigation_of_an_autonomous_sewer_inspection_robot_based_on_stereo_camera_images_and_laser_scanner_data] This solution uses stereo image and a laser scanner. Stereo image matching is used to detect the distance to certain landmarks and then once within a certain distance the laser scanner is used. This allows the robot to detect side branches effectively. The downside of this solution is that it requires a stereo camera which is not ideal for compact design of our robot, plus it increases the power requirements of the robot as well as its cost.
-        A solution created by Lee et Al [https://ieeexplore.ieee.org/document/5669829] uses a rotating laser and a camera. When there is a bend there is a laser shadow which the camera detects. Depending on the shape of the laser shadow the robot can determine which bend it is navigating. Different laser shapes are given different numbers. The numbers are then lined out and filtered for noise, before paired up with a potential array. The major downside to this design is that it requires the addition of a rotating laser. This would both increase the mechanical complexity and power requirements of the robot by requiring a motor to power the rotating mechanism. It would also introduce a constraint on the speed of the robot due to the robots speed needing to be a function of the rotational speed of the laser, for it to rotate a sufficient number of times to build up a picture of the laser shadow. Therefore, it was decided to use a less mechanically complex solution also proposed by Lee et al which uses just an array of LEDs to project light, the shape of the light shadow is then assessed to detect the bends in the curve. This solution is more subject to noise requires a greater software complexity for identification because it cannot use the simple number assigning algorithm used in the laser solution. However, this is preferred to the mechanical complexity. For these reasons this is the solution that our robot design will use.
+        In order to improve the accuracy of the odometry the robot needs to be able to identify certain landmarks. 
+        Through the way that the robot navigates corners, the odometers will be able to detect that a corner is being navigated. 
+        However since the purpose of his extra odometry is to be able to make corrections to errors in the mechanical odometry another method should also be used.
+        \\
+        The most simple solution to this is to place ultrasonic detectors on the sides of the robot. 
+        This allows the robot to detect the distance between it and the side of the wall. 
+        When the distance increases then the robot knows that it is going around a bend. 
+        The downside to this solution is that if there are any builds up on the pipe wall or the pipe is deformed then it may not register since the distance to the wall would not change as expected.
+        \\
+        A laser spot array and camera would use an array of laser projected onto the wall. 
+        The distances between the dots would be measured and this would allow for landmarks to be assessed. 
+        This an effective solution in a well known environment. 
+        However, the dimensions of the pipe needs to be known exactly for the calculations to be accurate, which means that this is a solution that does not provide the flexibility desired.
+        \\
+        Using a stereo camera and laser was a solution suggested by Ahraray et al. [\url{https://www.researchgate.net/publication/29451329_Navigation_of_an_autonomous_sewer_inspection_robot_based_on_stereo_camera_images_and_laser_scanner_data}] 
+        This solution uses stereo image and a laser scanner. 
+        Stereo image matching is used to detect the distance to certain landmarks and then once within a certain distance the laser scanner is used. 
+        This allows the robot to detect side branches effectively. 
+        The downside of this solution is that it requires a stereo camera which is not ideal for compact design of our robot, plus it increases the power requirements of the robot as well as its cost.
+        \\
+        A solution created by Lee et Al [https://ieeexplore.ieee.org/document/5669829] uses a rotating laser and a camera. 
+        When there is a bend there is a laser shadow which the camera detects. 
+        Depending on the shape of the laser shadow the robot can determine which bend it is navigating. 
+       	Different laser shapes are given different numbers. 
+       	The numbers are then lined out and filtered for noise, before paired up with a potential array. 
+       	The major downside to this design is that it requires the addition of a rotating laser. 
+       	This would both increase the mechanical complexity and power requirements of the robot by requiring a motor to power the rotating mechanism. 
+       	It would also introduce a constraint on the speed of the robot due to the robots speed needing to be a function of the rotational speed of the laser, for it to rotate a sufficient number of times to build up a picture of the laser shadow. 
+       	Therefore, it was decided to use a less mechanically complex solution also proposed by Lee et al which uses just an array of LEDs to project light, the shape of the light shadow is then assessed to detect the bends in the curve. 
+       	This solution is more subject to noise requires a greater software complexity for identification because it cannot use the simple number assigning algorithm used in the laser solution. 
+       	However, this is preferred to the mechanical complexity. 
+       	For these reasons this is the solution that our robot design will use.
+		% Table comparing landmark spotting cases
 
-		
-		Table comparing landmark spotting cases
-		
-		
-		
-		
-		
-		
 		\subsection[Communications]{Communications - Louis Emmanuel}
 		
 		As described in communications hardware, the above ground receivers must detect the ELF electromagnetic waves from the emitter in order to localise the robot.
@@ -901,10 +1144,7 @@ Table
 		\subsection{Power}
 		
 		\subsection{Sensing}
-		
-            
-		
-		
+
 		\subsection{Communications}
 		Having outlined the communication hardware earlier, it is now necessary to determine the cost and weight for each component. Again, where an existing component’s cost or weight is not available online, an estimate will be made using similar products as references. 
 		
