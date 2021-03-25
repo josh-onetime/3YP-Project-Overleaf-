@@ -546,13 +546,30 @@ BoldItalicFont=Arial Bold Italic.ttf
         \hspace*{3ex}The structure of the emitter is shown below. 
         As a precautionary measure, on board batteries are also included in the transmitter to ensure that in the case of a wire and robot breakdown, the robot can still be recovered. 
                 
-        %Wrap fig?
+        
          \begin{figure}[h]
 			\centering
 			\includegraphics[scale=0.7]{ELFtransmitter.jpg}
 			\caption{ELF Transmitter Structure}
 			\label{ELF transmitter}
 		\end{figure}
+		
+		
+		
+		\textbf{ELF Receiver}\\
+		The receivers above ground are excited by the ELF electromagnetic induction. Each receiver consists of an array of sensors, batteries, GPS and 5G cellular communication. The array of sensors is used for localisation purposes, this allows the position of the pipe to be determined. The sensors are also mounted with a signal processing unit which features a filtering unit whose purpose is to discern the emitted ELF signal from background noise. The onboard GPS is necessary in order to determine the global position of the robot once it has been located via the localisation algorithm. Also equipped is a 5G cellular communication antenna. This allows the calculated position coordinates to be transmitted to the pipe entrance where it can be sent down to the robot.  Finally, the onboard batteries ensure the receivers are portable. The receiver block diagram is show in \hyperref[ELFrec]{Figure \ref*{ELFrec}}.
+	    
+	    \begin{figure}[h]
+			\centering
+			\includegraphics[scale=0.7]{blockreceiever.pdf}
+			\caption{ELF Receiver Block Diagram}
+			\label{ELFrec}
+		\end{figure}
+		
+
+		
+		
+		
 
 		\subsection{External Hardware}
 		
@@ -1080,6 +1097,19 @@ BoldItalicFont=Arial Bold Italic.ttf
     	The experimental results further validate that the proposed FDT method can detect the short transient very weak ELF signals in real time. 
     	Based on these results, the proposed FDT method is validated to be effective in real-time pre-processing of the signal for localisation uses.
 		
+		\textbf{Localisation}\\
+		Once the receiver has filtered the ELF signals, it must then use a localisation algorithm in order to obtain the global position of the robot. In our case, two methods of localisation will be considered. The criteria for assessment is practicality, accuracy and latency. 
+		
+		\textbf{Single Sensor Design}\\
+		One simple design involves using a single filter and sensor module. This solution is commonly used for pig tracking in the above ground pipeline. As the robot passes the transmitter, the ELF waves induce a spike in the magnetic field detected by the receiver. This simple solution allows the location of the robot to be precisely determined when the position of the pipe is known relative to the receiver i.e directly below it. Along with excellent accuracy, the method also allows extremely low latency as little localisation processing is required. Further, given that only one sensor is required, the receiver is simple and cheap to design. \\
+    	\hspace*{3ex}However, in the case of our robot, inspecting underground piping means that the pipe position is not always known relative to the robot's position. Further, if we were to discern the position of underground piping from maps, no further accuracy would be added by using an external localisation system over using the internal localisation system. 
+
+        \textbf{Multiple Sensor Design}
+		
+		
+		
+		
+		
 	\section{Estimated Cost \& Weight}
 		
 		In order to estimate the cost of the robot it was necessary to select some sample components which are discussed below.
@@ -1249,6 +1279,32 @@ BoldItalicFont=Arial Bold Italic.ttf
 		The Porter's Five Forces model\textsuperscript{\cite{porter2008five}} was once again used to analyse the gas pipeline inspection industry.
 			
 		\subsection[Threat of New Entry]{Threat of New Entry}
+				New entrants are motivated to enter the gas distribution industry due to the high profits achieved by current firms which leads to increased competition as they strive to gain market share. The extent of this threat depends on the current barriers to entry in the industry. Porter outlined key barriers as being economies of scale, technical knowledge and regulation. And hence the following section will analyse each of these factors. \\
+				
+				One barrier to entry in the Gas distribution industry is economies of scale. The main distribution networks each cover a significantly sized region of the UK. Therefore, through being able to bulk purchase pipeline, hire permanent specialist employees and achieve cheaper financing, established companies such as Cadent who operates 82,000 miles of gas pipes have a significant advantage which deters new entrants. \\
+					\begin{figure}[h]
+			    \centering
+		    	\includegraphics[scale=0.8]{distribution.pdf}
+			    \caption{UK Gas Distribution Networks}
+		    	\label{distrit}
+	        	\end{figure}
+				
+				Another significant advantage our customers have is technical knowledge. SGN for example has over 85 years of experience working in the gas distribution industry. Therefore, in order to compete, new firms must acquire personnel with knowledge of the complex processes involved in construction, maintenance and replacement of gas pipes. \\
+				One of the most significant barriers to entry is the regulation and relationships current companies have with regulators and suppliers. Looking at the big four gas networks, each is heavily regulated by Ofgem. Further, in order to distribute gas, a license must be obtained which limits the amount of revenue gas distribution companies can recover from customers. This thereby makes the profit margins even smaller for new entrants. \\
+	            \hspace*{3ex}Another key factor is the relationship gas distributors have with suppliers. Ultimately, without relationships with gas suppliers such as British Power, the gas distribution companies are incapable of supplying gas to customers. And consequently the success of our customers is heavily reliant on maintaining strong relationships gas suppliers.
+
+			    \textbf{Conclusion}\\
+                In conclusion, the threat of new entrants in the gas distribution industry is determined to be low as currently the barriers to entry are very high. In fact, the regulator Ofgem states on their website that they serve to regulate the gas distribution industry because ‘Gas Distribution Networks are natural monopolies’. These natural monopolies have an overwhelming advantage over potential competitors
+
+				
+				
+			
+				
+				
+				
+				
+				
+				
 				
 		\subsection[Power of Suppliers]{Power of Suppliers}
 		
@@ -1410,8 +1466,31 @@ BoldItalicFont=Arial Bold Italic.ttf
 		The end goal of the programme is that all gas end-users are supplied with hydrogen and/or biomethane, and natural gas is no longer used. Although it is difficult to predict whether this timeline will be met, the programme has set out clear deliverables through close consultation with the gas distributors and regulatory bodies. Therefore, it is reasonable to expect this timeline to be followed. 
 
 		
-		\textbf{Impact on us}
+		\textbf{Impact on us}\\
+		Overall, the traditional gas pipeline industry is secure for at least the next 20 years in which time the use of natural gas will be far larger than that of green gases. After this period, the use of natural gas is expected to decelerate more rapidly. Despite this, a shift from natural gas to green gas is not necessarily bad for our business given that we will have developed the complex technology needed to navigate and map pipeline. \\
+	    \hspace*{3ex}There appears to be three main challenges in the long term. Firstly, one challenge for our business could be the fact that transporting hydrogen requires the use of new pipeline materials and heavy pumps. Therefore, the inspection methods of our robot must be repurposed for use on materials such as fiber reinforced polymer. Another challenge is that due to the rapid installment of modern pipelines, the frequency of damage could be far lower than the currently used steel pipes. This in turn would reduce the amount of pipe inspection required. Although given the lower ignition temperature of Hydrogen compared to natural gas, there may be more enhanced regulation in the future. Finally, from \hyperref[forecast]{Figure \ref*{forecast}} it is expected that the total use of gas is expected to decrease gradually. This would place pressure on the gas suppliers, which would eventually be passed on to us. 
 		
+		\subsection[Competitor Analysis]{Competitor Analysis - Louis Emanuel}
+		
+		\textbf{Project GRAID}\\
+		One significant competitor operating in the in-pipe inspection industry is Gas Robot Agile Inspection Device (GRAID). The robot is a joint project by the National Grid and three SMEs. As with our robot, it is targeting the live gas pipe market and aims to be able to navigate complex geometries. Therefore, it is necessary to perform the following SWOT analysis on the company. \\
+		
+		\textbf{Strengths} \\
+		Project GRAID's key strength is its ongoing partnership with the National Grid. Although the National grid sold off its distribution network as Cadent, its history in the industry and extensive knowledge is an undeniable advantage for Synthotech. Further, Synthotech has previously received a voluntary contribution of £243,000 from the National Grid. This financial backing reduces the need for high interest loans which will be a significant fixed cost and barrier for new entrants. \\
+	    \hspace*{3ex}Another significant strength of the GRAID project robot is its strong technical performance. Whilst CISBOT can operate at 99 psi, GRAID is capable of operating up to pressures of to 1450 psi. And although the distribution pipeline usually operates at pressures below 200 psi, this offers an advantage as it can inspect all pipes regardless of pressure levels. Further, as we progress to the use of hydrogen gas which will require higher distribution pressures due to its lower energy density, the need to inspect higher pressure pipes will make GRAID more competitive. 
+        
+        \textbf{Weaknesses}\\
+        Despite GRAID’s success, it does have weaknesses that could inhibit the success of the firm moving forward. Firstly, despite its partnership with the National Grid, GRAID is not partnered with an established gas network like CISBOT is with Cadent. This presents a challenge as ultimately, the robot must be sold or leased to these gas networks in order to generate revenue. \\
+        \hspace*{3ex}Another weakness lies in the fact that along with the National grid, Synthotech is also partnered with three other SMEs as part of the GRAID project. Although it could be argued that this brings more knowledge to the project, the heavily regulated gas distribution industry is slow enough, and so having multiple significant shareholders could slow down decision making significantly. This is significant given GRAID is already lagging behind first mover CISBOT. In fact, while CISBOT is already operational, GRAID is still undergoing testing. Therefore, any further delays in taking GRAID to market would significantly damage its long term prospects as CISBOT continues to consolidate its position in the market. \\
+        \textbf{Opportunities}\\
+        One area of opportunity is in the hydrogen gas pipeline refit that is currency being considered. As we transition to green gases, a full assessment of current gas distribution assets is required. This is particularly relevant for GRAID as given the National Grid has received significant funding from the Net Zero development funding to finance projects, the National Grid will have preference for using the inspection robot it partnered to manufacture. \\
+        \textbf{Threats} \\
+        One significant threat to GRAID is the rising customer loyalty in the pipe inspection market. For example, through CISBOT's partnership with Cadent, who is the largest gas distributor in the UK, it is unlikely Cadent will invest in another robot unless it provides distinct capabilities that CISBOT cannot offer. Another potential threat arises from the projected decrease in gas demand demonstrated in \hyperref[forecast]{Figure \ref*{forecast}}. If the market size decreases, the competition GRAID experiences will increase as the only way to boost revenue will be to gain market share.
+
+    
+        
+        
+
 		
 		
 		
