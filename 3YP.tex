@@ -476,7 +476,7 @@ BoldItalicFont=Arial Bold Italic.ttf
         \begin{figure}[h]
 			\centering
 			\includegraphics[scale=1]{comms layout.pdf}
-			\caption{Communications layout}
+			\caption{Communications layout} % This needs a citation for the source I think
 			\label{commsLayout}
 		\end{figure}
         
@@ -550,7 +550,7 @@ BoldItalicFont=Arial Bold Italic.ttf
          \begin{figure}[h]
 			\centering
 			\includegraphics[scale=0.7]{ELFtransmitter.jpg}
-			\caption{ELF Transmitter Structure}
+			\caption{ELF Transmitter Structure} % This needs a citation for the source I think
 			\label{ELF transmitter}
 		\end{figure}
 		
@@ -1053,7 +1053,7 @@ BoldItalicFont=Arial Bold Italic.ttf
         \begin{figure}[h]
 			\centering
 			\includegraphics[scale=1.5]{Filtering.jpg}
-			\caption{Filter Design}
+			\caption{Filter Design} % This needs a citation for the source I think
 			\label{filterDesign}
 		\end{figure}
 		
@@ -1083,7 +1083,7 @@ BoldItalicFont=Arial Bold Italic.ttf
          \begin{figure}[h]
 			\centering
 			\includegraphics[scale=0.12]{FDT.png}
-			\caption{Flow chart of FDT method }
+			\caption{Flow chart of FDT method } % This needs a citation for the source I think
 			\label{FDTFlowcahrt}
 		\end{figure}
 		
@@ -1244,35 +1244,38 @@ BoldItalicFont=Arial Bold Italic.ttf
 			Pipeline Inspection Gauges (PIGs) are the other main substitute to robotic in-pipe inspection, as these are passive devices which are forced along the pipeline by the gas flow.
 			However, PIGs are uncontrollable and cannot operate in pipelines containing sharp bends\textsuperscript{\cite{mills2017advances}}, making them unsuitable for urban pipelines.
 			As such the threat from PIGs is minimal since the robot has been specifically chosen to enter an area where they are not currently suitable, although it is possible that more advanced PIGs may be developed in the future which could compete in urban pipelines.
+			\\
+			Another significant substitute is the use of pipeline models to predict damage in order to decide when to replace pipes, rather than using inspection techniques.
+			This reduces the requirement for inspection solutions in general, as models can be used to predict when pipes will fail meaning inspection is no longer required.
+			However, inspection is still needed in order to provide initial data for the model, and models are still not particularly accurate at predicting failure timings\textsuperscript{\cite{zakikhani2020review}}.
+			In particular, models typically consider limited causes of failure, most often corrosion or third party damage, and only consider a single failure mode for the pipe, or instead not differentiating between failure modes.
+			As well as this, current failure prediction models are not generalised, and require either extensive historical data which will not always be available or are designed to predict the failure of a single case study pipeline.
+			As well as this, all pipeline failure models are conservative estimates, meaning they suggest damage will occur before it is feasible, and as such lead to loss of profit, and also lead to pipes having to be disconnected for repairs which may not be necessary.
+			Thus the threat of substitution entirely by models of pipe failure is low, but the likelihood of in pipe robots working alongside failure models to help verify and improve them is higher, slightly reducing the market size for inspections.
 		
 		\subsection[Rivalry Among Existing Competitors]{Rivalry Among Existing Competitors - Louis Emanuel}
-		High intensity of competitive rivalry can make an industry more competitive and thus decrease profit potential for the existing firms\textsuperscript{\cite{porter2008five}}. This section will serve to analyse the level of competitive rivalry that our robot would face in the in-pipe inspection robot industry. \\
-        \hspace*{3ex}There are a number of different factors that determine the level of competitive rivalry such as concentration in industry, switching costs, differentiation, and exit barriers\textsuperscript{\cite{rivalryfactorsCI}}. And hence this section is structured to consider each of them in turn. 
-        
-        \textbf{Concentration in industry}\\
-        If an industry has a high number of competing firms with similar offerings, the level of competitive rivalry will be high. In comparison, a monopoly market structure is dominated by a low number of firms and will exhibit less rivalry. Consequently, the level of market concentration significantly impacts the competitive rivalry.\\
-        \hspace*{3ex}In our case, there are a low number of firms currently operating in the autonomous in-pipe inspection market. With the only significant competitor being ULC Robotic’s CISBOT\textsuperscript{\cite{cisbotbeast}}. However, if we consider the whole pipe inspection market, there are a significant number of similar sized competitors that use PIG technology including SGS, Pigtek LTD and Propipe among others. PIG technology does not have automated capabilities, and so its product offering is significantly different than the one we are proposing. Therefore, given the only competitor with similar offerings is Cadent, the market exhibits a monopoly structure and suggest a low intensity of rivalry.
-        
-        \textbf{Switching Costs}\\
-        Aside from fixed costs, switching costs also influence the extent of rivalry as high switching costs in an industry will lead to a decrease in competitive rivalry. These switching costs arise from the fact that customers who have invested a lot of resources in learning to use a product will find it costly to switch to a competitor. \\
-        \hspace*{3ex}The impact of switching costs on competitive rivalry depends entirely on the business model of our robot. For example, an outsourcing approach in which the customer hires the robot and an operating team will have far lower switching costs than purchasing the robot outright and training an internal team to operate it. Looking at current competitors, ULC’s CISBOT is not sold outright, but operates using service contracts. Therefore, the switching costs are currently low in the industry which suggests a higher intensity of rivalry. Although, this may be favourable for a new entrant. 
+			High intensity of competitive rivalry can make an industry more competitive and thus decrease profit potential for the existing firms\textsuperscript{\cite{porter2008five}}. This section will serve to analyse the level of competitive rivalry that our robot would face in the in-pipe inspection robot industry. \\
+	        \hspace*{3ex}There are a number of different factors that determine the level of competitive rivalry such as concentration in industry, switching costs, differentiation, and exit barriers\textsuperscript{\cite{rivalryfactorsCI}}. And hence this section is structured to consider each of them in turn. 
+	        
+	        \textbf{Concentration in industry}\\
+	        If an industry has a high number of competing firms with similar offerings, the level of competitive rivalry will be high. In comparison, a monopoly market structure is dominated by a low number of firms and will exhibit less rivalry. Consequently, the level of market concentration significantly impacts the competitive rivalry.\\
+	        \hspace*{3ex}In our case, there are a low number of firms currently operating in the autonomous in-pipe inspection market. With the only significant competitor being ULC Robotic’s CISBOT\textsuperscript{\cite{cisbotbeast}}. However, if we consider the whole pipe inspection market, there are a significant number of similar sized competitors that use PIG technology including SGS, Pigtek LTD and Propipe among others. PIG technology does not have automated capabilities, and so its product offering is significantly different than the one we are proposing. Therefore, given the only competitor with similar offerings is Cadent, the market exhibits a monopoly structure and suggest a low intensity of rivalry.
+	        
+	        \textbf{Switching Costs}\\
+	        Aside from fixed costs, switching costs also influence the extent of rivalry as high switching costs in an industry will lead to a decrease in competitive rivalry. These switching costs arise from the fact that customers who have invested a lot of resources in learning to use a product will find it costly to switch to a competitor. \\
+	        \hspace*{3ex}The impact of switching costs on competitive rivalry depends entirely on the business model of our robot. For example, an outsourcing approach in which the customer hires the robot and an operating team will have far lower switching costs than purchasing the robot outright and training an internal team to operate it. Looking at current competitors, ULC’s CISBOT is not sold outright, but operates using service contracts. Therefore, the switching costs are currently low in the industry which suggests a higher intensity of rivalry. Although, this may be favourable for a new entrant. 
+	
+	        \textbf{Differentiation}\\
+	        The degree of differentiation also determines how intense the competition will be. If a firm in the market is offering highly differentiated products that other organizations cannot easily imitate or copy, then it will face relatively less competition.\\
+	        \hspace*{3ex}Again, considering the overall in-pipe inspection market, since PIG’s are incapable of currently operating in the urban pipeline environment our robot will be inspecting, we have a distinct differentiated capability. However, Cadent is capable of operating in this environment and also offers a pipe fixing capability. Whilst our robot does not offer this, it does offer automated capabilities and at a significantly lower price. Therefore, given our different offering to current firms in the industry, we would expect a lower threat of rivalry. 
+	        
+	        \textbf{Fixed Costs}\\
+	        The specific costs a firm faces to operate in a market can also affect how intense the threat of rivalry is. Costs that can increase rivalry include high fixed costs and high storage expenses. To cover these, competitors in a market will need to operate at high capacity and this is likely to intensify competition.\\
+	        \hspace*{3ex}Considering the in-pipe inspection market, the small size of robots and PIG’s means that only a small amount of storage space is needed. Also, the small production volumes suggest that the manufacturing resources required are low. However, one significant fixed cost for the industry may be interest payments associated with creating the robots. Given the complex technology, robots like CISBOT are priced at \$1 million. This could be problematic as given the service contract business model it operates, this investment will likely not be recuperated for a significant period of operation. Despite this, the robot we offer is far cheaper and so the contribution of costs to the threat of rivalry are low. 
+	        
+	        \textbf{Conclusion}\\
+	        Overall, from an analysis of the key factors that Porter outlined as contributing to a high level of rivalry, the threat level is determined as low. The only exception being the low switching costs currently in the industry. However, for our robot attempting to penetrate the market, this factor may be favourable due to the current monopoly CISBOT has. Given this low threat of rivalry, we can conclude that the industry has a high profit potential.
 
-        \textbf{Differentiation}\\
-        The degree of differentiation also determines how intense the competition will be. If a firm in the market is offering highly differentiated products that other organizations cannot easily imitate or copy, then it will face relatively less competition.\\
-        \hspace*{3ex}Again, considering the overall in-pipe inspection market, since PIG’s are incapable of currently operating in the urban pipeline environment our robot will be inspecting, we have a distinct differentiated capability. However, Cadent is capable of operating in this environment and also offers a pipe fixing capability. Whilst our robot does not offer this, it does offer automated capabilities and at a significantly lower price. Therefore, given our different offering to current firms in the industry, we would expect a lower threat of rivalry. 
-        
-        \textbf{Fixed Costs}\\
-        The specific costs a firm faces to operate in a market can also affect how intense the threat of rivalry is. Costs that can increase rivalry include high fixed costs and high storage expenses. To cover these, competitors in a market will need to operate at high capacity and this is likely to intensify competition.\\
-        \hspace*{3ex}Considering the in-pipe inspection market, the small size of robots and PIG’s means that only a small amount of storage space is needed. Also, the small production volumes suggest that the manufacturing resources required are low. However, one significant fixed cost for the industry may be interest payments associated with creating the robots. Given the complex technology, robots like CISBOT are priced at \$1 million. This could be problematic as given the service contract business model it operates, this investment will likely not be recuperated for a significant period of operation. Despite this, the robot we offer is far cheaper and so the contribution of costs to the threat of rivalry are low. 
-        
-        \textbf{Conclusion}\\
-        Overall, from an analysis of the key factors that Porter outlined as contributing to a high level of rivalry, the threat level is determined as low. The only exception being the low switching costs currently in the industry. However, for our robot attempting to penetrate the market, this factor may be favourable due to the current monopoly CISBOT has. Given this low threat of rivalry, we can conclude that the industry has a high profit potential.
-       
-        
-        
-
-
-		
 	\section{Customer Industry Analysis}
 		% Insert Monty's P5F here
 		Since there is only one customer industry, it is important to analyse the safety and sustainability of that industry to ensure that the business was secure.
@@ -1285,7 +1288,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 					\begin{figure}[h]
 			    \centering
 		    	\includegraphics[scale=0.8]{distribution.pdf}
-			    \caption{UK Gas Distribution Networks}
+			    \caption{UK Gas Distribution Networks} % This needs a citation for the source I think
 		    	\label{distrit}
 	        	\end{figure}
 				
@@ -1296,16 +1299,6 @@ BoldItalicFont=Arial Bold Italic.ttf
 			    \textbf{Conclusion}\\
                 In conclusion, the threat of new entrants in the gas distribution industry is determined to be low as currently the barriers to entry are very high. In fact, the regulator Ofgem states on their website that they serve to regulate the gas distribution industry because ‘Gas Distribution Networks are natural monopolies’. These natural monopolies have an overwhelming advantage over potential competitors
 
-				
-				
-			
-				
-				
-				
-				
-				
-				
-				
 		\subsection[Power of Suppliers]{Power of Suppliers}
 		
 		\subsection[Power of Buyers]{Power of Buyers}
@@ -1366,7 +1359,6 @@ BoldItalicFont=Arial Bold Italic.ttf
 			Thus it helps select suitable materials for the robot, in order to avoid corrosion, as well as helping to identify what corrosion signs to look for.
 			Another important standard is ISO 15649:2001\textsuperscript{\cite{iso15649}} which specifies required design and construction parameters for gas pipelines, as well as requirements for pipeline inspection.
 			This will greatly influence the requirements for the robot, and while many of the necessary safety features for inspection have been considered, the standard will formalise this and emphasise any which are missing.
-			
 		
 		\subsection[Traditional  \& Autonomous Pipe Inspection Companies]{Traditional \& Autonomous Pipe Inspection Companies - Louis Emanuel}
             Both traditional and autonomous gas pipe inspection companies have an active interest and influence on the operation of our autonomous pipe inspection robot as they are competitors to our product offering currently or have great potential to be in the future. Traditional gas inspection companies concern the firms such as ProPipe that operate PIG’s. Whilst autonomous inspection companies refers to the firms similar to our product offering such as CISBOT. \\
@@ -1384,11 +1376,6 @@ BoldItalicFont=Arial Bold Italic.ttf
             Traditional gas inspection companies have a medium interest and low power relationship with our robot. Therefore, a keep informed approach will be taken in order to ensure that no major issues arise. This is important as through having a pre-existing relationship with a potential future competitor, we can anticipate their future plans and develop strategies that could create competitive advantage in the future. Additionally, given the relationship these firms may have with some of our customers, it is important to ensure no problems arise. \\
             \hspace*{3ex}Autonomous inspection companies have a high interest and medium power relationship with our robot. It is therefore suggested that consultation is carried out with these firms. This is valuable as it will enable us to monitor trends and share mutually beneficial knowledge. Further, establishing relationships with existing competitors can aid with the understanding and development of the complex regulation in the industry.
 
-            
-            
-
-
-		
 		\subsection[Gas Suppliers]{Gas Suppliers}
 		
 		\subsection[Local Councils]{Local Councils - Jim Laney}
@@ -1459,7 +1446,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 		\begin{figure}[h]
 			\centering
 			\includegraphics[scale=0.6]{futureforecaset.jpg}
-			\caption{Pathway to Net Zero}
+			\caption{Pathway to Net Zero} 	% This needs a citation for the source I think
 			\label{forecast}
 		\end{figure}
 		
@@ -1486,15 +1473,6 @@ BoldItalicFont=Arial Bold Italic.ttf
         One area of opportunity is in the hydrogen gas pipeline refit that is currency being considered. As we transition to green gases, a full assessment of current gas distribution assets is required. This is particularly relevant for GRAID as given the National Grid has received significant funding from the Net Zero development funding to finance projects, the National Grid will have preference for using the inspection robot it partnered to manufacture. \\
         \textbf{Threats} \\
         One significant threat to GRAID is the rising customer loyalty in the pipe inspection market. For example, through CISBOT's partnership with Cadent, who is the largest gas distributor in the UK, it is unlikely Cadent will invest in another robot unless it provides distinct capabilities that CISBOT cannot offer. Another potential threat arises from the projected decrease in gas demand demonstrated in \hyperref[forecast]{Figure \ref*{forecast}}. If the market size decreases, the competition GRAID experiences will increase as the only way to boost revenue will be to gain market share.
-
-    
-        
-        
-
-		
-		
-		
-		
 	
 	\pagebreak		% Temp page break for references - might end up replacing with a multicolumn environment later
 	
