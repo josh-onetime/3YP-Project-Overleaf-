@@ -1106,6 +1106,19 @@ BoldItalicFont=Arial Bold Italic.ttf
 
         \textbf{Multiple Sensor Design}
 		
+		Given the problem the previous solution faces a challenge with localising the robot without accurate knowledge of the pipes positioning, an improved solution will use multiple sensors in order to localise the robot. With this solution, no prior knowledge of the pipe location is needed as the receiver is capable of calculating the relative distance of the robot from itself. Then, the algorithm will again use the GPS capabilities of the receiver in order to calculate the robot's global positioning. \\
+		
+		\hspace*{3ex}The algorithm presented works by solving an inverse problem. Each sensor receives a different intensity of magnetic field strength, and each presents an equation. Given there are five unknown parameters to be solved, the initial position in 3D space and the orientation to each axis, at least five sensors are needed. However, if cost and complexity are not considered, a higher number of sensors provides greater accuracy and eliminates greater noise disturbances. In this case, the localisation algorithm is overdetermined and a nonlinear method such as least squares can be applied. Figure x provides a demonstration of the robot's positioning and the receiver.\\
+		
+		\begin{figure}[h]
+			\centering
+			\includegraphics[scale=1]{localisation.pdf}
+			\caption{Geometry of Buried Pipeline}
+			\label{localisation}
+		\end{figure}
+		
+		The outlined algorithm presents a simple solution to localisation that improves upon the single sensor design. However, the model does make some simplifying assumptions. Firstly, the attenuation effects in the material above the pipeline is ignored. This assumption is reasonable given the low conductivity of soil and air compares to the pipe. Additionally, the sensor also relies on the fact that the pipeline is of constant thickness. This creates accuracy problems if the pipeline is of different thicknesses. Therefore, one possible extension of this algorithm is to consider a way to account for this variation. 
+		
 		
 		
 		
@@ -1188,6 +1201,10 @@ BoldItalicFont=Arial Bold Italic.ttf
         \hspace*{3ex}Again, with difficulty estimating the cost of individual components, the price of PolyEurope’s solution is taken as a comparison. This solution provides an upper estimate to the cost of the transmitter as £ xxx. 
     
         \textbf{Other Costs}\\
+
+        
+        Since the cable reel and ELF receivers are not carried by the robot, their weight is not a consideration here. However, the price of these hardware components is important in order to assess the total cost of the robot. \\
+	    \hspace*{3ex}As outlined in the previous section, the price of the identified cable reel that is going to be used is £ xxx. The price of the receivers is more complicated to calculatem. The total cost of the receivers is dependent on the accumulated errors of the internal localisation system. Given the internal errors become significant over a distance greater than xm, it is required to have a receiver every xm in order to correct this error. Again, through using the company ProPipe as a reference for their above ground receivers, an estimated cost per receiver of £ xxx can be made. Therefore, over a distance of 1000m, the total cost would be £ xxx. 
 
 
 
