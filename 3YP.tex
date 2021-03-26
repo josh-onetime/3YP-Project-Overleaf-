@@ -11,18 +11,18 @@
 									% Allows for hypertext for references (links) - edited to hake links look like normal text rather than having a border
 \doublespacing						% Double spaces - this annoys me but is unavoidable I think
 
-% Makes it so all equations have full sized numbers, independent of font size used		
-\makeatletter
-\def\tagform@#1{\maketag@@@{\normalsize(#1)\@@italiccorr}}
-\makeatother
-
-
 %Add any more packages needed here:
 \usepackage[justification=centering,font=small]{caption}	
 									% Centres captions and makes them smaller
 \usepackage[none]{hyphenat}			% Lines end cleanly - no hyphenation mid word
 \usepackage{fancyhdr}				% Nicer headers/footers
 \usepackage{amssymb}				% Allows for more maths symbols including not less than
+\usepackage{wrapfig}				% Wrap figures
+
+% Makes it so all equations have full sized numbers, independent of font size used		
+\makeatletter
+\def\tagform@#1{\maketag@@@{\normalsize(#1)\@@italiccorr}}
+\makeatother
 
 % There is some scope for changing the paragraph spacing and spacing around section headers if you are short of space
 
@@ -32,8 +32,11 @@
 \newlength{\imageheight}	 % Creates the variable
 \setlength{\imageheight}{0.3\textwidth}  % Sets the variable
 
-%Wrap figures
-\usepackage{wrapfig}
+\newcommand{\supercite}[1]{\textsuperscript{\cite{#1}}}		% New command to cite things in superscript without having to type it out every time
+
+\newcommand{\figref}[1]{\hyperref[#1]{Figure \ref*{#1}}}
+
+\newcommand{\equationref}[1]{\hyperref[#1]{Equation \ref*{#1}}}
 
 % Use Arial
 \setmainfont[
@@ -46,7 +49,6 @@ BoldItalicFont=Arial Bold Italic.ttf
 % Will be slow at first, but once the fonts have installed should work more quickly
 
 % Overleaf link - https://www.overleaf.com/project/5fce665153f1701e8414d47b
-
 \begin{document}
 	
 	\flushleft
@@ -76,7 +78,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 	
 		The pipe inspection robot works in underground pipes in urban areas, with a pipe diameter from $457.2$ mm to $914.4$ mm and with pipes at any angle, providing a map of the pipe with the location of any failures to the operator. % 18 - 36 inches; Needs citation for pipe sizes?
 		The robot reduces the disruption caused by having to dig up large areas of pipe for inspection, since the issue can be located and smaller, less disruptive work can be undertaken.
-		It is intended to provide an inspection method for pipes which cannot be inspected by the current leading method, Pipe Inspection Gauges (PIGs), which only work in horizontal or near horizontal straight pipes\textsuperscript{\cite{mills2017advances}}.
+		It is intended to provide an inspection method for pipes which cannot be inspected by the current leading method, Pipe Inspection Gauges (PIGs), which only work in horizontal or near horizontal straight pipes\supercite{mills2017advances}.
 		It enters a pipe using a launch tube, and travels autonomously along the inside of the pipe, checking for evidence of cracks and corrosion and logging their location for future maintenance.
 		\\
 		
@@ -87,7 +89,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 			\label{3DSketch}
 		\end{figure}
 		
-		While inside the pipe, the robot uses three legs to maintain contact and provide the required normal force to move inside the pipe, as shown in \hyperref[3DSketch]{Figure \ref*{3DSketch}}.
+		While inside the pipe, the robot uses three legs to maintain contact and provide the required normal force to move inside the pipe, as shown in \figref{3DSketch}.
 		Two of these legs can be rotated to provide improved speeds over pipes at different angles, and all three legs can be extended and retracted to fit the pipe diameter the robot is currently in.
 		It can navigate around bends and through pipes at different angles, without prior knowledge of the location or angle of these, and will automatically feedback to the control system in order to create an accurate map.
 		\\
@@ -100,16 +102,30 @@ BoldItalicFont=Arial Bold Italic.ttf
 		In these patents the use of "pigs" refers to Pipeline Inspection Gauges (PIGs from here on), and moles are used as a synonymous term, and will thus also be referred to as PIGs from now on.
 		While the robot is not a PIG as PIGs are typically unpowered and cannot deal with bends in the pipe, this is the closest patent classification to consider.
 		\begin{figure}[h]
-				\centering
+			\centering
+			\begin{multicols}{2}
 				\includegraphics[height=\imageheight]{patentGraph}
-				\caption{Cumulative number of published patents in the European Patent Office database classified as \texttt{F16L55/26}\textsuperscript{\cite{patent26}} or \texttt{F16L2101/30}\textsuperscript{\cite{patent30}} }
+				\caption{Cumulative number of published patents in the European Patent Office database classified as \texttt{F16L55/26}\supercite{patent26} or \texttt{F16L2101/30}\supercite{patent30} }
 				\label{patentGraph}
+				\columnbreak
+				\includegraphics[height=\imageheight]{pctMap}
+				\caption{Map of countries included in the Patent Cooperation Treaty (PCT)\supercite{pct2020states}}
+				\label{pctMap}
+			\end{multicols}
 		\end{figure}
 		\\
-		As you can see from \hyperref[patentGraph]{Figure \ref*{patentGraph}}, the rate of patent publication in both classifications is still growing at a rapid rate, suggesting the technology is in a period of rapid innovation and development.
-		This suggests that industry is still in the initial period of product design ferment, where no dominant design has occurred\textsuperscript{\cite{christensen1998innovation}}.
+		As you can see from \figref{patentGraph}, the rate of patent publication in both classifications is still growing at a rapid rate, suggesting the technology is in a period of rapid innovation and development.
+		This suggests that industry is still in the initial period of product design ferment, where no dominant design has occurred\supercite{christensen1998innovation}.
 		Thus there is a much greater chance of survival, as this dominant design has not yet been established, and the space for new innovators is greater.
 		While there is also a risk to entering the industry too early, the sustained period of development in the last 20 years suggests that period has passed.
+		\\
+		As well as this it is worth considering whether a patent should be filed in order to protect the robot design.
+		The main barrier to this would be the cost of doing so, as the paperwork itself is not prohibitive, especially with the assistance of a patent law firm.
+		However the cost to file a patent only in the United Kingdom is typically £4000 and usually takes 5 years to be filed\supercite{uk2020patenting}.
+		As well as this it is a separate process to apply for a patent which will also apply overseas, such as applying through the Patent Cooperation Treaty (PCT).
+		The PCT is treaty wich includes 153 states\supercite{pct2020states}, including the United Kingdom, United States and most of mainland Europe, as shown in \figref{pctMap}.
+		However applying for a PCT patent can take even longer, and is even more expensive, up to £8000\supercite{mewburn2020international}, so it is important to ensure that the robot design is protected while applying for these patents.
+		Thus it would be a good idea to apply for some less strict protection, such as a trademark, and ensure that all discussions of sensitive information occur under the binding of a Non-Disclosure Agreement.
 		
 	\subsection[Constraint Justification]{Constraint Justification}
 		
@@ -120,12 +136,12 @@ BoldItalicFont=Arial Bold Italic.ttf
 		\subsection[Locomotion]{Locomotion - Jim Laney}
 			
 			%By Jim
-			The main locomotion of the robot is a set of 3 legs with a pantograph mechanism  to allow for the adaptation to different diameters, with tracks at the end to drive the motion, as shown in \hyperref[legDesign]{Figure \ref*{legDesign}}.
+			The main locomotion of the robot is a set of 3 legs with a pantograph mechanism  to allow for the adaptation to different diameters, with tracks at the end to drive the motion, as shown in \figref{legDesign}.
 			There is one leg which remains stationary at the top of the robot, and two legs which are able to rotate about the body of the robot between $20^\circ$ and $90^\circ$ to the vertical.
 			At the end of each leg there is a passive joint between the leg and the track to allow for the robot to travel along surfaces which are not perpendicular to the legs, such as around bends or over uneven surfaces.
 			\\
 			The length of the pantograph is controlled by the force from two opposing linear actuators, which extend to a given length to set the distance of the pantograph.
-			The track at the end of the pantograph is connected to a freely turning joint, which can be measured using two angular encoders to give the angle $\phi$, shown in \hyperref[legDiagram]{Figure \ref*{legDiagram}}, with the springs acting to restore $\phi$ to $0^\circ$ when under no external effects.
+			The track at the end of the pantograph is connected to a freely turning joint, which can be measured using two angular encoders to give the angle $\phi$, shown in \figref{legDiagram}, with the springs acting to restore $\phi$ to $0^\circ$ when under no external effects.
 			In addition to this, the tracks use an active compliance joint, as shown in \hyperref[activeCompliance]{Figures \ref*{activeCompliance} \& \ref*{unevenBehaviour}}, which allows for the robot to maintain maximum surface contact at all times.
 			\\
 			The active compliance joint consists of a torsional spring and radio-controlled servo motor, which are both attached around the same axis.
@@ -159,8 +175,8 @@ BoldItalicFont=Arial Bold Italic.ttf
 			\end{figure}
 			\\
 			The rotation of the two base legs relative to the body of the robot occurs using a motor to drive each end of the rotation mechanism.
-			The motor drives the sun gears of two planetary gear systems, shown in \hyperref[planetaryDrive]{Figure \ref*{planetaryDrive}},which rotate in opposite direction so the legs move symmetrically.
-			The direction is reversed for the further planetary drive system using a small differential gearbox, shown in \hyperref[diffGearbox]{Figure \ref*{diffGearbox}}, which allows for compact reversal of motion.
+			The motor drives the sun gears of two planetary gear systems, shown in \figref{planetaryDrive},which rotate in opposite direction so the legs move symmetrically.
+			The direction is reversed for the further planetary drive system using a small differential gearbox, shown in \figref{diffGearbox}, which allows for compact reversal of motion.
 			These allow the legs to move around the body, from almost directly below the robot to in a horizontal plane at $90^\circ$ to the top leg.
 			As both legs are driven from the same motor at each end, both legs are symmetrical about the vertical leg at all times, and the leg position can be summarised by a single leg rotation angle $\lambda$, measured from the top leg, which varies from $\lambda = 90^\circ$ to $\lambda = 160^\circ$.
 			The rotation allows the robot to adapt to different angles of the pipe more easily, as it will be quicker to drive along horizontal pipes with the almost vertical drive system, whereas vertical pipes require a more even distribution of contact points for optimal behaviour, probably requiring an angle of $\lambda = 120^\circ$ for the most even distribution of contact points.
@@ -178,8 +194,8 @@ BoldItalicFont=Arial Bold Italic.ttf
 				\end{multicols}
 			\end{figure}
 			
-			The ratio between the longer base links of the pantograph and then shorter tip links is $2:1$, which gives the greatest range of diameters for the smallest change in the base distance\textsuperscript{\cite{okada1987mogrer}}, to calculate the required link length $L$ to allow the robot to adapt to the chosen range of diameters, $457.2 - 914.4$ mm.
-			The pantograph angles are shown in \hyperref[legDiagram]{Figure \ref*{legDiagram}}, which results in:
+			The ratio between the longer base links of the pantograph and then shorter tip links is $2:1$, which gives the greatest range of diameters for the smallest change in the base distance\supercite{okada1987mogrer}, to calculate the required link length $L$ to allow the robot to adapt to the chosen range of diameters, $457.2 - 914.4$ mm.
+			The pantograph angles are shown in \figref{legDiagram}, which results in:
 			
 			\begin{align}
 				r_{min} &= \frac{3L}{2} \sin \left( \theta_{min} \right)
@@ -197,7 +213,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 			The minimum length of the body is also set by this, as it means that the body length $l_{min} = L \cos \left( \theta_{min} \right) = 216.8$ mm.
 			A maximum body length can be found by considering the ability of the robot to turn corners inside the pipe, and it is necessary to consider how this compares to the minimum to make sure there is no loss of mobility.
 			For the duration of this calculation, it is assumed that the robot is in the smallest possible pipe diameter $D_{pipe} = 457.2$ mm, and the curvature radius $r_c = \frac{3}{2} D_{pipe} = 685.8$ mm.
-			As the robot diameter $D_r \nless \left( 2 \sin \left( 45^\circ \right) - 1 \right) D_{pipe}$ mm the maximum length can be found from the following equation\textsuperscript{\cite{roh2005differential}}:
+			As the robot diameter $D_r \nless \left( 2 \sin \left( 45^\circ \right) - 1 \right) D_{pipe}$ mm the maximum length can be found from the following equation\supercite{roh2005differential}:
 
 			\begin{align}
 				l_{max} &= 2 \sqrt{4D_{pipe}^2 - \left( D_{pipe} + D_r\right) ^ 2}
@@ -205,7 +221,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 				l_{max} &= 1266.3 \ \mathrm{mm} \notag
 			\end{align}
 			% Makes max volume 187*10^6 mm^3
-			Using \hyperref[legDiagram]{Figure \ref*{legDiagram}} to calculate the required force output of the linear actuators in order for the robot to operate at all angles.
+			Using \figref{legDiagram} to calculate the required force output of the linear actuators in order for the robot to operate at all angles.
 			As such, the worse case scenario is considered, where the robot is climbing vertically and must create enough normal force for friction to support its entire weight.
 			This results in:
 			
@@ -226,8 +242,8 @@ BoldItalicFont=Arial Bold Italic.ttf
 			\end{align}
 			
 			Since testing would be required to find the greatest angle $\phi$ that is experienced by the robot in general use, as well as an estimate for the coefficient of friction $\mu_{t,p}$, it is tricky to estimate the force required for the actuators.
-			However, estimates from other papers for $\mu_{t,p}$,which are $1.21$\textsuperscript{\cite{sato2011development}} - $1.6$\textsuperscript{\cite{park2010normal}}, allow us to create a worst case estimate for the required force of $1.21$.
-			From \hyperref[reqMaxNorm]{Equation \ref*{reqMaxNorm}}, it is clear that the worst case scenario occurs in straight sections, where $\phi$ is expected to be close to $0^\circ$, with the smallest pipe diameter, as this minimises $\theta$, which will require the most linear actuator force.
+			However, estimates from other papers for $\mu_{t,p}$,which are $1.21$\supercite{sato2011development} - $1.6$\supercite{park2010normal}, allow us to create a worst case estimate for the required force of $1.21$.
+			From \equationref{reqMaxNorm}, it is clear that the worst case scenario occurs in straight sections, where $\phi$ is expected to be close to $0^\circ$, with the smallest pipe diameter, as this minimises $\theta$, which will require the most linear actuator force.
 							
 		\subsection{Power}
 		
@@ -451,7 +467,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 		\\
 	    The difficulty arises in finding a suitable communication method that is capable of operating in the difficult pipeline environment. 
 	    With pipe bends, thick steel walls, metres of soil, and noise interference, the choice of communication must be able to overcome these barriers without inhibiting locomotion. 
-	    \hyperref[commsTable]{Figure \ref*{commsTable}} outlines several communication methods which have been widely practiced in the Oil and Gas industry\textsuperscript{\cite{acoustic2020}}.
+	    \figref{commsTable} outlines several communication methods which have been widely practiced in the Oil and Gas industry\supercite{acoustic2020}.
 	    \\
 	    
         \begin{figure}[h]
@@ -461,7 +477,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 			\label{commsTable}
 		\end{figure}
      	A critical requirement of the robot is for it to have a real time understanding of its location in order to navigate pipes and localise pipe damage. 
-     	From the solutions in \hyperref[commsTable]{Figure \ref*{commsTable}}, the only methods capable of this are ELF and wiring. 
+     	From the solutions in \figref{commsTable}, the only methods capable of this are ELF and wiring. 
      	However, ELF communications requires a significantly sized receiver [x] which is infeasible to house in the robot without inhibiting speed, locomotion and range. 
      	Consequently, for feeding data to the robot, a wire will be used.
         \\ 
@@ -480,7 +496,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 			\label{commsLayout}
 		\end{figure}
         
-        \hyperref[commsLayout]{Figure \ref*{commsLayout}} provides an overview of the communication architecture. 
+        \figref{commsLayout} provides an overview of the communication architecture. 
         Starting from the operator, an optical fibre which is capable of bidirectional communication is fed down to the robot by an automatic cable reel. 
         On board the robot is an ELF transmitter which pulses ELF waves at 22Hz to to the receivers above ground. 
         These receivers then calculate the global position of the robot, and feed it back down to the robot via the optical fibre.
@@ -514,17 +530,17 @@ BoldItalicFont=Arial Bold Italic.ttf
 	    \\
 	    Finally, in order to minimise friction coefficients and absorb the large tensile strength in the wire, a protective coating must be applied to the cable. 
 	    This technology is widely developed with smoothed Kevlar reinforced cable offering a low friction coefficient whilst resisting tensile strengths up to 2800MPa [x]. For the case of a 5mm Kevlar reinforced optical fibre cable, a breaking force of 54kN can be achieved. 
-	    Considering an upper estimate of \hyperref[cableDrag]{Equation \ref*{cableDrag}} using $\mu$ = 0.2 [x] L = 500m $\rho$ = 0.04 $Kgm^-1$ [x] $\sum \alpha = 10\pi/2$, a tensile force of $F_D$ = 907N is estimated which is well below maximum. 
+	    Considering an upper estimate of \equationref{cableDrag} using $\mu$ = 0.2 [x] L = 500m $\rho$ = 0.04 $Kgm^-1$ [x] $\sum \alpha = 10\pi/2$, a tensile force of $F_D$ = 907N is estimated which is well below maximum. 
 	    
 	    \textbf{Automatic Cable Reel}
 
-        From \hyperref[cableDrag]{Equation \ref*{cableDrag}}, it is demonstrated that the drag force on the robot is directly proportional to the length of wire. 
+        From \equationref{cableDrag}, it is demonstrated that the drag force on the robot is directly proportional to the length of wire. 
         Therefore, a requirement for the reel is for it to supply the minimum amount of wire without introducing significant tension. 
         Further, the reel must be capable of self winding when the robot makes its return journey, otherwise it will impede it.
         \\ 
         \hspace*{3ex}Fortunately there are established solutions which provide this capability. 
         The automatic cable reels offered by Minicam and IPEK both offer motorised winding which is specialised for robot pipe inspection. 
-        \hyperref[comparisonReels]{Figure \ref*{comparisonReels}} compares the weight, size, power consumption and cost of each solution. 
+        \figref{comparisonReels} compares the weight, size, power consumption and cost of each solution. 
         The MiniCam ACR 500 is chosen as it is lighter and smaller. 
 
         %%%INSERT QUOTE PRICE
@@ -557,7 +573,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 		
 		
 		\textbf{ELF Receiver}\\
-		The receivers above ground are excited by the ELF electromagnetic induction. Each receiver consists of an array of sensors, batteries, GPS and 5G cellular communication. The array of sensors is used for localisation purposes, this allows the position of the pipe to be determined. The sensors are also mounted with a signal processing unit which features a filtering unit whose purpose is to discern the emitted ELF signal from background noise. The onboard GPS is necessary in order to determine the global position of the robot once it has been located via the localisation algorithm. Also equipped is a 5G cellular communication antenna. This allows the calculated position coordinates to be transmitted to the pipe entrance where it can be sent down to the robot.  Finally, the onboard batteries ensure the receivers are portable. The receiver block diagram is show in \hyperref[ELFrec]{Figure \ref*{ELFrec}}.
+		The receivers above ground are excited by the ELF electromagnetic induction. Each receiver consists of an array of sensors, batteries, GPS and 5G cellular communication. The array of sensors is used for localisation purposes, this allows the position of the pipe to be determined. The sensors are also mounted with a signal processing unit which features a filtering unit whose purpose is to discern the emitted ELF signal from background noise. The onboard GPS is necessary in order to determine the global position of the robot once it has been located via the localisation algorithm. Also equipped is a 5G cellular communication antenna. This allows the calculated position coordinates to be transmitted to the pipe entrance where it can be sent down to the robot.  Finally, the onboard batteries ensure the receivers are portable. The receiver block diagram is show in \figref{ELFrec}.
 	    
 	    \begin{figure}[h]
 			\centering
@@ -601,13 +617,13 @@ BoldItalicFont=Arial Bold Italic.ttf
 			\caption{Position of the robot within the pipe. (i) Within a horizontal or vertical bend, (ii) Within a bend at angle $\xi$ to the vertical, view shown relative to the bend rather than relative to the outside world}
 			\label{pipeAngle}
 		\end{figure}
-		As in \hyperref[pipeOrientation]{Figure \ref*{pipeOrientation}}, the angle of the robot within the pipe can be decomposed into two orthogonal rotations, of $\alpha$ about the pipe diameter, and then $\beta$ about the robot centre, shown as $z'$ in the figure.
+		As in \figref{pipeOrientation}, the angle of the robot within the pipe can be decomposed into two orthogonal rotations, of $\alpha$ about the pipe diameter, and then $\beta$ about the robot centre, shown as $z'$ in the figure.
 		Since the angle of the top leg, $\phi_T$, is $\alpha$ on the $y'$ axis ($\beta = 0$), but zero on the x axis ($\beta = 90^\circ$), the angle can be estimated using:
 		\begin{align}
 			\phi_T &= \cos \left( \beta \right) \alpha
 			\\
 			\phi_L &= \cos \left( \beta + \lambda \right) \alpha
-			\intertext{where $\lambda$ is the leg rotation angle as shown in \hyperref[pipeAngle]{Figure \ref*{pipeAngle}}:}
+			\intertext{where $\lambda$ is the leg rotation angle as shown in \figref{pipeAngle}:}
 			\frac{\phi_L}{\phi_T} &= \frac{\cos \left( \beta + \lambda \right)}{\cos \left( \beta \right)}
 			\\
 			\beta &= \tan^{-1} \left( \frac{1}{ \sin \left( \lambda \right)} \left( \frac{\phi_L}{\phi_T} + \cos \left( \lambda \right) \right) \right)
@@ -654,15 +670,15 @@ BoldItalicFont=Arial Bold Italic.ttf
 		\subsection[Leg Actuation Control]{Leg Actuation Control - Jim Laney}
 		
 		The robot needs to be able to accurately control the length of its legs in order to maintain the correct normal force for operation.
-		The required linear actuator force for climbing vertically is given \hyperref[reqMaxNorm]{Equation \ref*{reqMaxNorm}}, which can be modified to find that:
+		The required linear actuator force for climbing vertically is given \equationref{reqMaxNorm}, which can be modified to find that:
 	
 		\begin{align}
 			F &= \frac{W \sin \left( \psi_x \right) \cos \left( \phi \right)}{6 \mu_{t,p} \tan \left( \theta \right)} \label{idealForce}
 		\end{align}
 	
-		where $\psi_x$ is the inclination of pipe in the vertical plane, worked out from \hyperref[pipeX]{Equation \ref*{pipeX}}.
+		where $\psi_x$ is the inclination of pipe in the vertical plane, worked out from \equationref{pipeX}.
 		\\
-		However, when the pipe inclination is zero - i.e travelling in a horizontal direction - \hyperref[idealForce]{Equation \ref*{idealForce}} breaks down and the required force $F$ becomes $0$.
+		However, when the pipe inclination is zero - i.e travelling in a horizontal direction - \equationref{idealForce} breaks down and the required force $F$ becomes $0$.
 		The required normal force when travelling in the horizontal pipe is the weight $W$.
 		Thus the new equation for the normal force:
 		\begin{align}
@@ -694,7 +710,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 			&= D_r + \frac{3 L}{2} \sin \left( \cos ^{-1} \left( \cos \left( \theta_{min} \right) + \frac{E}{L} \right) \right)
 		\end{align}
 		
-		\hyperref[legDiagram]{Figure \ref*{legDiagram}} is reproduced as \hyperref[legDiagramRep]{Figure \ref*{legDiagramRep}} for reference of variables used.
+		\figref{legDiagram} is reproduced as \figref{legDiagramRep} for reference of variables used.
 		\\
 	
 		\begin{figure}[h]
@@ -783,13 +799,13 @@ BoldItalicFont=Arial Bold Italic.ttf
 		The leg which is on the outside of the bend will have the longest path, and the one which is on the inside will travel the shortest, which will help differentiate between the different values of $\xi$ \& $\theta_{bend}$.
 		This can then also be combined with the detected inclination to ensure the robot is aware of whether it is travelling upwards or downwards as a secondary check.
 		\\
-		\hyperref[alphaEq]{Equation \ref*{alphaEq}} is derived from a constraint that specified that the difference between $\xi$ and the right hand side is a multiple of $2 \pi$ (in radians).
-		Since $\xi$ is limited between $0^\circ$ and $90^\circ$, which are both less than $2 \pi$, this constraint sets the value of $\xi - (\ref*{alphaEq}) = 0$, allowing us to calculate $\xi$ directly as in \hyperref[alphaEq]{Equation \ref*{alphaEq}}.
+		\equationref{alphaEq} is derived from a constraint that specified that the difference between $\xi$ and the right hand side is a multiple of $2 \pi$ (in radians).
+		Since $\xi$ is limited between $0^\circ$ and $90^\circ$, which are both less than $2 \pi$, this constraint sets the value of $\xi - (\ref*{alphaEq}) = 0$, allowing us to calculate $\xi$ directly as in \equationref{alphaEq}.
 		\\
-		\hyperref[generalTheta]{Equation \ref*{generalTheta}} can be validated by substituting in the previously explored cases.
+		\equationref{generalTheta} can be validated by substituting in the previously explored cases.
 		\\
 		In the case of a horizontal bend, $d_{left} + d_{right} = 2 r_c \theta_{bend} $ and $d_{top} = r_c \theta_{bend}$.
-		\hyperref[generalTheta]{Equation \ref*{generalTheta}} then becomes:
+		\equationref{generalTheta} then becomes:
 		\begin{align*}
 			\theta_{bend} &= \frac{ \sec \left( \frac{\lambda}{2} \right)^2 \sqrt{ \left( d_{left} - d_{right} \right)^2 +  \tan \left( \frac{\lambda}{2} \right)^2 \left[ \left( 2 r_c \theta_{bend} \right)^2 + 4 r_c \theta_{bend} \left( r_c \theta_{bend}  - 2 r_c \theta_{bend} \right) \right] } }{2 D_{pipe} \tan \left( \frac{\lambda}{2} \right)}
 			\\
@@ -1026,7 +1042,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 		This presents a challenge as the waves that pass through the pipe wall are heavily attenuated. 
 		Therefore, in order to accurately localise the robot, the received waves must first be pre-processed in order to extract the emitted signal and minimise the amount of noise.
 		\\
-	    \hspace*{3ex}\hyperref[ELFAttenuation]{Figure \ref*{ELFAttenuation}}  demonstrates a finite element analysis of the amplitudes of the ELF signals along the X-axis, changing with the pipe wall thickness and burial depth.
+	    \hspace*{3ex}\figref{ELFAttenuation}  demonstrates a finite element analysis of the amplitudes of the ELF signals along the X-axis, changing with the pipe wall thickness and burial depth.
 	    The thickness and burial depth is set to a linear scale, while the magnetic flux density is set to a logarithmic scale.
 	    The figure highlights that the amplitude decreases logarithmically as the thickness and burial depth increase linearly.
 	    
@@ -1044,7 +1060,7 @@ BoldItalicFont=Arial Bold Italic.ttf
         The sensors are wide-band antennas and many other frequency components are received together. This is a problem as low signal to noise ratio is a disadvantage for tracing and localization algorithm.
         Therefore, band-pass filter with high gain and high quality factor is one possible solution.
         \\
-        \hspace*{3ex}\hyperref[filterDesign]{Figure \ref*{filterDesign}} highlights the function of a sensor circuit. 
+        \hspace*{3ex}\figref{filterDesign} highlights the function of a sensor circuit. 
         The output of the sensor is sent to filter and amplifier to detect the useful signal. 
         In this system, five-grade active filter is designed in order to get high gain and advanced quality.
         The filter consists of five segments including amplifier I (high pass filter), band pass filter I, amplifier II (band pass filter), band pass filter II and amplifier III (high pass filter).
@@ -1059,7 +1075,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 		
 		Unfortunately, in order to attain a more ideal filter, a higher order filter must be used.
 		This presents an issue as the impulse response is longer which pushes the latency higher and hence decreases accuracy in localisation. 
-		Another issue is demonstrated in \hyperref[SNRPower]{Figure \ref*{SNRPower}}.
+		Another issue is demonstrated in \figref{SNRPower}.
 		The normalized power spectrum of three different signals, including noiseless ELF signals, narrow-band noise and ELF signals with noise are shown. 
 		Since the frequency of narrow-band noise is concentrated at 23 Hz, it is difficult to discriminate between ELF signals and noise by frequency domain, which indicates that the frequency-domain information may not be useful for the detection. 
 		Thus, the performance of the time-frequency analysis based filtering method is lower than a time-domain characteristic based FDT method.
@@ -1074,7 +1090,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 	    \textbf{Fast Decision Tree (FDT)}:
 		Following the argument against the time-frequency based method outlined above, an improved solution is a time-domain method followed using a Fast Decision Tree. 
 		\\
-    	\hspace*{3ex}The overall architecture of the algorithm is shown in \hyperref[FDTFlowcahrt]{Figure \ref*{FDTFlowcahrt}}. 
+    	\hspace*{3ex}The overall architecture of the algorithm is shown in \figref{FDTFlowcahrt}. 
     	Firstly, a data fusion model was implemented in order to get a better signal representation by fusing the envelope decay rates through a least squares method. 
     	In this case, the envelope decay rates are the rate of the decay of the envelopes of the received X and Y axis ELF signals. 
     	Then, a Fast Decision Tree (FDT) algorithm is proposed to detect the ELF signals. 
@@ -1134,21 +1150,21 @@ BoldItalicFont=Arial Bold Italic.ttf
 		In order to determine suitable components, the main parts of the locomotion system which require acquisition must be considered.
 		The parts which will be considered here are the track modules, the linear actuators, the internal rotation motors and the legs and gears.
 		\\
-		For the track module, the best reference point was the Inuktun Minitrac, a larger version of the Inuktun Microtrac module used by Ciszewski et al.\textsuperscript{\cite{ciszewski2015design}} for their testing of a pipe inspection robot.
+		For the track module, the best reference point was the Inuktun Minitrac, a larger version of the Inuktun Microtrac module used by Ciszewski et al.\supercite{ciszewski2015design} for their testing of a pipe inspection robot.
 		These cost $£ \ xxx$ each, and three are required for each leg of the robot, bringing the overall cost to $£ \ 9xxx$.
-		They are probably over specified, as each has a pull rating of roughly $30$ kg for continuous duty, meaning the robot can weight up to $270$ kg, which would be an unrealistic and impractical figure to aim for\textsuperscript{\cite{inuktunTracks}}.
+		They are probably over specified, as each has a pull rating of roughly $30$ kg for continuous duty, meaning the robot can weight up to $270$ kg, which would be an unrealistic and impractical figure to aim for\supercite{inuktunTracks}.
 		Each module can be provided in either aluminium, brass or steel, with the main difference being the weight.
 		Aluminium was chosen, as it is the lightest of the three, but each module still weighs $5.7$ kg taking the track weight to $51.3$ kg for all 9 track modules.
 		As this is quite heavy, a different design could be considered, with a motor driving the tracks instead, so a new system can be designed to minimise the weight.
 		Additionally, while discussing the pricing and operation with a representative from Eddyfi Technologies, it was made clear that the Minitrac is no longer for sale for commercial uses, as they found that they were often being used in products which compete with Eddyfi's own pipe inspection robots.
 		However, these track modules give a reasonable indication of the eventual cost to expect for the robot.
 		\\
-		The sample linear actuators chosen were selected as they have $200$N of force output and a potentiometer to measure the extension of the actuator\textsuperscript{\cite{rsproLinear}}.
-		Using \hyperref[maxWeight]{Equation \ref*{maxWeight}}, reproduced below, values for the worst case scenario can be estimated.
+		The sample linear actuators chosen were selected as they have $200$N of force output and a potentiometer to measure the extension of the actuator\supercite{rsproLinear}.
+		Using \equationref{maxWeight}, reproduced below, values for the worst case scenario can be estimated.
 		\begin{align*}
 			W &= \frac{6 \mu_{t,p} F \tan \left( \theta \right)}{\cos \left( \phi \right)}
 		\end{align*}
-		The worst case scenario occurs when when $ \mu = 1.21$\textsuperscript{\cite{sato2011development}}, $\theta = 10^\circ$ and $\phi = 0^\circ$, as stated before.
+		The worst case scenario occurs when when $ \mu = 1.21$\supercite{sato2011development}, $\theta = 10^\circ$ and $\phi = 0^\circ$, as stated before.
 		This gives us a maximum weight of $528.5 N = 53.9$ kg, which is quite large, although comparatively small compared to the estimated weight of 9 Inuktun MiniTrac modules, hence why they would be considered inappropriate.
 		With a safety margin of 1.5 for the linear actuator output, limiting their output to $130 N$, the maximum weight becomes $343.5 N = 35.0$ kg which is still reasonable and significantly larger than similar robots.
 		These cost $£ \ 121.46 - £ \ 132.02$ each depending on quantity, but the lower price can be used as this is for 10 or more actuators, which is less than 2 robots. 
@@ -1156,7 +1172,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 		The overall weight of these linear actuators would be $0.504$ kg, which is negligible compared to the weight of most of the other components, as well as the estimated weight of the robot shell.
 		\\
 		The next part to consider is the motor used for rotation of the legs relative to the body. There is no specifications required for this at the moment, but a high torque motor would be ideal.
-		A sample product which is both relatively small and high torque was selected\textsuperscript{\cite{rsproRotation}} as it has a maximum output torque (at stall) of $1.46$ Nm.
+		A sample product which is both relatively small and high torque was selected\supercite{rsproRotation} as it has a maximum output torque (at stall) of $1.46$ Nm.
 		The diameter of the actual motor is only $42.8$ mm, meaning that there is plenty of space to use a larger more powerful motor if testing reveals that it will be necessary.
 		The cost of these drives is $£ \ 141.84$ per motor, and 2 are required for the main body of the robot.
 		Since similar motors could be used as the RC servo motors in the active compliance joint, another 3 would be included in the robot, bringing the total cost for 5 rotation motors to $£ \ 709.20$.
@@ -1179,9 +1195,9 @@ BoldItalicFont=Arial Bold Italic.ttf
 		\end{figure}
 		The remaining components of the locomotion system were estimated using the 3D CAD models, shown in \hyperref[gearCAD]{Figures \ref*{gearCAD}, \ref*{shortLinkCAD} \& \ref*{longLinkCAD}} to estimate their volume.
 		The leg pieces were assumed to be made out of stainless steel, and the gear was to be made of aluminium.
-		The density of stainless steel is $7900$ kg m\textsuperscript{-3}\textsuperscript{\cite{HLT}}, so the longer link weighs $0.653$ kg and the shorter link weighs $0.350$ kg.
+		The density of stainless steel is $7900$ kg m\textsuperscript{-3}\supercite{HLT}, so the longer link weighs $0.653$ kg and the shorter link weighs $0.350$ kg.
 		Thus, a single leg, which is made up of 2 short links and 2 longer links, weighs $2.00$ kg, bringing the total contribution of the three legs to $6.02$ kg for the whole robot.
-		The density of aluminium was assumed to be $2700$ kg m\textsuperscript{-3}\textsuperscript{\cite{HLT}}, which makes the weight of a single gear $3.42$ kg, and there are 4 inside the robot, bring the total weight up to $13.68$ kg
+		The density of aluminium was assumed to be $2700$ kg m\textsuperscript{-3}\supercite{HLT}, which makes the weight of a single gear $3.42$ kg, and there are 4 inside the robot, bring the total weight up to $13.68$ kg
 		This could be mitigated by refining the design, as this is a very rough sketch of the gear, and is probably thicker than would be necessary in reality.
 		
 		\subsection{Power}
@@ -1214,7 +1230,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 			
 	\section{Industry Analysis}
 		
-		It was decided to use the Porter's Five Forces model\textsuperscript{\cite{porter2008five}} to analyse the in-pipe inspection robot industry, in order to provide a systematic analysis of the existing and possible threats to the company in the future.
+		It was decided to use the Porter's Five Forces model\supercite{porter2008five} to analyse the in-pipe inspection robot industry, in order to provide a systematic analysis of the existing and possible threats to the company in the future.
 		
 		\subsection[Threat of New Entry]{Threat of New Entry}
 				
@@ -1228,11 +1244,11 @@ BoldItalicFont=Arial Bold Italic.ttf
 			There are some specific products, such as the industrial cameras, AHRS and the laser scanner, which have far fewer substitutes, due to their more specialised nature, but these still can be replaced with competitive products relatively easily without making major changes to the robot.
 			\\
 			The other electronics, such as the graphical processing unit (GPU) and  also have alternatives to a greater or lesser degree.
-			There are not many major GPU manufacturers, with AMD, Nvidia and Intel dominating the commercial market\textsuperscript{\cite{rake2020graphic}} due to long term presence in the market.
+			There are not many major GPU manufacturers, with AMD, Nvidia and Intel dominating the commercial market\supercite{rake2020graphic} due to long term presence in the market.
 			Thus these manufacturers have greater power over companies which have on board image processing, and can dictate the cost and functionality of  products.
 			As such, these suppliers offer the greatest threat to the in-pipe robotics industry.
 			\\
-			Within the fibre optic industry in the UK there are only 3 major companies\textsuperscript{\cite{neve2020fibreoptic}}, which have a total market share of $22.8$\%, but of these only Leviton and Prysmian are possible suppliers.
+			Within the fibre optic industry in the UK there are only 3 major companies\supercite{neve2020fibreoptic}, which have a total market share of $22.8$\%, but of these only Leviton and Prysmian are possible suppliers.
 			The rest of the industry is made up of much smaller firms who supply niche products for optical fibres, so there are a maximum of 3 or 4 suppliers.
 			This means that these companies will also exert significant pressure on the in pipe robotics industry, but still do not have the level of influence that the GPU manufacturers do.
 			\\
@@ -1249,34 +1265,34 @@ BoldItalicFont=Arial Bold Italic.ttf
 			As well as this, manual inspection has the advantage of familiarity as it is an established practice which gas pipe companies know they can rely on.
 			Manual inspection uses different methods for inspecting pipes dependent on the the kind of damage being inspected for.
 			\\
-			For external corrosion inspection, a pre-assessment is performed, followed by both indirect and direct inspection techniques being used, the latter of which requires excavation to occur for that section of the pipe\textsuperscript{\cite{kishawy2010review}}. 
+			For external corrosion inspection, a pre-assessment is performed, followed by both indirect and direct inspection techniques being used, the latter of which requires excavation to occur for that section of the pipe\supercite{kishawy2010review}. 
 			For internal corrosion inspection, a similar process is followed, with pipes that have the greatest inclination being inspected first to identify the location of localised corrosion. 
 			However, both these methods require excavation in order to confirm the location of the corrosion, which is disruptive, especially in urban environments.
 			\\
 			When checking for cracks manual inspection can typically only find these when a leak has occurred, as there is otherwise very little change in behaviour of the gas inside the pipe.
-			Thus, manual methods rely on constant assessment of conditions within the pipe, such as the mass-balance method, pressure-drop method and using gas smelling dogs\textsuperscript{\cite{kishawy2010review}}.
+			Thus, manual methods rely on constant assessment of conditions within the pipe, such as the mass-balance method, pressure-drop method and using gas smelling dogs\supercite{kishawy2010review}.
 			Ground penetrating radar is also used as another method for looking for cracks without excavation, but visual inspection is also typically used to ensure accuracy of the readings, which does require excavation.
 			Computer models can also be used to predict the behaviour of the pipeline in order to predict faults, but as this requires modelling of complex fluid dynamics, these are not always reliable.
 			\\
 			Pipeline Inspection Gauges (PIGs) are the other main substitute to robotic in-pipe inspection, as these are passive devices which are forced along the pipeline by the gas flow.
-			However, PIGs are uncontrollable and cannot operate in pipelines containing sharp bends\textsuperscript{\cite{mills2017advances}}, making them unsuitable for urban pipelines.
+			However, PIGs are uncontrollable and cannot operate in pipelines containing sharp bends\supercite{mills2017advances}, making them unsuitable for urban pipelines.
 			As such the threat from PIGs is minimal since the robot has been specifically chosen to enter an area where they are not currently suitable, although it is possible that more advanced PIGs may be developed in the future which could compete in urban pipelines.
 			\\
 			Another significant substitute is the use of pipeline models to predict damage in order to decide when to replace pipes, rather than using inspection techniques.
 			This reduces the requirement for inspection solutions in general, as models can be used to predict when pipes will fail meaning inspection is no longer required.
-			However, inspection is still needed in order to provide initial data for the model, and models are still not particularly accurate at predicting failure timings\textsuperscript{\cite{zakikhani2020review}}.
+			However, inspection is still needed in order to provide initial data for the model, and models are still not particularly accurate at predicting failure timings\supercite{zakikhani2020review}.
 			In particular, models typically consider limited causes of failure, most often corrosion or third party damage, and only consider a single failure mode for the pipe, or instead not differentiating between failure modes.
 			As well as this, current failure prediction models are not generalised, and require either extensive historical data which will not always be available or are designed to predict the failure of a single case study pipeline.
 			As well as this, all pipeline failure models are conservative estimates, meaning they suggest damage will occur before it is feasible, and as such lead to loss of profit, and also lead to pipes having to be disconnected for repairs which may not be necessary.
 			Thus the threat of substitution entirely by models of pipe failure is low, but the likelihood of in pipe robots working alongside failure models to help verify and improve them is higher, slightly reducing the market size for inspections.
 		
 		\subsection[Rivalry Among Existing Competitors]{Rivalry Among Existing Competitors - Louis Emanuel}
-			High intensity of competitive rivalry can make an industry more competitive and thus decrease profit potential for the existing firms\textsuperscript{\cite{porter2008five}}. This section will serve to analyse the level of competitive rivalry that our robot would face in the in-pipe inspection robot industry. \\
-	        \hspace*{3ex}There are a number of different factors that determine the level of competitive rivalry such as concentration in industry, switching costs, differentiation, and exit barriers\textsuperscript{\cite{rivalryfactorsCI}}. And hence this section is structured to consider each of them in turn. 
+			High intensity of competitive rivalry can make an industry more competitive and thus decrease profit potential for the existing firms\supercite{porter2008five}. This section will serve to analyse the level of competitive rivalry that our robot would face in the in-pipe inspection robot industry. \\
+	        \hspace*{3ex}There are a number of different factors that determine the level of competitive rivalry such as concentration in industry, switching costs, differentiation, and exit barriers\supercite{rivalryfactorsCI}. And hence this section is structured to consider each of them in turn. 
 	        
 	        \textbf{Concentration in industry}\\
 	        If an industry has a high number of competing firms with similar offerings, the level of competitive rivalry will be high. In comparison, a monopoly market structure is dominated by a low number of firms and will exhibit less rivalry. Consequently, the level of market concentration significantly impacts the competitive rivalry.\\
-	        \hspace*{3ex}In our case, there are a low number of firms currently operating in the autonomous in-pipe inspection market. With the only significant competitor being ULC Robotic’s CISBOT\textsuperscript{\cite{cisbotbeast}}. However, if we consider the whole pipe inspection market, there are a significant number of similar sized competitors that use PIG technology including SGS, Pigtek LTD and Propipe among others. PIG technology does not have automated capabilities, and so its product offering is significantly different than the one we are proposing. Therefore, given the only competitor with similar offerings is Cadent, the market exhibits a monopoly structure and suggest a low intensity of rivalry.
+	        \hspace*{3ex}In our case, there are a low number of firms currently operating in the autonomous in-pipe inspection market. With the only significant competitor being ULC Robotic’s CISBOT\supercite{cisbotbeast}. However, if we consider the whole pipe inspection market, there are a significant number of similar sized competitors that use PIG technology including SGS, Pigtek LTD and Propipe among others. PIG technology does not have automated capabilities, and so its product offering is significantly different than the one we are proposing. Therefore, given the only competitor with similar offerings is Cadent, the market exhibits a monopoly structure and suggest a low intensity of rivalry.
 	        
 	        \textbf{Switching Costs}\\
 	        Aside from fixed costs, switching costs also influence the extent of rivalry as high switching costs in an industry will lead to a decrease in competitive rivalry. These switching costs arise from the fact that customers who have invested a lot of resources in learning to use a product will find it costly to switch to a competitor. \\
@@ -1296,7 +1312,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 	\section{Customer Industry Analysis}
 		% Insert Monty's P5F here
 		Since there is only one customer industry, it is important to analyse the safety and sustainability of that industry to ensure that the business was secure.
-		The Porter's Five Forces model\textsuperscript{\cite{porter2008five}} was once again used to analyse the gas pipeline inspection industry.
+		The Porter's Five Forces model\supercite{porter2008five} was once again used to analyse the gas pipeline inspection industry.
 			
 		\subsection[Threat of New Entry]{Threat of New Entry}
 				New entrants are motivated to enter the gas distribution industry due to the high profits achieved by current firms which leads to increased competition as they strive to gain market share. The extent of this threat depends on the current barriers to entry in the industry. Porter outlined key barriers as being economies of scale, technical knowledge and regulation. And hence the following section will analyse each of these factors. \\
@@ -1337,44 +1353,44 @@ BoldItalicFont=Arial Bold Italic.ttf
 			As well as this, regulations enforced by the Institution of Gas Engineers and Managers (IGEM) and the International Standards Organisation (ISO) are also of interest.
  			\\
 			OFGEM is the UK government body which provides codes and regulations for the gas pipeline companies to follow, but these are mainly focused on reducing competition between gas transporters and ensuring a fair playing field for all companies.
-			The Uniform Network Code (UNC)\textsuperscript{\cite{joint2005uniform}} covers the transition from a single national system to the current 4 provider network, as well as the rights of customers and independent gas transporters.
+			The Uniform Network Code (UNC)\supercite{joint2005uniform} covers the transition from a single national system to the current 4 provider network, as well as the rights of customers and independent gas transporters.
 			The UNC also ensure that there is a fair market and safe operation for the gas pipe system, as well as encouraging the implementation of robust computer systems and daily energy balancing.
 			While the safety sections of the UNC could be relevant to the robot, they are far too general, and are simply an overview of the responsibilities of the gas providers to ensure safe pipelines.
-			The Independent Gas Transporter Uniform Network Code (iGT UNC)\textsuperscript{\cite{igt2021independent}} defines more about the interrelations between different smaller, independent providers and helps to standardise the interactions with gas providers.
+			The Independent Gas Transporter Uniform Network Code (iGT UNC)\supercite{igt2021independent} defines more about the interrelations between different smaller, independent providers and helps to standardise the interactions with gas providers.
 			It refers to the UNC in large part, but focuses more on the responsibilities of Independent Transporters who are not the customers for the robot, and as such do not need to be focused on.
-			The Supply Point Administration Agreement (SPAA)\textsuperscript{\cite{spaa2021supply}} is about supplier-supplier relationships which may not be covered by existing contracts, and contributes to the smooth running of the industry, and allows for smooth transfer of customers between different gas carriers.
-			Finally, the Smart Energy Code (SEC)\textsuperscript{\cite{smart2021smart}} defines the rights and obligations of energy suppliers, transmission companies and other companies involved in metering in Great Britain.
+			The Supply Point Administration Agreement (SPAA)\supercite{spaa2021supply} is about supplier-supplier relationships which may not be covered by existing contracts, and contributes to the smooth running of the industry, and allows for smooth transfer of customers between different gas carriers.
+			Finally, the Smart Energy Code (SEC)\supercite{smart2021smart} defines the rights and obligations of energy suppliers, transmission companies and other companies involved in metering in Great Britain.
 			Since inspection of the pipeline is the main focus of the robot, the rights given by the SEC are not a concern.
 			\\
 			OFGEM also awards money to companies which they believe are innovating in new technologies as part of the National Innovation Competition (NIC).
-			The NIC provides up to £20 million funding for innovation in the gas energy networks, although in 2020 £27.17 million was awarded under plans to move to increase overall funding to £28 million\textsuperscript{\cite{ofgem2020nic}}.
+			The NIC provides up to £20 million funding for innovation in the gas energy networks, although in 2020 £27.17 million was awarded under plans to move to increase overall funding to £28 million\supercite{ofgem2020nic}.
 			However it also significantly easier to get the gas funding than electricity funding as the competition is significantly smaller - in 2020 there were only 2 applications, both of which were funded.
 			Thus providing a compelling reason for the robot to receive NIC funding will be incredibly important in order to secure funding for development.
 			\\
 			The ENA is the industry body for all the energy suppliers in the UK \& Ireland, allowing them to publish all their own guidance as to what is required to operate safely within pipes.
 			For the gas industry, these fall under the Gas Industry Standards (GIS), which define both how the robot can operate within pipes as well as how the pipes should be built and maintained.
 			However, most of these standards refer to traditional methods of pipe inspection and as such are not directly applicable to the robot.
-			The most likely to affect the robot design is GIS/F10:2015 “Ancillary fittings used for the live insertion of gas mains operating at pressures equal to or less than 75 mbar”\textsuperscript{\cite{energy2015gas}}.
+			The most likely to affect the robot design is GIS/F10:2015 “Ancillary fittings used for the live insertion of gas mains operating at pressures equal to or less than 75 mbar”\supercite{energy2015gas}.
 			GIS/F10:2015 describes how the insertion of polyethylene pipes into steel gas mains must be performed on low pressure lines, which may provide guidance on the insertion of the robot into similar pipes.
 			However the pipes specified by 	GIS/F10:2015 are 8 inches (203.2 mm) in diameter, which is much smaller than the pipes the robot is designed to operate in and operating pressures are higher, so this standard will be of limited use.
 			\\
 			The HSE is the government agency responsible for the regulation of workplace safety, and as such provides information on how to ensure safe working conditions in and around gas pipelines.
-			They provide guidance and interpretation\textsuperscript{\cite{books1996guide}} of the Pipeline Safety Regulations 1996, allowing us to more easily select the most important regulations for the robot to follow.
+			They provide guidance and interpretation\supercite{books1996guide} of the Pipeline Safety Regulations 1996, allowing us to more easily select the most important regulations for the robot to follow.
 			The regulations which apply to us most clearly are Regulations 10, 15 and 16, with regulation 28 encouraging gas transporters to do their due diligence to ensure that outside companies do not cause an unsafe pipeline.
 			Regulations 10 ("The operator shall ensure that modification, maintenance or other work on a pipeline is carried out in such a way that its soundness and fitness for the purpose for which it has been designed will not be prejudiced") and 15 ("No person shall cause such damage to a pipeline as may give rise to a danger to persons") are similar as both cover the obligation of the robot to avoid causing damage to the pipe.
 			The HSE also clarifies that this means that testing must be undertaken with a standardised pipe to ensure that the robot does not cause damage or structural instability to the pipe.
 			As well as this it is necessary for us to be able to report when there is a possibility that damage to a pipeline has occurred, even when accidental, so the robot should also check for damage caused by the robot on the return journey.
 			\\
 			The IGEM provides technical standards for the gas industry, which are captured in several key areas.
-			Based on the IGEM list of standards\textsuperscript{\cite{institution2021igem}}, as the standards themselves are not freely available, some of the Safety (SR) regulations  as well as the Transmission and Distribution (TD) standards will need to be followed
+			Based on the IGEM list of standards\supercite{institution2021igem}, as the standards themselves are not freely available, some of the Safety (SR) regulations  as well as the Transmission and Distribution (TD) standards will need to be followed
 			Considering the safety regulations first, SR/22 ("Purging operations for fuel gases in transmission, distribution and storage"), covers the issues faced when removing the robot from the pipeline, and SR/28 ("Trenchless techniques") discusses methods for operating in pipes with minimal or no excavation of the surrounding area.
 			The main Transmission and Distribution considerations are TD/1 ("Steel pipelines for high pressure gas transmission"), which are the main environment which the robot will be operating in, as well as TD/3 ("Steel and PE pipelines for gas distribution") and TD/4 ("PE and steel gas services and service pipework") which are more general standards for all kinds of pipeline, and may provide some requirements not captured by TD/1.
 			\\
-			The International Association of Oil \& Gas Producers (IOGP) provides guidance on the selection of relevant ISO standards\textsuperscript{\cite{iogp2017standards}}, which allows us to narrow down which relevant standards to consider.
+			The International Association of Oil \& Gas Producers (IOGP) provides guidance on the selection of relevant ISO standards\supercite{iogp2017standards}, which allows us to narrow down which relevant standards to consider.
 			While the ISO standards are also not freely available, the ISO website provides a short summary of the main points in the standard before purchase, allowing us to evaluate which standards to consider.
-			ISO 21457:2010\textsuperscript{\cite{iso21457}} is important as it identifies the possible corrosion mechanisms and parameters for prediction in pipelines.
+			ISO 21457:2010\supercite{iso21457} is important as it identifies the possible corrosion mechanisms and parameters for prediction in pipelines.
 			Thus it helps select suitable materials for the robot, in order to avoid corrosion, as well as helping to identify what corrosion signs to look for.
-			Another important standard is ISO 15649:2001\textsuperscript{\cite{iso15649}} which specifies required design and construction parameters for gas pipelines, as well as requirements for pipeline inspection.
+			Another important standard is ISO 15649:2001\supercite{iso15649} which specifies required design and construction parameters for gas pipelines, as well as requirements for pipeline inspection.
 			This will greatly influence the requirements for the robot, and while many of the necessary safety features for inspection have been considered, the standard will formalise this and emphasise any which are missing.
 		
 		\subsection[Traditional  \& Autonomous Pipe Inspection Companies]{Traditional \& Autonomous Pipe Inspection Companies - Louis Emanuel}
@@ -1404,7 +1420,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 			However, despite their smaller influence, the effect of councils is still worth considering as they may be the tipping point which causes preference over other options.
 			\\
 			Due to the reduced number of excavations the robot is attractive to local councils, as they do not have to excavate roads as often or as widely.
-			This is a budgetary saving since, in 2018 - 2019, local councils in England spent £$3,857$ million on Highways and Transport, which will include roadworks required to access gas pipes for inspection and replacement, which makes up $4.22$\% of total service expenditure\textsuperscript{\cite{ministry2020local}}.
+			This is a budgetary saving since, in 2018 - 2019, local councils in England spent £$3,857$ million on Highways and Transport, which will include roadworks required to access gas pipes for inspection and replacement, which makes up $4.22$\% of total service expenditure\supercite{ministry2020local}.
 			As such the reduction in amount of excavation has the possibility to save a significant amount of funding in the UK, allowing for funding to be redirected to other important services such as education and fire services.
 			As well as this, there is the environmental impact of traffic and excavation, which local governments are aiming to reduce, in order to meet government targets of lowered emissions.
 		
@@ -1458,7 +1474,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 		\textbf{Future Forecast}
 		
 		Having looked at the macro trends concerning Green gases that are shaping the industry, it is also necessary to look at the future plans of our customers in order to predict the long term success of our business. \\
-    	\hspace*{3ex}One particularly useful resource is the Green Goes Green programme. The programme brings together all five of Britain’s gas network companies, who are also the customers our business will be targeting. The programme will research, co-ordinate and implement the changes needed to convert Britain’s world-leading 284,000km of gas network infrastructure to run on hydrogen and biomethane. The Gas Goes Green Pathway to Net Zero which is shown in \hyperref[forecast]{Figure \ref*{forecast}} demonstrates the timeline in which these companies will be following.
+    	\hspace*{3ex}One particularly useful resource is the Green Goes Green programme. The programme brings together all five of Britain’s gas network companies, who are also the customers our business will be targeting. The programme will research, co-ordinate and implement the changes needed to convert Britain’s world-leading 284,000km of gas network infrastructure to run on hydrogen and biomethane. The Gas Goes Green Pathway to Net Zero which is shown in \figref{forecast} demonstrates the timeline in which these companies will be following.
 
 		\begin{figure}[h]
 			\centering
@@ -1472,7 +1488,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 		
 		\textbf{Impact on us}\\
 		Overall, the traditional gas pipeline industry is secure for at least the next 20 years in which time the use of natural gas will be far larger than that of green gases. After this period, the use of natural gas is expected to decelerate more rapidly. Despite this, a shift from natural gas to green gas is not necessarily bad for our business given that we will have developed the complex technology needed to navigate and map pipeline. \\
-	    \hspace*{3ex}There appears to be three main challenges in the long term. Firstly, one challenge for our business could be the fact that transporting hydrogen requires the use of new pipeline materials and heavy pumps. Therefore, the inspection methods of our robot must be repurposed for use on materials such as fiber reinforced polymer. Another challenge is that due to the rapid installment of modern pipelines, the frequency of damage could be far lower than the currently used steel pipes. This in turn would reduce the amount of pipe inspection required. Although given the lower ignition temperature of Hydrogen compared to natural gas, there may be more enhanced regulation in the future. Finally, from \hyperref[forecast]{Figure \ref*{forecast}} it is expected that the total use of gas is expected to decrease gradually. This would place pressure on the gas suppliers, which would eventually be passed on to us. 
+	    \hspace*{3ex}There appears to be three main challenges in the long term. Firstly, one challenge for our business could be the fact that transporting hydrogen requires the use of new pipeline materials and heavy pumps. Therefore, the inspection methods of our robot must be repurposed for use on materials such as fiber reinforced polymer. Another challenge is that due to the rapid installment of modern pipelines, the frequency of damage could be far lower than the currently used steel pipes. This in turn would reduce the amount of pipe inspection required. Although given the lower ignition temperature of Hydrogen compared to natural gas, there may be more enhanced regulation in the future. Finally, from \figref{forecast} it is expected that the total use of gas is expected to decrease gradually. This would place pressure on the gas suppliers, which would eventually be passed on to us. 
 		
 		\section{Competitor Analysis}
 		
@@ -1489,7 +1505,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 	        \textbf{Opportunities}\\
 	        One area of opportunity is in the hydrogen gas pipeline refit that is currency being considered. As we transition to green gases, a full assessment of current gas distribution assets is required. This is particularly relevant for GRAID as given the National Grid has received significant funding from the Net Zero development funding to finance projects, the National Grid will have preference for using the inspection robot it partnered to manufacture. \\
 	        \textbf{Threats} \\
-	        One significant threat to GRAID is the rising customer loyalty in the pipe inspection market. For example, through CISBOT's partnership with Cadent, who is the largest gas distributor in the UK, it is unlikely Cadent will invest in another robot unless it provides distinct capabilities that CISBOT cannot offer. Another potential threat arises from the projected decrease in gas demand demonstrated in \hyperref[forecast]{Figure \ref*{forecast}}. If the market size decreases, the competition GRAID experiences will increase as the only way to boost revenue will be to gain market share.
+	        One significant threat to GRAID is the rising customer loyalty in the pipe inspection market. For example, through CISBOT's partnership with Cadent, who is the largest gas distributor in the UK, it is unlikely Cadent will invest in another robot unless it provides distinct capabilities that CISBOT cannot offer. Another potential threat arises from the projected decrease in gas demand demonstrated in \figref{forecast}. If the market size decreases, the competition GRAID experiences will increase as the only way to boost revenue will be to gain market share.
 	        
      \section[Business Risk Assessment]{Business Risk Assessment - Jim Laney}
      	
@@ -1503,9 +1519,9 @@ BoldItalicFont=Arial Bold Italic.ttf
      	\\
      	Another substantial business risk is the regulation and safety concerns around working within gas pipelines.
      	While the robot has been designed to meet all current UK regulations, there  is always a risk of the introduction of new legislation which may limit the robot effectiveness.
-     	As well as this, gas networks are considered to be at fault if a third party causes damage, if it can be shown that they have not "exercised all due diligence"\textsuperscript{\cite{books1996guide}}, and as such it is imperative that the robot conforms to all regulations strictly.
+     	As well as this, gas networks are considered to be at fault if a third party causes damage, if it can be shown that they have not "exercised all due diligence"\supercite{books1996guide}, and as such it is imperative that the robot conforms to all regulations strictly.
      	As well as this, the high level of regulation of the gas industry makes moving into new markets a significantly more difficult process, as new regulations have to be followed, and new standards must be checked and followed.
-     	This problem is further exacerbated by the fact that other markets, such as the United States, have regulations and standards which differ between states\textsuperscript{\cite{pless2011making}}.
+     	This problem is further exacerbated by the fact that other markets, such as the United States, have regulations and standards which differ between states\supercite{pless2011making}.
      	\\
      	Another risk to the company is that of data security.
      	Since the robot stores data which could be used for nefarious purposes, it is important that any data collected is stored securely.
@@ -1521,7 +1537,7 @@ BoldItalicFont=Arial Bold Italic.ttf
      	There is also the ongoing risk that, assuming that the robot becomes the standard industry solutions for inspection, the company becomes complacent.
      	As such, it is important to explore the future of the robot while operating the inspection service, and evaluate the likelihood of a reduction in the use of fossil fuels, and future moves to other sustainable technologies.
      	For example, in the case of a move to hydrogen pipes, the transition is fairly simple as similar, or possibly even the same, gas networks will be used to transport the hydrogen around.
-     	If the potential of further development of the robot is considered a viable option, it is important to monitor the rate of development to make sure that development is still in the steep section of the technological S-curve\textsuperscript{\cite{christensen1998innovation}}, and be prepared to switch to a new development curve or diversify the company's portfolio with an additional product.
+     	If the potential of further development of the robot is considered a viable option, it is important to monitor the rate of development to make sure that development is still in the steep section of the technological S-curve\supercite{christensen1998innovation}, and be prepared to switch to a new development curve or diversify the company's portfolio with an additional product.
      	
 	
 	\pagebreak		% Temp page break for references - might end up replacing with a multicolumn environment later
