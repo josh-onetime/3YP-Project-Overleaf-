@@ -38,6 +38,8 @@
 
 \newcommand{\equationref}[1]{\hyperref[#1]{Equation \ref*{#1}}}     % New command to automatically fill out equations more easily
 
+\setcounter{tocdepth}{2}	% Means table of contents only shows subsections
+
 % Use Arial
 \setmainfont[
 BoldFont=Arial Bold.ttf,
@@ -97,7 +99,7 @@ Nonetheless, the heavy amount of excavation required and the relatively slow and
 
 Hence, PipeDream will seek to address the target problems faced by our primary stakeholders with our product. 
 
-	\subsection{Target Problems \textit{- Joshua Gei}}
+	\subsection[Target Problems]{Target Problems \textit{- Joshua Gei}}
 We will first define the scope of our problem: PipeDream will target specifically \textbf{Tier 3 underground gas distribution pipelines in the UK}, using the pipeline assets category definition used by Ofgem, the Health and Safety Executive (HSE) and Gas Distribution Networks (GDNs)\supercite{pct2020states}. 
 
 Table 1 shows the pipeline assets categories. 
@@ -123,7 +125,7 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
    \item \textbf{Unable to inspect all types of pipes}
 \end{enumerate}
 
-	\subsection{Solution \textit{- Joshua Gei}}
+	\subsection[Solution]{Solution \textit{- Joshua Gei}}
 	
 	Robotic solutions are estimated to provide this amount of cost savings, but our own estimates are... 
 	
@@ -131,7 +133,7 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
 	
 	\subsection[Product Description]{Product Description - Jim Laney}
 	
-		The pipe inspection robot works in underground pipes in urban areas, with a pipe diameter from $457.2$ mm to $914.4$ mm and with pipes at any angle, providing a map of the pipe with the location of any failures to the operator. % 18 - 36 inches; Needs citation for pipe sizes?
+		The pipe inspection robot works in underground pipes in urban areas, with a pipe diameter from 457.2 mm to 914.4 mm and with pipes at any angle, providing a map of the pipe with the location of any failures to the operator. % 18 - 36 inches; Needs citation for Tier 3 pipe sizes?
 		The robot reduces the disruption caused by having to dig up large areas of pipe for inspection, since the issue can be located and smaller, less disruptive work can be undertaken.
 		It is intended to provide an inspection method for pipes which cannot be inspected by the current leading method, Pipe Inspection Gauges (PIGs), which only work in horizontal or near horizontal straight pipes\supercite{mills2017advances}.
 		It enters a pipe using a launch tube, and travels autonomously along the inside of the pipe, checking for evidence of cracks and corrosion and logging their location for future maintenance.
@@ -145,7 +147,7 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
 		\end{figure}
 		
 		While inside the pipe, the robot uses three legs to maintain contact and provide the required normal force to move inside the pipe, as shown in \figref{3DSketch}.
-		Two of these legs can """"""""be rotated to provide improved speeds over pipes at different angles, and all three legs can be extended and retracted to fit the pipe diameter the robot is currently in.
+		Two of these legs can be rotated to provide improved speeds over pipes at different angles, and all three legs can be extended and retracted to fit the pipe diameter the robot is currently in.
 		It can navigate around bends and through pipes at different angles, without prior knowledge of the location or angle of these, and will automatically feedback to the control system in order to create an accurate map.
 		\\
 		The robot uses computer vision to identify cracks and corrosion, allowing it to mark where these occur for human maintenance, and then combines this with knowledge of its position to create a map of the pipe it has travelled and where issues have occurred.
@@ -181,29 +183,13 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
 		The PCT is treaty wich includes 153 states\supercite{pct2020states}, including the United Kingdom, United States and most of mainland Europe, as shown in \figref{pctMap}.
 		However applying for a PCT patent can take even longer, and is even more expensive, up to £8000\supercite{mewburn2020international}, so it is important to ensure that the robot design is protected while applying for these patents.
 		Thus it would be a good idea to apply for some less strict protection, such as a trademark, and ensure that all discussions of sensitive information occur under the binding of a Non-Disclosure Agreement.
-		
-	\subsection[Constraint Justification]{Constraint Justification}
-		
-		% Section about how we decided pipe diameters and other important things - gas pressure, etc?
 	
 	\section{Product Hardware - ENG}
 	
 		\subsection[Locomotion]{Locomotion - Jim Laney}
-			
-			%By Jim
 			The main locomotion of the robot is a set of 3 legs with a pantograph mechanism  to allow for the adaptation to different diameters, with tracks at the end to drive the motion, as shown in \figref{legDesign}.
 			There is one leg which remains stationary at the top of the robot, and two legs which are able to rotate about the body of the robot between $20^\circ$ and $90^\circ$ to the vertical.
-			At the end of each leg there is a passive joint between the leg and the track to allow for the robot to travel along surfaces which are not perpendicular to the legs, such as around bends or over uneven surfaces.
-			\\
-			The length of the pantograph is controlled by the force from two opposing linear actuators, which extend to a given length to set the distance of the pantograph.
-			The track at the end of the pantograph is connected to a freely turning joint, which can be measured using two angular encoders to give the angle $\phi$, shown in \figref{legDiagram}, with the springs acting to restore $\phi$ to $0^\circ$ when under no external effects.
-			In addition to this, the tracks use an active compliance joint, as shown in \hyperref[activeCompliance]{Figures \ref*{activeCompliance} \& \ref*{unevenBehaviour}}, which allows for the robot to maintain maximum surface contact at all times.
-			\\
-			The active compliance joint consists of a torsional spring and radio-controlled servo motor, which are both attached around the same axis.
-			However, the servo motor is attached to the rear tracks, whereas the spring is attached between the front track and the servo motor itself.
-			When the robot passes over an uneven surface, the servo motor forces the front track down, maintaining contact with the pipe wall, as shown in \hyperref[unevenBehaviour]{Figure \ref*{unevenBehaviour}(a)}
-			If instead the robot is in a section where the pipe wall is concave, the torsional spring will allow it to fold, shown in \hyperref[unevenBehaviour]{Figure \ref*{unevenBehaviour}(b)}, and maintaining contact with as much of the wall as possible.
-			The active compliance joint also includes an angular encoder to tell how much the front track has been bent, allowing for the active compliance joint to be better controlled.
+			At the end of each leg there is a joint between the leg and the track to allow for the robot to travel along surfaces which are not perpendicular to the legs, such as around bends or over uneven surfaces.
 			\begin{figure}[h]
 				\centering
 				\begin{multicols}{2}
@@ -215,90 +201,113 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
 					\caption{Labelled Diagram indicating angles referenced in the text}
 					\label{legDiagram}
 				\end{multicols}
-			\end{figure}			
-			\begin{figure}[h]
-				\centering
-				\begin{multicols}{2}
-					\includegraphics[height=\imageheight]{activeCompliance}
-					\caption{Function and construction of an active compliance joint. Figure from \cite{park2010normal}}
-					\label{activeCompliance}
-					\columnbreak
-					\includegraphics[height=\imageheight]{unevenBehaviour}
-					\caption{Behaviour of active compliance joint over uneven surfaces (travelling upwards). Figure from \cite{park2010normal}}
-					\label{unevenBehaviour}
-				\end{multicols}
-			\end{figure}
-			\\
-			The rotation of the two base legs relative to the body of the robot occurs using a motor to drive each end of the rotation mechanism.
-			The motor drives the sun gears of two planetary gear systems, shown in \figref{planetaryDrive},which rotate in opposite direction so the legs move symmetrically.
-			The direction is reversed for the further planetary drive system using a small differential gearbox, shown in \figref{diffGearbox}, which allows for compact reversal of motion.
-			These allow the legs to move around the body, from almost directly below the robot to in a horizontal plane at $90^\circ$ to the top leg.
-			As both legs are driven from the same motor at each end, both legs are symmetrical about the vertical leg at all times, and the leg position can be summarised by a single leg rotation angle $\lambda$, measured from the top leg, which varies from $\lambda = 90^\circ$ to $\lambda = 160^\circ$.
-			The rotation allows the robot to adapt to different angles of the pipe more easily, as it will be quicker to drive along horizontal pipes with the almost vertical drive system, whereas vertical pipes require a more even distribution of contact points for optimal behaviour, probably requiring an angle of $\lambda = 120^\circ$ for the most even distribution of contact points.
-									
-			\begin{figure}[h]
-				\centering
-				\begin{multicols}{2}
-					\includegraphics[height=\imageheight]{planetaryDrive}
-					\caption{Planetary drive used to move the legs relative to the main body}
-					\label{planetaryDrive}
-					\columnbreak
-					\includegraphics[height=\imageheight]{diffGearbox}
-					\caption{Differential gearbox for coaxial rotational direction reversing}
-					\label{diffGearbox}
-				\end{multicols}
 			\end{figure}
 			
-			The ratio between the longer base links of the pantograph and then shorter tip links is $2:1$, which gives the greatest range of diameters for the smallest change in the base distance\supercite{okada1987mogrer}, to calculate the required link length $L$ to allow the robot to adapt to the chosen range of diameters, $457.2 - 914.4$ mm.
-			The pantograph angles are shown in \figref{legDiagram}, which results in:
+			\subsubsection{Pantograph Extension}
 			
-			\begin{align}
-				r_{min} &= \frac{3L}{2} \sin \left( \theta_{min} \right)
-				\\
-				r_{max} &= \frac{3L}{2} \sin \left( \theta_{max} \right)
-				\\
-				\implies \Delta r &= \frac{3L}{2} \left( \sin \left( \theta_{max} \right) - \sin \left( \theta_{min} \right) \right)
-				\\
-				L &= \frac{2 \Delta r}{3 \left( \sin \left( \theta_{max} \right) - \sin \left( \theta_{min} \right) \right)}
-			\end{align}
+				The length of the pantograph is controlled by the force from two opposing linear actuators, which extend to a given length to set the distance of the pantograph.
+				The track at the end of the pantograph is connected to a freely turning joint, which can be measured using two angular encoders to give the angle $\phi$, shown in \figref{legDiagram}, with the springs acting to restore $\phi$ to $0^\circ$ when under no external effects.
+				The ratio between the longer base links of the pantograph and then shorter tip links is 2:1, which gives the greatest range of diameters for the smallest change in the base distance\supercite{okada1987mogrer}, to calculate the required link length $L$ to allow the robot to adapt to the chosen range of diameters, 457.2 - 914.4 mm.
+				The pantograph angles are shown in \figref{legDiagram}, which results in:
+				
+				\begin{align}
+					r_{min} &= \frac{3L}{2} \sin \left( \theta_{min} \right) \label{rMin}
+					\\
+					r_{max} &= \frac{3L}{2} \sin \left( \theta_{max} \right)
+					\\
+					\implies \Delta r &= \frac{3L}{2} \left( \sin \left( \theta_{max} \right) - \sin \left( \theta_{min} \right) \right)
+					\\
+					L &= \frac{2 \Delta r}{3 \left( \sin \left( \theta_{max} \right) - \sin \left( \theta_{min} \right) \right)}
+				\end{align}
+							
+				Assuming the pantograph will ideally move from an angle of $\theta_{min} = 10^\circ$ to $\theta_{max} = 60^\circ$, spanning a change in radius of 228.6 mm we can find that our link length $L$ = 220.1 mm.
 			
-			Assuming the pantograph will ideally move from an angle of $\theta_{min} = 10^\circ$ to $\theta_{max} = 60^\circ$, spanning a change in radius of $228.6$ mm, $L = 220.1$ mm, and the smallest leg radius $r_{min} = 57.3$ mm, not including the depth of the tracks.
-			This means that, if the track depth is $70$ mm, the body diameter $D_r$ has a maximum of $202.5$ mm, setting a constraint on the dimensions of the inner body based on the design criteria.
+			\subsubsection{Active Compliance Joint}
+			
+				In addition to this, the tracks use an active compliance joint, as shown in \hyperref[activeCompliance]{Figures \ref*{activeCompliance} \& \ref*{unevenBehaviour}}, which allows for the robot to maintain maximum surface contact at all times.
+				The active compliance joint consists of a torsional spring and radio-controlled servo motor, which are both attached around the same axis.
+				However, the servo motor is attached to the rear tracks, whereas the spring is attached between the front track and the servo motor itself.
+				When the robot passes over an uneven surface, the servo motor forces the front track down, maintaining contact with the pipe wall, as shown in \hyperref[unevenBehaviour]{Figure \ref*{unevenBehaviour}(a)}.
+				If instead the robot is in a section where the pipe wall is concave, the torsional spring will allow it to fold, shown in \hyperref[unevenBehaviour]{Figure \ref*{unevenBehaviour}(b)}, and maintaining contact with as much of the wall as possible.
+				The active compliance joint also includes an angular encoder to tell how much the front track has been bent, allowing for the active compliance joint to be better controlled.			
+				\begin{figure}[h]
+					\centering
+					\begin{multicols}{2}
+						\includegraphics[height=\imageheight]{activeCompliance}
+						\caption{Function and construction of an active compliance joint. Figure from \cite{park2010normal}}
+						\label{activeCompliance}
+						\columnbreak
+						\includegraphics[height=\imageheight]{unevenBehaviour}
+						\caption{Behaviour of active compliance joint over uneven surfaces (travelling upwards). Figure from \cite{park2010normal}}
+						\label{unevenBehaviour}
+					\end{multicols}
+				\end{figure}
+				
+			\subsubsection{Leg Rotation}
+				
+				The rotation of the two base legs relative to the body of the robot occurs using a motor to drive each end of the rotation mechanism.
+				The motor drives the sun gears of two planetary gear systems, shown in \figref{planetaryDrive}, which rotate in opposite direction so the legs move symmetrically.
+				The direction is reversed for the further planetary drive system using a small differential gearbox, shown in \figref{diffGearbox}, which allows for compact reversal of motion.
+				These allow the legs to move around the body, from almost directly below the robot to in a horizontal plane at $90^\circ$ to the top leg.
+				As both legs are driven from the same motor at each end, both legs are symmetrical about the vertical leg at all times, and the leg position can be summarised by a single leg rotation angle $\lambda$, measured from the top leg, which varies from $\lambda = 90^\circ$ to $\lambda = 160^\circ$.
+				The rotation allows the robot to adapt to different angles of the pipe more easily, as it will be quicker to drive along horizontal pipes with the almost vertical drive system, whereas vertical pipes require a more even distribution of contact points for optimal behaviour, probably requiring an angle of $\lambda = 120^\circ$ for the most even distribution of contact points.
+										
+				\begin{figure}[h]
+					\centering
+					\begin{multicols}{2}
+						\includegraphics[height=\imageheight]{planetaryDrive}
+						\caption{Planetary drive used to move the legs relative to the main body}
+						\label{planetaryDrive}
+						\columnbreak
+						\includegraphics[height=\imageheight]{diffGearbox}
+						\caption{Differential gearbox for coaxial rotational direction reversing}
+						\label{diffGearbox}
+					\end{multicols}
+				\end{figure}
+				
+			\subsubsection{Body Dimension Constraints}
+			As the link length $L$ = 220.1 mm, we can find that the smallest leg radius $r_{min}$ = 57.3 mm, from \equationref{rMin}, not including the depth of the tracks.
+			If the track depth is $70$ mm, the body diameter $D_r$ has a maximum of 202.5 mm, setting a constraint on the dimensions of the inner body based on the design criteria.
 			\\
-			The minimum length of the body is also set by this, as it means that the body length $l_{min} = L \cos \left( \theta_{min} \right) = 216.8$ mm.
+			The minimum length of the body can be found by considering how far apart the linear actuators need to be placed in order to work.
+			By considering the links at their flattest, the minimum distance between the linear actuators can be found as $l_{min} = L \cos \left( \theta_{min} \right)$.
+			This sets the body minimum length as 216.8mm, although this does not consider the size of the linear actuators themselves, since we will tend to be more constrained by the maximum length.
+			\\
 			A maximum body length can be found by considering the ability of the robot to turn corners inside the pipe, and it is necessary to consider how this compares to the minimum to make sure there is no loss of mobility.
-			For the duration of this calculation, it is assumed that the robot is in the smallest possible pipe diameter $D_{pipe} = 457.2$ mm, and the curvature radius $r_c = \frac{3}{2} D_{pipe} = 685.8$ mm.
-			As the robot diameter $D_r \nless \left( 2 \sin \left( 45^\circ \right) - 1 \right) D_{pipe}$ mm the maximum length can be found from the following equation\supercite{roh2005differential}:
+			For the duration of this calculation, it is assumed that the robot is in the smallest possible pipe diameter $D_{pipe}$ = 457.2 mm, and the curvature radius $r_c = \frac{3}{2} D_{pipe}$ = 685.8 mm.
+			As the robot diameter $D_r \nless \left( 2 \sin \left( 45^\circ \right) - 1 \right) D_{pipe}$ the maximum length can be found from the following equation\supercite{roh2005differential}:
 
 			\begin{align}
 				l_{max} &= 2 \sqrt{4D_{pipe}^2 - \left( D_{pipe} + D_r\right) ^ 2}
-				\intertext{which, using the maximum $D_r = 436.4$ mm}
+				\intertext{which, using the maximum $D_r$ = 436.4 mm}
 				l_{max} &= 1266.3 \ \mathrm{mm} \notag
 			\end{align}
 			% Makes max volume 187*10^6 mm^3
-			Using \figref{legDiagram} to calculate the required force output of the linear actuators in order for the robot to operate at all angles.
-			As such, the worse case scenario is considered, where the robot is climbing vertically and must create enough normal force for friction to support its entire weight.
-			This results in:
 			
-			\begin{align}
-				N &= \frac{2 F \tan \left( \theta \right)}{\cos \left( \phi \right)}
-				\\
-				F_f &= \mu_{t,p} N
-				\\
-				&= \frac{2 \mu_{t,p} F \tan \left( \theta \right)}{\cos \left( \phi \right)}
-				\intertext{where $F_f$ is the frictional force on one track, and $\mu_{t,p}$ is the coefficient of friction between the tracks and the pipe. \newline In order for this to balance the weight W:}
-				\begin{split}
-					W &= 3 F_f
+			\subsubsection{Required Forces}
+				Using \figref{legDiagram} to calculate the required force output of the linear actuators in order for the robot to operate at all angles.
+				As such, the worse case scenario is considered, where the robot is climbing vertically and must create enough normal force for friction to support its entire weight.
+				This results in:
+				
+				\begin{align}
+					N &= \frac{2 F \tan \left( \theta \right)}{\cos \left( \phi \right)}
 					\\
-					&= \frac{6 \mu_{t,p} F \tan \left( \theta \right)}{\cos \left( \phi \right)} \label{maxWeight}
-				\end{split}
-				\\
-				\implies F &= \frac{W \cos \left( \phi \right)}{6 \mu_{t,p} \tan \left( \theta \right)} \label{reqMaxNorm}
-			\end{align}
-			
-			Since testing would be required to find the greatest angle $\phi$ that is experienced by the robot in general use, as well as an estimate for the coefficient of friction $\mu_{t,p}$, it is tricky to estimate the force required for the actuators.
-			However, estimates from other papers for $\mu_{t,p}$,which are $1.21$\supercite{sato2011development} - $1.6$\supercite{park2010normal}, allow us to create a worst case estimate for the required force of $1.21$.
-			From \equationref{reqMaxNorm}, it is clear that the worst case scenario occurs in straight sections, where $\phi$ is expected to be close to $0^\circ$, with the smallest pipe diameter, as this minimises $\theta$, which will require the most linear actuator force.
+					F_f &= \mu_{t,p} N
+					\\
+					&= \frac{2 \mu_{t,p} F \tan \left( \theta \right)}{\cos \left( \phi \right)}
+					\intertext{where $F_f$ is the frictional force on one track, and $\mu_{t,p}$ is the coefficient of friction between the tracks and the pipe. \newline In order for this to balance the weight W:}
+					\begin{split}
+						W &= 3 F_f
+						\\
+						&= \frac{6 \mu_{t,p} F \tan \left( \theta \right)}{\cos \left( \phi \right)} \label{maxWeight}
+					\end{split}
+					\\
+					\implies F &= \frac{W \cos \left( \phi \right)}{6 \mu_{t,p} \tan \left( \theta \right)} \label{reqMaxNorm}
+				\end{align}
+				
+				Since testing would be required to find the greatest angle $\phi$ that is experienced by the robot in general use, as well as an estimate for the coefficient of friction $\mu_{t,p}$, it is tricky to estimate the force required for the actuators.
+				However, estimates from other papers for $\mu_{t,p}$,which are 1.21\supercite{sato2011development} - 1.6\supercite{park2010normal}, allow us to create a worst case estimate for the required force of 1.21.
+				From \equationref{reqMaxNorm}, it is clear that the worst case scenario occurs in straight sections, where $\phi$ is expected to be close to $0^\circ$, with the smallest pipe diameter, as this minimises $\theta$, which will require the most linear actuator force.
 							
 		\subsection{Power}
 		
@@ -635,12 +644,7 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
 			\caption{ELF Receiver Block Diagram}
 			\label{ELFrec}
 		\end{figure}
-		
-
-		
-		
-		
-
+	
 		\subsection{External Hardware}
 		
 		% Launch Tube
@@ -1051,7 +1055,7 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
         Thus k will be chosen to be 5 in order to gain a trade off between variance bias and computation time. [https://codesachin.wordpress.com/2015/08/30/cross-validation-and-the-bias-variance-tradeoff-for-dummies/]  
         Another benefit of the cross validation model is that the performance is not affected by which fold is chosen to validate instead of testing because all the folds have a turn at being the validation fold. [  https://www.cs.cmu.edu/~schneide/tut5/node42.html]
 
-		\subsection{Mapping and Location - Joshua Gei}
+		\subsection[Mapping and Location]{Mapping and Location - Joshua Gei}
 
         We will be employing the
         
@@ -1365,7 +1369,7 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
 	        \textbf{Conclusion}\\
 	        Overall, from an analysis of the key factors that Porter outlined as contributing to a high level of rivalry, the threat level is determined as low. The only exception being the low switching costs currently in the industry. However, for our robot attempting to penetrate the market, this factor may be favourable due to the current monopoly CISBOT has. Given this low threat of rivalry, we can conclude that the industry has a high profit potential.
 
-	\section{Customer Industry Analysis}
+	\section{Customer Industry Analysis - EEM}
 		% Insert Monty's P5F here
 		Since there is only one customer industry, it is important to analyse the safety and sustainability of that industry to ensure that the business was secure.
 		The Porter's Five Forces model\supercite{porter2008five} was once again used to analyse the gas pipeline inspection industry.
@@ -1496,7 +1500,7 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
         Overall, the general public has a low interest and low influence over the success of our robot. Therefore, a monitor approach should be taken in which minimum engagement is required. The monitoring is important to recognise and predict the formation of pressure groups which may have a more significant effect on our operations. 
 
         
-		\section[Future of Customer Industry]{Future of Customer Industry - Louis Emanuel} % Possibly should come after customer P5F?
+		\section[Future of Customer Industry - EEM]{Future of Customer Industry - Louis Emanuel} % Possibly should come after customer P5F?
 		
 		From the analysis of our customers industry, it was concluded that the level of competitive intensity will not inhibit the profitability of the companies in the near term. However, in order to assess the long term viability of our robot, it is necessary to look into further detail at the macro trends that could shape the industry in the future.\\
 	    \hspace*{3ex}Therefore, the following section will assess the challenges the industry faces, possible alternatives and the route to sustainability. Finally, we will also consider how these factors could impact the success of our business in the long term. 
@@ -1546,7 +1550,7 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
 		Overall, the traditional gas pipeline industry is secure for at least the next 20 years in which time the use of natural gas will be far larger than that of green gases. After this period, the use of natural gas is expected to decelerate more rapidly. Despite this, a shift from natural gas to green gas is not necessarily bad for our business given that we will have developed the complex technology needed to navigate and map pipeline. \\
 	    \hspace*{3ex}There appears to be three main challenges in the long term. Firstly, one challenge for our business could be the fact that transporting hydrogen requires the use of new pipeline materials and heavy pumps. Therefore, the inspection methods of our robot must be repurposed for use on materials such as fiber reinforced polymer. Another challenge is that due to the rapid installment of modern pipelines, the frequency of damage could be far lower than the currently used steel pipes. This in turn would reduce the amount of pipe inspection required. Although given the lower ignition temperature of Hydrogen compared to natural gas, there may be more enhanced regulation in the future. Finally, from \figref{forecast} it is expected that the total use of gas is expected to decrease gradually. This would place pressure on the gas suppliers, which would eventually be passed on to us. 
 		
-		\section{Competitor Analysis}
+		\section{Competitor Analysis - EEM}
 		
 		\subsection[Project GRAID]{Project GRAID - Louis Emanuel}
 			One significant competitor operating in the in-pipe inspection industry is Gas Robot Agile Inspection Device (GRAID). The robot is a joint project by the National Grid and three SMEs. As with our robot, it is targeting the live gas pipe market and aims to be able to navigate complex geometries. Therefore, it is necessary to perform the following SWOT analysis on the company. \\
@@ -1563,7 +1567,7 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
 	        \textbf{Threats} \\
 	        One significant threat to GRAID is the rising customer loyalty in the pipe inspection market. For example, through CISBOT's partnership with Cadent, who is the largest gas distributor in the UK, it is unlikely Cadent will invest in another robot unless it provides distinct capabilities that CISBOT cannot offer. Another potential threat arises from the projected decrease in gas demand demonstrated in \figref{forecast}. If the market size decreases, the competition GRAID experiences will increase as the only way to boost revenue will be to gain market share.
 	        
-     \section[Business Risk Assessment]{Business Risk Assessment - Jim Laney}
+     \section[Business Risk Assessment - EEM]{Business Risk Assessment - Jim Laney}
      	
      	In order to assess how suitable the business was to take forward, several risks were considered for both severity and likelihood.
      	\\
@@ -1607,11 +1611,14 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
 	
 	%\nocite{*} 				% By default Latex will not show uncited references, uncomment this line to show all references in the bib file
 	
-	\begingroup\onehalfspacing
-		{\small
-			\bibliographystyle{ieeetr}
-			\bibliography{3YPbib}
-		}
-	\endgroup
+	\begin{multicols}{2}
+		\begingroup\onehalfspacing
+			{\small
+				\bibliographystyle{ieeetr}
+				\bibliography{3YPbib}
+			}
+		\endgroup
+	\end{multicols}
+	
 
 \end{document}
