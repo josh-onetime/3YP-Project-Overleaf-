@@ -34,9 +34,9 @@
 
 \newcommand{\supercite}[1]{\textsuperscript{\cite{#1}}}		% New command to cite things in superscript without having to type it out every time
 
-\newcommand{\figref}[1]{\hyperref[#1]{Figure \ref*{#1}}}
+\newcommand{\figref}[1]{\hyperref[#1]{Figure \ref*{#1}}}    % New command to automatically fill out basic figures more easily
 
-\newcommand{\equationref}[1]{\hyperref[#1]{Equation \ref*{#1}}}
+\newcommand{\equationref}[1]{\hyperref[#1]{Equation \ref*{#1}}}     % New command to automatically fill out equations more easily
 
 % Use Arial
 \setmainfont[
@@ -58,7 +58,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 		\vspace*{2cm}
 		Michaelmas \& Hilary Term 2020 / 2021\\ % enter the date
 		\vspace*{6cm}
-		\huge{\textbf{3YP Project: Pipe Inspection Robot}}\\ 
+		\huge{\textbf{3YP Project: Autonomous In-Pipe Inspection Robot}}\\ 
 		\vspace*{6cm}
 		\large{Monty Beresford, Louis Emanuel, Joshua Gei \& Jim Laney}
 		\thispagestyle{empty} % Remove page number
@@ -72,7 +72,62 @@ BoldItalicFont=Arial Bold Italic.ttf
 
 	\setcounter{page}{1}
 	
-	\section{Introduction}
+	\section{Introduction - ENG + EEM}
+Underground gas distribution pipelines span over 2 million km across global infrastructure\supercite{pct2020states}, comprising over 60\% of all underground pipelines\supercite{pct2020states}, and are essential in the transport of natural gas for domestic use or electricity generation. 
+
+However, gas pipeline failures due to leaks as a result of wear-and-tear are commonplace. Unchecked leakages lead to transport delays, environmental damage, and potentially hazardous incidents\supercite{pct2020states} - in the US alone, there were a total of 1,051 serious incidents involving gas distribution and transmission from 1994-2013, \textbf{causing 319 fatalities and over US\$550 million in property damage}\supercite{pct2020states}! %Not sure this is the right citation Josh
+
+Hence, adequate inspection and maintenance of gas pipelines are key priorities for gas distribution companies, which cumulatively spent \textbf{over US\$15.7 billion} on inspection, maintenance  and replacement of gas pipelines in 2019, and this amount is rising ~6\% year-on-year.\supercite{pct2020states}. 
+
+Currently, the bulk of inspection and maintenance of buried gas pipelines is performed manually, with the aid of Pipeline Inspection Gauges (henceforth referred to as 'PIGs'), shown below in Figure 1. 
+
+\begin{figure}[h]
+			\centering
+			\begin{multicols}{2}
+				\includegraphics[height=\imageheight]{placeholder}
+				\caption{Excavation of entire pipeline required, and manual maintenance}
+				\label{placeholder}
+				\columnbreak
+				\includegraphics[height=\imageheight]{placeholder}
+				\caption{Illustration of how PIGs are used}
+				\label{placeholder}
+			\end{multicols}
+		\end{figure}
+Nonetheless, the heavy amount of excavation required and the relatively slow and costly process of manual inspection poses pressing pain-points for gas distributors, as well as other stakeholders such as local councils and the general public. 
+
+Hence, PipeDream will seek to address the target problems faced by our primary stakeholders with our product. 
+
+	\subsection{Target Problems \textit{- Joshua Gei}}
+We will first define the scope of our problem: PipeDream will target specifically \textbf{Tier 3 underground gas distribution pipelines in the UK}, using the pipeline assets category definition used by Ofgem, the Health and Safety Executive (HSE) and Gas Distribution Networks (GDNs)\supercite{pct2020states}. 
+
+Table 1 shows the pipeline assets categories. 
+
+    \begin{table}[h]
+    \centering
+  \includegraphics[width=\textwidth]{GasTiers}
+  \caption{Pipeline Assets Category Definitions\supercite{pct2020states}.}
+  \label{GasTiers}
+    \end{table}
+We reached out to a representative from Wales and West utilities (WWU), one of the 4 major GDNs in the UK, who pointed out that Tier 3 pipes in particular have pipe repairs increasing in volume and costs, have the largest proportion of buried mains reaching or beyond their expected asset life, and are the costliest to decommission and replace. Furthermore, Tier 3 mains are usually found in city locations, as opposed to other diameter types of pipelines, and cause considerable disruption to road users because multiple large excavations are required to complete the repairs.
+
+Hence, a breakdown of the target problems faced by GDNs (our main customer), as well as other primary stakeholders, is as follows: 
+
+\begin{enumerate}
+   \item \textbf{Rising Costs}
+   \begin{itemize}
+     \item The individual entries are indicated with a black dot, a so-called bullet.
+     \item The text in the entries may be of any length.
+   \end{itemize}
+   \item \textbf{Slow and Dangerous}
+   \item \textbf{Obstructive}
+   \item \textbf{Unable to inspect all types of pipes}
+\end{enumerate}
+
+	\subsection{Solution \textit{- Joshua Gei}}
+	
+	Robotic solutions are estimated to provide this amount of cost savings, but our own estimates are... 
+	
+	\section{Product Design - ENG}
 	
 	\subsection[Product Description]{Product Description - Jim Laney}
 	
@@ -90,7 +145,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 		\end{figure}
 		
 		While inside the pipe, the robot uses three legs to maintain contact and provide the required normal force to move inside the pipe, as shown in \figref{3DSketch}.
-		Two of these legs can be rotated to provide improved speeds over pipes at different angles, and all three legs can be extended and retracted to fit the pipe diameter the robot is currently in.
+		Two of these legs can """"""""be rotated to provide improved speeds over pipes at different angles, and all three legs can be extended and retracted to fit the pipe diameter the robot is currently in.
 		It can navigate around bends and through pipes at different angles, without prior knowledge of the location or angle of these, and will automatically feedback to the control system in order to create an accurate map.
 		\\
 		The robot uses computer vision to identify cracks and corrosion, allowing it to mark where these occur for human maintenance, and then combines this with knowledge of its position to create a map of the pipe it has travelled and where issues have occurred.
@@ -131,7 +186,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 		
 		% Section about how we decided pipe diameters and other important things - gas pressure, etc?
 	
-	\section{Hardware}
+	\section{Product Hardware - ENG}
 	
 		\subsection[Locomotion]{Locomotion - Jim Laney}
 			
@@ -459,8 +514,7 @@ BoldItalicFont=Arial Bold Italic.ttf
         In case some images do occasionally take longer to be processed than the frame rate there is a small amount of memory allocated to saving the pre-processed images. 
         This uses a first in first out system.
 
-		\subsection[Communications]{Communications - Louis Emmanuel}
-		%by Louis
+		\subsection[Communications]{Communications - Louis Emanuel}
 
 		Communication is an important capability for the autonomous robot as in order to operate it safely and efficiently, it's critical to know the whereabouts of the robot within the pipe at any given time. 
 		An additional and more complex requirement is also the ability for bidirectional communication so the robot can be updated on its position and given instructions when necessary. 
@@ -478,13 +532,13 @@ BoldItalicFont=Arial Bold Italic.ttf
 		\end{figure}
      	A critical requirement of the robot is for it to have a real time understanding of its location in order to navigate pipes and localise pipe damage. 
      	From the solutions in \figref{commsTable}, the only methods capable of this are ELF and wiring. 
-     	However, ELF communications requires a significantly sized receiver [x] which is infeasible to house in the robot without inhibiting speed, locomotion and range. 
+     	However, ELF communications requires a significantly sized receiver\supercite{elfreceiversize} which is infeasible to house in the robot without inhibiting speed, locomotion and range. 
      	Consequently, for feeding data to the robot, a wire will be used.
         \\ 
         \hspace*{3ex}Although a wire allows bidirectional communication, it is incapable of determining the position of the robot. 
         Therefore, a method of communicating with surface receivers must be used in order to determine its position. 
         Given the size constraints and interference challenges, acoustic and magnetic methods are unsuitable for this application. 
-        Instead, ELF communication is used which with present technology [x] is capable of travelling through up to 20m of soil. 
+        Instead, ELF communication is used which with present technology is capable of travelling through up to 20m of soil. 
         This allows location to be determined, and fed back to the robot through the wiring in order to compensate for the the accumulated locating error generated in the on board INS.
          
         $\textbf{Communication Map}$
@@ -597,7 +651,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 		
 		% TBD after 14/2/21 - needs pressure force calcs etc
 	
-	\section{Software}
+	\section{Product Software - ENG}
 		
 		\subsection[Inclination Detection]{Inclination Detection - Jim Laney}
 		
@@ -997,9 +1051,11 @@ BoldItalicFont=Arial Bold Italic.ttf
         Thus k will be chosen to be 5 in order to gain a trade off between variance bias and computation time. [https://codesachin.wordpress.com/2015/08/30/cross-validation-and-the-bias-variance-tradeoff-for-dummies/]  
         Another benefit of the cross validation model is that the performance is not affected by which fold is chosen to validate instead of testing because all the folds have a turn at being the validation fold. [  https://www.cs.cmu.edu/~schneide/tut5/node42.html]
 
-		\subsection{Mapping and Location}
+		\subsection{Mapping and Location - Joshua Gei}
 
-		% I don't know if this is something we want to use but I have added it and can remove later
+        We will be employing the
+        
+        
 		
 		\subsubsection{Landmark detection}
         In order to improve the accuracy of the odometry the robot needs to be able to identify certain landmarks. 
@@ -1139,7 +1195,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 		
 		
 		
-	\section{Estimated Cost \& Weight}
+	\section{Estimated Cost \& Weight - ENG}
 		
 		In order to estimate the cost of the robot it was necessary to select some sample components which are discussed below.
 		These components also provided a reference point for the weight of the robot, allowing us to consider the requirements for forces and evaluate the likelihood of the robot causing damage to the piping system.
@@ -1228,7 +1284,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 		\subsection{External Hardware}
 		% Does not need to be included in the weight calc obviously
 			
-	\section{Industry Analysis}
+	\section{Industry Analysis - EEM}
 		
 		It was decided to use the Porter's Five Forces model\supercite{porter2008five} to analyse the in-pipe inspection robot industry, in order to provide a systematic analysis of the existing and possible threats to the company in the future.
 		
@@ -1340,7 +1396,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 
 		\subsection[Rivalry Among Existing Competitors]{Rivalry Among Existing Competitors}
 		
-	\section{Stakeholder Analysis}
+	\section{Stakeholder Analysis - EEM}
 	
 		The main stakeholders for the project are individually analysed below.
 		There were 3 major stakeholders identified - gas distributors, regulatory bodies and traditional inspection \& maintenance companies - and 3 minor stakeholders identified - gas suppliers, local councils and the general public.
@@ -1440,7 +1496,7 @@ BoldItalicFont=Arial Bold Italic.ttf
         Overall, the general public has a low interest and low influence over the success of our robot. Therefore, a monitor approach should be taken in which minimum engagement is required. The monitoring is important to recognise and predict the formation of pressure groups which may have a more significant effect on our operations. 
 
         
-		\subsection[Future of Customer Industry]{Future of Customer Industry - Louis Emanuel}
+		\section[Future of Customer Industry]{Future of Customer Industry - Louis Emanuel} % Possibly should come after customer P5F?
 		
 		From the analysis of our customers industry, it was concluded that the level of competitive intensity will not inhibit the profitability of the companies in the near term. However, in order to assess the long term viability of our robot, it is necessary to look into further detail at the macro trends that could shape the industry in the future.\\
 	    \hspace*{3ex}Therefore, the following section will assess the challenges the industry faces, possible alternatives and the route to sustainability. Finally, we will also consider how these factors could impact the success of our business in the long term. 
