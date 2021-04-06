@@ -18,6 +18,8 @@
 \usepackage{fancyhdr}				% Nicer headers/footers
 \usepackage{amssymb}				% Allows for more maths symbols including not less than
 \usepackage{wrapfig}				% Wrap figures
+\usepackage{longtable}				% Allows for long multi page tables - mainly for pains and gains section
+\usepackage{array}
 
 % Makes it so all equations have full sized numbers, independent of font size used		
 \makeatletter
@@ -139,7 +141,7 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
 		It enters a pipe using a launch tube, and travels autonomously along the inside of the pipe, checking for evidence of cracks and corrosion and logging their location for future maintenance.
 		\\
 		
-		\begin{figure}[h] % Would like to do this as a text wrapped figure but that can be finnicky so would like to agree on this as a group before attempting it
+		\begin{figure}[h] % Would like to do this as a wrapped figure but that can be finnicky so would like to agree on this as a group before attempting it
 			\centering
 			\includegraphics[trim={6cm 2cm 7cm 4cm},clip,height=\imageheight]{overviewCAD}
 			\caption{3D CAD model of robot}
@@ -184,6 +186,82 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
 		However applying for a PCT patent can take even longer, and is even more expensive, up to £8000\supercite{mewburn2020international}, so it is important to ensure that the robot design is protected while applying for these patents.
 		Thus it would be a good idea to apply for some less strict protection, such as a trademark, and ensure that all discussions of sensitive information occur under the binding of a Non-Disclosure Agreement.
 	
+	\section[Product-Market Fit - EEM]{Product-Market Fit - Jim Laney}
+	
+		In order to consider how well our product fits the market needs, issues gathered from our primary and secondary research into the industry were considered, and how the robot solves these is shown below.
+		We specifically focused on how our robot fits into use in locations where CISBOT or other competitors is too expensive to use, or cannot be used due to size constraints. % This seems quite negative - do we need this constraint on our table
+		
+		\setlength{\tabcolsep}{13pt}	% Space 11 pts around the edges for readability
+		\renewcommand{\arraystretch}{1.4}	% Space at the top and bottom of rows for readability
+		
+		\begin{longtable}[c]{| m{0.45\textwidth} | m{0.45\textwidth} |}
+			\hline
+			Current Issue & Solution\\
+			\hline 
+			\hline
+			\endfirsthead
+			
+			\hline
+			Current Issue & Solution\\
+			\hline 
+			\hline
+			\endhead
+			
+			\hline
+			\endlastfoot
+			
+			\hline
+			When pipes are considered for decommissioning, it is not known whether they are actually damaged. 
+			As such some pipes which are replaced are perfectly functional, and thus money is wasted replacing them before required. 
+			& 
+			The robot can be used to inspect pipelines before decommissioning in order to check which pipes are actually damaged, and which can continue to be used. 
+			This information can also be used to update the models of how soon the pipe will need to be replaced.
+			\\
+			\hline
+			In order to inspect pipes using manual methods most of the pipeline must be excavated, which is a large expense for the gas company, which also causes disruption to the general public, increasing the negative opinion of the public towards the gas company. 
+			As well as this, for safety reasons the gas must be turned off, reducing the uptime of the network and incurring a loss for the gas company, which is made even more serious by the fact that manual inspection is slow.
+			& 
+			Our robot only requires a small excavation, since the launch tube is much smaller, and can operate within an active gas pipe. 
+			Also, since humans are not directly involved in the inspection of the pipeline, safety concerns are greatly reduced which inspecting the pipe.
+			Autonomous in pipe inspection is also faster due  to the robotic nature of the inspection technology. and human error is greatly reduced.
+			\\
+			\hline
+			Pipe inspection requires well trained individuals to inspect the pipes, who must travel to the location in order to perform the inspection.
+			& 
+			The robot uses operators who do not need to be trained in inspection methods, and only have to be trained to operate the launch tube and ensure the robot is functioning correctly.
+			The data can then be passed to experts who do not have to be at the excavation point, saving on time and reducing the amount of travel required for expensive expert employees.
+			\\
+			\hline
+			Since the inside of the pipelines are unseen, and there are multiple causes for any given failure sign, repairing issues with the pipeline can be complex and expensive.
+			The location of the fault is also unknown, so extensive excavation of the pipe is required to find the location and cause of the fault, which is slower and more expensive for the gas pipe company.
+			& 
+			The robot can be used to identify the exact problem with a given pipe, allowing the gas pipe companies to prepare the correct tools and supplies to repair the issue.
+			As well as this, the location of the issue is identified and returned to the gas company, further reducing the cost as only one area needs to be excavated to solve the issue.
+			\\
+			\hline
+			Pipe maps are not always accurate, and the exact location and pipe information is not always well recorded.
+			This is useful information to have, especially for third parties which need to excavate areas in order to install their own infrastructure.
+			& 
+			The robot can be used to map the location of pipes accurately, using the communications module and the localisation algorithm.
+			This allows for accurate maps to be produced of the pipeline system, and can be done quickly since the other robot functions, such as damage detection do not need to take place.
+			\\
+			\hline
+			When pipes are being replaced with smaller polyethylene pipes, so the old pipes are not being removed, there is a risk of damage to third party pipes due to lack of information about their placement. % Monty can you check this is correct
+			Thus, surveys are normally undertaken to check for and avoid these issues, which can be costly and slow.
+			& 
+			The robot can locate and mark third party pipes when travelling inside the pipe, since it has accurate information about where it is, relative to the outside world, and can use its cameras to identify and locate the branches.
+			\\
+			\hline
+			Current robotic solutions, such as CISBOT, are designed for pipeline repair and are not autonomous, meaning they require additional training or personnel and are much more expensive to use.
+			As well as this, current unmanned inspection techniques, such as PIGs, are not able to operate in pipelines which have bends or variable diameter pipes, meaning they are useless in more complex pipelines which often occur in urban environments.
+			PIGs are also a passive solution, meaning they are driven by the gas pressure and the pipe angle, so they can only inspect pipes in one direction.
+			& 
+			The robot can adapt to different pipe diameters, and is able to navigate bends autonomously, meaning it is adaptable for more complex pipelines.
+			It can also climb pipes at any angle, as well as returning the angle of the pipe for use in mapping the pipe.
+			As well as this, since it is designed only for autonomous inspection, is is cheaper and quicker to use for this purpose than more specialised robots such as CISBOT.
+		\end{longtable}
+		% Insert value proposition here or in its own section
+		
 	\section{Product Hardware - ENG}
 	
 		\subsection[Locomotion]{Locomotion - Jim Laney}
