@@ -1211,31 +1211,31 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
 		The parts which will be considered here are the track modules, the linear actuators, the internal rotation motors and the legs and gears.
 		\\
 		For the track module, the best reference point was the Inuktun Minitrac, a larger version of the Inuktun Microtrac module used by Ciszewski et al.\supercite{ciszewski2015design} for their testing of a pipe inspection robot.
-		These cost $£ \ xxx$ each, and three are required for each leg of the robot, bringing the overall cost to $£ \ 9xxx$.
-		They are probably over specified, as each has a pull rating of roughly $30$ kg for continuous duty, meaning the robot can weight up to $270$ kg, which would be an unrealistic and impractical figure to aim for\supercite{inuktunTracks}.
+		These cost £7,900 each, and three are required for each leg of the robot, bringing the overall cost to £71,100.
+		However these modules are over specified, as each has a pull rating of roughly 30 kg for continuous duty, meaning the robot can weight up to 270 kg, which would be an unrealistic and impractical figure to aim for\supercite{inuktunTracks}.
 		Each module can be provided in either aluminium, brass or steel, with the main difference being the weight.
-		Aluminium was chosen, as it is the lightest of the three, but each module still weighs $5.7$ kg taking the track weight to $51.3$ kg for all 9 track modules.
+		Aluminium was chosen, as it is the lightest of the three, but each module still weighs 5.7 kg taking the track weight to 51.3 kg for all 9 track modules.
 		As this is quite heavy, a different design could be considered, with a motor driving the tracks instead, so a new system can be designed to minimise the weight.
 		Additionally, while discussing the pricing and operation with a representative from Eddyfi Technologies, it was made clear that the Minitrac is no longer for sale for commercial uses, as they found that they were often being used in products which compete with Eddyfi's own pipe inspection robots.
 		However, these track modules give a reasonable indication of the eventual cost to expect for the robot.
 		\\
-		The sample linear actuators chosen were selected as they have $200$N of force output and a potentiometer to measure the extension of the actuator\supercite{rsproLinear}.
+		The sample linear actuators chosen were selected as they have 200 N of force output and a potentiometer to measure the extension of the actuator\supercite{rsproLinear}.
 		Using \equationref{maxWeight}, reproduced below, values for the worst case scenario can be estimated.
 		\begin{align*}
 			W &= \frac{6 \mu_{t,p} F \tan \left( \theta \right)}{\cos \left( \phi \right)}
 		\end{align*}
-		The worst case scenario occurs when when $ \mu = 1.21$\supercite{sato2011development}, $\theta = 10^\circ$ and $\phi = 0^\circ$, as stated before.
-		This gives us a maximum weight of $528.5 N = 53.9$ kg, which is quite large, although comparatively small compared to the estimated weight of 9 Inuktun MiniTrac modules, hence why they would be considered inappropriate.
-		With a safety margin of 1.5 for the linear actuator output, limiting their output to $130 N$, the maximum weight becomes $343.5 N = 35.0$ kg which is still reasonable and significantly larger than similar robots.
-		These cost $£ \ 121.46 - £ \ 132.02$ each depending on quantity, but the lower price can be used as this is for 10 or more actuators, which is less than 2 robots. 
-		Thus the actuator cost for a single robot would be $£ \ 728.76$ since 2 linear actuators are used for each leg, meaning a total of 6.
-		The overall weight of these linear actuators would be $0.504$ kg, which is negligible compared to the weight of most of the other components, as well as the estimated weight of the robot shell.
+		The worst case scenario occurs when when $\mu =$ 1.21\supercite{sato2011development}, $\theta = 10^\circ$ and $\phi = 0^\circ$, as stated before.
+		This gives us a maximum weight of 528.5 N = 53.9 kg, which is quite large, although comparatively small compared to the estimated weight of 9 Inuktun MiniTrac modules, hence why they would be considered inappropriate.
+		With a safety margin of 1.5 for the linear actuator output, limiting their output to 130 N, the maximum weight becomes 343.5 N = 35.0 kg which is still reasonable and significantly larger than similar robots.
+		These cost £121.46 - £132.02 each depending on quantity, but the lower price can be used as this is for 10 or more actuators, which is less than 2 robots. 
+		Thus the actuator cost for a single robot would be £728.76 since 2 linear actuators are used for each leg, meaning a total of 6.
+		The overall weight of these linear actuators would be 0.504 kg, which is negligible compared to the weight of most of the other components, as well as the estimated weight of the robot shell.
 		\\
 		The next part to consider is the motor used for rotation of the legs relative to the body. There is no specifications required for this at the moment, but a high torque motor would be ideal.
-		A sample product which is both relatively small and high torque was selected\supercite{rsproRotation} as it has a maximum output torque (at stall) of $1.46$ Nm.
-		The diameter of the actual motor is only $42.8$ mm, meaning that there is plenty of space to use a larger more powerful motor if testing reveals that it will be necessary.
-		The cost of these drives is $£ \ 141.84$ per motor, and 2 are required for the main body of the robot.
-		Since similar motors could be used as the RC servo motors in the active compliance joint, another 3 would be included in the robot, bringing the total cost for 5 rotation motors to $£ \ 709.20$.
+		A sample product which is both relatively small and high torque was selected\supercite{rsproRotation} as it has a maximum output torque (at stall) of 1.46 Nm.
+		The diameter of the actual motor is only 42.8 mm, meaning that there is plenty of space to use a larger more powerful motor if testing reveals that it will be necessary.
+		The cost of these drives is £141.84 per motor, and 2 are required for the main body of the robot.
+		Since similar motors could be used as the RC servo motors in the active compliance joint, another 3 would be included in the robot, bringing the total cost for 5 rotation motors to £709.20.
 		\\
 		\begin{figure}[h]
 			\centering
@@ -1255,9 +1255,9 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
 		\end{figure}
 		The remaining components of the locomotion system were estimated using the 3D CAD models, shown in \hyperref[gearCAD]{Figures \ref*{gearCAD}, \ref*{shortLinkCAD} \& \ref*{longLinkCAD}} to estimate their volume.
 		The leg pieces were assumed to be made out of stainless steel, and the gear was to be made of aluminium.
-		The density of stainless steel is $7900$ kg m\textsuperscript{-3}\supercite{HLT}, so the longer link weighs $0.653$ kg and the shorter link weighs $0.350$ kg.
-		Thus, a single leg, which is made up of 2 short links and 2 longer links, weighs $2.00$ kg, bringing the total contribution of the three legs to $6.02$ kg for the whole robot.
-		The density of aluminium was assumed to be $2700$ kg m\textsuperscript{-3}\supercite{HLT}, which makes the weight of a single gear $3.42$ kg, and there are 4 inside the robot, bring the total weight up to $13.68$ kg
+		The density of stainless steel is 7900 kg m\textsuperscript{-3}\supercite{HLT}, so the longer link weighs 0.653 kg and the shorter link weighs 0.350 kg.
+		Thus, a single leg, which is made up of 2 short links and 2 longer links, weighs 2.00 kg, bringing the total contribution of the three legs to 6.02 kg for the whole robot.
+		The density of aluminium was assumed to be 2700 kg m\textsuperscript{-3}\supercite{HLT}, which makes the weight of a single gear 3.42 kg, and there are 4 inside the robot, bring the total weight up to 13.68 kg.
 		This could be mitigated by refining the design, as this is a very rough sketch of the gear, and is probably thicker than would be necessary in reality.
 		
 		\subsection{Power}
