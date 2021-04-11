@@ -40,6 +40,8 @@
 
 \newcommand{\equationref}[1]{\hyperref[#1]{Equation \ref*{#1}}}     % New command to automatically fill out equations more easily
 
+\newcommand{\tableref}[1]{\hyperref[#1]{Table \ref*{#1}}}     % New command to automatically fill out tables more easily
+
 \setcounter{tocdepth}{2}	% Means table of contents only shows subsections
 
 % Use Arial
@@ -104,14 +106,15 @@ Hence, PipeDream will seek to address the target problems faced by our primary s
 	\subsection[Target Problems]{Target Problems \textit{- Joshua Gei}}
 We will first define the scope of our problem: PipeDream will target specifically \textbf{Tier 3 underground gas distribution pipelines in the UK}, using the pipeline assets category definition used by Ofgem, the Health and Safety Executive (HSE) and Gas Distribution Networks (GDNs)\supercite{pct2020states}. 
 
-Table 1 shows the pipeline assets categories. 
+\tableref{GasTiers} shows the pipeline assets categories. 
 
     \begin{table}[h]
-    \centering
-  \includegraphics[width=\textwidth]{GasTiers}
-  \caption{Pipeline Assets Category Definitions\supercite{pct2020states}.}
-  \label{GasTiers}
+        \centering
+        \includegraphics[width=\textwidth]{GasTiers}
+        \caption{Pipeline Assets Category Definitions\supercite{pct2020states}.}
+        \label{GasTiers}
     \end{table}
+    
 We reached out to a representative from Wales and West utilities (WWU), one of the 4 major GDNs in the UK, who pointed out that Tier 3 pipes in particular have pipe repairs increasing in volume and costs, have the largest proportion of buried mains reaching or beyond their expected asset life, and are the costliest to decommission and replace. Furthermore, Tier 3 mains are usually found in city locations, as opposed to other diameter types of pipelines, and cause considerable disruption to road users because multiple large excavations are required to complete the repairs.
 
 Hence, a breakdown of the target problems faced by GDNs (our main customer), as well as other primary stakeholders, is as follows: 
@@ -164,10 +167,10 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
 			\centering
 			\begin{multicols}{2}
 				\includegraphics[height=\imageheight]{patentGraph}
-				\caption{Cumulative number of published patents in the European Patent Office database classified as \texttt{F16L55/26}\supercite{patent26} or \texttt{F16L2101/30}\supercite{patent30} }
+				\caption{Cumulative number of published patents in the European Patent Office database classified as \texttt{F16L55/26}\supercite{patent26} or \texttt{F16L2101/30}\supercite{patent30}}
 				\label{patentGraph}
 				\columnbreak
-				\includegraphics[height=\imageheight]{pctMap}
+				\includegraphics[height=0.25\textwidth]{pctMap}
 				\caption{Map of countries included in the Patent Cooperation Treaty (PCT)\supercite{pct2020states}}
 				\label{pctMap}
 			\end{multicols}
@@ -188,13 +191,14 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
 	
 	\section[Product-Market Fit - EEM]{Product-Market Fit - Jim Laney}
 	
-		In order to consider how well our product fits the market needs, issues gathered from our primary and secondary research into the industry were considered, and how the robot solves these is shown below.
+		In order to consider how well our product fits the market needs, issues gathered from our primary and secondary research into the industry were considered, and how the robot solves these is shown in \tableref{solutionTable}.
 		We specifically focused on how our robot fits into use in locations where CISBOT or other competitors is too expensive to use, or cannot be used due to size constraints. % This seems quite negative - do we need this constraint on our table
 		
 		\setlength{\tabcolsep}{13pt}	% Space 11 pts around the edges for readability
 		\renewcommand{\arraystretch}{1.4}	% Space at the top and bottom of rows for readability
 		
-		\begin{longtable}[c]{| m{0.45\textwidth} | m{0.45\textwidth} |}
+		\begin{longtable}[c]{| m{0.4\textwidth} | m{0.4\textwidth} |}
+    		\caption{Comparison of existing issues for the Gas Pipe Industry and how the robot solves them.} \\
 			\hline
 			Current Issue & Solution\\
 			\hline 
@@ -219,11 +223,11 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
 			\\
 			\hline
 			In order to inspect pipes using manual methods most of the pipeline must be excavated, which is a large expense for the gas company, which also causes disruption to the general public, increasing the negative opinion of the public towards the gas company. 
-			As well as this, for safety reasons the gas must be turned off, reducing the uptime of the network and incurring a loss for the gas company, which is made even more serious by the fact that manual inspection is slow.
+			As well as this, for safety reasons the gas must be turned off, increasing network downtime and incurring a loss for the gas company, which is made even more serious by the fact that manual inspection is slow.
 			& 
-			Our robot only requires a small excavation, since the launch tube is much smaller, and can operate within an active gas pipe. 
+			Our robot only requires a small excavation, since the launch tube is much smaller than excavating the entire section of pipeline, and can operate within an active gas pipe.
 			Also, since humans are not directly involved in the inspection of the pipeline, safety concerns are greatly reduced which inspecting the pipe.
-			Autonomous in pipe inspection is also faster due  to the robotic nature of the inspection technology. and human error is greatly reduced.
+			Autonomous in-pipe inspection is also faster due  to the robotic nature of the inspection technology and human error is greatly reduced as compared to manual inspection. % think the . needs to be removed  - does the reduction of human error solve this issue isn't that more to do with the next point
 			\\
 			\hline
 			Pipe inspection requires well trained individuals to inspect the pipes, who must travel to the location in order to perform the inspection.
@@ -259,6 +263,7 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
 			The robot can adapt to different pipe diameters, and is able to navigate bends autonomously, meaning it is adaptable for more complex pipelines.
 			It can also climb pipes at any angle, as well as returning the angle of the pipe for use in mapping the pipe.
 			As well as this, since it is designed only for autonomous inspection, is is cheaper and quicker to use for this purpose than more specialised robots such as CISBOT.
+			\label{solutionTable}
 		\end{longtable}
 		% Insert value proposition here or in its own section
 		
@@ -426,6 +431,22 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
             Further it can be seen that it has greater sensitivity which provides greater resolution. Further because it produces a high output it does not require extra amplification reducing cost and complexity. 
             
             % Insert table here
+            
+            \begin{figure}[h]
+					\centering
+						\includegraphics[width=15cm] {table_showing_different_rotary_encoders.PNG}
+						\caption{Function and construction of an active compliance joint. Figure from \cite{park2010normal}}
+						\label{rotary_encoders_comparison}
+				\end{figure}
+				
+				  \begin{figure}[h]
+					\centering
+						\includegraphics[width=10cm] {Graph_of_different_rotary_encoders}
+						\caption{Sensitivity of different rotary encoders}
+						\label{rotary_encoders_graph}
+				\end{figure}
+        
+        
 
             \subsubsection{IMU vs AHRS vs INS}
             
@@ -443,7 +464,14 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
             This is because it is light and compact. It has a weight of 10g and size of 26.8 x 19.8 x 9.5 mm. [ \url{https://www.sbg-systems.com/products/ellipse-micro-series/?gclid=CjwKCAiArbv_BRA8EiwAYGs23MIy00g-YW8iNNNozsH9mjSeER1raROv2mD2hZ86wU91BhrPTuxHTBoCyocQAvD_BwE#ellipse-micro-inertial-navigation-system}]
             
             % Insert table
-
+            
+            \begin{figure}[h]
+					\centering
+				    \includegraphics[width=0.95\textwidth]{Table_comparing_AHRS_INS_IMU.PNG}
+						\caption{Function and construction of an active compliance joint. Figure from \cite{park2010normal}}
+						\label{AHRS_comparison}
+				\end{figure}
+       
 
         \subsubsection{Odometers}
         
@@ -471,7 +499,7 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
         Further, they can suffer interference from electrical motors and since the electrical motors in the tracks will in close proximity to the encoders this would be a significant factor. 
         Optical encoders have a much higher accuracy. 
         However, they consumer more power and are more likely to break. 
-        The LEDs in encoders can burn out after 10,000 to 20,000 hours of use. [https://www.machinedesign.com/automation-iiot/article/21833929/capacitive-encoders-deliver-durability-and-precision]
+        The LEDs in encoders can burn out after 10,000 to 20,000 hours of use. [$https://www.machinedesign.com/automation-iiot/article/21833929/capacitive-encoders-deliver-durability-and-precision$]
         Since the effectiveness of the localisation is highly affected by  the effectiveness of its odometers, this risk of failure of the odometer has high significance.
         \\
         Capacitive encoders have greater robustness, and do not consume as much power due to not using an LED. 
@@ -482,9 +510,15 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
         The table below compares the metrics that it need to be considered when choosing which type to use. 
         Due to the relative inexpense of these compared to other parts of the robot it was not considered to be a factor worth considering. 
         From this decision matrix it was decided to use a capacitive odometer. 
-        In particular the Murata electronics’ capacitive encoder will be used. 
-        On an order of 1000 the unit price is £0.694. 
-        It has an operating range of -49 to 85C.
+        
+        
+        
+        \begin{figure}[h]
+					\centering
+						\includegraphics[width=0.95\textwidth]{Table_comparing_odometer_encoders.PNG}
+						\caption{Function and construction of an active compliance joint. Figure from \cite{park2010normal}}
+						\label{odometer_comparison}
+				\end{figure}
 
         \subsubsection{Sensing pipe damage}
         
@@ -492,7 +526,7 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
         Firstly it must be able damage so that it can be determined whether the pipes need to be replaced.
         The robot will be primarily used on cast iron pipes. 
         Corrosion and cracks are the major categories of damage that can be found within these pipes.    
-        Secondly, the robot can be used to provide information about the location connecting pipes, joints, valves and other objects within the pipes.
+        Secondly, the robot can be used to provide information about the location connecting pipes, joints, valves and other objects within the pipes. [  https://www.sciencedirect.com/science/article/pii/S1350630709002532?casa_token=poi08RVQ254AAAAA:8MHYx_sYgj8BUIuVwiTVni1FRx67K94m3IfIs8T3Zx8e9NWRXO4gloGRpJQTZMbc41YQZBGIAw] [https://www.sciencedirect.com/science/article/pii/S1350630718311786?casa_token=MHeqW06s5vAAAAAA:EtBowA1QMNx0EFgoZzWOUpQ8Ryarrk_VHQX3cFIBDpBQHPTzdCqvyRqpWxlF3fcNSSnyDFrZ4Q]
         \\
         In order to determine how to detect the damage features 3 main steps were used. 
         Firstly determining the type of sensor to use and therefore the type of data that will be processed. 
@@ -528,9 +562,9 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
         Another negative is that corrosion products can build up on the magnets which decreases its accuracy. It was therefore decided not to use an MFL.
         \\
         Piezoceramic Ultrasonic Transducer Detection is a method that measure the time it takes for an emitted ultrasonic pulse to return to the sensor having reflected off a medium boundary. 
-        This sensor is usually a piezoceramic transducer.
-        By using short pulses internal flaws of the pipe can be detected.
-        It can detect these flaws at greater depths into the wall than MFL.  
+        This sensor is usually a piezoceramic transducer. [https://content.iospress.com/articles/international-journal-of-applied-electromagnetics-and-mechanics/jae01822]
+        By using short pulses internal flaws of the pipe can be detected.%[$  http://www.iosrjournals.org/iosr-jeee/Papers/Vol13%20Issue%202/Version-1/K1302018593.pdf$\]%
+        It can detect these flaws at greater depths into the wall than MFL.  [  https://www.penspen.com/wp-content/uploads/2014/09/mfl-or-ut.pdf]
         Further it can detect these flaws to a greater degree of accuracy than the MFL technique.  % Find data for this claim. 
         However, most UT techniques require a couplant fluid between the sensor and the wall. 
         This would make it difficult to adapt to different diameters and would require the robot to be supplied with a fluid, something that would reduce its range considerably.
@@ -543,7 +577,7 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
         This induces an eddy current in the side of the pipe. 
         The eddy current is then measured and an algorithm can from this information produce information about any cracks that it has passed over. 
         This has an advantage over MFL because it can be used in both ferromagnetic and non-ferromagnetic material for surface inspection, however for tubing inspection it cannot be used for ferromagnetic material which would therefore not be useful when inspecting cast iron pipes.
-        The ECT  also has the benefit of being non-contact.
+        The ECT  also has the benefit of being non-contact.%[  http://www.iosrjournals.org/iosr-jeee/Papers/Vol13%20Issue%202/Version-1/K1302018593.pdf]]
         On the other hand ECT is more sensitive to differing permeability of the wall when compared to MFL and the data is therefore harder to interpret. % Get source. 
         Beside this ECT is another technique which requires the sensor to be in close proximity to the wall which would make it hard to adapt to different diameters. 
         For these reasons it was decided against.
@@ -572,7 +606,7 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
         \\
         A laser scanner provides higher resolution information about the inner surface of pipes. % Give a resolution number 
         It allows the depth of pits and cracks to be determined and the integrity of different sections of the pipe. 
-        From this information a laser scanner allows the company to know how much material is left, what the remaining life of the asset is and what the risk of leakage is.  
+        From this information a laser scanner allows the company to know how much material is left, what the remaining life of the asset is and what the risk of leakage is.  [  https://www.2grobotics.com/laser-scanning-crawler-integration-for-internal-pipe-inspection/]
         These can be used for a range of pipe diameters so are therefore adaptable. The downside of laser scanners compared to visual sensing is that it is a slow process to acquire detailed high-resolution information. 
         For a 1 metre diameter pipe it was calculated the robot would need to stop every 0.37m and carry out a 360 degree scan that takes 6 minutes. 
         This scan covers 0.466m along the axis of the pipe. 
@@ -613,7 +647,7 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
 	    
         \begin{figure}[h]
 			\centering
-			\includegraphics[scale=0.6]{commstable.pdf}
+			\includegraphics[width=0.95\textwidth]{commstable.pdf}
 			\caption{Communications Comparison}
 			\label{commsTable}
 		\end{figure}
@@ -730,6 +764,13 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
 		% Beacons - maybe comms?
 	
 		\subsection{Materials \& Construction}
+		
+	Many of the gas-pipes that the robot is operating in will be pressurised. The robot must be designed so that it can withstand these pressures. To do this the outer casing of the main body of the robot must be made of a the correct material and the correct thickness. To do this the body will be modelled as a cylinder.
+    From researching materials used by other robots used in pressurised environments it was clear that aluminium alloys, carbon fibre and titanium would be good candidates for the robot’s main body casing. Carbon fibre bodies are more complex and expensive to manufacture therefore it was decided not to use that. Aluminium alloys are cheaper than titanium and also had desirable properties for the environment.
+    Specifically Aluminium Alloy 6082-T6 alloy will be used. It is stronger than the 6061 alloy and the T6 temper is also relatively easy to machine. [  https://www.azom.com/article.aspx?ArticleID=2813]  It has been chosen over a 7XXX series alloy which is stronger because it is easier to machine and is weldable.[  https://www.metalsupermarkets.co.uk/differences-6082-and-7075-aluminium/] 
+    
+    A calculation applying the Lame equations found that the thickness of the body could be of the order of $10^-4$ in order to prevent failure due to yielding. This was therefore not a constraint on the thickness of the robot so it was decided to make it 5mm thick, in order to reduce weight but still provide structure.
+
 		
 		% TBD after 14/2/21 - needs pressure force calcs etc
 	
@@ -987,10 +1028,10 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
 		The robot’s computer vision functionality has three main roles. 
 		One is to detect corrosion, the second is to detect cracks and the third is to detect obstacles and pipe features.
 		\\
-        To consider how to do this first the significance of different attributes of the detection system were considered. 
+        To consider how to do this, first the relative significance of the different factors of the detection system were considered. 
         Since there will be a cable that connects the robot to the ground station and there will be a power supply at the ground station the power constraints are less important than if the robot had an on board power supply. 
-        The time it takes to process an image is also important because it is desired to process the images live, both to allow the robot to know when to activate the laser scanner and so as to save time. 
-        The most important factor however is the accuracy of the feature detections since this is the attribute that the value provided to the client is based upon.
+        The time it takes to process an image is important because it is desired to process the images live, both to allow the robot to know when to respond to its surroundings and to save time. 
+        The most important factor, however, is the accuracy of the feature detections since this is the factor that the value provided to the client is based upon.
         \\
         The environment also poses constraints on the algorithm, since it has poor lighting conditions and repetitive scenery.
         \\
@@ -1002,45 +1043,52 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
         
         \subsubsection{Corrosion Detection}
 
-        The detection of corrosion it was considered whether to use a CNN algorithm, a wavelet NN algorithm, a Weak-classifier Colour-Based Corrosion detector or an AdaBoost Corrosion Detector.
+        For the detection of corrosion it was considered whether to use a CNN algorithm, a wavelet NN algorithm, a Weak-classifier Colour-Based Corrosion Detector (WCCD) or an AdaBoost Corrosion Detector.
         \\
         I first investigated the WCCD and the AdaBoost Corrosion Detector since they have a much lower computational expense. 
-        The WCCD classified images within 7.25ms and had a False Positive ratio of 9.23\% and False Negative of 5.99\%. 
-        The AdaBoost Corrosion Detector on the other hand had a more complicated training time, longer processing time and false positive ratio of 17.16\% and false negative of 3.39\%. 
-        Because these ratios are for semantic segmentation and the algorithm only needs to determine whether there is corrosion within a frame. 
-        Therefore the difference in their improved false negative ratio for the AdaBoost Corrosion Detector is not worth the worse false positive ratio and longer processing time. 
-        Out of these it was decided the WCCD would be preferable.
+        In a paper by Bonnin-Pascual et al these were applied to images of corrosion on internal surfaces, for example inside tanks. The WCCD classified images within 7.25ms and had a False Positive ratio of 9.23\% and False Negative of 5.99\%. Further it had a relatively simple training step of creating an HS histogram and removing pixels that were found to be 10\% lower than the maximum peak on the histogram.
+        The AdaBoost Corrosion Detector on the other hand had a more complicated training time, longer processing time of 300-512ms, and false positive ratio of 17.16\% and false negative of 3.39\%. 
+        Because these ratios are for semantic segmentation and the algorithm only needs to determine whether there is corrosion within a frame, the difference in their improved false negative ratio for the AdaBoost Corrosion Detector is not worth the worse false positive ratio and longer processing time. 
+        Out of these it was decided, therefore, that the WCCD would be preferable.
         \\
         In order to decide whether the computational expense of the WCCD could be reduced further I investigated the use of the roughness step alone on data set. 
-        To calculate the GLCM firstly each image was transformed into patches each 32 x32 pixels. 
-        The glcm of the patch was calculated used the MATLAB gracomatrix function.
-        The energy of this matrix is then calculated using the gracoprops function. 
+        To calculate the GLCM, firstly each image was transformed into patches each 32 x32 pixels. 
+        The GLCM of the patch was calculated using the MATLAB gracomatrix function.
+        The energy of this matrix was then calculated using the gracoprops function. 
         These energies were then saved into a matrix. 
         A for loop then went through the matrix made up of the energy of each patch and selected the patches that were above a certain threshold. 
         This was tested on a sample of 12 non-rusty inside of pipe images and 18 rusty images on the inside of pipes. 
         It was found that it could not classify the images correctly.
         Ideally, it would have been tested on a data set of a larger number of images however these were the only ones that could be found on the internet. 
-        From this it was concluded that the training and colour-based part of the WCCD algorithm was necessary to produce the results.
+        From this it was concluded that the training and colour-based part of the WCCD algorithm was necessary to produce the results.[https://www.researchgate.net/publication/260006092_Corrosion_Detection_for_Automated_Visual_Inspection]
         \\
-        For the CNN and wavelet NNs the paper “Evaluation of deep learning approaches based on convolutional neural networks for corrosion detection” by Atha et al was reviewed. 
-        The best performing CNN based algorithm used single image fusion with a VGG16 fine-tuned algorithm. 
-        This provided recall of 98.81\% and precision of 98.64\%. 
-        The best performing wavelet NN algorithm provided recall of 93.01\% and Precision of 93.65\%.  
-        This showed that a CNN algorithm would outperform the wavelet NN algorithm. However the VGG16 took 256(ms) to classify 256 windows of size 128x128. 
-        Since the images being provided is 2048 x 2048 pixels this means it took 256 (ms) to process an image which would allow for 3.91 fps. 
-        This would be a satisfactory framerate however the GPU used to achieve this performance was the NVIDIA TITAN X Pascal which has a thermal design power of 250W [https://www.techpowerup.com/gpu-specs/titan-x-pascal.c2863] and has a theoretical Pixel rate of 147 GPixel/s and FP32 (float) performance of 10.97 TFLOPS. 
-        This power consumption is too high, therefore a less powerful GPU would be used which would mean the fps rate of classification would be reduced. 
-        For this reason the Corrosion7 network which has can process an image in 33ms giving 30.3fps being processed would be better, given that its performance is not substantially less with 97.01\% Recall and 96.17\% Precision.
+        For the CNN and wavelet NNs the paper “Evaluation of deep learning approaches based on convolutional neural networks for corrosion detection” by Atha et al was reviewed. The best performing CNN based algorithm used single image fusion with a VGG16 fine-tuned algorithm. This provided recall of 98.81\% and precision of 98.64\%. The best performing wavelet NN algorithm provided recall of 93.01\% and Precision of 93.65\%.  This showed that a CNN algorithm would outperform the wavelet NN algorithm. However the VGG16 took 256(ms) to classify 256 windows of size 128x128. Since the images being provided is 2048 x 2048 pixels this means it took 256 (ms) to process an image which would allow for 3.91 fps. This would be a satisfactory framerate however the GPU used to achieve this performance was the NVIDIA TITAN X Pascal which has a thermal design power of 250W [https://www.techpowerup.com/gpu-specs/titan-x-pascal.c2863] and has a theoretical Pixel rate of 147 GPixel/s and FP32 (float) performance of 10.97 TFLOPS. This power consumption is quite high, therefore a less powerful GPU would be preferable to be used which would mean the fps rate of classification would be reduced. For this reason the Corrosion7 network which has can process an image in 33ms giving 30.3fps being processed would be better, given that its performance is not substantially less with 97.01\% Recall and 96.17\% Precision.[https://journals.sagepub.com/doi/10.1177/1475921717737051]
         \\
         To determine whether to use the WCCD or the Corrosion7 algorithm the datasets that they were tested on were examined. 
         The dataset of the Corrosion7 was primarily of corrosion in well lit images in natural light, and the paper warned of a risk of overfitting. 
         The WCCD on the other hand was trained and tested on a dataset more similar to the images that the robot would be processing, these were images in non-natural light for example on the inside of storage tanks. 
-        Therefore, since it is currently not possible to validate the data on our own dataset it was decided that the WCCD algorithm was more likely to transfer its performance to the new dataset. 
-        Its potentially not that low false positive and false negative ratios are not concerning because this algorithm is semantic segmentation. 
+        Therefore, since it is currently not possible to validate the data on our own dataset it was decided that the WCCD algorithm was more likely to transfer its performance to the data that would be collected. 
+        Its potentially not that low false positive and false negative ratios are not concerning because this algorithm performs semantic segmentation. 
         Therefore if there is considerable corrosion to the extent it is concerning the algorithm may not pick up on all of the corrosion but since the main purpose is to highlight an image containing corrosion to the user and the accurate identification of the location of the corrosion in that image is an added bonus then it does not matter as long as some of the corrosion has been detected.
 	
-		% Two tables
-		
+	
+	    The WCCD is split into two stages, each are weak classifiers. The calculates the roughness of patches in the image by calculating the energy of the gray-level co-occurrence-matrix. If the energy of a patch is below a certain threshold the patch is passed onto the colour step of the algorithm. This looks at the image in Hue-Saturation-Value space. A training HS histogram is created which zeros the pixels that have a value 10\% below the largest peak. The algorithm then labels pixels that are near black and near white as not being corroded and the ones that are not labelled as this and have not been zeroed in training HS diagram are given a corrosion label.
+        In order to decide whether the computational expense of the WCCD could be reduced further I investigated the use of the roughness step alone on data set. To calculate the GLCM firstly each image was transformed into patches each 32 x32 pixels. The GLCM of the patch was calculated used the MATLAB gracomatrix function. The energy of this matrix is then calculated using the gracoprops function. These energies were then saved into a matrix. A for loop then went through the matrix made up of the energy of each patch and selected the patches that were below a threshold proposed in the paper. I labelled the rusty pixels of 7 images of the inside of pipes. I then took 13 images of the inside of pipes with no rust  and applied the algorithm to each. Ideally, it would have been tested on a data set of a larger number of images however these were the only appropriate ones that could be found through an internet search engine search.  For the rust images the mean precision was 63.3\% and the mean recall was 74.3\%. These results were reasonable considering the algorithm only needed to detect if there is corrosion in the image. However, for non-rust images the mean false positive score was 29.87\% and there was a range of 86\%. This would mean that the robot would highlight too many images as being corroded which is undesirable. From this it was concluded that the training and colour-based part of the WCCD algorithm was necessary to produce the results.
+
+\begin{figure}[h]
+					\centering
+						\includegraphics[height=\imageheight]{Table_comparing_WCCD_AdaBoost_corrosion.PNG}
+						\caption{Function and construction of an active compliance joint. Figure from \cite{park2010normal}}
+						\label{WCCD_comparison}
+				\end{figure}
+
+		\begin{figure}[h]
+					\centering
+						\includegraphics[height=\imageheight]{Table_comparing_CNN_WNN_corrosion.PNG}
+						\caption{Function and construction of an active compliance joint. Figure from \cite{park2010normal}}
+						\label{CNN_comparison}
+				\end{figure}
+
 		\subsubsection{Crack detection}
 		
 		For crack detection it would be useful information to highlight the location of the crack within the image.
@@ -1071,6 +1119,15 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
 		CrackGAN is an image-to-image translation network which involves a generative adversial loss that helps it solve an “All Black” problem which is seen in crack detection when only the background is detected.
 		% two images
 		\\
+		It uses the transfer of knowledge from a DC-GAN trained on cracked ground truth patches to provide the discriminator for the model. Because the DC-GAN has only been traned on crack images the network will always generate crack images which helps solve the “All Black” problem. Knowledge transfer is also used to pre-train the generators’ encoding part. 
+        The image is input into an Asymmetric U-Net. This algorithm was designed to be trained using a strategy that has a large amount of data augmentation in order to decrease the number of annotated training samples required. [https://arxiv.org/pdf/1505.04597.pdf]  This has a series of downsampling convolving and ReLU stages going from 1 channel up to 512 channels. The layers then upsample the feature map through a series of de-convolving, convolving and ReLU layers. The activation function at the end of the last de-convolutional layer is a tanh function, this takes the 64 channels of features and transfers it into a 1-channel image which is then fed into the discriminator. The two sides of the U-Net are linked by 4 copy and concatenate links which copy across the feature map from the downsampling side of the architecture and concatenate it with the feature map of the same size on the upsampling side of the architecture. It is asymmetric because the output size is different to the input size.
+        
+        Training of the DC-GAN
+    The first stage is to train a DC-GAN which uses crack patch only images. It uses a generative model to produce fake data and the algorithm looks to maximise two objective functions. This pre-trained discriminator provides an adversarial loss function and is then put at the end of an asymmetric U-net generator. The problem here is that the DC-GAN discriminator has only be trained using crack patches in order to stop the “All Black” scenario. But CrackGAN needs to be able to process both cracked and non-cracked images. Using an asymmetric U-Net generator allows non-cracked translation with only cracked-image inputs because it allows a larger image to be input which has patches which are cracked and parts which are non-cracked. This is then down sampled by the asymmetric U-Net network so that its output is the same size as the required input to the discriminator. It then uses dilated ground truths in the L1 pixel loss function, $L_{pixel\ \ }$. This function nis used to make sure that the generated crack patterns are similar to the non generated ones. The images are dilated to ensure that the crack locations are definitely covered. This combination with the the DC-GAN adversarial loss function,$\ L_{adv\ \ \ }$  allows the production of the overall objective function which is desired to be optimised by Crack-GAN,
+    $L_{final\ \ }=L_{adv\ \ \ }+\ \lambda L_{pixel\ \ }$
+    To implement Crack-GAN the asymmetric U-Net has a first layer that uses a 7x7 convolutional kernels concatenated by a rectified linear unit.
+
+%need to figure out exactly what to write here
 		It firstly pre-trains a DC-GAN and implements transfer learning by taking the discriminator from this and putting it on the end of the CrackGAN model.
 		First stage is to train a DC-GAN which uses crack patch only images.
 		It uses a generative model to produce the fake data and the algorithm looks to maximise two objective functions. 
@@ -1082,6 +1139,24 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
 		The images are dilated to ensure that the crack locations are definitely covered. 
 		This combination with the the DC-GAN adversarial loss function allow produced the overall objective function which is desired to be optimised by Crack-GAN.
 		
+        \begin{figure}[h]
+					\centering
+					\begin{multicols}{3}
+						\includegraphics[width=5cm]{CrackGan_Overview.png}
+						\caption{Overview of CrakGAN}
+						\label{activeCompliance}
+						\columnbreak
+						\includegraphics[width=5cm]{Generative_CPO_CrackGan.png}
+						\caption{Generating fake data to feed into the detector alongside real data). Figure from \cite{park2010normal}}
+						\label{Generative_CPO_CrackGan}
+							\columnbreak
+						\includegraphics[width=5cm]{assymmetric_unet.PNG}
+						\caption{Structure of Assymetric U-net and how it feeds into detector}
+						\label{assymmetric_unet}
+					\end{multicols}
+				\end{figure}	
+				
+
 		\subsubsection{Detecting objects inside the pipes}
 		
 		There are several features inside the pipes which are important to detect. 
@@ -1103,11 +1178,19 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
         The processing speed of Faster R-CNN was determined to be undesirably slow therefore it was decided not to be used. 
         The fastest of the algorithms is Yolov1. However it is ineffective in identifying small objects, therefore it was decided not to be used. 
         When comparing the Single Shot Detector and Yolov3 it was found that both could identify small objects. 
-        The Yolov3 however was slighting faster in implementation and had a slightly higher accuracy in a test on MS-COCO when running on a Pascal Titan X GPU.
+        The Yolov3 however was slighting faster in implementation and had a slightly higher accuracy in a test on MS-COCO when running on a Pascal Titan X GPU.[https://www.sciencedirect.com/science/article/pii/S0167926019301762]
         \\
         For these reasons it was decided to use the Yolov3.
         
-        \subsubsection{Object Detection}
+        
+        YOLO models are characterised by the fact that they pass a complete image through a neural network once. This allows them to be much faster than R-CNN because the latter uses time-consuming selective search to create a large number of region proposals and then has to pass each of these regions through the network. [  https://arxiv.org/pdf/1311.2524.pdf] [  https://arxiv.org/pdf/1506.01497.pdf]   YOLO splits the image into a grid and then generates within this grid a certain number of bounding boxes which each have a class probability and offset values associated to them. If the probability is above a certain threshold then the algorithm predicts that the object is located within that bounding box. [https://towardsdatascience.com/r-cnn-fast-r-cnn-faster-r-cnn-yolo-object-detection-algorithms-36d53571365e]
+        YOLOv3 improves upon its predecessors by using logistic regression to predict bounding boxes. It also introduces short-cuts in the convolutional layers
+        YOLOv3 is made of a feature detector called Darknet-53 which consists of 53 convolutional layers which are of sizes 3x3 and 1x1 and then 53 detector layers, followed by a detection neural network.
+        The Darknet-53 down samples the image by a stride of 32. This smallest scale is then passed through 4 detection layers. The image is then upscaled to stride 16. This feature map is concatenated with the smaller feature map before it is again passed through detection layers. This is then done again for stride 8. This means that there is detection applied at three different scales. This is what improves its accuracy at small scales compared to the earlier YOLO versions. It uses logistic classifiers instead of softmax because it does not want to assume that the classes are mutually exclusive. 
+        YOLOv3 has to make two separate sets of predictions: what the coordinates of a bounding box should be and then what the class of the object is that is inside the bounding box. To do the former the model creates anchor boxes for each of the predictors and then predicts an objectness score for each of the bounding boxes compared to these prior boxes using logistic regression. This objectness score looks at the IOU between the ground truth and the predicted bounding box.[YOLO9000:Better, Faster, Stronger]  Using anchor boxes facilitates the detection of multiple objects at multiple scales.[  https://uk.mathworks.com/help/vision/ug/anchor-boxes-for-object-detection.html]  Anchor boxes also increase the speed of the algorithm because it removes the need for a sliding window. In order to choose the size and shapes of these anchor boxes k-means clustering with k=5 is used on the training set bounding boxes. [  https://arxiv.org/pdf/1612.08242.pdf]  K-means clustering chooses cluster centres randomly and then measure the distances between each of the points to the cluster centre and assigns the points to the cluster centre that it is nearest to. It then calculates the mean score and creates new clusters based on these scores. It iteratively optimises the cluster in order to reduce the distance scores.[https://towardsdatascience.com/understanding-k-means-clustering-in-machine-learning-6a6e67336aa1]  The k value is picked by calculating the variation scores for each of the k values and then choosing the k value that causes a large variation reduction before when an increase in k has a markedly smaller effect on the reduction of variation. 
+
+        
+        \subsubsection{Object Tracking}
         
         In order to ensure that the same object that is identified in two subsequent images is known by the robot to be the same object some form of tracking is required. 
         Optical flow was considered, which tracks features between subsequent frames. 
@@ -1117,8 +1200,22 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
         It tracks images across frames aiming to maximise the intersection of union metric. 
         Bewley et al demonstrated that SORT had a much higher speed than similarly accurate algorithms, which confirmed that it would be the ideal algorithm to use. [  “SIMPLE ONLINE AND REALTIME TRACKING” Bewley et al]
         % image
-       
+         \begin{figure}[h]
+					\centering
+						\includegraphics[width=10cm] {comparison_object_tracking.png}
+						\caption{Comparison of different object tracking algorithms}
+						\label{rotary_encoders_graph}
+				\end{figure}
+       [  “SIMPLE ONLINE AND REALTIME TRACKING” Bewley et al]
         \subsubsection{Training}
+        
+        There are very few freely available images on the internet of corrosion inside pipes, cracks inside pipes and objects to found inside pipes. Therefore in order to train the corrosion and crack algorithms they will be pretrained with cracks and corrosion images datasets that are not from inside pipes. The corrosion image dataset will be the one from the WCCD paper and the crack image dataset will be the one from crackgan paper.
+        The company has spoken to Synthotech who offered to provide the images that they have collected of their work inside gas pipes in order to create a training set. The data set will then also be increased through two techniques. Firstly, through the development partnership with a gas distribution company the company will be able to gain access to model rigs and abandoned pipelines. Secondly, for the first few jobs the robot will have to be operated manually whilst collecting data. The non-labelled data-sets not acquired from Synthotech will be manually labelled.
+        Once this data sets have been collected they will be split into training and testing sets. In order to find the best tuning parameters and to the test the models have been used in the algorithms cross validation will be used. An example of the former is how the WCCD model requires different thresholds to be chosen for the HSV values when classifying pixels as corrosion. Cross validation involves splitting the data set into k folds. One is made the validation fold and the other k-1 are training folds. The performance of this set is calculated. Then the validation fold is iterated through the five folds and the same process is carried out k-1 more times.   The average performance is used to evaluate the model used. The advantage of this compared to the holdout method is that increasing the number of folds reduces the variance which is worth the increased computational cost. However if the number of folds is increased too much then the bias is too high. Thus k will be chosen to be 5 in order to gain a trade off between variance bias and computation time.   Another benefit of the cross validation model is that the performance is not affected by which fold is chosen to validate instead of testing because all the folds have a turn at being the validation fold. 
+         
+
+        
+        
         
         Once this data sets have been collected they will be split into training and testing sets. 
         In order to find the best tuning parameters and to the test the models have been used in the algorithms cross validation will be used. 
@@ -1173,7 +1270,29 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
        	However, this is preferred to the mechanical complexity. 
        	For these reasons this is the solution that our robot design will use.
 		% Table comparing landmark spotting cases
+        
+        \subsection[Software Architecture] {Software Architecture - Louis Emanuel}
+        
+         \figref{overalls} outline the overall software layout for the robot. The key sectors are the in-robot subsystems which consists of the sensors and computational functions carried out on board, and the external systems which the robot communicates with via an optical fibre. \\
 
+         \hspace*{3ex}The decision to house different components on board or off board is based on the computational power required, desired latency and housing size. For example, actuation and control requires minimal latency in order to navigate the pipes accurately and so is housed on board. In comparison, map generation is not necessary for operation, and so can be computed off board in order to reduce housing space and decrease power that must be sent via the optical fibre. \\
+
+          \hspace*{3ex}One key point to note is that a GPU is used off board whilst a CPU is used on board. A CPU is best suited for the high speed control mechanism of the robot. Meanwhile, the machine learning necessary for localisation and crack detection is best operated on a GPU. 
+        
+        
+        
+        \begin{figure}[h]
+			\centering
+			\includegraphics[scale=1]{Systems-overall.pdf}
+			\caption{System Architecture}
+			\label{overalls}
+		\end{figure}
+        
+       
+
+        
+        
+        
 		\subsection[Communications]{Communications - Louis Emmanuel}
 		
 		As described in communications hardware, the above ground receivers must detect the ELF electromagnetic waves from the emitter in order to localise the robot.
@@ -1318,15 +1437,15 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
 		\begin{figure}[h]
 			\centering
 			\begin{multicols}{3}
-				\includegraphics[height=0.23\textwidth]{gearCAD}
+				\includegraphics[height=0.2\textwidth]{gearCAD}
 				\caption{Aluminium gear used as the outside of the planetary gear, with dimensions}
 				\label{gearCAD}
 				\columnbreak
-				\includegraphics[height=0.23\textwidth]{shortLinkCAD}
+				\includegraphics[height=0.2\textwidth]{shortLinkCAD}
 				\caption{Stainless steel short link of the leg mechanism with dimensions}
 				\label{shortLinkCAD}
 				\columnbreak
-				\includegraphics[height=0.23\textwidth]{longLinkCAD}
+				\includegraphics[height=0.2\textwidth]{longLinkCAD}
 				\caption{Stainless steel long link of the leg mechanism with dimensions}
 				\label{longLinkCAD}
 			\end{multicols}
@@ -1449,10 +1568,27 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
 	        \textbf{Conclusion}\\
 	        Overall, from an analysis of the key factors that Porter outlined as contributing to a high level of rivalry, the threat level is determined as low. The only exception being the low switching costs currently in the industry. However, for our robot attempting to penetrate the market, this factor may be favourable due to the current monopoly CISBOT has. Given this low threat of rivalry, we can conclude that the industry has a high profit potential.
 
+        \section{Market Research}
+        \subsection{Primary Market Research}
+        
+        Once the company identified the Gas Distribution Networks as the likely clients and therefore key stakeholders it was decided to speak to people in at these companies. It was decided to reach out to both those who worked closely with gas pipes in order to understand their pains, jobs and potential gains and also to reach out to innovation managers who would be in charge of making the decision as to whether they would partner with the company.
+        In the former group we spoke to Thomas Barrett a Network Engineer and formerly Asset Supervisor at Cadent Gas Limited and to David Ransome, an Engineering Services Manager at Cadent. In the latter group we spoke to Lucy Mason, Innovation Manager at Wales \& West Utilities, Michael Charlton, Innovation Implementation Manager at Northern Gas Networks, Gordon McMillan, Innovation Project Officer at SGN and Andrew Newton who was Innovation Portfolio Manager at Cadent until June 2020.
+        Andrew Newton highlighted that the robot should be able to navigate bends. He also said that most small size pipes have already been replaced and that the bigger mains in cities are more costly and difficult to repair. Therefore we further investigated these types of pipes. Additionally he said that the capital outlay to buy a robot would be “prohibitive”. 
+        Thomas Barrett highlighted that being able to inspect a live gas pipe without isolating it would make the robot “invaluable”. This confirmed that designing the robot to be able to work in live gas conditions would be key. Andrew Newton further highlighted that because the atmosphere is almost 100\% ${CH}_4$ the robot’s interaction with the live gas conditions is not a big concern but that the most dangerous part is the insertion of the robot. For this reason it was decided to work with an experience supplier to provide the launch tube system.
+        Further competitors ULC and Synthotech were spoken to in order to gain an understanding of how existing robotic solutions fit into the industry. ULC suggested that larger gas distribution pipes in urban areas would likely be the best part of the market to find a niche, and to steer more towards 16 – 36 inches, confirming the findings from the interviews with employees in at the Gas Distribution Companies. Our contact said that to provide value the robot would be able to travel in both directions, map the pipe, assess the conditions and detect potential leaks. Further he said that using visual sensing combined with machine learning would be very valuable and something that the firm is looking into. Synthotech also confirmed that such inspection techniques would be viable and valuable. Discussions with Synthotech resulted in them offering to provide video and images to train the machine vision algorithms.
+        Through these conversations it was possible to find the niche in the market that the company would be able to provide the most value to and therefore have the greatest competitive advantage. This niche was tier 3 iron distribution pipes that were either inaccessible to competitor robots or were too costly for other robots to fix.
+
+            
+
 	\section{Customer Industry Analysis - EEM}
+	
 		% Insert Monty's P5F here
+	
+		
 		Since there is only one customer industry, it is important to analyse the safety and sustainability of that industry to ensure that the business was secure.
 		The Porter's Five Forces model\supercite{porter2008five} was once again used to analyse the gas pipeline inspection industry.
+		
+		Within the industry there are four major firms that operate in Great Britain. In 2019-2020 Cadent Gas had an operating profit of £924m and revenue of £2115m with an operating profit margin of 43.6\%. Scotia Gas Networks had a revenue of £1272m and an operating profit of £599m and an operating margin of 47.\%. Wales & West Utilities Limited had a revenue of £491.8m and an operating profit of £222.9m with an operating margin of 45\%. Northern gas networks had a revenue of £405.5m, operating profit of £190.3m and operating profit margin of 46\%.  [IBIS]
 			
 		\subsection[Threat of New Entry]{Threat of New Entry}
 				New entrants are motivated to enter the gas distribution industry due to the high profits achieved by current firms which leads to increased competition as they strive to gain market share. The extent of this threat depends on the current barriers to entry in the industry. Porter outlined key barriers as being economies of scale, technical knowledge and regulation. And hence the following section will analyse each of these factors. \\
@@ -1471,14 +1607,50 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
 
 			    \textbf{Conclusion}\\
                 In conclusion, the threat of new entrants in the gas distribution industry is determined to be low as currently the barriers to entry are very high. In fact, the regulator Ofgem states on their website that they serve to regulate the gas distribution industry because ‘Gas Distribution Networks are natural monopolies’. These natural monopolies have an overwhelming advantage over potential competitors
+        \subsection[Rivalry Among Existing Competitors]{Rivalry Among Existing Competitors}
+                Each of these firms have a natural monopoly. This means that the level of competition between them is incredibly small. Since each run their own distribution networks and have their own customers that no other of the competing firms can gain access to there is little rivalry and there is little consumer base overlap. The natural monopoly in fact means that many of the companies are looking to increase cooperation with other firms in order to work on developing solutions together. [  https://www.sgnfuture.co.uk/wp-content/uploads/2019/12/SGN-RIIO-GD2-Business-Plan.pdf]
+                However, there are a IGTs (Independent Gas Transporters) who compete for work on the modification of gas pipelines which has increased competition in the industry. Their size is much smaller, so they do not provide much of a rivalry threat but it does provide some level of competition in some areas. 
+                A large degree of competition comes from the fact that the firms compete through rate petitions to the regulatory bodies. Those that can convince the bodies that they can have the highest rate then they can have a higher revenue. Further there is competition for an annual innovation fund of over £20m each year and for customer’s smart meters. This rivalry, however, does not significantly impact their business. and highlights how the rivalry is not much of a threat.[ibis]
+                The natural monopoly make up of the industry is the most significant factor when it comes to analysing the threat of rivalry however the slow industry growth should also be considered. The annual revenue growth is predicted to be -0.7\% from 2021 to 2026 [IBIS] . Such decline shows that the market is saturated. This would typically lead to strategies such a price cutting to steal market share from competitors however the natural monopolies in this industry created by the ownership of the gas distribution networks means that this factor is not as significant. It still has some significance due to the activities of the IGTs, challenging the large firms for business working on new developments and making modifications to existing ones. This combined with the commoditisation of the product means lack of product differentiation is not a particularly important factor when looking at threats of rivalry. [IBIS]
+                For these reasons the threat of rivalry is very low within the large firms. The most significant factor is the monopolistic set up of the industry, however the low growth does have some effect.
 
+        \subsection[Threat of Substitutes]{Threat of Substitutes}
+                Threat of substitution comes from the different ways in which the GDCs’ customers’ may heat their homes.
+                The major threat of substitution comes from electricity. There is a trend of electricity being increasingly used to heat homes. ETI see in their Patchwork scenario forecasts that by 2050 electric systems will provide over 70\% of space heat[  https://www.eti.co.uk/news/how-will-we-heat-our-homes-in-2050-and-what-will-drive-the-changes].  This shift towards electricity is driven by several factors such as improving technology, government legislation requiring new homes have a minimum EPC Level C and the lower cost of electric heating installation. Currently Gas and central heating is highly dominant. In a Statista Survey 85\% used gas to heat homes, 6\% oil, 3\% electric storage, 2\% electric not storage and 1\% electric portable heaters.[  https://www.statista.com/statistics/426988/united-kingdom-uk-heating-methods/]  According to EDF 95\% of UK homes are centrally heated.[EDF,  https://www.statista.com/statistics/289137/central-heating-in-households-in-the-uk/].   However, it is likely that government legislation will come into place that will ban gas boilers being installed from 2025 according to EDF. Instead, households must either use electric heating or hydrogen and hybrid boilers. This will be a strong catalyst in increasing the threat of substitution to electricity. The gas distribution networks are already preparing for this pivot by working on introducing hydrogen into their networks with Cadent’s HyDeploy project. SGN is developing a hydrogen pipeline to supply Aberdeen which would initially be 20\% hydrogen but would be increased to 100\% hydrogen.
+                $[  https://cadentgas.com/nggdwsdev/media/Downloads/business-plan/Cadent_BusPlan_PART3_Full-Plan_NC.pdf]$  The ban on future new developments having gas boilers is likely to be a larger threat to the IGTs that focus on new development connections and the larger GDN firms will at first not be too affected due to centrally heated homes being unlikely to change boilers straight away, but over the next decade this does pose a large threat to the industry.
+                Further, ground heat pumps are another substitute to the gas industry. This market is set to double by 2025 according to Delta-ee thus placing further pressures on the gas industry and providing an alternative for people wanting to heat their homes. This technology also has the benefit of appearing more environmentally friendly which is an increasingly important factor in decisions made by consumers and businesses. Yue et al in “Impact of Consumer Environmental Responsibility on Green Consumption Behaviour in China: The Role of Environmental Concern and Price Sensitivity” found that enhancing consumers environmental responsibility and environmental concern increased their green consumption intentions. Thus making the “greener” substitutes to gas more of a threat.
+                For these reasons I think that the threat of substitutions is high and is in fact an existential threat on the industry. The firms must act quickly to find new ways to leverage their assets to generate revenue as the UK shifts towards a low-carbon economy. This will most likely be through the use of hydrogen, but even then, this faces a battle with ground heat pump and electric substitutes.
+
+     
 		\subsection[Power of Suppliers]{Power of Suppliers}
+		        The gas distribution industry is dependent on equipment that allows them to maintain current pipelines and lay down more pipelines. The threat of supply chain is not highlighted in any of the company’s annual reports. The firms are large and therefore have a substantial amount of buying power. Therefore, any pipe suppliers are unlikely to be able to increase prices since they will go to another supplier and there being so few players in the industry it is unlikely that the suppliers have many other customers. This type of threat is therefore quite low for the large network companies.
+                They do purchase specialist equipment such as CISBOT. There are very few suppliers of each of these specialist equipment which gives them greater power. These firms are limited in the price they charge by making the equipment economically better than the alternative methods, they are not limited by competition for that particular piece of technology
+                For this reason there is likely a low to medium risk from threat of suppliers.
+
 		
 		\subsection[Power of Buyers]{Power of Buyers}
-		
-		\subsection[Threat of Substitutes]{Threat of Substitutes}
+		        In order to asses the threat of buyers the following factors will be investigated: the number of buyers; the differentiability of the products sold; the sensitivity of buyers to price; the ease with which the buyer can switch to substitutes; government regulation. [Barney]
+                Gas distribution companies are paid by gas shippers to transport gas to homes and businesses. Gas suppliers buy gas from shippers to provide to their customers, the consumers, and it is the shippers responsibility to see that it reaches these homes. The prices that the gas distribution companies charge are passed onto the gas consumers. The first-tier buyer are the shippers. They have little buying power over the gas distribution networks because the gas distribution firms have regional monopolies so if the shippers want to get gas to a certain location, they have no choice but to use that distribution. Below the buyer power of gas suppliers and gas consumers are analysed.
+                Number of buyers
+                In 2017 there were 15 domestic  11 commercial and 12 industrial  gas suppliers.$[Competition in gas supply” - https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/743700/Competition_in_Gas_Supply.pdf]$ The competition in their gas supplier industry is therefore much higher than the gas distribution industry and if one refused to buy gas with certain charges another supplier would likely accept the charges passed on to them by the shippers. Further the large number of suppliers means that the gas distribution companies are not overly reliant on revenue from any one of them, which gives the suppliers less leverage. There are also many third-tier buyers whom are the consumers to whom the gas distribution charges are passed onto, Cadent supplies gas to 11 million homes and businesses. $[https://cadentgas.com/nggdwsdev/media/Downloads/business-plan/Cadent_BusPlan_PART3_Full-Plan_NC.pdf]$  This prevents them from being able to negotiate lower prices.
+                Differentiability of products sold
+                The gas distribution companies provide a service which provides access to a commodity. There is therefore very little differentiability, which would increase the buying power of the gas suppliers and end users because there is no difference for them between different gas distribution companies.
+                Sensitivity of buyers to price
+                The service sold does make up a significance of the buyer’s final costs with 25.6\% of consumer gas bills being due to network costs, however this is split between transmission and distribution networks. The average GB consumer has an annualised charge of £114 for the gas distribution network compared to £10 for the transmission network. $[  OfGem https://www.ofgem.gov.uk/data-portal/estimated-network-costs-domestic-customer-gb-average]$  Since it is quite a significant portion of cost this would apply pressure on suppliers to try reduce the price. However, the monopolistic nature of the industry reduces the effect of this.
+                Ability for buyer to substitute or switch
+                The gas suppliers have no substitutes however the end consumers do. As discussed in the threat of substitution section there are increasing number of alternatives to using gas for consumers and therefore alternatives to using the gas distribution company’s services. The switching costs for ground heat pumps however are quite high, costing £13,000- £35,000 $[  https://www.greenmatch.co.uk/heat-pump/ground-source-heat-pump/ground-source-heat-pump-prices]$ which is a significant investment for most consumers. There are also reasonably high switching costs for moving away from gas boilers, it costs £1,500-£2,500 for an electric boiler and £7,000 - £13,000 for a biomass boiler. $[  https://www.greenmatch.co.uk/blog/2018/08/new-boiler-cost]$  This therefore is not a very high threat.
+                Regulation
+                The above discussion highlights how buyer power is reasonably low. The government has counterbalanced this through regulation. OfGem regulates the revenue that gas distribution companies can generate and thus the amount that they can charge. This means that the gas distribution companies cannot leverage the natural monopolies they have to extract the full economic profit potential that they could provide.
+                From this it can be seen that the threat from buyer’s is low. Even though the product is undifferentiated and the consumers have high price sensitivity the fact that the gas distribution companies have natural monopolies and there are a large number buyers means that they pose a low threat to the gas distribution companies. Regulation does however mean that the gas distribution companies cannot exploit this lack of buyer power.
+                Conclusion
+                In conclusion the threat of substitution is the largest threat in the industry. The threat of entry is the next largest due to acquisition of gas distribution networks from companies elsewhere in the global industry.  Threat of rivalry is next because with the growth of independent distributors there is a chance for more firms to develop the know-how to provide certain services for cheaper than the larger distributors, thus reducing the profitability of the industry. Because of this slight increase in competition the threat of buyers when they are seeking the modification services or new gas pipes is relatively high but is virtually non-existent for when paying for the service of using the gas pipes. The next most significant threat is that of suppliers because although the significance is likely small there is the potential that those that provide some of the specialist equipment that is required for repairs could negotiate greater prices. The least significant threat is the threat of entry. This is because of the large barriers there are to entry and also the large costs there are associated with entry combined with the capped revenue that firms in the industry can gain.
+                Significance for the robot.
+                In response to the increasing threat of substitutes the gas distribution companies are moving away from gas distribution towards hydrogen distribution in order to provide a greener alternative. The company will therefore need to be able to adapt its technology to solve the problems that this brings. It is likely to be similar due to the fact that in many cases the same gas pipes will be used. Get data. 
+                The low threat of rivalry between firms and large amount of cooperation may mean that firms would be willing to share specialist equipment. This would  reduce the viability of selling the robot. The capping of revenues by the regulatory firms due to the low buyer power means that the gas distribution companies are incentivised to find ways to lower costs. This means they are willing to invest money and time into partnering with firms that can increase the efficiencies of their operations, this provides an opportunity for the firm.
+                The few providers of specialist robotics equipment means provides the company with greater power over the GDCs which gives it greater pricing powers and also helps with partnering with the firms in the initial development of the product.
 
-		\subsection[Rivalry Among Existing Competitors]{Rivalry Among Existing Competitors}
+		
+		
 		
 	\section{Stakeholder Analysis - EEM}
 	
@@ -1646,6 +1818,82 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
 	        One area of opportunity is in the hydrogen gas pipeline refit that is currency being considered. As we transition to green gases, a full assessment of current gas distribution assets is required. This is particularly relevant for GRAID as given the National Grid has received significant funding from the Net Zero development funding to finance projects, the National Grid will have preference for using the inspection robot it partnered to manufacture. \\
 	        \textbf{Threats} \\
 	        One significant threat to GRAID is the rising customer loyalty in the pipe inspection market. For example, through CISBOT's partnership with Cadent, who is the largest gas distributor in the UK, it is unlikely Cadent will invest in another robot unless it provides distinct capabilities that CISBOT cannot offer. Another potential threat arises from the projected decrease in gas demand demonstrated in \figref{forecast}. If the market size decreases, the competition GRAID experiences will increase as the only way to boost revenue will be to gain market share.
+	        
+	        \subsection[ULC]{ULC - Montgomery Beresford }
+	        
+	        ULC is a technology company head quartered in New York that has produces robots that as designed for the gas industry. It roughly has \$40m of annual revenue.[ https://www.globenewswire.com/news-release/2020/09/02/2087705/0/en/SPX-Announces-Purchase-of-ULC-Robotics.html]  It was acquired for \$135m by SPX in 2020 implying that it was acquired with an EV/Revenue of multiple of 3.375x.[  https://spx.gcs-web.com/static-files/1d800884-6590-4bc2-812e-0ea4b96b5f0b]  SPX has an annual revenue of \$1.5 billion and 4500 employees who work in 17 countries.[https://www.globenewswire.com/news-release/2020/09/02/2087705/0/en/SPX-Announces-Purchase-of-ULC-Robotics.html] ULC has 15 robots which it has used to cover 145m km of pipeline.[  https://ulcrobotics.com/] ULC is a large company with 160 employees. They outsource some of their engineering design and manufacturing to soloosion.
+	        Strengths
+	        
+	        ULC
+            Strengths
+            •	Economies of scale
+            •	Owned by SPX providing it with global reach and easier access to more resources
+            •	ULC has existing relationships with SGN and Cadent
+            o	SGN used 5 CISBOT robots throughout GD1
+             o	Cooperated with SGN to develop CISBOT, CIRRIS XI and CIRRIS XR
+            •	Know-how in engineering robots
+            •	Hired many former employees of gas distribution companies and therefore have a strong understand of how they make decisions
+            o	For example David McLeod ULC Head of Business Development, formerly SGN Engineering Operations Manager and Innovation Delivery Manager and Sam Wilson ULC Director of UK Operations formerly SGN Project Manager of NIC Robotics project
+            •	R\&D consistently produces cutting-edge technology
+            Weaknesses
+            •	Size means slower to adapt and iterate
+            •	Energy spread over a wide variety of robotics applications
+            •	Flagship robot CISBOT is potentially prohibitively expensive - \$1m
+            Opportunities
+            •	Strong presence in the US market
+            •	Leveraging SPX to expand into more markets
+            •	Potential Partnership with Eversource Energy in Massachusetts [  https://ulcrobotics.com/news/]
+            
+            Threats
+            •	The CISBOT having its applications in the UK declining because a finite number of joints that it is cost effective for it to fix
+            •	Reduction in use of iron gas pipes in UK market
+            •	Increasingly competitive space
+            
+            
+            
+            comparison of the company's robots with ours
+            	        
+	        
+	        
+	 \section{Making Money}
+	 \subsection{Revenue Model}
+        	 In order to decide which revenue model one has to consider several factors. The goal of the company is to create maximum value for its shareholders, to do this it wants to maximise potential market size and market penetration, whilst minimising costs and taking on an acceptable amount of risk. Thus a revenue model should be chose which considers the ease of market adoption, the switching costs for buyers, the costs for the company, the potential market size, the allocation of risks and the strengths and competitive advantages of the firm and other players in the market. These considerations in some cases feed into each other, for example how risk is allocated can determine the ease of market adoption.
+            One strategy would be for the firm to go directly to the users or it could supply the firms that provide products and services to these end users, these will be called middlemen.
+            The advantages of supplying middlemen are several fold. Firstly, these middlemen have pre-existing relationships with the buyers. For example Synthotech has worked on projects with SGN and ULC has worked for both SGN and Cadent. In an industry that is risk adverse, and has many protocols in place when considering adopting new technology providing the product through a middleman that is already trusted by the firm and understands how some of the buyers’ processes work is invaluable. Secondly these firms often have presence in larger markets. For example ULC have a presence in the US and are part of SPX, a NYSE-listed firm. By supplying such a firm the company would gain access to its global distribution channels as well as have the authority of its reputation. The company would also gain access to ULC’s robotics expertise thus allowing the robot to be further developed. Additionally, the firm would not have to spend as much on sales and marketing because these middlemen would cover this part of the cost. Further, since these firms have developed know-how in this area and have economies of scale they would be able to carry out this activity more efficiently thus making more value available in the value chain. In terms of financial risk allocation the financial risk would be mostly taken by the middlemen since they will have acquired to product and it would be on them to create value out of it. For the same reasons a greater amount of operational risk will be taken on the middlemen since they will have to find ways to sell the product or service to the buyers. This set up would also be more beneficial than selling direct to the buyers for the firm in terms of cashflow because the period between paying the suppliers to manufacture the robot and the middlemen purchasing the robot will likely by less due to the middlemen having less complex organisational structures and protocols when making technology decisions. The downside of this is that the middlemen would provide an extra link in the value chain and therefore be reducing the amount of value that can be capture by the firm. What is more it is not clear whether such middle men would be willing to buy a third party developed product and in the case that they did the small market size in the UK may mean that they would not purchase enough to make the company viable. 
+            There are several advantages of going directly to the buyers. This strategy was exploited by Dell as described by HBR.  Not only does this cut out the middleman and allow the firm to capture more value but it allows the firm to interface directly with the buyers. One advantage of this is that it provides the firm with more information and data that would allow it to update and improve its product so that it can stay on top of the technological curve, provide value to its competitors and maintain its competitive advantages. Further by developing a direct relationship with the client the company would potentially be able to increase repeat buying. In “A Model of Customer Retention of Dissatisfied Business Services Customers” by Yanamandram and White (2007) it is shown that organisations do not swap providers of products and services for five main reasons. One of these is interpersonal relationships. The middleman may also be able to develop these relationships however they would not be incentivised to do leverage this for the firms’ product but for any of the middleman’s product and service offerings. What’s more, in “SECURING BUSINESS-TO-BUSINESS RELATIONSHIPS:  THE IMPACT OF SWITCHING COSTS” Blut highlights how increase switching costs increases customer retention. By owning the relationship the company will be in a better position to make strategic decision to increase switching costs, whereas a middleman would be incentivised to provide any of its other products to the customer in order to retain the customer.
+            Therefore, although it is clear that going via the middleman would increase the ease of entry into the market and would potentially also increase the ease of adoption and initial market penetration, such a strategy would not be a sustainable business model because it would decrease the control the company has in positioning itself in the market and in developing the know-how required to continuously improve the product maintain a competitive advantage. For this reason it was decided that the firm would go directly to the buyers.
+            When assessing how to go to market when going directly to the buyers there are 5 main potential revenue models. These are selling the product directly, leasing the product and using a robot-as-a-service (RaaS) revenue model.
+            It was decided to use a RaaS model.
+            
+            The RaaS model maximises the ease of adoption by allocating more of the financial and operational risk on the company. The company will have to make an upfront investment in the manufacturing of the product before it has secured a revenue that would be able to cover the cost, whereas if the product were being sold it could be manufactured to order thus reducing this risk and placing it on the client. On top of this it introduces a cash flow problem where the company will be paying an initial capital outlay for the product and then will gain revenue from it over a period of time. Further, since the company will be operating the robot and ensuring that it provides value to the client the company takes on this operational risk. However, because it takes the financial risk out of the hands of the buyer by reducing the financial commitment that the company needs to take in order to use the product it reduces the barriers to adoption. Moreover since the buyer does not need to spend time training it own workers to operate the robot it requires less time and coordination of fewer stakeholders to get to the stage where it can be used throughout the buyer’s organisation.
+            On top of the increased ease of adoption the RaaS model has overwhelming advantages which outweigh the increased operational and financial risks that are placed on the company. By working closely with the clients when providing a service the firm will be able to develop stronger interpersonal relationships than it would have otherwise which would increase the barriers to the client switching. Additionally by working with the client the firm will be able to use the clients knowhow on the gas distribution industry and the data gathered to improve the product’s value offering and thus to stay at the forefront of the technology curve. This revenue model would allow the product to be continuously updated and improved therefore making it less likely that the client would switch. This is similar to service recovery which was highlighted by Yanamandram and White (2007) to increase switching barriers. Another advantage of the RaaS model is that it produces strong gross margins. Once there the capital expenditure to manufacture the robot has been made each job that the company takes does not significantly increase costs. In a scenario where the company sold the robot to two different firms and  one firm needed a robot for a job in week one and the other needed it for a job in week two, assuming there is no collaboration between the companies, then two robots would be required for this. This would have involved the firm paying on two occasions the manufacturing costs of the robot. However if the robot was provided as a service the firm would be able to generate revenue from both of these jobs with just one robot and therefore halve the manufacturing costs. In this way the RaaS model increase profitability for the company by exploiting these efficiencies.  
+            
+            Selling the robots upfront allocates much of the financial and operational risk to the client. Having purchased the robot they would have to ensure that the robot provides value for them for the rest of the robots lifetime and if it does not perform as desired it is the client that loses. This model also creates an obstacle for doing business with the client since it would require a large up front capital cost. This would not only create a financial obstacle but also an organisational one because it would likely require the decision to use the robot to be approved by more areas of the client’s organisation which would slow down adoption. Andrew Newton, Innovation Portfolio Manager at Cadent until 2020, said that “the capital outlay to buy such a complex machine […] was prohibitive” with regards to a competitors’ robot. For the company, by selling the robot the gap between paying suppliers and being paid is minimised thus reducing capital requirements and providing capital to reinvest into the business. This is a benefit for the company. Further this model locks the client in and means that the company can guarantee a certain revenue when a deal is reached with a client. A downside when investigating the revenue generation potential of this model is that as of June 2020 Cadent would only have “one robot in action at any one time”, according to Andrew Newton. It was said that there was potential for an increase but it would still be of that order. Further according to Bhaskaran  when selling the company is incentivised to increase supply so that it can sell more units, however an increased supply in a limited market causes the price to decrease, therefore buyers are incentivised to wait when making purchases. This is another disadvantage of selling. 
+            A major disadvantage for selling the robot is that there is quite a large degree of collaboration between the gas distribution companies. Therefore it is likely that if two of the companies became trained in using the robot then if company A needed a robot when company B had extra capacity then Company B would be likely to offer to loan the robot to A for that job. This would result in lost revenue. Thus by providing the robot as a service the company is able to maintain a monopoly on the capabilities that it provides, creating scarcity and thus allowing it to charge higher prices.
+            
+            \subsection{Pricing}
+            
+            \subsubsection{Top Down Approach}
+            In order to price the service both the value provided by the robot and the price charge by competitors for similar services were taken into account. It was estimated that ULC charges £2901 per joint repaired. It costs between £7269 and £9305 to fix a joint via non robotic process and NGN says that they would be willing to pay £5000 per joint operation. ULC provides extra value by sealing the joints however they also seal joints which do not need to sealed directly. There is value in that this would extend joint life but it is done indiscriminately. For example on average there are 2 joint failures and 275 joints in 1 km. Therefore ULC is on average sealing 273 joints that have not failed. For one 1km stretch ULC therefore charges £797500, however the joints that were necessary to be sealed would cost the company £18,610 if they knew the location of them.  Since the robot would therefore not be providing as much direct value as ULC but would in many cases being used in stretches of pipe less accessible to CISBOT, it was decided to charge 1/7 the rate of CISBOT per joint at £414.40 per joint. This price seems reasonable based on how NGN stated in a document that they would be willing to pay £5,000 per robotic joint repair. This would mean to fix 1km of pipeline with two faults it would cost £113960 to hire the company and £18601 to fix the joints, which is £664,939 cheaper than ULC per km, assuming 2 joints that have actually failed per km. Therefore the default charge would be £414.40 per joint but actual prices would be negotiated on a contract per contract basis.
+            \subsubsection{Bottom Up Approach}
+            In year 3 the total cost per job is £58,469.33 but this decreases to £16,589.35 by year 7. These costs that are spread across the jobs are all the expenditures. Therefore if it was decided that over the first 5 years of operating that a 25\% EBIT margin was desired the pricing would be £30,542. The revenue per job is £56,980 using the top down pricing methodology.
+            It can be seen that there is a disconnect between the bottom up pricing and the top down pricing. The top down pricing is able to be much higher than the bottom up pricing due to the large amount of value that the robot provides combined with the fact that in the beach head market niche there is little competition, thus giving the company the ability to control prices. Further the competition have designed robots that have higher costs which means they have to charge higher prices which are more similar to the top down pricing.
+            
+            \subsection{Bottom Up Market Sizing}
+
+            The company has several applications which means that it will be operating in several small niches of the gas market. However for the revenue model we are going to maket the assumption that initially only one of these application are used. This is the function of inspecting joints to locate exactly which joints need to be replaced in a stretch of pipeline that would have all been replaced. 
+	 
+	        Currently it is estimated that 30.8km of pipeline need to be replaced each year for the next 5 years. This has been calculated using the fact that SGN plans to replace 6.15km and that NGN plans to replace 10.2km per year and then making the assumption that the other two gas distribution companies will have the same proportion of their pipelines as SGN that need replacing. Since joint failures are the most common failure it is likely that a large majority of these could be fixed by replacing the joints. In tier 3 pipes there are roughly 0.275 joints per metre  of pipeline therefore there are roughly 8474 joints that will be being removed by replacing the pipeline. Applying the £580.20 price per joint to these joints would give a market size of £8.19m. This form of revenue will be used for the revenue projections.
+	        
+	        On top of this SGN spent £7.2m on robotic intervention in 2020. Assuming each company has a similar potential robotic intervention spend proportional to their total pipeline length then the total market spend on this a year would be £29m. Therefore the total potential market in the UK would be £37.19m
+	        
+	        
+	        \subsection{Distribution Channels}
+	        
+	       In order to establish the initial partnership the company will hold conversations with the innovation managers with whom the founders have already developed relationships with. Having established a partnership the use of the robot throughout the firms network will depend upon its success in the innovation programme. Once the gas distribution company has agreed to use the company’s service the  company will operate in the following way. The GDN will book times when they would like to use the service. The booking will be managed by the sales staff. For the time when that service is booked the operations team will drive from the company’s HQ with the equipment in the van to the location. Depending on the size of the job and the distance from the companies HQ the employees may or may not then stay in that location. This was decided upon instead of having multiple robots in multiple locations that would provide a better country coverage and not require travel because it is cheaper. Further the level of demand for jobs would mean that if there were multiple robots across the country for much of that time a robot would not be used, thus each robot would have a lower return on investment.
+            Having worked on several jobs at one gas distribution company the company will then seek to expand to working with the other companies. This would be done through company demonstration days as well as inviting representatives of the companies to see the work that the company does in the field. Having secured work with each company, sales staff would look to highlight to these companies the other possible applications of the robot in order to expand out of the initial beach head market niche. This would be into jobs such as providing mapping and detection of features applications.
+
+	        
 	        
      \section[Business Risk Assessment - EEM]{Business Risk Assessment - Jim Laney}
      	
