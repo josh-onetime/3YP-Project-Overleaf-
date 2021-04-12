@@ -20,6 +20,7 @@
 \usepackage{wrapfig}				% Wrap figures
 \usepackage{longtable}				% Allows for long multi page tables - mainly for pains and gains section
 \usepackage{array}
+\usepackage[table]{xcolor}			% Allows the latex table to be coloured to match other formatting
 
 % Makes it so all equations have full sized numbers, independent of font size used		
 \makeatletter
@@ -66,7 +67,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 		\vspace*{6cm}
 		\huge{\textbf{3YP Project: Autonomous In-Pipe Inspection Robot}}\\ 
 		\vspace*{6cm}
-		\large{Monty Beresford, Louis Emanuel, Joshua Gei \& Jim Laney}
+		\large{Montgomery Beresford, Louis Emanuel, Joshua Gei \& Jim Laney}
 		\thispagestyle{empty} % Remove page number
 	\end{center}
 
@@ -80,76 +81,80 @@ BoldItalicFont=Arial Bold Italic.ttf
 	\setcounter{page}{1}
 	
 	\section{Introduction - ENG + EEM}
-Underground gas distribution pipelines span over 2 million km across global infrastructure\supercite{pct2020states}, comprising over 60\% of all underground pipelines\supercite{pct2020states}, and are essential in the transport of natural gas for domestic use or electricity generation. 
+	
+		Underground gas distribution pipelines span over 2 million km across global infrastructure\supercite{pct2020states}, comprising over 60\% of all underground pipelines\supercite{pct2020states}, and are essential in the transport of natural gas for domestic use or electricity generation. 
+		
+		However, gas pipeline failures due to leaks as a result of wear-and-tear are commonplace. Unchecked leakages lead to transport delays, environmental damage, and potentially hazardous incidents\supercite{pct2020states} - in the US alone, there were a total of 1,051 serious incidents involving gas distribution and transmission from 1994-2013, \textbf{causing 319 fatalities and over US\$550 million in property damage}\supercite{pct2020states}!
+		
+		Hence, adequate inspection and maintenance of gas pipelines are key priorities for gas distribution companies, which cumulatively spent \textbf{over US\$15.7 billion} on inspection, maintenance  and replacement of gas pipelines in 2019, and this amount is rising ~6\% year-on-year.\supercite{pct2020states}. 
+		
+		Currently, the bulk of inspection and maintenance of buried gas pipelines is performed manually, with the aid of Pipeline Inspection Gauges (henceforth referred to as 'PIGs'), shown below in Figure 1. 
 
-However, gas pipeline failures due to leaks as a result of wear-and-tear are commonplace. Unchecked leakages lead to transport delays, environmental damage, and potentially hazardous incidents\supercite{pct2020states} - in the US alone, there were a total of 1,051 serious incidents involving gas distribution and transmission from 1994-2013, \textbf{causing 319 fatalities and over US\$550 million in property damage}\supercite{pct2020states}!
-
-Hence, adequate inspection and maintenance of gas pipelines are key priorities for gas distribution companies, which cumulatively spent \textbf{over US\$15.7 billion} on inspection, maintenance  and replacement of gas pipelines in 2019, and this amount is rising ~6\% year-on-year.\supercite{pct2020states}. 
-
-Currently, the bulk of inspection and maintenance of buried gas pipelines is performed manually, with the aid of Pipeline Inspection Gauges (henceforth referred to as 'PIGs'), shown below in Figure 1. 
-
-\begin{figure}[h]
-			\centering
-			\begin{multicols}{2}
-				\includegraphics[height=\imageheight]{placeholder}
-				\caption{Excavation of entire pipeline required, and manual maintenance}
-				\label{placeholder}
-				\columnbreak
-				\includegraphics[height=\imageheight]{placeholder}
-				\caption{Illustration of how PIGs are used}
-				\label{placeholder}
-			\end{multicols}
-		\end{figure}
-Nonetheless, the heavy amount of excavation required and the relatively slow and costly process of manual inspection poses pressing pain-points for gas distributors, as well as other stakeholders such as local councils and the general public. 
-
-Hence, PipeDream will seek to address the target problems faced by our primary stakeholders with our product. 
+		\begin{figure}[h]
+					\centering
+					\begin{multicols}{2}
+						\includegraphics[height=\imageheight]{placeholder}
+						\caption{Excavation of entire pipeline required, and manual maintenance}
+						\label{placeholder}
+						\columnbreak
+						\includegraphics[height=\imageheight]{placeholder}
+						\caption{Illustration of how PIGs are used}
+						\label{placeholder2}
+					\end{multicols}
+				\end{figure}
+				
+		Nonetheless, the heavy amount of excavation required and the relatively slow and costly process of manual inspection poses pressing pain-points for gas distributors, as well as other stakeholders such as local councils and the general public. 
+		
+		Hence, PipeDream will seek to address the target problems faced by our primary stakeholders with our product. 
 
 	\subsection[Target Problems]{Target Problems \textit{- Joshua Gei}}
-We will first define the scope of our problem: PipeDream will target specifically \textbf{Tier 3 underground gas distribution pipelines in the UK}, using the pipeline assets category definition used by Ofgem, the Health and Safety Executive (HSE) and Gas Distribution Networks (GDNs)\supercite{pct2020states}. 
-
-\tableref{GasTiers} shows the pipeline assets categories. 
-
-    \begin{table}[h]
-        \centering
-        \includegraphics[width=\textwidth]{GasTiers}
-        \caption{Pipeline Assets Category Definitions\supercite{pct2020states}.}
-        \label{GasTiers}
-    \end{table}
+		We will first define the scope of our problem: PipeDream will target specifically \textbf{Tier 3 underground gas distribution pipelines in the UK}, using the pipeline assets category definition used by Ofgem, the Health and Safety Executive (HSE) and Gas Distribution Networks (GDNs)\supercite{pct2020states}. 
+		
+		\tableref{GasTiers} shows the pipeline assets categories. 
+		
+		\begin{table}[h]
+			\centering
+			\includegraphics[width=\textwidth]{GasTiers}
+			\caption{Pipeline Assets Category Definitions\supercite{pct2020states}.}
+			\label{GasTiers}
+ 		\end{table}
     
-We reached out to a representative from Wales and West utilities (WWU), one of the 4 major GDNs in the UK, who pointed out that Tier 3 pipes in particular have pipe repairs increasing in volume and costs, have the largest proportion of buried mains reaching or beyond their expected asset life, and are the costliest to decommission and replace. Furthermore, Tier 3 mains are usually found in city locations, as opposed to other diameter types of pipelines, and cause considerable disruption to road users because multiple large excavations are required to complete the repairs.
+		We reached out to a representative from Wales and West utilities (WWU), one of the 4 major GDNs in the UK, who pointed out that Tier 3 pipes in particular have pipe repairs increasing in volume and costs, have the largest proportion of buried mains reaching or beyond their expected asset life, and are the costliest to decommission and replace. Furthermore, Tier 3 mains are usually found in city locations, as opposed to other diameter types of pipelines, and cause considerable disruption to road users because multiple large excavations are required to complete the repairs.
+		
+		Hence, a breakdown of the target problems faced by GDNs (our main customer), as well as other primary stakeholders, is as follows: 
 
-Hence, a breakdown of the target problems faced by GDNs (our main customer), as well as other primary stakeholders, is as follows: 
-
-\begin{enumerate}
-   \item \textbf{Rising Costs}
-   \begin{itemize}
-     \item The individual entries are indicated with a black dot, a so-called bullet.
-     \item The text in the entries may be of any length.
-   \end{itemize}
-   \item \textbf{Slow and Dangerous}
-   \item \textbf{Obstructive}
-   \item \textbf{Unable to inspect all types of pipes}
-\end{enumerate}
+		\begin{enumerate}
+		   \item \textbf{Rising Costs}
+		   \begin{itemize}
+		     \item The individual entries are indicated with a black dot, a so-called bullet.
+		     \item The text in the entries may be of any length.
+		   \end{itemize}
+		   \item \textbf{Slow and Dangerous}
+		   \item \textbf{Obstructive}
+		   \item \textbf{Unable to inspect all types of pipes}
+		\end{enumerate}
 
 	\subsection[Solution]{Solution \textit{- Joshua Gei}}
 	
 	Robotic solutions are estimated to provide this amount of cost savings, but our own estimates are... 
 	
     \section{Market Research - EEM}
+        
         \subsection{Primary Market Research}
         
-        Once the company identified the Gas Distribution Networks as the likely clients and therefore key stakeholders it was decided to speak to people in at these companies. It was decided to reach out to both those who worked closely with gas pipes in order to understand their pains, jobs and potential gains and also to reach out to innovation managers who would be in charge of making the decision as to whether they would partner with the company.
-        In the former group we spoke to Thomas Barrett a Network Engineer and formerly Asset Supervisor at Cadent Gas Limited and to David Ransome, an Engineering Services Manager at Cadent. In the latter group we spoke to Lucy Mason, Innovation Manager at Wales \& West Utilities, Michael Charlton, Innovation Implementation Manager at Northern Gas Networks, Gordon McMillan, Innovation Project Officer at SGN and Andrew Newton who was Innovation Portfolio Manager at Cadent until June 2020.
-        Andrew Newton highlighted that the robot should be able to navigate bends. He also said that most small size pipes have already been replaced and that the bigger mains in cities are more costly and difficult to repair. Therefore we further investigated these types of pipes. Additionally he said that the capital outlay to buy a robot would be “prohibitive”. 
-        Thomas Barrett highlighted that being able to inspect a live gas pipe without isolating it would make the robot “invaluable”. This confirmed that designing the robot to be able to work in live gas conditions would be key. Andrew Newton further highlighted that because the atmosphere is almost 100\% ${CH}_4$ the robot’s interaction with the live gas conditions is not a big concern but that the most dangerous part is the insertion of the robot. For this reason it was decided to work with an experience supplier to provide the launch tube system.
-        Further competitors ULC and Synthotech were spoken to in order to gain an understanding of how existing robotic solutions fit into the industry. ULC suggested that larger gas distribution pipes in urban areas would likely be the best part of the market to find a niche, and to steer more towards 16 – 36 inches, confirming the findings from the interviews with employees in at the Gas Distribution Companies. Our contact said that to provide value the robot would be able to travel in both directions, map the pipe, assess the conditions and detect potential leaks. Further he said that using visual sensing combined with machine learning would be very valuable and something that the firm is looking into. Synthotech also confirmed that such inspection techniques would be viable and valuable. Discussions with Synthotech resulted in them offering to provide video and images to train the machine vision algorithms.
-        Through these conversations it was possible to find the niche in the market that the company would be able to provide the most value to and therefore have the greatest competitive advantage. This niche was tier 3 iron distribution pipes that were either inaccessible to competitor robots or were too costly for other robots to fix.
+	        Once the company identified the Gas Distribution Networks as the likely clients and therefore key stakeholders it was decided to speak to people in at these companies. It was decided to reach out to both those who worked closely with gas pipes in order to understand their pains, jobs and potential gains and also to reach out to innovation managers who would be in charge of making the decision as to whether they would partner with the company.
+	        In the former group we spoke to Thomas Barrett a Network Engineer and formerly Asset Supervisor at Cadent Gas Limited and to David Ransome, an Engineering Services Manager at Cadent. In the latter group we spoke to Lucy Mason, Innovation Manager at Wales \& West Utilities, Michael Charlton, Innovation Implementation Manager at Northern Gas Networks, Gordon McMillan, Innovation Project Officer at SGN and Andrew Newton who was Innovation Portfolio Manager at Cadent until June 2020.
+	        Andrew Newton highlighted that the robot should be able to navigate bends. He also said that most small size pipes have already been replaced and that the bigger mains in cities are more costly and difficult to repair. Therefore we further investigated these types of pipes. Additionally he said that the capital outlay to buy a robot would be “prohibitive”. 
+	        Thomas Barrett highlighted that being able to inspect a live gas pipe without isolating it would make the robot “invaluable”. This confirmed that designing the robot to be able to work in live gas conditions would be key. Andrew Newton further highlighted that because the atmosphere is almost 100\% ${CH}_4$ the robot’s interaction with the live gas conditions is not a big concern but that the most dangerous part is the insertion of the robot. For this reason it was decided to work with an experience supplier to provide the launch tube system.
+	        Further competitors ULC and Synthotech were spoken to in order to gain an understanding of how existing robotic solutions fit into the industry. ULC suggested that larger gas distribution pipes in urban areas would likely be the best part of the market to find a niche, and to steer more towards 16 – 36 inches, confirming the findings from the interviews with employees in at the Gas Distribution Companies. Our contact said that to provide value the robot would be able to travel in both directions, map the pipe, assess the conditions and detect potential leaks. Further he said that using visual sensing combined with machine learning would be very valuable and something that the firm is looking into. Synthotech also confirmed that such inspection techniques would be viable and valuable. Discussions with Synthotech resulted in them offering to provide video and images to train the machine vision algorithms.
+	        Through these conversations it was possible to find the niche in the market that the company would be able to provide the most value to and therefore have the greatest competitive advantage. This niche was tier 3 iron distribution pipes that were either inaccessible to competitor robots or were too costly for other robots to fix.
         
         \subsection{Market Sizing}
         
         \subsection{Competitor Analysis}
 		
 		\subsubsection[Project GRAID]{Project GRAID - Louis Emanuel}
+		
 			One significant competitor operating in the in-pipe inspection industry is Gas Robot Agile Inspection Device (GRAID). The robot is a joint project by the National Grid and three SMEs. As with our robot, it is targeting the live gas pipe market and aims to be able to navigate complex geometries. Therefore, it is necessary to perform the following SWOT analysis on the company. \\
 			
 			\textbf{Strengths} \\
@@ -164,30 +169,30 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
 	        \textbf{Threats} \\
 	        One significant threat to GRAID is the rising customer loyalty in the pipe inspection market. For example, through CISBOT's partnership with Cadent, who is the largest gas distributor in the UK, it is unlikely Cadent will invest in another robot unless it provides distinct capabilities that CISBOT cannot offer. Another potential threat arises from the projected decrease in gas demand demonstrated in \figref{forecast}. If the market size decreases, the competition GRAID experiences will increase as the only way to boost revenue will be to gain market share.
 	        
-	        \subsubsection[ULC]{ULC - Montgomery Beresford }
+     	\subsubsection[ULC]{ULC - Montgomery Beresford }
 	        
 	        ULC is a technology company head quartered in New York that has produces robots that as designed for the gas industry. It roughly has \$40m of annual revenue.\supercite{SPX_acquisition} It was acquired for \$135m by SPX in 2020 implying that it was acquired with an EV/Revenue of multiple of 3.375x.\supercite{SPX_multiple}.  SPX has an annual revenue of \$1.5 billion and 4500 employees who work in 17 countries.\supercite{SPX_acquisition} ULC has 15 robots which it has used to cover 145m km of pipeline.\supercite{ULC_news} ULC is a large company with 160 employees. They outsource some of their engineering design and manufacturing to soloosion.\supercite{soloosian}
 	        
 
             \begin{figure}[h]
-			\centering
-			\includegraphics[scale=1]{SWOT of ULC.PNG}
-			\caption{SWOT Analysis of ULC Robotics}
-			\label{forecast}
-		\end{figure}
+				\centering
+				\includegraphics[scale=1]{SWOT of ULC.PNG}
+				\caption{SWOT Analysis of ULC Robotics}
+				\label{ULCSwot}
+			\end{figure}
             
             \begin{figure}[h]
-			\centering
-			\includegraphics[scale=1]{ulc robots 2.PNG}
-			\caption{ULC Robotics product features\supercite{ULC_Robots}}
-			\label{forecast}
+				\centering
+				\includegraphics[scale=1]{ulc robots 2.PNG}
+				\caption{ULC Robotics product features\supercite{ULC_Robots}}
+				\label{ULCFeatures}
 		\end{figure}
         
 	\subsection[Patent Analysis]{Patent Analysis - Jim Laney}
 
-		It was decided to look at patents classified as \verb|F16L55/26| - "Pigs or moles, i.e. devices movable in a pipe or conduit with or without self-contained propulsion means" or \verb|F16L2101/30| - "Inspecting, measuring or testing [as a use or application of pigs or moles]" as these are most similar to the purpose which the robot fulfils.
+		It was decided to look at patents classified as \verb|F16L55/26| - "Pigs or moles, i.e. devices movable in a pipe or conduit with or without self-contained propulsion means" or \verb|F16L2101/30| - "Inspecting, measuring or testing [as a use or application of pigs or moles]" as these are most similar to the purpose which AccoBot fulfils.
 		In these patents the use of "pigs" refers to Pipeline Inspection Gauges (PIGs from here on), and moles are used as a synonymous term, and will thus also be referred to as PIGs from now on.
-		While the robot is not a PIG as PIGs are typically unpowered and cannot deal with bends in the pipe, this is the closest patent classification to consider.
+		While AccoBot is not a PIG as PIGs are typically unpowered and cannot deal with bends in the pipe, this is the closest patent classification to consider.
 		\begin{figure}[h]
 			\centering
 			\begin{multicols}{2}
@@ -206,33 +211,35 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
 		Thus there is a much greater chance of survival, as this dominant design has not yet been established, and the space for new innovators is greater.
 		While there is also a risk to entering the industry too early, the sustained period of development in the last 20 years suggests that period has passed.
 		\\
-		As well as this it is worth considering whether a patent should be filed in order to protect the robot design.
+		As well as this it is worth considering whether a patent should be filed in order to protect the design of AccoBot.
 		The main barrier to this would be the cost of doing so, as the paperwork itself is not prohibitive, especially with the assistance of a patent law firm.
 		However the cost to file a patent only in the United Kingdom is typically £4000 and usually takes 5 years to be filed\supercite{uk2020patenting}.
 		As well as this it is a separate process to apply for a patent which will also apply overseas, such as applying through the Patent Cooperation Treaty (PCT).
 		The PCT is treaty wich includes 153 states\supercite{pct2020states}, including the United Kingdom, United States and most of mainland Europe, as shown in \figref{pctMap}.
-		However applying for a PCT patent can take even longer, and is even more expensive, up to £8000\supercite{mewburn2020international}, so it is important to ensure that the robot design is protected while applying for these patents.
+		However applying for a PCT patent can take even longer, and is even more expensive, up to £8000\supercite{mewburn2020international}, so it is important to ensure that the design is protected while applying for these patents.
 		Thus it would be a good idea to apply for some less strict protection, such as a trademark, and ensure that all discussions of sensitive information occur under the binding of a Non-Disclosure Agreement.
 	
 	\section[Solution Evaluation - EEM]{Solution Evaluation - Jim Laney}
 	
-		In order to consider how well our product fits the market needs, issues gathered from our primary and secondary research into the industry were considered, and how the robot solves these is shown in \tableref{solutionTable}.
-		We specifically focused on how our robot fits into use in locations where CISBOT or other competitors is too expensive to use, or cannot be used due to size constraints. % This seems quite negative - do we need this constraint on our table
+		In order to consider how well our product fits the market needs, issues gathered from our primary and secondary research into the industry were considered, and how AccoBot solves these is shown in \tableref{solutionTable}.
+		We specifically focused on how AccoBott fits into use in locations where CISBOT or other competitors is too expensive to use, or cannot be used due to size constraints. % This seems quite negative - do we need this constraint on our table
 		
 		\setlength{\tabcolsep}{13pt}	% Space 11 pts around the edges for readability
 		\renewcommand{\arraystretch}{1.4}	% Space at the top and bottom of rows for readability
-
+		
+		\definecolor{rowGrey}{HTML}{F2F2F2}
+		\definecolor{headerBlue}{HTML}{77CEEF}
+		
 		\begin{longtable}[c]{| m{0.4\textwidth} | m{0.4\textwidth} |}
-    		\caption{Comparison of existing issues for the Gas Pipe Industry and how the robot solves them.} \\
+			\hiderowcolors
+    		\caption{Comparison of existing issues for the Gas Pipe Industry and how AccoBot solves them.}\\
 			\hline
-			Current Issue & Solution\\
-			\hline 
+			\rowcolor{headerBlue} \textbf{Current Issue} & \textbf{Solution}\\
 			\hline
 			\endfirsthead
-			
+
 			\hline
-			Current Issue & Solution\\
-			\hline 
+			\rowcolor{headerBlue} \textbf{Current Issue} & \textbf{Solution}\\
 			\hline
 			\endhead
 			
@@ -240,62 +247,69 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
 			\endlastfoot
 			
 			\hline
+			\rowcolor{rowGrey}
 			When pipes are considered for decommissioning, it is not known whether they are actually damaged. 
 			As such some pipes which are replaced are perfectly functional, and thus money is wasted replacing them before required. 
 			& 
-			The robot can be used to inspect pipelines before decommissioning in order to check which pipes are actually damaged, and which can continue to be used. 
+			AccoBot can be used to inspect pipelines before decommissioning in order to check which pipes are actually damaged, and which can continue to be used. 
 			This information can also be used to update the models of how soon the pipe will need to be replaced.
 			\\
 			\hline
+			\rowcolor{rowGrey}
 			In order to inspect pipes using manual methods most of the pipeline must be excavated, which is a large expense for the gas company, which also causes disruption to the general public, increasing the negative opinion of the public towards the gas company. 
 			As well as this, for safety reasons the gas must be turned off, increasing network downtime and incurring a loss for the gas company, which is made even more serious by the fact that manual inspection is slow.
 			& 
-			Our robot only requires a small excavation, since the launch tube is much smaller than excavating the entire section of pipeline, and can operate within an active gas pipe.
+			AccoBot only requires a small excavation, since the launch tube is much smaller than excavating the entire section of pipeline, and can operate within an active gas pipe.
 			Also, since humans are not directly involved in the inspection of the pipeline, safety concerns are greatly reduced which inspecting the pipe.
 			Autonomous in-pipe inspection is also faster due  to the robotic nature of the inspection technology and human error is greatly reduced as compared to manual inspection. % think the . needs to be removed  - does the reduction of human error solve this issue isn't that more to do with the next point
 			\\
 			\hline
+			\rowcolor{rowGrey}
 			Pipe inspection requires well trained individuals to inspect the pipes, who must travel to the location in order to perform the inspection.
 			& 
-			The robot uses operators who do not need to be trained in inspection methods, and only have to be trained to operate the launch tube and ensure the robot is functioning correctly.
+			AccoBot uses operators who do not need to be trained in inspection methods, and only have to be trained to operate the launch tube and ensure it is functioning correctly.
 			The data can then be passed to experts who do not have to be at the excavation point, saving on time and reducing the amount of travel required for expensive expert employees.
 			\\
 			\hline
+			\rowcolor{rowGrey}
 			Since the inside of the pipelines are unseen, and there are multiple causes for any given failure sign, repairing issues with the pipeline can be complex and expensive.
 			The location of the fault is also unknown, so extensive excavation of the pipe is required to find the location and cause of the fault, which is slower and more expensive for the gas pipe company.
 			& 
-			The robot can be used to identify the exact problem with a given pipe, allowing the gas pipe companies to prepare the correct tools and supplies to repair the issue.
+			AccoBot can be used to identify the exact problem with a given pipe, allowing the gas pipe companies to prepare the correct tools and supplies to repair the issue.
 			As well as this, the location of the issue is identified and returned to the gas company, further reducing the cost as only one area needs to be excavated to solve the issue.
 			\\
 			\hline
+			\rowcolor{rowGrey}
 			Pipe maps are not always accurate, and the exact location and pipe information is not always well recorded.
 			This is useful information to have, especially for third parties which need to excavate areas in order to install their own infrastructure.
 			& 
-			The robot can be used to map the location of pipes accurately, using the communications module and the localisation algorithm.
-			This allows for accurate maps to be produced of the pipeline system, and can be done quickly since the other robot functions, such as damage detection do not need to take place.
+			AccoBot can be used to map the location of pipes accurately, using the communications module and the localisation algorithm.
+			This allows for accurate maps to be produced of the pipeline system, and can be done quickly since other functions, such as damage detection do not need to take place.
 			\\
 			\hline
+			\rowcolor{rowGrey}
 			When pipes are being replaced with smaller polyethylene pipes, so the old pipes are not being removed, there is a risk of damage to third party pipes due to lack of information about their placement. % Monty can you check this is correct
 			Thus, surveys are normally undertaken to check for and avoid these issues, which can be costly and slow.
 			& 
-			The robot can locate and mark third party pipes when travelling inside the pipe, since it has accurate information about where it is, relative to the outside world, and can use its cameras to identify and locate the branches.
+			AccoBot can locate and mark third party pipes when travelling inside the pipe, since it has accurate information about where it is, relative to the outside world, and can use its cameras to identify and locate the branches.
 			\\
 			\hline
-			Current robotic solutions, such as CISBOT, are designed for pipeline repair and are not autonomous, meaning they require additional training or personnel and are much more expensive to use.
+			\rowcolor{rowGrey} Current robotic solutions, such as CISBOT, are designed for pipeline repair and are not autonomous, meaning they require additional training or personnel and are much more expensive to use.
 			As well as this, current unmanned inspection techniques, such as PIGs, are not able to operate in pipelines which have bends or variable diameter pipes, meaning they are useless in more complex pipelines which often occur in urban environments.
 			PIGs are also a passive solution, meaning they are driven by the gas pressure and the pipe angle, so they can only inspect pipes in one direction.
 			& 
-			The robot can adapt to different pipe diameters, and is able to navigate bends autonomously, meaning it is adaptable for more complex pipelines.
+			AccoBot can adapt to different pipe diameters, and is able to navigate bends autonomously, meaning it is adaptable for more complex pipelines.
 			It can also climb pipes at any angle, as well as returning the angle of the pipe for use in mapping the pipe.
-			As well as this, since it is designed only for autonomous inspection, is is cheaper and quicker to use for this purpose than more specialised robots such as CISBOT.
+			As well as this, since it is designed only for autonomous inspection, is is cheaper and quicker to use for this purpose than more specialised robots, such as CISBOT.
 			\label{solutionTable}
 		\end{longtable}
-		% Insert value proposition here or in its own section
+		
+		% Insert value proposition here or in its own section?
 		
 	\section[Product Design - ENG]{Product Design - Jim Laney}
 
-		The pipe inspection robot works in underground pipes in urban areas, with a pipe diameter from 457.2 mm to 914.4 mm and with pipes at any angle, providing a map of the pipe with the location of any failures to the operator. % 18 - 36 inches; Needs citation for Tier 3 pipe sizes?
-		The robot reduces the disruption caused by having to dig up large areas of pipe for inspection, since the issue can be located and smaller, less disruptive work can be undertaken.
+		AccoBot works in underground pipes in urban areas, with a pipe diameter from 457.2 mm to 914.4 mm and with pipes at any angle, providing a map of the pipe with the location of any failures to the operator. % 18 - 36 inches; Needs citation for Tier 3 pipe sizes?
+		It reduces the disruption caused by having to dig up large areas of pipe for inspection, since the issue can be located and smaller, less disruptive work can be undertaken.
 		It is intended to provide an inspection method for pipes which cannot be inspected by the current leading method, Pipe Inspection Gauges (PIGs), which only work in horizontal or near horizontal straight pipes\supercite{mills2017advances}.
 		It enters a pipe using a launch tube, and travels autonomously along the inside of the pipe, checking for evidence of cracks and corrosion and logging their location for future maintenance.
 		\\
@@ -303,27 +317,29 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
 		\begin{figure}[h] % Would like to do this as a wrapped figure but that can be finnicky so would like to agree on this as a group before attempting it
 			\centering
 			\includegraphics[trim={6cm 2cm 7cm 4cm},clip,height=\imageheight]{overviewCAD}
-			\caption{3D CAD model of robot}
+			\caption{3D CAD model of AccoBot}
 			\label{3DSketch}
 		\end{figure}
 		
-		While inside the pipe, the robot uses three legs to maintain contact and provide the required normal force to move inside the pipe, as shown in \figref{3DSketch}.
-		Two of these legs can be rotated to provide improved speeds over pipes at different angles, and all three legs can be extended and retracted to fit the pipe diameter the robot is currently in.
+		While inside the pipe, AccoBot uses three legs to maintain contact and provide the required normal force to move inside the pipe, as shown in \figref{3DSketch}.
+		Two of these legs can be rotated to provide improved speeds over pipes at different angles, and all three legs can be extended and retracted to fit the pipe diameter AccoBot is currently in.
 		It can navigate around bends and through pipes at different angles, without prior knowledge of the location or angle of these, and will automatically feedback to the control system in order to create an accurate map.
 		\\
-		The robot uses computer vision to identify cracks and corrosion, allowing it to mark where these occur for human maintenance, and then combines this with knowledge of its position to create a map of the pipe it has travelled and where issues have occurred.
-		It can transmit its location using a small transmitter, which has a separate power supply so that if the robot breaks down it can be located with minimal excavation.
+		AccoBot uses computer vision to identify cracks and corrosion, allowing it to mark where these occur for human maintenance, and then combines this with knowledge of its position to create a map of the pipe it has travelled and where issues have occurred.
+		As well as this it uses object detection in order to identify important landmarks, such as connecting pipes, and possible pipe blockages.
+		It can transmit its location using a small transmitter, which has a separate power supply so that if AccoBot breaks down it can be located with minimal excavation.
+	
 	\section{Product Hardware - ENG}
 	
 		\subsection[Locomotion]{Locomotion - Jim Laney}
-			The main locomotion of the robot is a set of 3 legs with a pantograph mechanism  to allow for the adaptation to different diameters, with tracks at the end to drive the motion, as shown in \figref{legDesign}.
-			There is one leg which remains stationary at the top of the robot, and two legs which are able to rotate about the body of the robot between $20^\circ$ and $90^\circ$ to the vertical.
-			At the end of each leg there is a joint between the leg and the track to allow for the robot to travel along surfaces which are not perpendicular to the legs, such as around bends or over uneven surfaces.
+			The main locomotion of AccoBot is a set of 3 legs with a pantograph mechanism  to allow for the adaptation to different diameters, with tracks at the end to drive the motion, as shown in \figref{legDesign}.
+			There is one leg which remains stationary at the top of AccoBot, and two legs which are able to rotate about its body between $20^\circ$ and $90^\circ$ to the vertical.
+			At the end of each leg there is a joint between the leg and the track to allow for AccoBot to travel along surfaces which are not perpendicular to the legs, such as around bends or over uneven surfaces.
 			\begin{figure}[h]
 				\centering
 				\begin{multicols}{2}
 					\includegraphics[height=\imageheight]{legDesign}
-					\caption{Diagrammatic representation of the pantograph mechanism used for the robot's legs}
+					\caption{Diagrammatic representation of the pantograph mechanism used for AccoBot's legs}
 					\label{legDesign}
 					\columnbreak
 					\includegraphics[height=\imageheight]{legDiagram}
@@ -336,7 +352,7 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
 			
 				The length of the pantograph is controlled by the force from two opposing linear actuators, which extend to a given length to set the distance of the pantograph.
 				The track at the end of the pantograph is connected to a freely turning joint, which can be measured using two angular encoders to give the angle $\phi$, shown in \figref{legDiagram}, with the springs acting to restore $\phi$ to $0^\circ$ when under no external effects.
-				The ratio between the longer base links of the pantograph and then shorter tip links is 2:1, which gives the greatest range of diameters for the smallest change in the base distance\supercite{okada1987mogrer}, to calculate the required link length $L$ to allow the robot to adapt to the chosen range of diameters, 457.2 - 914.4 mm.
+				The ratio between the longer base links of the pantograph and then shorter tip links is 2:1, which gives the greatest range of diameters for the smallest change in the base distance\supercite{okada1987mogrer}, to calculate the required link length $L$ to allow AccoBot to adapt to the chosen range of diameters, 457.2 - 914.4 mm.
 				The pantograph angles are shown in \figref{legDiagram}, which results in:
 				
 				\begin{align}
@@ -353,11 +369,11 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
 			
 			\subsubsection{Active Compliance Joint}
 			
-				In addition to this, the tracks use an active compliance joint, as shown in \hyperref[activeCompliance]{Figures \ref*{activeCompliance} \& \ref*{unevenBehaviour}}, which allows for the robot to maintain maximum surface contact at all times.
+				In addition to this, the tracks use an active compliance joint, as shown in \hyperref[activeCompliance]{Figures \ref*{activeCompliance} \& \ref*{unevenBehaviour}}, which allows for AccoBot to maintain maximum surface contact at all times.
 				The active compliance joint consists of a torsional spring and radio-controlled servo motor, which are both attached around the same axis.
 				However, the servo motor is attached to the rear tracks, whereas the spring is attached between the front track and the servo motor itself.
-				When the robot passes over an uneven surface, the servo motor forces the front track down, maintaining contact with the pipe wall, as shown in \hyperref[unevenBehaviour]{Figure \ref*{unevenBehaviour}(a)}.
-				If instead the robot is in a section where the pipe wall is concave, the torsional spring will allow it to fold, shown in \hyperref[unevenBehaviour]{Figure \ref*{unevenBehaviour}(b)}, and maintaining contact with as much of the wall as possible.
+				When AccoBot passes over an uneven surface, the servo motor forces the front track down, maintaining contact with the pipe wall, as shown in \hyperref[unevenBehaviour]{Figure \ref*{unevenBehaviour}(a)}.
+				If instead AccoBot is in a section where the pipe wall is concave, the torsional spring will allow it to fold, shown in \hyperref[unevenBehaviour]{Figure \ref*{unevenBehaviour}(b)}, and maintaining contact with as much of the wall as possible.
 				The active compliance joint also includes an angular encoder to tell how much the front track has been bent, allowing for the active compliance joint to be better controlled.			
 				\begin{figure}[h]
 					\centering
@@ -374,12 +390,12 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
 				
 			\subsubsection{Leg Rotation}
 				
-				The rotation of the two base legs relative to the body of the robot occurs using a motor to drive each end of the rotation mechanism.
+				The rotation of the two base legs relative to the body of AccoBot occurs using a motor to drive each end of the rotation mechanism.
 				The motor drives the sun gears of two planetary gear systems, shown in \figref{planetaryDrive}, which rotate in opposite direction so the legs move symmetrically.
 				The direction is reversed for the further planetary drive system using a small differential gearbox, shown in \figref{diffGearbox}, which allows for compact reversal of motion.
-				These allow the legs to move around the body, from almost directly below the robot to in a horizontal plane at $90^\circ$ to the top leg.
+				These allow the legs to move around the body, from almost directly below AccoBot to in a horizontal plane at $90^\circ$ to the top leg.
 				As both legs are driven from the same motor at each end, both legs are symmetrical about the vertical leg at all times, and the leg position can be summarised by a single leg rotation angle $\lambda$, measured from the top leg, which varies from $\lambda = 90^\circ$ to $\lambda = 160^\circ$.
-				The rotation allows the robot to adapt to different angles of the pipe more easily, as it will be quicker to drive along horizontal pipes with the almost vertical drive system, whereas vertical pipes require a more even distribution of contact points for optimal behaviour, probably requiring an angle of $\lambda = 120^\circ$ for the most even distribution of contact points.
+				The rotation allows AccoBot to adapt to different angles of the pipe more easily, as it will be quicker to drive along horizontal pipes with the almost vertical drive system, whereas vertical pipes require a more even distribution of contact points for optimal behaviour, probably requiring an angle of $\lambda = 120^\circ$ for the most even distribution of contact points.
 										
 				\begin{figure}[h]
 					\centering
@@ -402,8 +418,8 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
 			By considering the links at their flattest, the minimum distance between the linear actuators can be found as $l_{min} = L \cos \left( \theta_{min} \right)$.
 			This sets the body minimum length as 216.8mm, although this does not consider the size of the linear actuators themselves, since we will tend to be more constrained by the maximum length.
 			\\
-			A maximum body length can be found by considering the ability of the robot to turn corners inside the pipe, and it is necessary to consider how this compares to the minimum to make sure there is no loss of mobility.
-			For the duration of this calculation, it is assumed that the robot is in the smallest possible pipe diameter $D_{pipe}$ = 457.2 mm, and the curvature radius $r_c = \frac{3}{2} D_{pipe}$ = 685.8 mm.
+			A maximum body length can be found by considering the ability of AccoBot to turn corners inside the pipe, and it is necessary to consider how this compares to the minimum to make sure there is no loss of mobility.
+			For the duration of this calculation, it is assumed that AccoBot is in the smallest possible pipe diameter $D_{pipe}$ = 457.2 mm, and the curvature radius $r_c = \frac{3}{2} D_{pipe}$\supercite{roh2005differential} = 685.8 mm.
 			As the robot diameter $D_r \nless \left( 2 \sin \left( 45^\circ \right) - 1 \right) D_{pipe}$ the maximum length can be found from the following equation\supercite{roh2005differential}:
 
 			\begin{align}
@@ -414,8 +430,8 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
 			% Makes max volume 187*10^6 mm^3
 			
 			\subsubsection{Required Forces}
-				Using \figref{legDiagram} to calculate the required force output of the linear actuators in order for the robot to operate at all angles.
-				As such, the worse case scenario is considered, where the robot is climbing vertically and must create enough normal force for friction to support its entire weight.
+				Using \figref{legDiagram} to calculate the required force output of the linear actuators in order for AccoBot to operate at all angles.
+				As such, the worse case scenario is considered, where AccoBot is climbing vertically and must create enough normal force for friction to support its entire weight.
 				This results in:
 				
 				\begin{align}
@@ -434,7 +450,7 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
 					\implies F &= \frac{W \cos \left( \phi \right)}{6 \mu_{t,p} \tan \left( \theta \right)} \label{reqMaxNorm}
 				\end{align}
 				
-				Since testing would be required to find the greatest angle $\phi$ that is experienced by the robot in general use, as well as an estimate for the coefficient of friction $\mu_{t,p}$, it is tricky to estimate the force required for the actuators.
+				Since testing would be required to find the greatest angle $\phi$ that is experienced by AccoBot in general use, as well as an estimate for the coefficient of friction $\mu_{t,p}$, it is tricky to estimate the force required for the actuators.
 				However, estimates from other papers for $\mu_{t,p}$,which are 1.21\supercite{sato2011development} - 1.6\supercite{park2010normal}, allow us to create a worst case estimate for the required force of 1.21.
 				From \equationref{reqMaxNorm}, it is clear that the worst case scenario occurs in straight sections, where $\phi$ is expected to be close to $0^\circ$, with the smallest pipe diameter, as this minimises $\theta$, which will require the most linear actuator force.
 							
@@ -658,7 +674,7 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
         The laser scanner therefore offers major advantages for providing more detailed information about the pipes than visual sensing. 
         However, because of its speed of acquiring data it cannot be used all the time if a large distance of pipe needs to be inspected.
         \\
-        \textvf{Conclusion}
+        \textbf{Conclusion}
         Ideally metrics would be looked at to determine the accuracy of these techniques in the environment that the robot would be in. 
         This would involve looking at false positives, false negatives, recall and precision.
         However, since the robot is not constructed and there is currently no access to these environments this would not be possible.
@@ -821,9 +837,9 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
 		
 		\subsection[Inclination Detection]{Inclination Detection - Jim Laney}
 		
-		The robot is able to detect the inclination of the pipe it is in for calculation of the required leg force, as well as to aid in the mapping of the pipe.
-		While the AHRS can give the angle of the robot relative to the wider world, it is not guaranteed that the robot body is parallel to the pipe.
-		As such, the angle between the pipe and the robot needs to be accounted for in order to correctly measure the pipe angle.
+		AccoBot is able to detect the inclination of the pipe it is in for calculation of the required leg force, as well as to aid in the mapping of the pipe.
+		While the AHRS can give the angle of AccoBot relative to the wider world, it is not guaranteed that the robot's body is parallel to the pipe.
+		As such, the angle between the pipe and AccoBot needs to be accounted for in order to correctly measure the pipe angle.
 		\\
 		\begin{figure}[h]
 			\centering
@@ -834,10 +850,10 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
 		\begin{figure}[h]
 			\centering
 			\includegraphics[height=\imageheight]{pipeAngle}
-			\caption{Position of the robot within the pipe. (i) Within a horizontal or vertical bend, (ii) Within a bend at angle $\xi$ to the vertical, view shown relative to the bend rather than relative to the outside world}
+			\caption{Position of AccoBot within the pipe. (i) Within a horizontal or vertical bend, (ii) Within a bend at angle $\xi$ to the vertical, view shown relative to the bend rather than relative to the outside world}
 			\label{pipeAngle}
 		\end{figure}
-		As in \figref{pipeOrientation}, the angle of the robot within the pipe can be decomposed into two orthogonal rotations, of $\alpha$ about the pipe diameter, and then $\beta$ about the robot centre, shown as $z'$ in the figure.
+		As shown in \figref{pipeOrientation}, the angle of AccoBot within the pipe can be decomposed into two orthogonal rotations, of $\alpha$ about the pipe diameter, and then $\beta$ about the robot centre, shown as $z'$ in the figure.
 		Since the angle of the top leg, $\phi_T$, is $\alpha$ on the $y'$ axis ($\beta = 0$), but zero on the x axis ($\beta = 90^\circ$), the angle can be estimated using:
 		\begin{align}
 			\phi_T &= \cos \left( \beta \right) \alpha
@@ -850,10 +866,10 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
 			\\
 			\alpha &= \frac{\phi_T}{\cos \left( \beta \right)}
 		\end{align}
-		Once the individual rotations of the robot are found, they can combine this with the AHRS data to find the pipe angle relative to the outside world.
+		Once the individual rotations of AccoBot are found, they can combine this with the AHRS data to find the pipe angle relative to the outside world.
 		\\
-		Working in 3D space, the AHRS returns rotations in a matrix $\mathbf{R}_{R,W}$, which gives the angle of the robot relative to the world.
-		In order to find $\mathbf{R}_{P,W}$, the rotation of the pipe relative to the world, a matrix $\mathbf{R}_{P,R}$ is created, which gives the rotations of the pipe, relative to the robot:
+		Working in 3D space, the AHRS returns rotations in a matrix $\mathbf{R}_{R,W}$, which gives the angle of AccoBot relative to the world.
+		In order to find $\mathbf{R}_{P,W}$, the rotation of the pipe relative to the world, a matrix $\mathbf{R}_{P,R}$ is created, which gives the rotations of the pipe, relative to AccoBot:
 		\begin{align}
 			\mathbf{R}_{P,R} &=
 			\begin{bmatrix}
@@ -884,12 +900,12 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
 			\psi_z &= \tan^{-1} \left( \frac{ \ \mathbf{R}_{P,W} \left[ 3,2 \right] \ }{\mathbf{R}_{P,W} \left[ 3,3 \right] } \right) \label{pipeZ}
 		\end{align}
 		Thus, in order to increase the efficiency of the algorithm, only the relevant entries of $\mathbf{R}_{P,W}$ need to be calculated, meaning that the number of computations required can be reduced to $\frac{5}{9}$ of the original value.
-		These angles can also be used to help with the identification of other things within the robot, but the reliability of these is not guaranteed, as the angle of the legs can be affected by other factors, such as unevenness in the pipe wall.
+		The reliability of the found pipe angle is not guaranteed, as the angle of the legs can be affected by other factors, such as unevenness in the pipe wall.
 		As such, the value for the inclination of the pipe should be averaged out to give better results for pipe inclination, and giving a smoother projection of the map overall.
 		
 		\subsection[Leg Actuation Control]{Leg Actuation Control - Jim Laney}
 		
-		The robot needs to be able to accurately control the length of its legs in order to maintain the correct normal force for operation.
+		AccoBot needs to be able to accurately control the length of its legs in order to maintain the correct normal force for operation.
 		The required linear actuator force for climbing vertically is given \equationref{reqMaxNorm}, which can be modified to find that:
 	
 		\begin{align}
@@ -915,8 +931,8 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
 			F &= \frac{ W \cos \left( \phi \right)}{ 2 \tan \left( \theta \right) } \left( \sin \left( \psi_x \right) \left( \frac{1}{3 \mu_{t,p}} - 1 \right) + 1 \right)
 		\end{align}
 		\\
-		Thus, if the weight of the robot is known, and the pipe inclination $\psi_x$ is estimated, as well as measuring the leg and foot angles $ \theta \ \& \ \phi$, the required actuator force can be estimated.
-		This means that the robot can set a target actuator force at all times in order to ensure that it able to traverse the pipe.
+		Thus, if the weight of AccoBot is known, and the pipe inclination $\psi_x$ is estimated, as well as measuring the leg and foot angles $ \theta \ \& \ \phi$, the required actuator force can be estimated.
+		This means that AccoBot can set a target actuator force at all times in order to ensure that it able to traverse the pipe.
 		\\
 		While sensors were initially considered to work out the pipe diameter, a much simpler solution was to use the linear actuators themselves. 
 		Since the required normal force is known, the actuators can be extended, updating the value of theta until the desired force is reached, using a $H_{\infty}$ controller.
@@ -942,24 +958,24 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
 		\end{figure}
 	
 		 $H_{\infty}$ control was chosen as the system dynamics can be well modelled for the extension of the leg, and fast performance is required.
-		 This is because too little normal force is possible catastrophic, if the robot is travelling up a steeply inclined pipe, and too much normal force for too long could damage critical components.
+		 This is because too little normal force is possible catastrophic, if AccoBot is travelling up a steeply inclined pipe, and too much normal force for too long could damage critical components.
 		 While the system is non-linear, most of the variables simply contribute as fixed values, with the system only being non-linear in $\theta$.
 		 However, in the region $10^\circ - 60^\circ, \sin \left( \theta \right)$ is relatively linear, so a linear control method was chosen.
 		
 		\subsection[Bend Behaviour]{Bend Behaviour - Jim Laney}
 		
-		The robot requires knowledge of where it is in the pipe, and being able to calculate the position of bends in the pipe is important.
-		The robot is designed to travel around bends autonomously, and then report back to the mapping software that it has turned a bend, as well as calculating the angle turned through.
-		When turning a bend, the robot uses angular encoders at the end of each leg to tell the individual leg bends $\phi_T$, $\phi_L$ \& $\phi_R$.
+		AccoBot requires knowledge of where it is in the pipe, and being able to calculate the position of bends in the pipe is important.
+		AccoBot is designed to travel around bends autonomously, and then report back to the mapping software that it has turned a bend, as well as calculating the angle turned through.
+		When turning a bend, AccoBot uses angular encoders at the end of each leg to tell the individual leg bends $\phi_T$, $\phi_L$ \& $\phi_R$.
 		These are detected from angular encoders connected to each leg link which are averaged, so $\phi_L = \frac{\phi_{L1} + \phi_{L2}}{2}$ and equivalent for the other legs.
-		The robot can then vary the speed of the tracks at the end of each leg in order to try and get the angles to be parallel, such that $\phi_L = \phi_R = \phi_T$.
+		AccoBot can then vary the speed of the tracks at the end of each leg in order to try and get the angles to be parallel, such that $\phi_L = \phi_R = \phi_T$.
 		This is done by setting the top leg angle $\phi_T$ as a reference, and controlling the speed using the difference between this and $\phi_R$ or $\phi_L$ with a PID controller.
 		This controller only needs a very low natural frequency, as faster changes in the angle are probably due to surface unevenness, which should be dealt with by the active compliance joint.
 		\\
-		The robot is able to estimate the magnitude of the bend angle based on the distance travelled and the pipe diameter.
-		If the bend is in the horizontal plane, as shown in \hyperref[pipeAngle]{Figure \ref*{pipeAngle}(i)}, the robot has to look at the differences between the non vertical legs in order to determine bend angles and directions.
-		The robot integrates the speed of each track over the travel of the robot in order to determine the distance travelled.
-		When there is disparity between the measured distance by each of the legs, but all tracks are travelling at the same speed, it can be concluded that a bend has been turned, and the robot is again travelling straight.
+		AccoBot is able to estimate the magnitude of the bend angle based on the distance travelled and the pipe diameter.
+		If the bend is in the horizontal plane, as shown in \hyperref[pipeAngle]{Figure \ref*{pipeAngle}(i)}, AccoBot has to consider the differences between the non vertical legs in order to determine bend angles and directions.
+		AccoBot can then integrate the speed of each track over the travel of the robot in order to determine the distance travelled.
+		When there is disparity between the measured distance by each of the legs, but all tracks are travelling at the same speed, it can be concluded that a bend has been turned, and AccoBot is again travelling straight.
 		Once the bend angle has been determined, this difference can be subtracted in order to realign the values of the track distances covered so that future bends can be identified.
 		The inclination calculation also returns the angle of the pipe, which can be used to check the calculations, and ensure that the signs of the calculated bends are correct.
 		\\
@@ -1017,7 +1033,7 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
 		\fontsize{11}{\baselineskip}
 		The sign of $\theta_{bend}$ can be determined by considering the sign of the differences between the top, left and right legs.
 		The leg which is on the outside of the bend will have the longest path, and the one which is on the inside will travel the shortest, which will help differentiate between the different values of $\xi$ \& $\theta_{bend}$.
-		This can then also be combined with the detected inclination to ensure the robot is aware of whether it is travelling upwards or downwards as a secondary check.
+		This can then also be combined with the detected inclination to ensure AccoBot is aware of whether it is travelling upwards or downwards as a secondary check.
 		\\
 		\equationref{alphaEq} is derived from a constraint that specified that the difference between $\xi$ and the right hand side is a multiple of $2 \pi$ (in radians).
 		Since $\xi$ is limited between $0^\circ$ and $90^\circ$, which are both less than $2 \pi$, this constraint sets the value of $\xi - (\ref*{alphaEq}) = 0$, allowing us to calculate $\xi$ directly as in \equationref{alphaEq}.
@@ -1042,23 +1058,23 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
 			\theta_{bend} &= \frac{2 \left( d_{right} - d_{top} \right)}{D_{pipe} \left( 1 + \cos \left( \lambda \right) \right)}
 		\end{align*}
 		Thus, the computationally derived equation is valid for the simple cases already analysed, which suggests that the equation is accurate.
-		The robot can now use this equation to quickly estimate the angle of the bend which the robot has just travelled around based on the track differentials.
+		AccoBot can now use this equation to quickly estimate the angle of the bend which it has just travelled around based on the track differentials.
 		 		
 		\subsection[Active Compliance Joint]{Active Compliance Joint - Jim Laney}
 		
 		The active compliance joint acts to ensure that the surface area contact with the wall is maximised at all times.
-		In order for this to work, the robot needs to estimate the required angle of the front joint.
+		In order for this to work, AccoBot needs to estimate the required angle of the front joint.
 		\\
-		If the foot angle $\phi$ is negative, then the robot knows that no action is required, as the robot is in a concave section and the flexing and returning will be maintained by the torsional spring.
-		However, if the angle $\phi$ is positive, the robot know it is going over a bump, and a rotation of the front track is necessary.
+		If the foot angle $\phi$ is negative, no action is required, as the foot is in a concave section and the flexing and returning will be maintained by the torsional spring.
+		However, if the angle $\phi$ is positive, AccoBot is going over a bump, and a rotation of the front track is necessary.
 		\\
-		The robot must actuate the servo motor until the current required increases above a certain limit, as this will occur when the track has hit a physical barrier, the pipe wall.
+		The servo motor is actuated until the current required increases above a certain limit, as this will occur when the track has hit a physical barrier, the pipe wall.
 		As well as doing this with a control system, there should also be a electrical short circuit to bypass the motor if any large currents are required, in order to prevent damage.
 		The servo motor then maintains the angle, and only needs to change it if the current is no longer at the level determined to mean that the front track is in contact with the pipe wall.
 		\\
-		In this position, the robot needs to determine whether the angle needs to be increased or decreased, in order to maintain contact.
-		Since it is preferable to have the flattest track profile, if the angle $\phi$ has not increased, or has decreased, then the robot will assume that the pipe has flattened out, and will attempt to return the front track to being parallel with the back two.
-		If instead the angle $\phi$ has become greater, the robot will once again increment the servo motor, to attempt to make contact with the pipe surface.
+		In this position, AccoBot needs to determine whether the angle needs to be increased or decreased, in order to maintain contact.
+		Since it is preferable to have the flattest track profile, if the angle $\phi$ has not increased, or has decreased, then AccoBot will assume that the pipe has flattened out, and will attempt to return the front track to being parallel with the back two.
+		If instead the angle $\phi$ has become greater, AccoBot will once again increment the servo motor, to attempt to make contact with the pipe surface.
 		\\
 		The angle of the front track also needs to be limited, to prevent over rotation which could cause damage.
 		Since this method is designed to cover small levels of unevenness in the pipe wall, as well as providing better grip around bends, the maximum angle to be expected can be estimated through experimentation.
@@ -1091,9 +1107,7 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
         In a paper by Bonnin-Pascual et al\supercite{WCCD} these algorithms were applied to images of corrosion on internal surfaces, for example inside tanks. The WCCD classified images within 7.25ms and had a False Positive ratio of 9.23\% and False Negative of 5.99\%. Further it had a relatively simple training step of creating an HS histogram and removing pixels that were found to be 10\% lower than the maximum peak on the histogram.
         The AdaBoost Corrosion Detector on the other hand had a more complicated training step, longer processing time of 300-512ms, and a false positive ratio of 17.16\% and a false negative ratio of 3.39\%.\supercite{WCCD}  
         Because these ratios are for semantic segmentation and the algorithm only needs to determine whether there is corrosion within a frame, the difference in their improved false negative ratio for the AdaBoost Corrosion Detector is not worth the worse false positive ratio and longer processing time. 
-        Out of these it was decided, therefore, that the WCCD would be preferable.
-        \\
-         [https://www.researchgate.net/publication/260006092_Corrosion_Detection_for_Automated_Visual_Inspection]
+        Out of these it was decided, therefore, that the WCCD would be preferable.  \url{https://www.researchgate.net/publication/260006092_Corrosion_Detection_for_Automated_Visual_Inspection}
         \\
         For the CNN and wavelet NNs the paper “Evaluation of deep learning approaches based on convolutional neural networks for corrosion detection” by Atha et al\supercite{Corrosion7}  was reviewed. The best performing CNN based algorithm used single image fusion with a VGG16 fine-tuned algorithm. This provided recall of 98.81\% and precision of 98.64\%. The best performing wavelet NN algorithm provided recall of 93.01\% and Precision of 93.65\%. \supercite{Corrosion7} This showed that a CNN algorithm would outperform the wavelet NN algorithm. However the VGG16 took 256(ms) to classify 256 windows of size 128x128. Since the images being provided is 2048 x 2048 pixels this means it took 256 (ms) to process an image which would allow for 3.91 fps. The GPU used to achieve this performance was the NVIDIA TITAN X Pascal which has a thermal design power of 250W \supercite{Nvidia_Titan}[https://www.techpowerup.com/gpu-specs/titan-x-pascal.c2863] and has a theoretical Pixel rate of 147 GPixel/s and FP32 (float) performance of 10.97 TFLOPS.\supercite{Corrosion7} This power consumption is quite high, therefore a less powerful GPU would be preferable to be used which would mean the fps rate of classification would be reduced. For this reason the Corrosion7 network which can process an image in 33ms giving 30.3fps being processed would be better, given that its performance is not substantially less with 97.01\% Recall and 96.17\% Precision.\supercite{Corrosion7}[https://journals.sagepub.com/doi/10.1177/1475921717737051]
         \\
@@ -1103,8 +1117,7 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
         Therefore, since it is currently not possible to validate the data on the company's own dataset it was decided that the WCCD algorithm was more likely to transfer its performance to the data that would be collected. 
         Its potentially not that low false positive and false negative ratios are not concerning because this algorithm performs semantic segmentation. 
         Therefore if there is considerable corrosion to the extent it is concerning the algorithm may not pick up on all of the corrosion but since the main purpose is to highlight an image containing corrosion to the user and the accurate identification of the location of the corrosion in that image is an added bonus then it does not matter as long as some of the corrosion has been detected.
-	
-	\\
+        \\
 	    The WCCD is split into two stages, each are weak classifiers. The first calculates the roughness of patches in the image by calculating the energy of the gray-level co-occurrence-matrix. If the energy of a patch is below a certain threshold the patch is passed onto the colour step of the algorithm. This looks at the image in Hue-Saturation-Value space. A training HS histogram is created which zeros the pixels that have a value 10\% below the largest peak. The algorithm then labels pixels that are near black and near white as not being corroded and the ones that are not labelled as this and have not been zeroed in training HS diagram are given a corrosion label.\supercite{WCCD}  
 	    \\
         In order to decide whether the computational expense of the WCCD could be reduced further the use of the roughness step alone on a data set was investigated by the company. To calculate the GLCM firstly each image was transformed into patches each 32 x32 pixels. The GLCM of the patch was calculated used the MATLAB gracomatrix function. The energy of this matrix is then calculated using the gracoprops function. These energies were then saved into a matrix. A for loop then went through the matrix made up of the energy of each patch and selected the patches that were below a threshold proposed in the paper. The company labelled the rusty pixels of 7 images of the inside of pipes. It then took 13 images of the inside of pipes with no rust and applied the algorithm to each of these sets. Ideally, it would have been tested on a data set of a larger number of images however these were the only appropriate ones that could be found through an internet search engine search. For the rust images the mean precision was 63.3\% and the mean recall was 74.3\%. These results were reasonable considering the algorithm only needed to detect if there is corrosion in the image. However, for non-rust images the mean false positive score was 29.87\% and there was a range of 86\%. This would mean that the robot would highlight too many images as being corroded which is undesirable. From this it was concluded that the training and colour-based part of the WCCD algorithm was necessary to produce the results.\supercite{WCCD}  
@@ -1214,10 +1227,10 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
         YOLO models are characterised by the fact that they pass a complete image through a neural network once. This allows them to be much faster than R-CNN because the latter uses time-consuming selective search to create a large number of region proposals and then has to pass each of these regions through the network.\supercite{YOLO2} \supercite{R-CNN} YOLO splits the image into a grid and then generates within this grid a certain number of bounding boxes which each have a class probability and offset values associated to them. If the probability is above a certain threshold then the algorithm predicts that the object of ac certain class is located within that bounding box.\supercite{Object_detection} 
         \\
         YOLOv3 improves upon its predecessors by using logistic regression to predict bounding boxes.\supercite{Yolov3} It also introduces short-cuts in the convolutional layers.
-        YOLOv3 is made of a feature detector called Darknet-53 which consists of 53 convolutional layers which are of sizes 3x3 and 1x1 and then 53 detector layers, followed by a detection neural network. \supecite{YOLOV3}
+        YOLOv3 is made of a feature detector called Darknet-53 which consists of 53 convolutional layers which are of sizes 3x3 and 1x1 and then 53 detector layers, followed by a detection neural network. \supercite{YOLOV3}
         The Darknet-53 down samples the image by a stride of 32. This smallest scale is then passed through 4 detection layers. The image is then upscaled to stride 16. This feature map is concatenated with the smaller feature map before it is again passed through detection layers. This is then done again for stride 8. This means that there is detection applied at three different scales. This is what improves its accuracy at small scales compared to the earlier YOLO versions. It uses logistic classifiers instead of softmax because it does not want to assume that the classes are mutually exclusive.\supercite{YOLOV3} 
         \\
-        YOLOv3 has to make two separate sets of predictions: what the coordinates of a bounding box should be and then what the class of the object is that is inside the bounding box.\supecite{YOLOV3} To do the former the model creates anchor boxes for each of the predictors and then predicts an objectness score for each of the bounding boxes compared to these prior boxes using logistic regression. This objectness score looks at the Intersection Of Union (IOU) between the ground truth and the predicted bounding box.\supercite{YOLOV2}\supecite{YOLOV3} Using anchor boxes facilitates the detection of multiple objects at multiple scales.\supercite{Anchor_Boxes} Anchor boxes also increase the speed of the algorithm because it removes the need for a sliding window. 
+        YOLOv3 has to make two separate sets of predictions: what the coordinates of a bounding box should be and then what the class of the object is that is inside the bounding box.\supercite{YOLOV3} To do the former the model creates anchor boxes for each of the predictors and then predicts an objectness score for each of the bounding boxes compared to these prior boxes using logistic regression. This objectness score looks at the Intersection Of Union (IOU) between the ground truth and the predicted bounding box.\supercite{YOLOV2}\supercite{YOLOV3} Using anchor boxes facilitates the detection of multiple objects at multiple scales.\supercite{Anchor_Boxes} Anchor boxes also increase the speed of the algorithm because it removes the need for a sliding window. 
         \\
         In order to choose the size and shapes of these anchor boxes k-means clustering with k=5 is used on the training set bounding boxes.\supercite{YOLOV2} [  https://arxiv.org/pdf/1612.08242.pdf]  K-means clustering chooses cluster centres randomly and then measure the distances between each of the points to the cluster centre and assigns the points to the cluster centre that it is nearest to. It then calculates the mean score and creates new clusters based on these scores. It iteratively optimises the cluster in order to reduce the distance scores.\supercite{k-means-clustering} The k value is picked by calculating the variation scores for each of the k values and then choosing the k value that causes a large variation reduction before when an increase in k has a markedly smaller effect on the reduction of variation. 
 
@@ -1422,13 +1435,13 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
 		The parts which will be considered here are the track modules, the linear actuators, the internal rotation motors and the legs and gears.
 		\\
 		For the track module, the best reference point was the Inuktun Minitrac, a larger version of the Inuktun Microtrac module used by Ciszewski et al.\supercite{ciszewski2015design} for their testing of a pipe inspection robot.
-		These cost £7,900 each, and three are required for each leg of the robot, bringing the overall cost to £71,100.
-		However these modules are over specified, as each has a pull rating of roughly 30 kg for continuous duty, meaning the robot can weight up to 270 kg, which would be an unrealistic and impractical figure to aim for\supercite{inuktunTracks}.
+		These cost £7,900 each, and three are required for each leg of AccoBot, bringing the overall cost to £71,100.
+		However these modules are over specified, as each has a pull rating of roughly 30 kg for continuous duty\supercite{inuktunTracks}, meaning AccoBot can weight up to 270 kg, which would be an unrealistic and impractical figure to aim for.
 		Each module can be provided in either aluminium, brass or steel, with the main difference being the weight.
 		Aluminium was chosen, as it is the lightest of the three, but each module still weighs 5.7 kg taking the track weight to 51.3 kg for all 9 track modules.
 		As this is quite heavy, a different design could be considered, with a motor driving the tracks instead, so a new system can be designed to minimise the weight.
 		Additionally, while discussing the pricing and operation with a representative from Eddyfi Technologies, it was made clear that the Minitrac is no longer for sale for commercial uses, as they found that they were often being used in products which compete with Eddyfi's own pipe inspection robots.
-		However, these track modules give a reasonable indication of the eventual cost to expect for the robot.
+		However, these track modules give an indication of the eventual cost to expect for AccoBot if using prebuilt modules.
 		\\
 		The sample linear actuators chosen were selected as they have 200 N of force output and a potentiometer to measure the extension of the actuator\supercite{rsproLinear}.
 		Using \equationref{maxWeight}, reproduced below, values for the worst case scenario can be estimated.
@@ -1439,14 +1452,14 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
 		This gives us a maximum weight of 528.5 N = 53.9 kg, which is quite large, although comparatively small compared to the estimated weight of 9 Inuktun MiniTrac modules, hence why they would be considered inappropriate.
 		With a safety margin of 1.5 for the linear actuator output, limiting their output to 130 N, the maximum weight becomes 343.5 N = 35.0 kg which is still reasonable and significantly larger than similar robots.
 		These cost £121.46 - £132.02 each depending on quantity, but the lower price can be used as this is for 10 or more actuators, which is less than 2 robots. 
-		Thus the actuator cost for a single robot would be £728.76 since 2 linear actuators are used for each leg, meaning a total of 6.
-		The overall weight of these linear actuators would be 0.504 kg, which is negligible compared to the weight of most of the other components, as well as the estimated weight of the robot shell.
+		Thus the actuator cost for a single AccoBot would be £728.76 since 2 linear actuators are used for each leg, meaning a total of 6.
+		The overall weight of these linear actuators would be 0.504 kg, which is negligible compared to the weight of most of the other components, as well as the estimated weight of the AccoBot shell.
 		\\
 		The next part to consider is the motor used for rotation of the legs relative to the body. There is no specifications required for this at the moment, but a high torque motor would be ideal.
 		A sample product which is both relatively small and high torque was selected\supercite{rsproRotation} as it has a maximum output torque (at stall) of 1.46 Nm.
 		The diameter of the actual motor is only 42.8 mm, meaning that there is plenty of space to use a larger more powerful motor if testing reveals that it will be necessary.
-		The cost of these drives is £141.84 per motor, and 2 are required for the main body of the robot.
-		Since similar motors could be used as the RC servo motors in the active compliance joint, another 3 would be included in the robot, bringing the total cost for 5 rotation motors to £709.20.
+		The cost of these drives is £141.84 per motor, and 2 are required for the main body of AccoBot.
+		Since similar motors could be used as the RC servo motors in the active compliance joint, another 3 would be included in AccoBot, bringing the total cost for 5 rotation motors to £709.20.
 		\\
 		\begin{figure}[h]
 			\centering
@@ -1468,7 +1481,7 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
 		The leg pieces were assumed to be made out of stainless steel, and the gear was to be made of aluminium.
 		The density of stainless steel is 7900 kg m\textsuperscript{-3}\supercite{HLT}, so the longer link weighs 0.653 kg and the shorter link weighs 0.350 kg.
 		Thus, a single leg, which is made up of 2 short links and 2 longer links, weighs 2.00 kg, bringing the total contribution of the three legs to 6.02 kg for the whole robot.
-		The density of aluminium was assumed to be 2700 kg m\textsuperscript{-3}\supercite{HLT}, which makes the weight of a single gear 3.42 kg, and there are 4 inside the robot, bring the total weight up to 13.68 kg.
+		The density of aluminium was assumed to be 2700 kg m\textsuperscript{-3}\supercite{HLT}, which makes the weight of a single gear 3.42 kg, and there are 4 inside AccoBot, bring the total weight up to 13.68 kg.
 		This could be mitigated by refining the design, as this is a very rough sketch of the gear, and is probably thicker than would be necessary in reality.
 		
 		\subsection{Power}
@@ -1529,43 +1542,43 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
 			OFGEM is the UK government body which provides codes and regulations for the gas pipeline companies to follow, but these are mainly focused on reducing competition between gas transporters and ensuring a fair playing field for all companies.
 			The Uniform Network Code (UNC)\supercite{joint2005uniform} covers the transition from a single national system to the current 4 provider network, as well as the rights of customers and independent gas transporters.
 			The UNC also ensure that there is a fair market and safe operation for the gas pipe system, as well as encouraging the implementation of robust computer systems and daily energy balancing.
-			While the safety sections of the UNC could be relevant to the robot, they are far too general, and are simply an overview of the responsibilities of the gas providers to ensure safe pipelines.
+			While the safety sections of the UNC could be relevant to AccoBot, they are far too general, and are simply an overview of the responsibilities of the gas providers to ensure safe pipelines.
 			The Independent Gas Transporter Uniform Network Code (iGT UNC)\supercite{igt2021independent} defines more about the interrelations between different smaller, independent providers and helps to standardise the interactions with gas providers.
-			It refers to the UNC in large part, but focuses more on the responsibilities of Independent Transporters who are not the customers for the robot, and as such do not need to be focused on.
+			It refers to the UNC in large part, but focuses more on the responsibilities of Independent Transporters, who are not the customers for AccoBot, and as such do not need to be focused on.
 			The Supply Point Administration Agreement (SPAA)\supercite{spaa2021supply} is about supplier-supplier relationships which may not be covered by existing contracts, and contributes to the smooth running of the industry, and allows for smooth transfer of customers between different gas carriers.
 			Finally, the Smart Energy Code (SEC)\supercite{smart2021smart} defines the rights and obligations of energy suppliers, transmission companies and other companies involved in metering in Great Britain.
-			Since inspection of the pipeline is the main focus of the robot, the rights given by the SEC are not a concern.
+			Since inspection of the pipeline is the main focus of AccoBot, the rights given by the SEC are not a concern.
 			\\
 			OFGEM also awards money to companies which they believe are innovating in new technologies as part of the National Innovation Competition (NIC).
 			The NIC provides up to £20 million funding for innovation in the gas energy networks, although in 2020 £27.17 million was awarded under plans to move to increase overall funding to £28 million\supercite{ofgem2020nic}.
 			However it also significantly easier to get the gas funding than electricity funding as the competition is significantly smaller - in 2020 there were only 2 applications, both of which were funded.
-			Thus providing a compelling reason for the robot to receive NIC funding will be incredibly important in order to secure funding for development.
+			Thus providing a compelling reason for PipeDream to receive NIC funding for AccoBot will be incredibly important in order to secure funding for development.
 			\\
 			The ENA is the industry body for all the energy suppliers in the UK \& Ireland, allowing them to publish all their own guidance as to what is required to operate safely within pipes.
-			For the gas industry, these fall under the Gas Industry Standards (GIS), which define both how the robot can operate within pipes as well as how the pipes should be built and maintained.
-			However, most of these standards refer to traditional methods of pipe inspection and as such are not directly applicable to the robot.
-			The most likely to affect the robot design is GIS/F10:2015 “Ancillary fittings used for the live insertion of gas mains operating at pressures equal to or less than 75 mbar”\supercite{energy2015gas}.
-			GIS/F10:2015 describes how the insertion of polyethylene pipes into steel gas mains must be performed on low pressure lines, which may provide guidance on the insertion of the robot into similar pipes.
-			However the pipes specified by 	GIS/F10:2015 are 8 inches (203.2 mm) in diameter, which is much smaller than the pipes the robot is designed to operate in and operating pressures are higher, so this standard will be of limited use.
+			For the gas industry, these fall under the Gas Industry Standards (GIS), which define both how AccoBot can operate within pipes as well as how the pipes should be built and maintained.
+			However, most of these standards refer to traditional methods of pipe inspection and as such are not directly applicable to AccoBot.
+			The most likely to affect AccoBot's design is GIS/F10:2015 “Ancillary fittings used for the live insertion of gas mains operating at pressures equal to or less than 75 mbar”\supercite{energy2015gas}.
+			GIS/F10:2015 describes how the insertion of polyethylene pipes into steel gas mains must be performed on low pressure lines, which may provide guidance on the insertion of AccoBot into similar pipes.
+			However the pipes specified by 	GIS/F10:2015 are 8 inches (203.2 mm) in diameter, which is much smaller than the pipes AccoBot is designed to operate in and operating pressures are higher, so this standard will be of limited use.
 			\\
 			The HSE is the government agency responsible for the regulation of workplace safety, and as such provides information on how to ensure safe working conditions in and around gas pipelines.
-			They provide guidance and interpretation\supercite{books1996guide} of the Pipeline Safety Regulations 1996, allowing us to more easily select the most important regulations for the robot to follow.
+			They provide guidance and interpretation\supercite{books1996guide} of the Pipeline Safety Regulations 1996, allowing us to more easily select the most important regulations for AccoBot to follow.
 			The regulations which apply to us most clearly are Regulations 10, 15 and 16, with regulation 28 encouraging gas transporters to do their due diligence to ensure that outside companies do not cause an unsafe pipeline.
-			Regulations 10 ("The operator shall ensure that modification, maintenance or other work on a pipeline is carried out in such a way that its soundness and fitness for the purpose for which it has been designed will not be prejudiced") and 15 ("No person shall cause such damage to a pipeline as may give rise to a danger to persons") are similar as both cover the obligation of the robot to avoid causing damage to the pipe.
-			The HSE also clarifies that this means that testing must be undertaken with a standardised pipe to ensure that the robot does not cause damage or structural instability to the pipe.
-			As well as this it is necessary for us to be able to report when there is a possibility that damage to a pipeline has occurred, even when accidental, so the robot should also check for damage caused by the robot on the return journey.
+			Regulations 10 ("The operator shall ensure that modification, maintenance or other work on a pipeline is carried out in such a way that its soundness and fitness for the purpose for which it has been designed will not be prejudiced") and 15 ("No person shall cause such damage to a pipeline as may give rise to a danger to persons") are similar as both cover the obligation of AccoBot to avoid causing damage to the pipe.
+			The HSE also clarifies that this means that testing must be undertaken with a standardised pipe to ensure that AccoBot does not cause damage or structural instability to the pipe.
+			As well as this it is necessary for us to be able to report when there is a possibility that damage to a pipeline has occurred, even when accidental, so AccoBot should also check for damage caused by itself on the return journey.
 			\\
 			The IGEM provides technical standards for the gas industry, which are captured in several key areas.
 			Based on the IGEM list of standards\supercite{institution2021igem}, as the standards themselves are not freely available, some of the Safety (SR) regulations  as well as the Transmission and Distribution (TD) standards will need to be followed
-			Considering the safety regulations first, SR/22 ("Purging operations for fuel gases in transmission, distribution and storage"), covers the issues faced when removing the robot from the pipeline, and SR/28 ("Trenchless techniques") discusses methods for operating in pipes with minimal or no excavation of the surrounding area.
-			The main Transmission and Distribution considerations are TD/1 ("Steel pipelines for high pressure gas transmission"), which are the main environment which the robot will be operating in, as well as TD/3 ("Steel and PE pipelines for gas distribution") and TD/4 ("PE and steel gas services and service pipework") which are more general standards for all kinds of pipeline, and may provide some requirements not captured by TD/1.
+			Considering the safety regulations first, SR/22 ("Purging operations for fuel gases in transmission, distribution and storage"), covers the issues faced when removing objects from the pipeline, and SR/28 ("Trenchless techniques") discusses methods for operating in pipes with minimal or no excavation of the surrounding area.
+			The main Transmission and Distribution considerations are TD/1 ("Steel pipelines for high pressure gas transmission"), which are the main environment which AccoBot will be operating in, as well as TD/3 ("Steel and PE pipelines for gas distribution") and TD/4 ("PE and steel gas services and service pipework") which are more general standards for all kinds of pipeline, and may provide some requirements not captured by TD/1.
 			\\
 			The International Association of Oil \& Gas Producers (IOGP) provides guidance on the selection of relevant ISO standards\supercite{iogp2017standards}, which allows us to narrow down which relevant standards to consider.
 			While the ISO standards are also not freely available, the ISO website provides a short summary of the main points in the standard before purchase, allowing us to evaluate which standards to consider.
 			ISO 21457:2010\supercite{iso21457} is important as it identifies the possible corrosion mechanisms and parameters for prediction in pipelines.
-			Thus it helps select suitable materials for the robot, in order to avoid corrosion, as well as helping to identify what corrosion signs to look for.
+			Thus it helps select suitable materials for AccoBot, in order to avoid corrosion, as well as helping to identify what corrosion signs to look for.
 			Another important standard is ISO 15649:2001\supercite{iso15649} which specifies required design and construction parameters for gas pipelines, as well as requirements for pipeline inspection.
-			This will greatly influence the requirements for the robot, and while many of the necessary safety features for inspection have been considered, the standard will formalise this and emphasise any which are missing.
+			This will greatly influence the requirements for AccoBot, and while many of the necessary safety features for inspection have been considered, the standard will formalise this and emphasise any which are missing.
 		
 		\subsection[Traditional  \& Autonomous Pipe Inspection Companies]{Traditional \& Autonomous Pipe Inspection Companies - Louis Emanuel}
             Both traditional and autonomous gas pipe inspection companies have an active interest and influence on the operation of our autonomous pipe inspection robot as they are competitors to our product offering currently or have great potential to be in the future. Traditional gas inspection companies concern the firms such as ProPipe that operate PIG’s. Whilst autonomous inspection companies refers to the firms similar to our product offering such as CISBOT. \\
@@ -1593,7 +1606,7 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
 			The power of local councils is also significantly reduced outside of large cities like London, where the area covered by a single council is greatly increased, and as such the amount of control they have over any single incident will be reduced.
 			However, despite their smaller influence, the effect of councils is still worth considering as they may be the tipping point which causes preference over other options.
 			\\
-			Due to the reduced number of excavations the robot is attractive to local councils, as they do not have to excavate roads as often or as widely.
+			Due to the reduced number of excavations, AccoBot is attractive to local councils, as they do not have to excavate roads as often or as widely.
 			This is a budgetary saving since, in 2018 - 2019, local councils in England spent £3,857 million on Highways and Transport, which will include roadworks required to access gas pipes for inspection and replacement, which makes up 4.22\% of total service expenditure\supercite{ministry2020local}.
 			As such the reduction in amount of excavation has the possibility to save a significant amount of funding in the UK, allowing for funding to be redirected to other important services such as education and fire services.
 			As well as this, there is the environmental impact of traffic and excavation, which local governments are aiming to reduce, in order to meet government targets of lowered emissions.
@@ -1617,14 +1630,15 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
 		
 		\subsection[Industry Value Chain]{Industry Value Chain}
 		
-		It was decided to use the Porter's Five Forces model\supercite{porter2008five} to analyse the in-pipe inspection robot industry, in order to provide a systematic analysis of the existing and possible threats to the company in the future.
+		\subsection{Porter's Five Forces Analysis}
+		It was decided to use the Porter's Five Forces model\supercite{porter2008five} to analyse the in-pipe inspection robot industry, in order to provide a systematic analysis of the existing and possible threats to PipeDream in the future.
 		
-		\subsection[P5F: Threat of New Entry]{Threat of New Entry}
+		\subsubsection{Threat of New Entry}
 				
-		\subsection[P5F: Power of Suppliers]{Power of Suppliers - Jim Laney}
+		\subsubsection{Power of Suppliers - Jim Laney}
 			
 			The power of suppliers in the in-pipe robotics industry is typically very minimal, due to the large number of substitutes for a given product.
-			As an example,the components selected for the robot will be used to evaluate the overall power which suppliers hold in the industry.
+			As an example, the components selected for AccoBot will be used to evaluate the overall power which suppliers hold in the industry.
 			\\
 			The non electrical components, such as the robot body, robot legs and leg gears are all made of either aluminium or steel, which are readily available from many sources, meaning it is very difficult for a single supplier to exert any influence over the user.
 			Similarly, all of the generic electrical components, such as the motors used for rotating the legs and eventually the wheels, the linear actuators and different sensors used for measuring the position of the robot are easily replaced, as there are many suppliers of similar products.
@@ -1642,9 +1656,9 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
 			Finally, the threat of forward vertical integration is practically non-existent, due to the large variety of suppliers.
 			While there are a few key suppliers who exert significant influence over the industry, none of these are in a position to easily move into the in-pipe inspection industry as they would be required to have many of the same suppliers that current companies do.
 					
-		\subsection[P5F: Power of Buyers]{Power of Buyers}
+		\subsubsection{Power of Buyers}
 		
-		\subsection[P5F: Threat of Substitutes]{Threat of Substitutes - Jim Laney}
+		\subsubsection{Threat of Substitutes - Jim Laney}
 			
 			The threat of substitutes in the in-pipe inspection robot industry is medium, as there are many established substitutes which currently dominate pipe inspection services.
 			\\
@@ -1663,7 +1677,7 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
 			\\
 			Pipeline Inspection Gauges (PIGs) are the other main substitute to robotic in-pipe inspection, as these are passive devices which are forced along the pipeline by the gas flow.
 			However, PIGs are uncontrollable and cannot operate in pipelines containing sharp bends\supercite{mills2017advances}, making them unsuitable for urban pipelines.
-			As such the threat from PIGs is minimal since the robot has been specifically chosen to enter an area where they are not currently suitable, although it is possible that more advanced PIGs may be developed in the future which could compete in urban pipelines.
+			As such the threat from PIGs is minimal since AccoBot has been specifically designed to enter an area where they are not currently suitable, although it is possible that more advanced PIGs may be developed in the future which could compete in urban pipelines.
 			\\
 			Another significant substitute is the use of pipeline models to predict damage in order to decide when to replace pipes, rather than using inspection techniques.
 			This reduces the requirement for inspection solutions in general, as models can be used to predict when pipes will fail meaning inspection is no longer required.
@@ -1673,7 +1687,7 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
 			As well as this, all pipeline failure models are conservative estimates, meaning they suggest damage will occur before it is feasible, and as such lead to loss of profit, and also lead to pipes having to be disconnected for repairs which may not be necessary.
 			Thus the threat of substitution entirely by models of pipe failure is low, but the likelihood of in pipe robots working alongside failure models to help verify and improve them is higher, slightly reducing the market size for inspections.
 		
-		\subsection[P5F: Rivalry Among Existing Competitors]{Rivalry Among Existing Competitors - Louis Emanuel}
+		\subsubsection{Rivalry Among Existing Competitors - Louis Emanuel}
 			High intensity of competitive rivalry can make an industry more competitive and thus decrease profit potential for the existing firms\supercite{porter2008five}. This section will serve to analyse the level of competitive rivalry that our robot would face in the in-pipe inspection robot industry. \\
 	        \hspace*{3ex}There are a number of different factors that determine the level of competitive rivalry such as concentration in industry, switching costs, differentiation, and exit barriers\supercite{rivalryfactorsCI}. And hence this section is structured to consider each of them in turn. 
 	        
@@ -1696,16 +1710,12 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
 	        \textbf{Conclusion}\\
 	        Overall, from an analysis of the key factors that Porter outlined as contributing to a high level of rivalry, the threat level is determined as low. The only exception being the low switching costs currently in the industry. However, for our robot attempting to penetrate the market, this factor may be favourable due to the current monopoly CISBOT has. Given this low threat of rivalry, we can conclude that the industry has a high profit potential.
 
-        
-
-            
-
 	\section{Customer Industry Analysis - EEM}
 
 		Since there is only one customer industry, it is important to analyse the safety and sustainability of that industry to ensure that the business was secure.
 		The Porter's Five Forces model\supercite{porter2008five} was once again used to analyse the gas pipeline inspection industry.
 		
-		Within the industry there are four major firms that operate in Great Britain. In 2019-2020 Cadent Gas had an operating profit of £924m and revenue of £2115m with an operating profit margin of 43.6\%. Scotia Gas Networks had a revenue of £1272m and an operating profit of £599m and an operating margin of 47.\%. Wales & West Utilities Limited had a revenue of £491.8m and an operating profit of £222.9m with an operating margin of 45\%. Northern gas networks had a revenue of £405.5m, operating profit of £190.3m and operating profit margin of 46\%.  \supercite{Gas_Distribution_Industry}
+		Within the industry there are four major firms that operate in Great Britain. In 2019-2020 Cadent Gas had an operating profit of £924m and revenue of £2115m with an operating profit margin of 43.6\%. Scotia Gas Networks had a revenue of £1272m and an operating profit of £599m and an operating margin of 47.\%. Wales \& West Utilities Limited had a revenue of £491.8m and an operating profit of £222.9m with an operating margin of 45\%. Northern gas networks had a revenue of £405.5m, operating profit of £190.3m and operating profit margin of 46\%.  \supercite{Gas_Distribution_Industry}
 			
 		\subsection[Threat of New Entry]{Threat of New Entry}
 				New entrants are motivated to enter the gas distribution industry due to the high profits achieved by current firms which leads to increased competition as they strive to gain market share. The extent of this threat depends on the current barriers to entry in the industry. Porter outlined key barriers as being economies of scale, technical knowledge and regulation. And hence the following section will analyse each of these factors. \\
@@ -1849,37 +1859,37 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
             
 	\section{Market Entry - EEM}
 	
-     \section[Business Risk Assessment - EEM]{Business Risk Assessment - Jim Laney}
+	\section[Business Risk Assessment - EEM]{Business Risk Assessment - Jim Laney}
      	
      	In order to assess how suitable the business was to take forward, several risks were considered for both severity and likelihood.
      	\\
-     	Due to the large initial cost to create a robot, the company is particularly vulnerable to economic downturn.
+     	Due to the large initial cost to create a prototype robot, PipeDream is particularly vulnerable to economic downturn.
      	As well as this, the first year or two will have high spending, and the business will most likely operate at a loss, which can be alleviated by ensuring a partnership with one of the gas networks.
-     	Also, it is important to remain aware of the risk of similar products coming to market at the same time as the robot, since these will take away from the number of jobs which the robot can embark on.
-     	Once again, partnering with a gas network will help to reduce the risk of this, allowing the company to be more confident in the projected revenue for the first few years.
-     	Another factor which allows us to be more robustly able to deal with financial issues is the fact that the company produces a single product, which is much less likely to fail due to the significant investment in research and development, and a customer base where the industry is almost monopolistic.
+     	Also, it is important to remain aware of the risk of similar products coming to market at the same time as AccoBot, since these will take away from the number of jobs which AccoBot can embark on.
+     	Once again, partnering with a gas network will help to reduce the risk of this, allowing PipeDream to be more confident in the projected revenue for the first few years.
+     	Another factor which allows us to be more robustly able to deal with financial issues is the fact that PipeDream produces a single product, which is much less likely to fail due to the significant investment in research and development, and a customer base where the industry is almost monopolistic.
      	\\
      	Another substantial business risk is the regulation and safety concerns around working within gas pipelines.
-     	While the robot has been designed to meet all current UK regulations, there  is always a risk of the introduction of new legislation which may limit the robot effectiveness.
-     	As well as this, gas networks are considered to be at fault if a third party causes damage, if it can be shown that they have not "exercised all due diligence"\supercite{books1996guide}, and as such it is imperative that the robot conforms to all regulations strictly.
+     	While AccoBot has been designed to meet all current UK regulations, there  is always a risk of the introduction of new legislation which may limit AccoBot's effectiveness.
+     	As well as this, gas networks are considered to be at fault if a third party causes damage, if it can be shown that they have not "exercised all due diligence"\supercite{books1996guide}, and as such it is imperative that AccoBot conforms to all regulations strictly.
      	As well as this, the high level of regulation of the gas industry makes moving into new markets a significantly more difficult process, as new regulations have to be followed, and new standards must be checked and followed.
      	This problem is further exacerbated by the fact that other markets, such as the United States, have regulations and standards which differ between states\supercite{pless2011making}.
      	\\
-     	Another risk to the company is that of data security.
-     	Since the robot stores data which could be used for nefarious purposes, it is important that any data collected is stored securely.
-     	As well as this there is a chance that the data is lost when the robot is returning from the inspection run, especially if the robot gets stuck inside the pipes.
+     	Another risk to PipeDream is that of data security.
+     	Since AccoBot stores data which could be used for nefarious purposes, it is important that any data collected is stored securely.
+     	As well as this there is a chance that the data is lost when AccoBot is returning from the inspection run, especially if AccoBot gets stuck inside the pipes.
      	As well as this, employee and customer information must also be securely stored in order to conform with General Data Protection Regulations.
      	However, the possible effects of a data breach would be catastrophic, since there are such a small number of possible customers, meaning a reputation for safety and reliability is increasingly important.
      	\\
-     	There are also a few operational risks when operating the robot which must be considered.
-     	It is possible for the robot to get stuck in a pipe while inspecting, and extraction methods, such as using the communications wire or remotely controlling the robot, should be considered.
+     	There are also a few operational risks when operating AccoBot which must be considered.
+     	It is possible for AccoBot to get stuck in a pipe while inspecting, and extraction methods, such as using the communications wire or remotely controlling AccoBot, should be considered.
      	As well as this, the business model assumes there are only a small number of robots built, and thus there is also a risk that all robots in stock become damaged or otherwise inoperable.
      	However, the expected low number of jobs which are expected to be undertaken means that this is an unlikely outcome, as there should always be sufficient time for at least one robot to be operational.
      	\\
-     	There is also the ongoing risk that, assuming that the robot becomes the standard industry solutions for inspection, the company becomes complacent.
-     	As such, it is important to explore the future of the robot while operating the inspection service, and evaluate the likelihood of a reduction in the use of fossil fuels, and future moves to other sustainable technologies.
+     	There is also the ongoing risk that, assuming that AccoBot becomes the standard industry solutions for inspection, PipeDream as a company becomes complacent.
+     	As such, it is important to explore the future of AccoBot while operating the inspection service, and evaluate the likelihood of a reduction in the use of fossil fuels, and future moves to other sustainable technologies.
      	For example, in the case of a move to hydrogen pipes, the transition is fairly simple as similar, or possibly even the same, gas networks will be used to transport the hydrogen around.
-     	If the potential of further development of the robot is considered a viable option, it is important to monitor the rate of development to make sure that development is still in the steep section of the technological S-curve\supercite{christensen1998innovation}, and be prepared to switch to a new development curve or diversify the company's portfolio with an additional product.
+     	If the potential of further development of AccoBot is considered a viable option, it is important to monitor the rate of development to make sure that development is still in the steep section of the technological S-curve\supercite{christensen1998innovation}, and be prepared to switch to a new development curve or diversify the PipeDream's portfolio with an additional product.
      	
  	\section{Financial Analysis - EEM}
 	 
@@ -1911,15 +1921,15 @@ Hence, a breakdown of the target problems faced by GDNs (our main customer), as 
 	        
 	        
 	        To project the revenues it was assumed that it would take 2 years in the innovation programme before the company would generate sale revenue. For these two years the company would receive revenue through the grants discussed in the grant section.
-            To project the revenue after this it was decided to take a pessimistic approach and assume that the only application that the robot would be used for would be to detect damaged joints that would otherwise have to be replaced. It was then assumed that the average job would have a length of 500 m and that there are 0.275 joints per m. It was then assumed that the charge per joint would be £420.40. It was then assumed that initially the company would have jobs with just Cadent in the first year, and this would be a low number of 3 jobs so that the Cadent would be able to assess the effectiveness without committing too much financially, which would correspond to 13\% of the potential available jobs at Cadent. Then each year we assumed there would be a growth in the amount of pipeline inspected following the pattern of growth seen by SGN’s expenditure on robotic intervention in GD1. It was then assumed that SGN and NGN would sign up to start working in the year 4, again starting with 13\% of the potential jobs and applying the same growth pattern. These two companies were picked since they have already shown their willingness to work with robotic solutions. In year 7 Wales & West Utilities is then assumed to start, with the same assumptions of starting jobs and growth as for the other companies.
+            To project the revenue after this it was decided to take a pessimistic approach and assume that the only application that the robot would be used for would be to detect damaged joints that would otherwise have to be replaced. It was then assumed that the average job would have a length of 500 m and that there are 0.275 joints per m. It was then assumed that the charge per joint would be £420.40. It was then assumed that initially the company would have jobs with just Cadent in the first year, and this would be a low number of 3 jobs so that the Cadent would be able to assess the effectiveness without committing too much financially, which would correspond to 13\% of the potential available jobs at Cadent. Then each year we assumed there would be a growth in the amount of pipeline inspected following the pattern of growth seen by SGN’s expenditure on robotic intervention in GD1. It was then assumed that SGN and NGN would sign up to start working in the year 4, again starting with 13\% of the potential jobs and applying the same growth pattern. These two companies were picked since they have already shown their willingness to work with robotic solutions. In year 7 Wales \& West Utilities is then assumed to start, with the same assumptions of starting jobs and growth as for the other companies.
             \\
     The bear case was created by suppressing the growth rates and assuming that SGN becomes a client in year 5 and NGN becomes a client in year 6.
     The bull case was created by increasing the growth rates and by assuming WWU becomes a client in year 5.
     \\
     The number of robots required was decided by assuming a worst case scenario of a job taking 2 weeks to do. A second robot would be required when the number of weeks of jobs required went over 50 weeks. Each robot would require a team of two, consisting of a robotics technician and someone who would be trained to operate the robot in circumstances where the automation failed.
-    Other costs were leasing a van to transport the robots in, rental of office space as well as the salaries of non-operational staff. These were assumed to initially include a senior engineer a CTO and a CEO. Once the company started generating revenue sales staff and business development staff would also be hired. R&D costs are introduced in year 4. The robot is paid for via CAPEX, this is then deducted from the taxable profit. Depreciation is linear over 10 years. This depreciation cost is added onto the taxable profit due to the CAPEX being deducted from it.
+    Other costs were leasing a van to transport the robots in, rental of office space as well as the salaries of non-operational staff. These were assumed to initially include a senior engineer a CTO and a CEO. Once the company started generating revenue sales staff and business development staff would also be hired. R\&D costs are introduced in year 4. The robot is paid for via CAPEX, this is then deducted from the taxable profit. Depreciation is linear over 10 years. This depreciation cost is added onto the taxable profit due to the CAPEX being deducted from it.
     \\
-    R&D costing during the first two years. This would involve the salaries of those working on the project, utilities cost, rent and extra materials needed for iterated the design, as well as the cost of tweaking the design and rebuilding.
+    R\&D costing during the first two years. This would involve the salaries of those working on the project, utilities cost, rent and extra materials needed for iterated the design, as well as the cost of tweaking the design and rebuilding.
     
             \begin{figure}[h]
 			\centering
