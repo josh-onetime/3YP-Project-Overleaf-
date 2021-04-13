@@ -88,7 +88,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 		
 		Hence, adequate inspection and maintenance of gas pipelines are key priorities for gas distribution companies, which cumulatively spent \textbf{over US\$15.7 billion} on inspection, maintenance  and replacement of gas pipelines in 2019, and this amount is rising ~6\% year-on-year.\supercite{pct2020states}. 
 		
-		Currently, the bulk of inspection and maintenance of buried gas pipelines is performed manually, with the aid of Pipeline Inspection Gauges (henceforth referred to as 'PIGs'), shown below in Figure 1. 
+		Currently, the bulk of inspection and maintenance of buried gas pipelines is performed manually, with the aid of Pipeline Inspection Gauges (henceforth referred to as 'PIGs'), shown below in \figref{placeholder2}. 
 
 		\begin{figure}[h]
 					\centering
@@ -186,7 +186,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 				\includegraphics[scale=1]{ulc robots 2.PNG}
 				\caption{ULC Robotics product features\supercite{ULC_Robots}}
 				\label{ULCFeatures}
-		\end{figure}
+			\end{figure}
         
 	\subsection[Patent Analysis]{Patent Analysis - Jim Laney}
 
@@ -227,12 +227,11 @@ BoldItalicFont=Arial Bold Italic.ttf
 		\setlength{\tabcolsep}{13pt}	% Space 11 pts around the edges for readability
 		\renewcommand{\arraystretch}{1.4}	% Space at the top and bottom of rows for readability
 		
-		\definecolor{rowGrey}{HTML}{F2F2F2}
-		\definecolor{headerBlue}{HTML}{77CEEF}
+		\definecolor{rowGrey}{HTML}{F2F2F2}		% Defines the grey for the row with a hex code
+		\definecolor{headerBlue}{HTML}{77CEEF}	% Defines the blue for the header with a hex code
 		
 		\begin{longtable}[c]{| m{0.4\textwidth} | m{0.4\textwidth} |}
-			\hiderowcolors
-    		\caption{Comparison of existing issues for the Gas Pipe Industry and how AccoBot solves them.}\\
+		
 			\hline
 			\rowcolor{headerBlue} \textbf{Current Issue} & \textbf{Solution}\\
 			\hline
@@ -244,6 +243,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 			\endhead
 			
 			\hline
+			\caption{Comparison of existing issues for the Gas Pipe Industry and how AccoBot solves them.}
 			\endlastfoot
 			
 			\hline
@@ -474,8 +474,8 @@ BoldItalicFont=Arial Bold Italic.ttf
             \\
             There are three main types of magneto resistive sensors that had to be considered.
             These are anisotropic magenetoresistance sensorts (AMR), tunnel-magentoresistance sensors (TMR) and giant magnetoresistance sensors (GMR). 
-            Table \ref{rotary_encoders_comparison} compares them. 
-            MR is the magnetoresistance ratio and it describes how sensitive the sensor is to changing its electrical resistance with changes in external magnetic fields.\supercite{magnetoresistance} From Table \ref{rotary_encoders_comparison} and Figure \ref{rotary_encoders_graph} it can be seen that TMR sensors are the most sensitive.
+            \tableref{rotary_encoders_comparison} compares them. 
+            MR is the magnetoresistance ratio and it describes how sensitive the sensor is to changing its electrical resistance with changes in external magnetic fields.\supercite{magnetoresistance} From \tableref{rotary_encoders_comparison} and \figref{rotary_encoders_graph} it can be seen that TMR sensors are the most sensitive.
             \\
             TMR sensors are made of three layers, the ferromagnetic free layer, the insulator barrier layer and the ferromagnet pin layer.\supercite{Tunnel_magnetoresistance} 
             The barrier layer is an insulating material.
@@ -494,12 +494,12 @@ BoldItalicFont=Arial Bold Italic.ttf
             This is important when the accuracy is the most important factor. 
             Further it can be seen that it has greater sensitivity which provides greater resolution. Further because it produces a high output it does not require extra amplification reducing cost and complexity. 
             
-            \begin{figure}[h]
+            \begin{table}[h]
 					\centering
 						\includegraphics[width=15cm] {table_showing_different_rotary_encoders.PNG}
 						\caption{Function and construction of an active compliance joint. Figure from \cite{Comparison_TMR_AMR}}
 						\label{rotary_encoders_comparison}
-				\end{figure}
+				\end{table}
 				
 				  \begin{figure}[h]
 					\centering
@@ -512,7 +512,7 @@ BoldItalicFont=Arial Bold Italic.ttf
             
             The robot needs to be able to determine its orientation so that it can calculate its pose. 
             This information is fed into the localisation system as well as the navigation control system. 
-            Three options were considered to provide this information, an attitude heading reference system (AHRS), an inertial measurement unit (IMU) and an inertial navigation system (INS). Table \ref{AHRS_comparison} shows the comparison of these.
+            Three options were considered to provide this information, an attitude heading reference system (AHRS), an inertial measurement unit (IMU) and an inertial navigation system (INS). \tableref{AHRS_comparison} shows the comparison of these.
             \\
             The main consideration for this is providing as accurate information as possible since the accuracy of the robots systems is highly dependent on the accuracy of its knowledge of its pose. 
             It was decided to use the AHRS because it provided attitude values and also suffers less drift than the IMU due to its application of a Kalman filter. 
@@ -522,12 +522,12 @@ BoldItalicFont=Arial Bold Italic.ttf
             In particular the Ellipse 2 Micro AHRS was picked.
             This is because it is light and compact. It has a weight of 10g and size of 26.8 x 19.8 x 9.5 mm. \supercite{Ellipse_Ahrs}
             
-            \begin{figure}[h]
+            \begin{table}[h]
 					\centering
 				    \includegraphics[width=0.95\textwidth]{Table_comparing_AHRS_INS_IMU.PNG}
 						\caption{}
 						\label{AHRS_comparison}
-				\end{figure}
+				\end{table}
 				
         \subsubsection{Odometers}
         
@@ -562,15 +562,15 @@ BoldItalicFont=Arial Bold Italic.ttf
 	        Capacitive encoders are also more compact than optical and magnetic encoders and are less expensive\supercite{Encoders}. 
 	        They have a downside of being prone to electrical interference however modern packages housing the encoders tend to make this less significant than the noise that the other encoders face.\supercite{Encoders}
 	        \\
-	        Table \ref{odometer_comparison} compares the metrics that it need to be considered when choosing which type to use. 
+	        \tableref{odometer_comparison} compares the metrics that it need to be considered when choosing which type to use. 
 	        Due to the relative inexpense of these compared to other parts of the robot, cost was not considered to be a factor worth considering. 
 	        From this decision matrix it was decided to use a capacitive odometer. 
-	        \begin{figure}[h]
+	        \begin{table}[h]
 						\centering
 							\includegraphics[width=0.95\textwidth]{Table_comparing_odometer_encoders.PNG}
 							\caption{Function and construction of an active compliance joint. Figure from \cite{park2010normal}}
 							\label{odometer_comparison}
-					\end{figure}
+					\end{table}
 	
 	        \subsection{Sensing Pipe Damage}
 	        
@@ -585,7 +585,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 	        Secondly having determined the type of sensor looking into the best types of that type of sensor. 
 	        Thirdly investigating how to best process the data provided by the sensor so as to extract the desired information.
 	        
-	        \textbf{Constraints to consider}
+	        \subsubsection{Constraints to consider}
 	        
 	        When assessing the type of sensor the constraints of the application as well as the desired outcomes must be considered. 
 	        The robot would be involved in inspecting pipes of varying diameters, they may vary as the robot goes along the pipe as well as in different locations. 
@@ -594,8 +594,9 @@ BoldItalicFont=Arial Bold Italic.ttf
 	        Further since in some places it is disruptive to provide access to the pipes and the cost of doing so is a function of time, it is important to use a method that allows the robot to move relatively quickly through the pipes. 
 	        Finally, the robot should be able to adapt to pipes of different materials since although the main use case will be in cast-iron pipes it could also be applied in steel pipes or PE pipes.
 	
-	        \textbf{Type of sensors}
+	        \subsubsection{Type of sensors}
 	        \textbf{MFL}
+	        \\
 	        Magnetic Flux Leakage inline inspection tools is an array of sensor placed in a circular configuration. 
 	        The arrays have magnets which produce a magnetic that flows through the pipes between the poles of each of the arrays. 
 	        Damage in the pipe wall leads to variation in the flow of flux. 
@@ -614,6 +615,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 	        Another negative is that corrosion products can build up on the magnets which decreases its accuracy. It was therefore decided not to use an MFL.
 	        \\
 	        \textbf{Piezoceramic Ultrasonic Transducer Detection}
+	        \\
 	        Piezoceramic Ultrasonic Transducer Detection is a method that measures the time it takes for an emitted ultrasonic pulse to return to the sensor having reflected off a medium boundary. 
 	        This sensor is usually a piezoceramic transducer.\supercite{UT} 
 	        By using short pulses internal flaws of the pipe can be detected.\supercite{Corrosion}
@@ -628,6 +630,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 	        Therefore Ultrasound Detection was decided against.
 	        \\
 	        \textbf{ECT}
+	        \\
 	        Eddy Current Testing (ECT) uses a probe that produces an alternating magnetic field using an electromagnet.
 	        This induces an eddy current in the side of the pipe. 
 	        The eddy current is then measured and an algorithm can from this information produce information about any cracks that it has passed over. 
@@ -639,12 +642,14 @@ BoldItalicFont=Arial Bold Italic.ttf
 	        Therefore, it was decided against.
 	        \\
 	        \textbf{Infra-Red Camera}
+	        \\
 	        A innovative technique that is being developed for use in live pipe conditions involves the robot carrying a heater and a IR camera. 
 	        When there is a crack in the gas pipe the acceleration of the gas through the crack which creates friction causes temperature changes to the gas that can be detected by the IR camera. 
 	        This technique has the benefits of not requiring sophisticated computer vision as well as being able to work for many different diameters. 
 	        However its downside is that it can only detect through cracks thus meaning reducing the value that it can provide to a consumer. 
 	        \\
 	        \textbf{EMAT}
+	        \\
 	        Electro Magnetic Acoustic Transducers (EMAT) are a non-contact ultrasonic testing technique that does not require a couplant. 
 	        The EMAT works by using magnetic fields to induce ultrasonic waves into the wall of the pipe.
 	        The waves that go through the pipewall when they return induce a current in the EMAT’s receiving coil.
@@ -654,6 +659,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 	        For this reason it  cannot be used alone.
 			\\
 			\textbf{Visual Sensing}
+			\\
 	        Visual sensing using computer vision techniques to visually identify with a camera damage to the interior of the pipe. 
 	        This has the benefit that the information produced is easy to interpret and the data collection can occur at a faster pace. % Get data 
 	        Further the camera equipment required for it is relatively uncomplex and inexpensive and would be required for the navigation of the robot and detection of object features anyway. 
@@ -663,6 +669,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 	        Despite this, its adaptability to the different pipe environments meant that this would be taken forward for further consideration.
 	        \\
 	        \textbf{Laser Scanner}
+	        \\
 	        A laser scanner provides higher resolution information about the inner surface of pipes. % Give a resolution number 
 	        It allows the depth of pits and cracks to be determined and the integrity of different sections of the pipe. 
 	        From this information a laser scanner allows the company to know how much material is left, what the remaining life of the asset is and what the risk of leakage is. \supercite{2g_robotics}
@@ -676,6 +683,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 	        However, because of its speed of acquiring data it cannot be used all the time if a large distance of pipe needs to be inspected.
 	        \\
 	        \textbf{Conclusion}
+	        \\
 	        Ideally metrics would be looked at to determine the accuracy of these techniques in the environment that the robot would be in. 
 	        This would involve looking at false positives, false negatives, recall and precision.
 	        However, since the robot is not constructed and there is currently no access to these environments this would not be possible.
@@ -686,7 +694,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 	        There will be two modes for which the laser would be activated. These would be once the visual system detects damage  above a certain threshold and the other would be when it detects a joint. The laser scanner to extract greater resolution data about the damage or the joint. 
 	        This threshold will be decided after test runs are done with the partnered company and will be adapted based on the difference risk preferences of the different clients.
 	    	\\
-	        \textbf{Constraints imposed on the rest of the robot by the visual detection system}
+	        \subsubsection{Constraints imposed on the rest of the robot by the visual detection system}
 	        The visual detection system provides constraints on the processing of images. The FPS of the camera chosen is 40.
 	        The robot is moving along at $0.1ms^-1$. 
 	        Therefore to detect provide a detection every 1cm the robot must be able to process images at 10 FPS.
@@ -702,17 +710,17 @@ BoldItalicFont=Arial Bold Italic.ttf
 			\\
 		    The difficulty arises in finding a suitable communication method that is capable of operating in the difficult pipeline environment. 
 		    With pipe bends, thick steel walls, metres of soil, and noise interference, the choice of communication must be able to overcome these barriers without inhibiting locomotion. 
-		    \figref{commsTable} outlines several communication methods which have been widely practiced in the Oil and Gas industry\supercite{acoustic2020}.
+		    \tableref{commsTable} outlines several communication methods which have been widely practiced in the Oil and Gas industry\supercite{acoustic2020}.
 		    \\
 		    
-	        \begin{figure}[h]
+	        \begin{table}[h]
 				\centering
 				\includegraphics[width=1\textwidth]{commstable.pdf}
 				\caption{Communications Comparison}
 				\label{commsTable}
-			\end{figure}
+			\end{table}
 	     	A critical requirement of the robot is for it to have a real time understanding of its location in order to navigate pipes and localise pipe damage. 
-	     	From the solutions in \figref{commsTable}, the only methods capable of this are ELF and wiring. 
+	     	From the solutions in \tableref{commsTable}, the only methods capable of this are ELF and wiring. 
 	     	However, ELF communications requires a significantly sized receiver\supercite{elfreceiversize} which is infeasible to house in the robot without inhibiting speed, locomotion and range. 
 	     	Consequently, for feeding data to the robot, a wire will be used.
 	        \\ 
@@ -1117,19 +1125,19 @@ BoldItalicFont=Arial Bold Italic.ttf
 		    \\
 	        In order to decide whether the computational expense of the WCCD could be reduced further the use of the roughness step alone on a data set was investigated by the company. To calculate the GLCM firstly each image was transformed into patches each 32 x32 pixels. The GLCM of the patch was calculated used the MATLAB gracomatrix function. The energy of this matrix is then calculated using the gracoprops function. These energies were then saved into a matrix. A for loop then went through the matrix made up of the energy of each patch and selected the patches that were below a threshold proposed in the paper. The company labelled the rusty pixels of 7 images of the inside of pipes. It then took 13 images of the inside of pipes with no rust and applied the algorithm to each of these sets. Ideally, it would have been tested on a data set of a larger number of images however these were the only appropriate ones that could be found through an internet search engine search. For the rust images the mean precision was 63.3\% and the mean recall was 74.3\%. These results were reasonable considering the algorithm only needed to detect if there is corrosion in the image. However, for non-rust images the mean false positive score was 29.87\% and there was a range of 86\%. This would mean that the robot would highlight too many images as being corroded which is undesirable. From this it was concluded that the training and colour-based part of the WCCD algorithm was necessary to produce the results.\supercite{WCCD}  
 
-			\begin{figure}[h]
+			\begin{table}[h]
 				\centering
 				\includegraphics[height=\imageheight]{Table_comparing_WCCD_AdaBoost_corrosion.PNG}
 				\caption{Table comparing performance of algorithms from \cite{WCCD}}
 				\label{WCCD_comparison}
-			\end{figure}
+			\end{table}
 
-			\begin{figure}[h]
+			\begin{table}[h]
 				\centering
 				\includegraphics[height=\imageheight]{Table_comparing_CNN_WNN_corrosion.PNG}
 				\caption{Table comparing the performance of algorithms from \cite{Corrosion7}}
 				\label{CNN_comparison}
-			\end{figure}
+			\end{table}
 
 		\subsubsection{Crack detection}
 		
@@ -1156,12 +1164,12 @@ BoldItalicFont=Arial Bold Italic.ttf
 	        Therefore even though CrackForest has a slightly higher sensitivity than CrackGAN its substantially lower precision makes CrackGAN a more desirable algorithm. 
 	        This can be seen from its higher F1 score.
         	
-        	\begin{figure}[h]
+        	\begin{table}[h]
 				\centering
 				\includegraphics[scale=0.75]{CrackGAN_comparisonv1.PNG}
 				\caption{Table comparing the performance of algorithms from \cite{CrackGAN1}}
 				\label{crack_comparison}
-			\end{figure}
+			\end{table}
         
 	        Secondly CrackGAN is much more computationally efficient which will allow the robot to process the images more quickly and therefore classify video images at a better pace.\supercite{CrackGAN1}
 			\\
@@ -1170,9 +1178,9 @@ BoldItalicFont=Arial Bold Italic.ttf
 			\\
 			It uses the transfer of knowledge from a DC-GAN trained on cracked ground truth patches to provide the discriminator for the model. Because the DC-GAN has only been trained on crack images the network will always generate crack images which helps solve the “All Black” problem. Knowledge transfer is also used to pre-train the generators’ encoding part.\supercite{CrackGAN1} 
 	        The image is input into an Asymmetric U-Net. This algorithm was designed to be trained using a strategy that has a large amount of data augmentation in order to decrease the number of annotated training samples required.\supercite{U-Net} This has a series of downsampling convolving and ReLU stages going from 1 channel up to 512 channels. The layers then upsample the feature map through a series of de-convolving, convolving and ReLU layers. The activation function at the end of the last de-convolutional layer is a tanh function, this takes the 64 channels of features and transfers it into a 1-channel image which is then fed into the discriminator. The two sides of the U-Net are linked by 4 copy and concatenate links which copy across the feature map from the downsampling side of the architecture and concatenate it with the feature map of the same size on the upsampling side of the architecture. It is asymmetric because the output size is different to the input size.\supercite{U-Net}
-        
-    		Training of the DC-GAN
-    		
+	        \\
+    		\textbf{Training of the DC-GAN}
+    		\\
    			The first stage is to train the DC-GAN. It uses a generative model to produce fake data and the algorithm looks to maximise two different objective functions.\supercite{CrackGAN1} This pre-trained discriminator provides an adversarial loss function and is then put at the end of an asymmetric U-net generator. The problem here is that the DC-GAN discriminator has only be trained using crack patches in order to stop the “All Black” scenario. But CrackGAN needs to be able to process both cracked and non-cracked images. Using an asymmetric U-Net generator allows non-cracked translation with only cracked-image inputs because it allows a larger image to be input which has patches which are cracked and parts which are non-cracked. This is then down sampled by the asymmetric U-Net network so that its output is the same size as the required input to the discriminator. It then uses dilated ground truths in the L1 pixel loss function, $L_{pixel\ \ }$. This function is used to make sure that the generated crack patterns are similar to the non generated ones. The images are dilated to ensure that the crack locations are definitely covered. This combination with the the DC-GAN adversarial loss function,$\ L_{adv\ \ \ }$  allows the production of the overall objective function which is desired to be optimised by Crack-GAN,
 		    $L_{final\ \ }=L_{adv\ \ \ }+\ \lambda L_{pixel\ \ }$
 		    \supercite{CrackGAN}
@@ -1241,7 +1249,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 	        Therefore a preferable algorithm would make use of the object detection that has already taken place and produced bounding boxes. 
 	        SORT is an algorithm that does this. 
 	        It tracks images across frames aiming to maximise the intersection of union metric. 
-	        Bewley et al \supercite{object_tracking} demonstrated that SORT had a much higher speed than similarly accurate algorithms, which confirmed that it would be the ideal algorithm to use.\supercite{object_tracking} It can be seen from figure \hyperref[object_tracking_comp]{Figure \ref*{object_tracking_comp}} that SORT is much more accurate than any of the other real time algorithms.
+	        Bewley et al \supercite{object_tracking} demonstrated that SORT had a much higher speed than similarly accurate algorithms, which confirmed that it would be the ideal algorithm to use.\supercite{object_tracking} It can be seen from \figref{object_tracking_comp} that SORT is much more accurate than any of the other real time algorithms.
 	        % image
          	\begin{figure}[h]
 				\centering
@@ -1302,14 +1310,14 @@ BoldItalicFont=Arial Bold Italic.ttf
 	
 	         \hspace*{3ex}The decision to house different components on board or off board is based on the computational power required, desired latency and housing size. For example, actuation and control requires minimal latency in order to navigate the pipes accurately and so is housed on board. In comparison, map generation is not necessary for operation, and so can be computed off board in order to reduce housing space and decrease power that must be sent via the optical fibre. \\
 	
-	          \hspace*{3ex}One key point to note is that a GPU is used off board whilst a CPU is used on board. A CPU is best suited for the high speed control mechanism of the robot. Meanwhile, the machine learning necessary for localisation and crack detection is best operated on a GPU.
+      		\hspace*{3ex}One key point to note is that a GPU is used off board whilst a CPU is used on board. A CPU is best suited for the high speed control mechanism of the robot. Meanwhile, the machine learning necessary for localisation and crack detection is best operated on a GPU.
 	          
-		      \begin{figure}[h]
-						\centering
-						\includegraphics[scale=1]{Systems-overall.pdf}
-						\caption{System Architecture}
-						\label{overalls}
-					\end{figure}
+    		\begin{figure}[h]
+				\centering
+				\includegraphics[scale=1]{Systems-overall.pdf}
+				\caption{System Architecture}
+				\label{overalls}
+			\end{figure}
 		      
 		\subsection[Communications]{Communications - Louis Emmanuel}
 		
@@ -1479,7 +1487,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 				\centering
 				\includegraphics[scale=1]{sensor hardware.PNG}
 				\caption{Costs and weights of sensor hardware}
-				\label{forecast}
+				\label{sensorHardware}
 			\end{figure}
 			
 		\subsection{Communications}
@@ -1521,6 +1529,8 @@ BoldItalicFont=Arial Bold Italic.ttf
 			The main regulatory bodies to consider are the Office of Gas and Electricity Markets (OFGEM), the Energy Networks Association (ENA) and the Health and Safety Executive (HSE).
 			As well as this, regulations enforced by the Institution of Gas Engineers and Managers (IGEM) and the International Standards Organisation (ISO) are also of interest.
  			\\
+ 			\textbf{Office of Gas and Electricity Markets}
+ 			\\
 			OFGEM is the UK government body which provides codes and regulations for the gas pipeline companies to follow, but these are mainly focused on reducing competition between gas transporters and ensuring a fair playing field for all companies.
 			The Uniform Network Code (UNC)\supercite{joint2005uniform} covers the transition from a single national system to the current 4 provider network, as well as the rights of customers and independent gas transporters.
 			The UNC also ensure that there is a fair market and safe operation for the gas pipe system, as well as encouraging the implementation of robust computer systems and daily energy balancing.
@@ -1536,12 +1546,16 @@ BoldItalicFont=Arial Bold Italic.ttf
 			However it also significantly easier to get the gas funding than electricity funding as the competition is significantly smaller - in 2020 there were only 2 applications, both of which were funded.
 			Thus providing a compelling reason for PipeDream to receive NIC funding for AccoBot will be incredibly important in order to secure funding for development.
 			\\
+			\textbf{Energy Networks Association}
+			\\
 			The ENA is the industry body for all the energy suppliers in the UK \& Ireland, allowing them to publish all their own guidance as to what is required to operate safely within pipes.
 			For the gas industry, these fall under the Gas Industry Standards (GIS), which define both how AccoBot can operate within pipes as well as how the pipes should be built and maintained.
 			However, most of these standards refer to traditional methods of pipe inspection and as such are not directly applicable to AccoBot.
 			The most likely to affect AccoBot's design is GIS/F10:2015 “Ancillary fittings used for the live insertion of gas mains operating at pressures equal to or less than 75 mbar”\supercite{energy2015gas}.
 			GIS/F10:2015 describes how the insertion of polyethylene pipes into steel gas mains must be performed on low pressure lines, which may provide guidance on the insertion of AccoBot into similar pipes.
 			However the pipes specified by 	GIS/F10:2015 are 8 inches (203.2 mm) in diameter, which is much smaller than the pipes AccoBot is designed to operate in and operating pressures are higher, so this standard will be of limited use.
+			\\
+			\textbf{Health and Safety Executive}
 			\\
 			The HSE is the government agency responsible for the regulation of workplace safety, and as such provides information on how to ensure safe working conditions in and around gas pipelines.
 			They provide guidance and interpretation\supercite{hse1996guide} of the Pipeline Safety Regulations 1996, allowing us to more easily select the most important regulations for AccoBot to follow.
@@ -1550,10 +1564,14 @@ BoldItalicFont=Arial Bold Italic.ttf
 			The HSE also clarifies that this means that testing must be undertaken with a standardised pipe to ensure that AccoBot does not cause damage or structural instability to the pipe.
 			As well as this it is necessary for us to be able to report when there is a possibility that damage to a pipeline has occurred, even when accidental, so AccoBot should also check for damage caused by itself on the return journey.
 			\\
+			\textbf{Institution of Gas Engineers and Managers}
+			\\
 			The IGEM provides technical standards for the gas industry, which are captured in several key areas.
 			Based on the IGEM list of standards\supercite{institution2021igem}, as the standards themselves are not freely available, some of the Safety (SR) regulations  as well as the Transmission and Distribution (TD) standards will need to be followed
 			Considering the safety regulations first, SR/22 ("Purging operations for fuel gases in transmission, distribution and storage"), covers the issues faced when removing objects from the pipeline, and SR/28 ("Trenchless techniques") discusses methods for operating in pipes with minimal or no excavation of the surrounding area.
 			The main Transmission and Distribution considerations are TD/1 ("Steel pipelines for high pressure gas transmission"), which are the main environment which AccoBot will be operating in, as well as TD/3 ("Steel and PE pipelines for gas distribution") and TD/4 ("PE and steel gas services and service pipework") which are more general standards for all kinds of pipeline, and may provide some requirements not captured by TD/1.
+			\\
+			\textbf{International Standards Organisation}
 			\\
 			The International Association of Oil \& Gas Producers (IOGP) provides guidance on the selection of relevant ISO standards\supercite{iogp2017standards}, which allows us to narrow down which relevant standards to consider.
 			While the ISO standards are also not freely available, the ISO website provides a short summary of the main points in the standard before purchase, allowing us to evaluate which standards to consider.
@@ -1916,33 +1934,33 @@ BoldItalicFont=Arial Bold Italic.ttf
 			    \\
 			    R\&D costing during the first two years. This would involve the salaries of those working on the project, utilities cost, rent and extra materials needed for iterated the design, as well as the cost of tweaking the design and rebuilding.
 			    
-		        \begin{figure}[h]
+		        \begin{table}[h]
 					\centering
 					\includegraphics[scale=1]{P&L_v1.PNG}
 					\caption{SWOT Analysis of ULC Robotics}
 					\label{forecast_PL}
-				\end{figure}
+				\end{table}
 		            
-		      	\begin{figure}[h]
+		      	\begin{table}[h]
 					\centering
 					\includegraphics[scale=1]{costs v1.PNG}
 					\caption{SWOT Analysis of ULC Robotics}
 					\label{forecast_costs}
-				\end{figure}
+				\end{table}
 				
-		 		\begin{figure}[h]
+		 		\begin{table}[h]
 					\centering
 					\includegraphics[scale=1]{FCF v1.PNG}
 					\caption{SWOT Analysis of ULC Robotics}
 					\label{forecast_FCF}
-				\end{figure}
+				\end{table}
 				
-				\begin{figure}[h]
+				\begin{table}[h]
 					\centering
 					\includegraphics[scale=1]{IRR v1.PNG}
 					\caption{SWOT Analysis of ULC Robotics}
 					\label{forecast_IRR}
-				\end{figure}
+				\end{table}
 	        
 	     %   	\begin{figure}[h]
 %			\centering
@@ -1958,7 +1976,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 
 	\pagebreak		% Temp page break for references - might end up replacing with a multicolumn environment later
 	
-	% In order to make a reference to an entry in the bibliography, use \cite{}
+	% In order to make a reference to an entry in the bibliography, use \cite{} or \supercite{}
 	% TexStudio will suggest names from the bib file - not sure about overleaf but otherwise use the first entry in the string
 	% Make sure bibliography is set to use BibTex rather than BibLatex
 	% Currently using google scholar default ids - should help prevent duplication of references but will need to be checked
