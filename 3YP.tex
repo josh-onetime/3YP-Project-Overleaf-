@@ -37,11 +37,13 @@
 
 \newcommand{\supercite}[1]{\textsuperscript{\cite{#1}}}		% New command to cite things in superscript without having to type it out every time
 
-\newcommand{\figref}[1]{\hyperref[#1]{Figure \ref*{#1}}}    % New command to automatically fill out basic figures more easily
+\newcommand{\figref}[1]{\hyperref[#1]{Figure \ref*{#1}}}    % New command to automatically fill out basic figure references more easily
 
-\newcommand{\equationref}[1]{\hyperref[#1]{Equation \ref*{#1}}}     % New command to automatically fill out equations more easily
+\newcommand{\equationref}[1]{\hyperref[#1]{Equation \ref*{#1}}}     % New command to automatically fill out equation references more easily
 
-\newcommand{\tableref}[1]{\hyperref[#1]{Table \ref*{#1}}}     % New command to automatically fill out tables more easily
+\newcommand{\tableref}[1]{\hyperref[#1]{Table \ref*{#1}}}     % New command to automatically fill out table references more easily
+
+\newcommand{\sectref}[1]{\hyperref[#1]{Section \ref*{#1}}}     % New command to automatically fill out section references more easily
 
 \setcounter{tocdepth}{2}	% Means table of contents only shows subsections
 
@@ -80,7 +82,7 @@ BoldItalicFont=Arial Bold Italic.ttf
     \pagestyle{plain}
 	\setcounter{page}{1}
 	
-	\section{Introduction - ENG + EEM}
+	\section{Introduction - \textit{Joshua Gei} - ENG + EEM }
 	
 		Underground gas distribution pipelines span over 2 million km across global infrastructure\supercite{pct2020states}, comprising over 60\% of all underground pipelines\supercite{pct2020states}, and are essential in the transport of natural gas for domestic use or electricity generation. 
 		
@@ -107,8 +109,8 @@ BoldItalicFont=Arial Bold Italic.ttf
 		
 		Hence, PipeDream will seek to address the target problems faced by our primary stakeholders with our product. 
 
-	\subsection[Target Problems]{Target Problems \textit{- Joshua Gei}}
-		We will first define the scope of our problem: PipeDream will target specifically \textbf{Tier 3 underground gas distribution pipelines in the UK}, using the pipeline assets category definition used by Ofgem, the Health and Safety Executive (HSE) and Gas Distribution Networks (GDNs)\supercite{pct2020states}. 
+	\subsection[Target Problems]{Target Problems}
+		We will first define the scope of our problem: PipeDream will target specifically \textbf{Tier 3 underground gas distribution pipelines in the UK}, using the pipeline assets category definition used by OFGEM, the Health and Safety Executive (HSE) and Gas Distribution Networks (GDNs)\supercite{pct2020states}. 
 		
 		\tableref{GasTiers} shows the pipeline assets categories. 
 		
@@ -119,39 +121,47 @@ BoldItalicFont=Arial Bold Italic.ttf
 			\label{GasTiers}
  		\end{table}
     
-		We reached out to a representative from Wales and West utilities (WWU), one of the 4 major GDNs in the UK, who pointed out that Tier 3 pipes in particular have pipe repairs increasing in volume and costs, have the largest proportion of buried mains reaching or beyond their expected asset life, and are the costliest to decommission and replace. Furthermore, Tier 3 mains are usually found in city locations, as opposed to other diameter types of pipelines, and cause considerable disruption to road users because multiple large excavations are required to complete the repairs.
+		We reached out to a representative from Wales \& West Utilities (WWU), one of the 4 major GDNs in the UK, who pointed out that Tier 3 pipes in particular have pipe repairs increasing in volume and costs, have the largest proportion of buried mains reaching or beyond their expected asset life, and are the costliest to decommission and replace\supercite{pct2020states}. Furthermore, Tier 3 mains are usually found in city locations, as opposed to other diameter types of pipelines, and cause considerable disruption to road users because multiple large excavations are required to complete the repairs\supercite{pct2020states}.
 		
 		Hence, a breakdown of the target problems faced by GDNs (our main customer), as well as other primary stakeholders, is as follows: 
 
-		\begin{enumerate}
-		   \item \textbf{Rising Costs}
-		   \begin{itemize}
-		     \item The individual entries are indicated with a black dot, a so-called bullet.
-		     \item The text in the entries may be of any length.
-		   \end{itemize}
-		   \item \textbf{Slow and Dangerous}
-		   \item \textbf{Obstructive}
-		   \item \textbf{Unable to inspect all types of pipes}
-		\end{enumerate}
+        \textbf{I. Rising Costs of Repair and Replacement} 
+        \linebreak of repair 
+
+        \textbf{II. Obstruction} 
+        \linebreak 
+    
+        
+        \textbf{III. Slow and Dangerous}
+        
+        \textbf{IV. Unable to Inspect all types of pipelines}
 
 	\subsection[Solution]{Solution \textit{- Joshua Gei}}
 	
 	Robotic solutions are estimated to provide this amount of cost savings, but our own estimates are... 
 	
+	A more comprehensive look into the value proposition of our solution and how it differs from existing competitors is covered in \sectref{solutionEvaluation} "Solution Evaluation" (pg xx). 
+	
     \section{Market Research - EEM}
         
         \subsection{Primary Market Research}
         
-	        Once the company identified the Gas Distribution Networks as the likely clients and therefore key stakeholders it was decided to speak to people in at these companies. It was decided to reach out to both those who worked closely with gas pipes in order to understand their pains, jobs and potential gains and also to reach out to innovation managers who would be in charge of making the decision as to whether they would partner with the company.
-	        In the former group we spoke to Thomas Barrett a Network Engineer and formerly Asset Supervisor at Cadent Gas Limited and to David Ransome, an Engineering Services Manager at Cadent. In the latter group we spoke to Lucy Mason, Innovation Manager at Wales \& West Utilities, Michael Charlton, Innovation Implementation Manager at Northern Gas Networks, Gordon McMillan, Innovation Project Officer at SGN and Andrew Newton who was Innovation Portfolio Manager at Cadent until June 2020.
-	        Andrew Newton highlighted that the robot should be able to navigate bends. He also said that most small size pipes have already been replaced and that the bigger mains in cities are more costly and difficult to repair. Therefore we further investigated these types of pipes. Additionally he said that the capital outlay to buy a robot would be “prohibitive”. 
-	        Thomas Barrett highlighted that being able to inspect a live gas pipe without isolating it would make the robot “invaluable”. This confirmed that designing the robot to be able to work in live gas conditions would be key. Andrew Newton further highlighted that because the atmosphere is almost 100\% ${CH}_4$ the robot’s interaction with the live gas conditions is not a big concern but that the most dangerous part is the insertion of the robot. For this reason it was decided to work with an experience supplier to provide the launch tube system.
-	        Further competitors ULC and Synthotech were spoken to in order to gain an understanding of how existing robotic solutions fit into the industry. ULC suggested that larger gas distribution pipes in urban areas would likely be the best part of the market to find a niche, and to steer more towards 16 – 36 inches, confirming the findings from the interviews with employees in at the Gas Distribution Companies. Our contact said that to provide value the robot would be able to travel in both directions, map the pipe, assess the conditions and detect potential leaks. Further he said that using visual sensing combined with machine learning would be very valuable and something that the firm is looking into. Synthotech also confirmed that such inspection techniques would be viable and valuable. Discussions with Synthotech resulted in them offering to provide video and images to train the machine vision algorithms.
+	        Once the company identified the Gas Distribution Networks as the likely clients, and therefore key stakeholders, it was decided to speak to people in at these companies. It was decided to reach out to both those who worked closely with gas pipes in order to understand their pains, jobs and potential gains and also to reach out to innovation managers who would be in charge of making the decision as to whether they would partner with the company.
+	        In the former group we spoke to Thomas Barrett a Network Engineer at Cadent and to David Ransome, an Engineering Services Manager at Cadent. In the latter group we spoke to Lucy Mason, Innovation Manager at Wales \& West Utilities, Michael Charlton, Innovation Implementation Manager at Northern Gas Networks, Gordon McMillan, Innovation Project Officer at SGN and Andrew Newton who was Innovation Portfolio Manager at Cadent until June 2020.
+	        \\
+	        Andrew Newton highlighted  Andrew Newton highlighted that the robot should be able to navigate bends. He also said that most small size pipes have already been replaced and that the bigger mains in cities are more costly and difficult to repair. Therefore we further investigated these types of pipes. Additionally he said that the capital outlay to buy a robot would be “prohibitive”. 
+	        \\
+	        Thomas Barrett highlighted that being able to inspect a live gas pipe without isolating it would make the robot “invaluable”. This confirmed that designing the robot to be able to work in live gas conditions would be key. Andrew Newton further highlighted that because the atmosphere is almost 100\% ${CH}_4$ the robot’s interaction with the live gas conditions is not a big concern, but that the most dangerous part is the insertion of the robot. For this reason it was decided to work with an experienced supplier to provide the launch tube system.
+	        \\
+	        Further competitors ULC and Synthotech were spoken to in order to gain an understanding of how existing robotic solutions fit into the industry. ULC suggested that larger gas distribution pipes in urban areas would likely be the best part of the market to find a niche, and to steer more towards 16 – 36 inches, confirming the findings from the interviews with employees at the Gas Distribution Companies. The contact said that to provide value the robot would be able to travel in both directions, map the pipe, assess the conditions and detect potential leaks. In addition to this, he said that using visual sensing combined with machine learning would be valuable and something that the firm is looking into. Synthotech also confirmed that such inspection techniques would be viable and valuable. Discussions with Synthotech resulted in them offering to provide video and images to train the machine vision algorithms.
+	        \\
 	        Through these conversations it was possible to find the niche in the market that the company would be able to provide the most value to and therefore have the greatest competitive advantage. This niche was tier 3 iron distribution pipes that were either inaccessible to competitor robots or were too costly for other robots to fix.
         
         \subsection{Market Sizing}
         
         \subsection{Competitor Analysis}
+        
+        We need some sort of introduction parapgraph to competitors overall
 		
 		\subsubsection[Project GRAID]{Project GRAID - Louis Emanuel}
 		
@@ -171,27 +181,27 @@ BoldItalicFont=Arial Bold Italic.ttf
 	        
      	\subsubsection[ULC]{ULC - Montgomery Beresford }
 	        
-	        ULC is a technology company head quartered in New York that has produces robots that as designed for the gas industry. It roughly has \$40m of annual revenue.\supercite{SPX_acquisition} It was acquired for \$135m by SPX in 2020 implying that it was acquired with an EV/Revenue of multiple of 3.375x.\supercite{SPX_multiple}.  SPX has an annual revenue of \$1.5 billion and 4500 employees who work in 17 countries.\supercite{SPX_acquisition} ULC has 15 robots which it has used to cover 145m km of pipeline.\supercite{ULC_news} ULC is a large company with 160 employees. They outsource some of their engineering design and manufacturing to soloosion.\supercite{soloosian}
+	        ULC is a technology company headquartered in New York that  produces gas industry robots. It roughly has \$40m of annual revenue.\supercite{SPX_acquisition} It was acquired for \$135m by SPX in 2020 meaning that it was acquired with an EV/Revenue of multiple of 3.375x.\supercite{SPX_multiple}.  SPX has an annual revenue of \$1.5 billion and 4500 employees who work in 17 countries.\supercite{SPX_acquisition} ULC is a large company with 160 employees and  15 robots which have covered over 145m km of pipeline.\supercite{ULC_news} They outsource some of their engineering design and manufacturing to soloosion.\supercite{soloosian}
 	        
 
             \begin{figure}[h]
 				\centering
-				\includegraphics[scale=1]{SWOT of ULC.PNG}
+				\includegraphics[width=0.8\textwidth]{SWOT of ULC.PNG}
 				\caption{SWOT Analysis of ULC Robotics}
 				\label{ULCSwot}
 			\end{figure}
             
-            \begin{figure}[h]
+            \begin{table}[h]
 				\centering
-				\includegraphics[scale=1]{ulc robots 2.PNG}
+				\includegraphics[width=0.8\textwidth]{ulc robots 2.PNG}
 				\caption{ULC Robotics product features\supercite{ULC_Robots}}
 				\label{ULCFeatures}
-			\end{figure}
+			\end{table}
         
 	\subsection[Patent Analysis]{Patent Analysis - Jim Laney}
 
 		It was decided to look at patents classified as \verb|F16L55/26| - "Pigs or moles, i.e. devices movable in a pipe or conduit with or without self-contained propulsion means" or \verb|F16L2101/30| - "Inspecting, measuring or testing [as a use or application of pigs or moles]" as these are most similar to the purpose which AccoBot fulfils.
-		In these patents the use of "pigs" refers to Pipeline Inspection Gauges (PIGs from here on), and moles are used as a synonymous term, and will thus also be referred to as PIGs from now on.
+		In these patents the use of "pigs" refers to Pipeline Inspection Gauges (PIGs), and moles are used as a synonymous term, and will thus also be referred to as PIGs.
 		While AccoBot is not a PIG as PIGs are typically unpowered and cannot deal with bends in the pipe, this is the closest patent classification to consider.
 		\begin{figure}[h]
 			\centering
@@ -206,8 +216,8 @@ BoldItalicFont=Arial Bold Italic.ttf
 			\end{multicols}
 		\end{figure}
 		\\
-		As you can see from \figref{patentGraph}, the rate of patent publication in both classifications is still growing at a rapid rate, suggesting the technology is in a period of rapid innovation and development.
-		This suggests that industry is still in the initial period of product design ferment, where no dominant design has occurred\supercite{christensen1998innovation}.
+		As \figref{patentGraph} shows, the rate of patent publication in both classifications is still growing at a rapid rate, suggesting the technology is in a period of rapid innovation and development.
+		This suggests that the industry is still in the initial period of product design ferment, where no dominant design has occurred\supercite{christensen1998innovation}.
 		Thus there is a much greater chance of survival, as this dominant design has not yet been established, and the space for new innovators is greater.
 		While there is also a risk to entering the industry too early, the sustained period of development in the last 20 years suggests that period has passed.
 		\\
@@ -215,14 +225,14 @@ BoldItalicFont=Arial Bold Italic.ttf
 		The main barrier to this would be the cost of doing so, as the paperwork itself is not prohibitive, especially with the assistance of a patent law firm.
 		However the cost to file a patent only in the United Kingdom is typically £4000 and usually takes 5 years to be filed\supercite{uk2020patenting}.
 		As well as this it is a separate process to apply for a patent which will also apply overseas, such as applying through the Patent Cooperation Treaty (PCT).
-		The PCT is treaty wich includes 153 states\supercite{pct2020states}, including the United Kingdom, United States and most of mainland Europe, as shown in \figref{pctMap}.
+		The PCT is treaty which includes 153 states\supercite{pct2020states}, including the United Kingdom, United States and most of mainland Europe, as shown in \figref{pctMap}.
 		However applying for a PCT patent can take even longer, and is even more expensive, up to £8000\supercite{mewburn2020international}, so it is important to ensure that the design is protected while applying for these patents.
 		Thus it would be a good idea to apply for some less strict protection, such as a trademark, and ensure that all discussions of sensitive information occur under the binding of a Non-Disclosure Agreement.
 	
-	\section[Solution Evaluation - EEM]{Solution Evaluation - Jim Laney}
+	\section[Solution Evaluation - EEM]{Solution Evaluation - Jim Laney} \label{solutionEvaluation}
 	
 		In order to consider how well our product fits the market needs, issues gathered from our primary and secondary research into the industry were considered, and how AccoBot solves these is shown in \tableref{solutionTable}.
-		We specifically focused on how AccoBott fits into use in locations where CISBOT or other competitors is too expensive to use, or cannot be used due to size constraints. % This seems quite negative - do we need this constraint on our table
+		How AccoBott can be used in locations where CISBOT or other competitors are too expensive to use, cannot be used due to size constraints and are unable to solve the current problems, was a particular focus for PipeDream. % This seems quite negative - do we need this constraint on our table
 		
 		\setlength{\tabcolsep}{13pt}	% Space 11 pts around the edges for readability
 		\renewcommand{\arraystretch}{1.4}	% Space at the top and bottom of rows for readability
@@ -230,7 +240,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 		\definecolor{rowGrey}{HTML}{F2F2F2}		% Defines the grey for the row with a hex code
 		\definecolor{headerBlue}{HTML}{77CEEF}	% Defines the blue for the header with a hex code
 		
-		\begin{longtable}[c]{| m{0.4\textwidth} | m{0.4\textwidth} |}
+		\begin{longtable}[c]{| m{0.45\textwidth} | m{0.45\textwidth} |}
 		
 			\hline
 			\rowcolor{headerBlue} \textbf{Current Issue} & \textbf{Solution}\\
@@ -249,25 +259,26 @@ BoldItalicFont=Arial Bold Italic.ttf
 			\hline
 			\rowcolor{rowGrey}
 			When pipes are considered for decommissioning, it is not known whether they are actually damaged. 
-			As such some pipes which are replaced are perfectly functional, and thus money is wasted replacing them before required. 
+			As such some pipes that are replaced are perfectly functional, and thus money is wasted replacing them before required. 
 			& 
 			AccoBot can be used to inspect pipelines before decommissioning in order to check which pipes are actually damaged, and which can continue to be used. 
 			This information can also be used to update the models of how soon the pipe will need to be replaced.
 			\\
 			\hline
 			\rowcolor{rowGrey}
-			In order to inspect pipes using manual methods most of the pipeline must be excavated, which is a large expense for the gas company, which also causes disruption to the general public, increasing the negative opinion of the public towards the gas company. 
+			In order to inspect pipes using manual methods much of of the pipeline must be excavated, which is a large expense for the gas company, and causes disruption to the general public, increasing their negative opinion of the gas company.
 			As well as this, for safety reasons the gas must be turned off, increasing network downtime and incurring a loss for the gas company, which is made even more serious by the fact that manual inspection is slow.
 			& 
-			AccoBot only requires a small excavation, since the launch tube is much smaller than excavating the entire section of pipeline, and can operate within an active gas pipe.
+			AccoBot only requires one small excavation, since the launch tube excavation is much smaller than excavating the entire section of pipeline, and the robot can operate within an active gas pipe.
 			Also, since humans are not directly involved in the inspection of the pipeline, safety concerns are greatly reduced which inspecting the pipe.
-			Autonomous in-pipe inspection is also faster due  to the robotic nature of the inspection technology and human error is greatly reduced as compared to manual inspection. % think the . needs to be removed  - does the reduction of human error solve this issue isn't that more to do with the next point
+			Autonomous in-pipe inspection is also faster, due to the robotic nature of the inspection technology, and human error is greatly reduced compared to manual inspection.
 			\\
 			\hline
 			\rowcolor{rowGrey}
 			Pipe inspection requires well trained individuals to inspect the pipes, who must travel to the location in order to perform the inspection.
+			
 			& 
-			AccoBot uses operators who do not need to be trained in inspection methods, and only have to be trained to operate the launch tube and ensure it is functioning correctly.
+			AccoBot uses operators who do not need to be as highly trained in inspection methods, and only have to be trained to operate the launch tube and ensure it is functioning correctly.
 			The data can then be passed to experts who do not have to be at the excavation point, saving on time and reducing the amount of travel required for expensive expert employees.
 			\\
 			\hline
@@ -288,18 +299,18 @@ BoldItalicFont=Arial Bold Italic.ttf
 			\\
 			\hline
 			\rowcolor{rowGrey}
-			When pipes are being replaced with smaller polyethylene pipes, so the old pipes are not being removed, there is a risk of damage to third party pipes due to lack of information about their placement. % Monty can you check this is correct
+			When pipes are being replaced with smaller polyethylene pipes, but the old pipes are not being removed, there is a risk of obstruction by third party pipes due to lack of information about their placement.
 			Thus, surveys are normally undertaken to check for and avoid these issues, which can be costly and slow.
 			& 
-			AccoBot can locate and mark third party pipes when travelling inside the pipe, since it has accurate information about where it is, relative to the outside world, and can use its cameras to identify and locate the branches.
+			AccoBot can locate and mark connecting pipes and obstacles when travelling inside the pipe, using its cameras to identify and locate the branches.
 			\\
 			\hline
-			\rowcolor{rowGrey} Current robotic solutions, such as CISBOT, are designed for pipeline repair and are not autonomous, meaning they require additional training or personnel and are much more expensive to use.
+			\rowcolor{rowGrey} Current robotic solutions, such as CISBOT, are designed for pipeline repair and are not autonomous, meaning operators require additional training and the robots are much more expensive to use.
 			As well as this, current unmanned inspection techniques, such as PIGs, are not able to operate in pipelines which have bends or variable diameter pipes, meaning they are useless in more complex pipelines which often occur in urban environments.
 			PIGs are also a passive solution, meaning they are driven by the gas pressure and the pipe angle, so they can only inspect pipes in one direction.
 			& 
-			AccoBot can adapt to different pipe diameters, and is able to navigate bends autonomously, meaning it is adaptable for more complex pipelines.
-			It can also climb pipes at any angle, as well as returning the angle of the pipe for use in mapping the pipe.
+			AccoBot can travel in two directions, so only one excavation is required, it can adapt to different pipe diameters, and is able to navigate bends autonomously, meaning it is adaptable for more complex pipelines.
+			It can also climb pipes at any angle, as well as finding the angle of the pipe for use in mapping it
 			As well as this, since it is designed only for autonomous inspection, is is cheaper and quicker to use for this purpose than more specialised robots, such as CISBOT.
 			\label{solutionTable}
 		\end{longtable}
@@ -322,19 +333,19 @@ BoldItalicFont=Arial Bold Italic.ttf
 		\end{figure}
 		
 		While inside the pipe, AccoBot uses three legs to maintain contact and provide the required normal force to move inside the pipe, as shown in \figref{3DSketch}.
-		Two of these legs can be rotated to provide improved speeds over pipes at different angles, and all three legs can be extended and retracted to fit the pipe diameter AccoBot is currently in.
+		Two of these legs can be rotated around the body of AccoBot to provide improved speeds over pipes at different angles, and all three legs can be extended and retracted to fit the pipe diameter AccoBot is currently in.
 		It can navigate around bends and through pipes at different angles, without prior knowledge of the location or angle of these, and will automatically feedback to the control system in order to create an accurate map.
 		\\
-		AccoBot uses computer vision to identify cracks and corrosion, allowing it to mark where these occur for human maintenance, and then combines this with knowledge of its position to create a map of the pipe it has travelled and where issues have occurred.
-		As well as this it uses object detection in order to identify important landmarks, such as connecting pipes, and possible pipe blockages.
-		It can transmit its location using a small transmitter, which has a separate power supply so that if AccoBot breaks down it can be located with minimal excavation.
+		AccoBot uses computer vision to identify cracks, corrosion and objects, allowing it to mark where these occur for human maintenance, and then combines this with knowledge of its position to create a map of the pipe it has travelled and where different features occur.
+		It uses object detection in order to identify important landmarks, such as connecting pipes, and possible pipe blockages.
+		Its location is transmitted using a small transmitter, which has a separate power supply so that if AccoBot breaks down it can be located with minimal excavation.
 	
 	\section{Product Hardware - ENG}
 	
 		\subsection[Locomotion]{Locomotion - Jim Laney}
-			The main locomotion of AccoBot is a set of 3 legs with a pantograph mechanism  to allow for the adaptation to different diameters, with tracks at the end to drive the motion, as shown in \figref{legDesign}.
+			The main locomotion of AccoBot is a set of 3 legs with a pantograph mechanism, which allows for adaptation to different diameters, and tracks at the end to drive the motion, as shown in \figref{legDesign}.
 			There is one leg which remains stationary at the top of AccoBot, and two legs which are able to rotate about its body between $20^\circ$ and $90^\circ$ to the vertical.
-			At the end of each leg there is a joint between the leg and the track to allow for AccoBot to travel along surfaces which are not perpendicular to the legs, such as around bends or over uneven surfaces.
+			At the tip of each leg there is a joint between the leg and the track to allow for AccoBot to travel along surfaces which are not perpendicular to the legs, such as around bends or over uneven surfaces.
 			\begin{figure}[h]
 				\centering
 				\begin{multicols}{2}
@@ -352,7 +363,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 			
 				The length of the pantograph is controlled by the force from two opposing linear actuators, which extend to a given length to set the distance of the pantograph.
 				The track at the end of the pantograph is connected to a freely turning joint, which can be measured using two angular encoders to give the angle $\phi$, shown in \figref{legDiagram}, with the springs acting to restore $\phi$ to $0^\circ$ when under no external effects.
-				The ratio between the longer base links of the pantograph and then shorter tip links is 2:1, which gives the greatest range of diameters for the smallest change in the base distance\supercite{okada1987mogrer}, to calculate the required link length $L$ to allow AccoBot to adapt to the chosen range of diameters, 457.2 - 914.4 mm.
+				The ratio between the longer base links of the pantograph and the shorter tip links is 2:1, which gives the greatest range of diameters for the smallest change in the base distance\supercite{okada1987mogrer}, to calculate the required link length $L$ to allow AccoBot to adapt to the chosen range of diameters, 457.2 - 914.4 mm.
 				The pantograph angles are shown in \figref{legDiagram}, which results in:
 				
 				\begin{align}
@@ -365,7 +376,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 					L &= \frac{2 \Delta r}{3 \left( \sin \left( \theta_{max} \right) - \sin \left( \theta_{min} \right) \right)}
 				\end{align}
 							
-				Assuming the pantograph will ideally move from an angle of $\theta_{min} = 10^\circ$ to $\theta_{max} = 60^\circ$, spanning a change in radius of 228.6 mm we can find that our link length $L$ = 220.1 mm.
+				The pantograph has been designed to move from an angle of $\theta_{min} = 10^\circ$ to $\theta_{max} = 60^\circ$, spanning a change in radius of 228.6 mm, requiring that our link length $L$ = 220.1 mm.
 			
 			\subsubsection{Active Compliance Joint}
 			
@@ -392,10 +403,12 @@ BoldItalicFont=Arial Bold Italic.ttf
 				
 				The rotation of the two base legs relative to the body of AccoBot occurs using a motor to drive each end of the rotation mechanism.
 				The motor drives the sun gears of two planetary gear systems, shown in \figref{planetaryDrive}, which rotate in opposite direction so the legs move symmetrically.
-				The direction is reversed for the further planetary drive system using a small differential gearbox, shown in \figref{diffGearbox}, which allows for compact reversal of motion.
+				The direction is reversed for the planetary drive not adjacent to the driving motor using a small differential gearbox, shown in \figref{diffGearbox}, which allows for compact reversal of motion.
 				These allow the legs to move around the body, from almost directly below AccoBot to in a horizontal plane at $90^\circ$ to the top leg.
-				As both legs are driven from the same motor at each end, both legs are symmetrical about the vertical leg at all times, and the leg position can be summarised by a single leg rotation angle $\lambda$, measured from the top leg, which varies from $\lambda = 90^\circ$ to $\lambda = 160^\circ$.
-				The rotation allows AccoBot to adapt to different angles of the pipe more easily, as it will be quicker to drive along horizontal pipes with the almost vertical drive system, whereas vertical pipes require a more even distribution of contact points for optimal behaviour, probably requiring an angle of $\lambda = 120^\circ$ for the most even distribution of contact points.
+				\\
+				As both legs are driven from the same two motors, one at each end, both legs are symmetrical about the vertical leg at all times, and the leg position can be summarised by a single leg rotation angle $\lambda$, measured from the top leg, which varies from $\lambda = 90^\circ$ to $\lambda = 160^\circ$.
+				This rotation allows AccoBot to adapt to different angles of the pipe more easily.
+				It will be quicker to drive along horizontal pipes with the almost vertical drive system, but when climbing vertical pipes a more even distribution of contact points is preferred, most likely an angle of $\lambda = 120^\circ$.
 										
 				\begin{figure}[h]
 					\centering
@@ -412,12 +425,13 @@ BoldItalicFont=Arial Bold Italic.ttf
 				
 			\subsubsection{Body Dimension Constraints}
 			
-			As the link length $L$ = 220.1 mm, we can find that the smallest leg radius $r_{min}$ = 57.3 mm, from \equationref{rMin}, not including the depth of the tracks.
-			If the track depth is $70$ mm, the body diameter $D_r$ has a maximum of 202.5 mm, setting a constraint on the dimensions of the inner body based on the design criteria.
+			As the link length, $L$ = 220.1 mm, we can find that the minimum height of a leg is $r_{min}$ = 57.3 mm, from \equationref{rMin}, not including the depth of the tracks.
+			If the track depth is $70$ mm, the body diameter $D_r$ has a maximum value of 202.5 mm, setting a constraint on the dimensions of the inner body based on the design criteria.
 			\\
 			The minimum length of the body can be found by considering how far apart the linear actuators need to be placed in order to work.
 			By considering the links at their flattest, the minimum distance between the linear actuators can be found as $l_{min} = L \cos \left( \theta_{min} \right)$.
-			This sets the body minimum length as 216.8mm, although this does not consider the size of the linear actuators themselves, since we will tend to be more constrained by the maximum length.
+			This sets the body minimum length as 216.8mm, although this does not consider the size of the linear actuators themselves.
+			While this is a generous estimate, we are more concerned about the constraints imposed by the maximum length.
 			\\
 			A maximum body length can be found by considering the ability of AccoBot to turn corners inside the pipe, and it is necessary to consider how this compares to the minimum to make sure there is no loss of mobility.
 			For the duration of this calculation, it is assumed that AccoBot is in the smallest possible pipe diameter $D_{pipe}$ = 457.2 mm, and the curvature radius $r_c = \frac{3}{2} D_{pipe}$\supercite{roh2005differential} = 685.8 mm.
@@ -433,7 +447,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 			\subsubsection{Required Forces}
 			
 				Using \figref{legDiagram} to calculate the required force output of the linear actuators in order for AccoBot to operate at all angles.
-				As such, the worse case scenario is considered, where AccoBot is climbing vertically and must create enough normal force for friction to support its entire weight.
+				As such, the maximum force scenario is considered, where AccoBot is climbing vertically and must create enough normal force for friction to support its entire weight.
 				This results in:
 				
 				\begin{align}
@@ -453,29 +467,29 @@ BoldItalicFont=Arial Bold Italic.ttf
 				\end{align}
 				
 				Since testing would be required to find the greatest angle $\phi$ that is experienced by AccoBot in general use, as well as an estimate for the coefficient of friction $\mu_{t,p}$, it is tricky to estimate the force required for the actuators.
-				However, estimates from other papers for $\mu_{t,p}$,which are 1.21\supercite{sato2011development} - 1.6\supercite{park2010normal}, allow us to create a worst case estimate for the required force of 1.21.
+				However, estimates from other papers for $\mu_{t,p}$, which suggest $\mu_{t,p} = $ 1.21\supercite{sato2011development} - 1.6\supercite{park2010normal}, allows a maximimum force estimate to be created using a value of $\mu_{t,p} = $ 1.21.
 				From \equationref{reqMaxNorm}, it is clear that the worst case scenario occurs in straight sections, where $\phi$ is expected to be close to $0^\circ$, with the smallest pipe diameter, as this minimises $\theta$, which will require the most linear actuator force.
 							
 		\subsection{Power}
 		
 		\subsection{Sensing}
 		
-		\subsubsection{Rotary Sensors}
+		\subsubsection{Angular Sensors}
             		
-            There will be rotary sensors placed at the connection between the legs and the tracks. 
+            There will be angular sensors placed at the connection between the legs and the tracks. 
             This will allow the robot to know the angle of the legs and therefore compute the distance to the walls and how much the legs must extend in order to produce a particular force. 
             Rotary sensors will also be placed at the top of the arms. 
             This will allow the robot to know the angle at which the arms are so that they can be rotated appropriately. 
-            For this job magneto resistive sensors and hall effect sensors were investigated. 
-            The benefits of magneto resistive sensors are that they are highly accurate, not sensitive to noise caused by external vibrations, very small and consume little energy. 
+            For the angular sensors, whose use are described in the previous section, magnetoresistive sensors and hall effect sensors were investigated. 
+            The benefits of magnetoresistive sensors are that they are highly accurate, not sensitive to noise caused by external vibrations, very small and are energy efficient.
             However they do not always measure 360 rotations and can be sensitive to temperature fluctuations. 
-            Meanwhile Hall effect sensors have the advantage of being able to measure 360 degrees of motion but they are not as accurate as Magneto resistive sensors. 
-            Since in this application accuracy is the most important factor and 360 degrees motion is not required magneto resistive sensors will be used.
             \\
-            There are three main types of magneto resistive sensors that had to be considered.
-            These are anisotropic magenetoresistance sensorts (AMR), tunnel-magentoresistance sensors (TMR) and giant magnetoresistance sensors (GMR). 
-            \tableref{rotary_encoders_comparison} compares them. 
-            MR is the magnetoresistance ratio and it describes how sensitive the sensor is to changing its electrical resistance with changes in external magnetic fields.\supercite{magnetoresistance} From \tableref{rotary_encoders_comparison} and \figref{rotary_encoders_graph} it can be seen that TMR sensors are the most sensitive.
+            Meanwhile Hall effect sensors have the advantage of being able to measure 360 degrees of motion but they are not as accurate as Magnetoresistive sensors. 
+            Since in this application accuracy is the most important factor and 360 degrees motion is not required magnetoresistive sensors are used.
+            \\
+            There are three main types of magnetoresistive sensors that had to be considered.
+            These are anisotropic magenetoresistance sensors (AMR), tunnel-magentoresistance sensors (TMR) and giant magnetoresistance sensors (GMR),
+            \tableref{rotary_encoders_comparison} compares them where MR is the magnetoresistance ratio, which describes how sensitive the sensor is to changing its electrical resistance with changes in external magnetic fields.\supercite{magnetoresistance}
             \\
             TMR sensors are made of three layers, the ferromagnetic free layer, the insulator barrier layer and the ferromagnet pin layer.\supercite{Tunnel_magnetoresistance} 
             The barrier layer is an insulating material.
@@ -487,35 +501,36 @@ BoldItalicFont=Arial Bold Italic.ttf
             There is a change in resistance due to electron scattering that is dependent on the spin orientation of the atoms within the ferromagnetic layers.
             \\
             AMR sensors on the other hand only have one layer of permalloy. 
-            Changes in resistance in AMR sensors vary depending on the material, but largely it is due to changes in spin-dependent scattering. \supercite{explanation_magntoresistance2}
+            Changes in resistance in AMR sensors vary depending on the material, but largely it is due to changes in spin-dependent scattering.\supercite{explanation_magntoresistance2}
             The anisotropic effect is the dependence of resistance on the angle between the electric current and the external magnetic field.
             \\
             Between these TMR was chosen because it has less age deterioration and temperature drift than the other two.
             This is important when the accuracy is the most important factor. 
-            Further it can be seen that it has greater sensitivity which provides greater resolution. Further because it produces a high output it does not require extra amplification reducing cost and complexity. 
+            Further, it can be seen from \tableref{rotary_encoders_comparison} and \figref{rotary_encoders_graph} that TMR sensors are the most sensitive, which provides greater resolution. What is more, because it produces a high output, it does not require extra amplification, reducing cost and complexity. 
+            
             
             \begin{table}[h]
 					\centering
-						\includegraphics[width=15cm] {table_showing_different_rotary_encoders.PNG}
-						\caption{Function and construction of an active compliance joint. Figure from \cite{Comparison_TMR_AMR}}
+						\includegraphics[width=0.9\textwidth] {table_showing_different_rotary_encoders.PNG}
+						\caption{Table comparing different angular encoders}
 						\label{rotary_encoders_comparison}
 				\end{table}
 				
 				  \begin{figure}[h]
 					\centering
 						\includegraphics[width=10cm] {Graph_of_different_rotary_encoders}
-						\caption{Sensitivity of different rotary encoders \cite{TMR_graph}}
+						\caption{Sensitivity of different angular encoders \cite{TMR_graph}}
 						\label{rotary_encoders_graph}
 				\end{figure}
 
-            \subsubsection{IMU vs AHRS vs INS}
+            \subsubsection{Comparison of AHRS, IMU and INS}
             
-            The robot needs to be able to determine its orientation so that it can calculate its pose. 
+            The robot needs to be able to determine its orientation so that it can calculate its pose, as described in 
             This information is fed into the localisation system as well as the navigation control system. 
             Three options were considered to provide this information, an attitude heading reference system (AHRS), an inertial measurement unit (IMU) and an inertial navigation system (INS). \tableref{AHRS_comparison} shows the comparison of these.
             \\
             The main consideration for this is providing as accurate information as possible since the accuracy of the robots systems is highly dependent on the accuracy of its knowledge of its pose. 
-            It was decided to use the AHRS because it provided attitude values and also suffers less drift than the IMU due to its application of a Kalman filter. 
+            It was decided to use the AHRS because it provided attitude values and suffers less drift than the IMU due to its application of a Kalman filter. 
             The INS is more expensive but can provide more accurate information if regular GNSS information is available. 
             However this is not available, therefore the extra expense would not be justified. For this reason an AHRS was chosen to be used.
             \\
@@ -524,7 +539,7 @@ BoldItalicFont=Arial Bold Italic.ttf
             
             \begin{table}[h]
 					\centering
-				    \includegraphics[width=0.95\textwidth]{Table_comparing_AHRS_INS_IMU.PNG}
+				    \includegraphics[width=0.9\textwidth]{Table_comparing_AHRS_INS_IMU.PNG}
 						\caption{}
 						\label{AHRS_comparison}
 				\end{table}
@@ -535,8 +550,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 	        These suffer drift, as described in the localisation section, but they provide extra information that is used to produce a more accurate overall system.
 	        \\
 	        One odometry method would be to use the relation between the motor power and track speed.
-	        This would have the benefit of not requiring any extra sensors. 
-	        It would therefore be the cheapest and least complex solution.
+	        This would have the benefit of not requiring any extra sensors and would therefore be the cheapest and least complex solution.
 	        However its accuracy would be too low due to the non-linear relationship between the power and the motor that would be dependent on that angle the robot is travelling, the weight of the robot, and the coefficient of friction between the robot and ground, among other things, all of which would vary.
 	        For this reason this method would not be used.
 	        \\
@@ -552,22 +566,22 @@ BoldItalicFont=Arial Bold Italic.ttf
 	        There were three main types of encoders to consider: magnetic, optical and capacitive.
 	        Magnetic encoders have the advantage of being more robust and not as sensitive to environmental contamination as optical sensors, however, they are often not as accurate. 
 	        Further, they can suffer interference from electrical motors and since the electrical motors in the tracks will in close proximity to the encoders this would be a significant factor. 
-	        Optical encoders have a much higher accuracy.\supercite{Encoders} 
-	        However, they consumer more power and are more likely to break. 
-	        The LEDs in encoders can burn out after 10,000 to 20,000 hours of use. \supercite{Encoders} 
+	        \\
+	        Optical encoders have a much higher accuracy\supercite{Encoders}, however, they consume more power and are more likely to break. 
+	        Furthermore, LEDs in encoders can burn out after 10,000 to 20,000 hours of use.\supercite{Encoders} 
 	        Since the effectiveness of the localisation is highly affected by  the effectiveness of its odometers, this risk of failure of the odometer has high significance.
 	        \\
 	        Capacitive encoders have greater robustness, and do not consume as much power due to not using an LED. 
 	        They required 6 to 10mA of current compared to 20 to 50mA required by optical encoders.
 	        Capacitive encoders are also more compact than optical and magnetic encoders and are less expensive\supercite{Encoders}. 
-	        They have a downside of being prone to electrical interference however modern packages housing the encoders tend to make this less significant than the noise that the other encoders face.\supercite{Encoders}
+	        They have a downside of being prone to electrical interference, however modern packages housing the encoders make this less significant than the noise that the other encoders face.\supercite{Encoders}
 	        \\
 	        \tableref{odometer_comparison} compares the metrics that it need to be considered when choosing which type to use. 
 	        Due to the relative inexpense of these compared to other parts of the robot, cost was not considered to be a factor worth considering. 
 	        From this decision matrix it was decided to use a capacitive odometer. 
 	        \begin{table}[h]
 						\centering
-							\includegraphics[width=0.95\textwidth]{Table_comparing_odometer_encoders.PNG}
+							\includegraphics[width=0.9\textwidth]{Table_comparing_odometer_encoders.PNG}
 							\caption{Function and construction of an active compliance joint. Figure from \cite{park2010normal}}
 							\label{odometer_comparison}
 					\end{table}
@@ -576,51 +590,47 @@ BoldItalicFont=Arial Bold Italic.ttf
 	        
 	        For the robot to provide value to its users it must be able to identify several features within the pipes. 
 	        Firstly it must be able to detect damage so that it can be determined whether the pipes need to be replaced.
-	        The robot will be primarily used on cast iron pipes. 
-	        Corrosion and cracks are the major categories of damage that can be found within these pipes.    
-	        Secondly, the robot can be used to provide information about the location of connecting pipes, joints, valves and other objects within the pipes. \supercite{Failure_pipes} \supercite{Failure_pipes2}
+	        The robot will be primarily used on cast iron pipes, within which corrosion and cracks are the major categories of damage found.  
+	        Secondly, the robot can be used to provide information about the location of connecting pipes, joints, valves and other objects within the pipes.\supercite{Failure_pipes}\supercite{Failure_pipes2}
 	        \\
-	        In order to determine how to detect the damage features 3 main steps were used. 
+	        In order to determine how to detect the damage features three main steps were used. 
 	        Firstly determining the type of sensor to use and therefore the type of data that will be processed. 
 	        Secondly having determined the type of sensor looking into the best types of that type of sensor. 
 	        Thirdly investigating how to best process the data provided by the sensor so as to extract the desired information.
 	        
-	        \subsubsection{Constraints to consider}
+	        \subsubsection{Constraints to Consider}
 	        
 	        When assessing the type of sensor the constraints of the application as well as the desired outcomes must be considered. 
 	        The robot would be involved in inspecting pipes of varying diameters, they may vary as the robot goes along the pipe as well as in different locations. 
 	        Therefore the detection systems must be able to adapt to different diameter pipes. 
 	        Secondly, it is important to maximise the amount of valuable information that can be gained from an excursion since a large amount of investment goes into providing the robot with access to the pipes.
-	        Further since in some places it is disruptive to provide access to the pipes and the cost of doing so is a function of time, it is important to use a method that allows the robot to move relatively quickly through the pipes. 
-	        Finally, the robot should be able to adapt to pipes of different materials since although the main use case will be in cast-iron pipes it could also be applied in steel pipes or PE pipes.
+	        Furthermore, since in some places it is disruptive to provide access to the pipes and the cost of doing so is a function of time, it is important to use a method that allows the robot to move relatively quickly through the pipes. 
+	        Finally, the inspection method should be able to adapt to pipes of different materials since, although the main use case will be in cast-iron pipes, the robot could be used in steel pipes or PE pipes.
 	
-	        \subsubsection{Type of sensors}
+	        \subsubsection{Type of Sensors}
 	        \textbf{MFL}
 	        \\
-	        Magnetic Flux Leakage inline inspection tools is an array of sensor placed in a circular configuration. 
-	        The arrays have magnets which produce a magnetic that flows through the pipes between the poles of each of the arrays. 
-	        Damage in the pipe wall leads to variation in the flow of flux. 
-	        A flux sensor is placed between the poles of the magnets and detects this variation which it uses to determine if there is damage present. 
-	        The flux increases in pipe for tensile stresses and decrease for compressive stresses.
+	        Magnetic Flux Leakage uses an array of sensors placed on arms in a circular configuration. 
+	        The array has magnets which produce a magnetic field that flows through the pipes between the poles of each arm of the array.
+	        A flux sensor is placed between the poles of the magnets and detects variation in the flux due to damage and stress,
+	        This flux increases in pipe for tensile stresses and decreases for compressive stresses.
 	        \\
-	        This type of detection is beneficial because it can detect stresses in the material which might predict damage in the future.
-	        Further, it allows damage within the pipe walls to be detected. 
-	        It is also less sensitive to surface condition compared to ultrasonic which is useful when considering that there may be dirt build up on the walls.
+	        This type of detection is beneficial because it can detect stresses in the material which might predict damage in the future and it can detect damage within the pipe wall.
+	        It is also less sensitive to surface condition compared to ultrasonic detection which is useful when considering that there may be dirt build up on the walls.
 	        \\
-	        However, the MFL requires a constant gap between it and the sides of the walls and this gap needs to be small find the exact numbers. 
+	        However, MFL requires a constant gap between it and the sides of the walls and this gap needs to be small find the exact numbers. 
 	        In order to get around this problem it was considered designing a mechanism which had the detectors on extendable arms which extended outwards in order to adapt to the pipe diameter. 
 	        However, this technique would mean in larger pipe diameters there would be less resolution. 
-	        What’s more the circular geometry gave the mechanism an added complexity which would introduce greater cost and weight to the robot. 
-	        What’s more the requirement to have an array of magnets would have considerably increased the weight of the robot. %get data on the weights of MFLs. 
-	        Another negative is that corrosion products can build up on the magnets which decreases its accuracy. It was therefore decided not to use an MFL.
+	        Moreover, the circular geometry gave the mechanism an added complexity which would introduce greater cost and weight to the robot. 
+	        Further, the requirement to have an array of magnets would have considerably increased the weight of the robot. %get data on the weights of MFLs. 
+	        Another negative is that corrosion products can build up on the magnets which decreases its accuracy. It was therefore decided not to use MFL.
 	        \\
 	        \textbf{Piezoceramic Ultrasonic Transducer Detection}
 	        \\
-	        Piezoceramic Ultrasonic Transducer Detection is a method that measures the time it takes for an emitted ultrasonic pulse to return to the sensor having reflected off a medium boundary. 
-	        This sensor is usually a piezoceramic transducer.\supercite{UT} 
-	        By using short pulses internal flaws of the pipe can be detected.\supercite{Corrosion}
-	        It can detect these flaws at greater depths into the wall than MFL.\supercite{MFL_Pig} 
-	        Further it can detect these flaws to a greater degree of accuracy than the MFL technique. %find data for this claim.
+	        Piezoceramic Ultrasonic Transducer (UT) Detection is a method that measures the time it takes for an emitted ultrasonic pulse to return to the sensor having reflected off a medium boundary. 
+	        This sensor is usually a piezoceramic transducer\supercite{UT}, which by sending and receiving short pulses can detect internal flaws in the pipe.\supercite{Corrosion}
+	        It can detect these flaws at greater depths into the wall than MF and to a greater degree of accuarcy.\supercite{MFL_Pig} 
+	         %find data for this claim.
 	        \\
 	        However, piezoceramic UT techniques require a couplant fluid between the sensor and the wall. 
 	        This would make it difficult to adapt to different diameters and would require the robot to be supplied with a fluid, something that would reduce its range considerably.
@@ -629,55 +639,53 @@ BoldItalicFont=Arial Bold Italic.ttf
 	        In a pipe system in which there is imperfect information and the pipe thickness changes as the diameter changes this would not be feasible. 
 	        Therefore Ultrasound Detection was decided against.
 	        \\
-	        \textbf{ECT}
+	        \textbf{Eddy Current Testing}
 	        \\
 	        Eddy Current Testing (ECT) uses a probe that produces an alternating magnetic field using an electromagnet.
 	        This induces an eddy current in the side of the pipe. 
-	        The eddy current is then measured and an algorithm can from this information produce information about any cracks that it has passed over. 
-	        This has an advantage over MFL because it can be used in both ferromagnetic and non-ferromagnetic material for surface inspection, however for tubing inspection it cannot be used for ferromagnetic material which would therefore not be useful when inspecting cast iron pipes.
+	        The eddy current is then measured which can be used to produce infomration about the integrity of the wall.
+	        This technology has an advantage over MFL because it can be used in both ferromagnetic and non-ferromagnetic material for surface inspection, however for tubing inspection it cannot be used for ferromagnetic material which would therefore not be useful when inspecting cast iron pipes.
 	        The ECT  also has the benefit of being non-contact.\supercite{Corrosion}
 	        \\
 	        On the other hand ECT is more sensitive to differing permeability of the wall when compared to MFL and the data is therefore harder to interpret. % Get source. 
-	        Besides this ECT is another technique which requires the sensor to be in close proximity to the wall which would make it hard to adapt to different diameters. 
-	        Therefore, it was decided against.
+	        Besides this, ECT is another technique which requires the sensor to be in close proximity to the wall which would make it hard to adapt to different diameters, therefore, it was decided against.
 	        \\
 	        \textbf{Infra-Red Camera}
 	        \\
 	        A innovative technique that is being developed for use in live pipe conditions involves the robot carrying a heater and a IR camera. 
 	        When there is a crack in the gas pipe the acceleration of the gas through the crack which creates friction causes temperature changes to the gas that can be detected by the IR camera. 
 	        This technique has the benefits of not requiring sophisticated computer vision as well as being able to work for many different diameters. 
-	        However its downside is that it can only detect through cracks thus meaning reducing the value that it can provide to a consumer. 
+	        However its downside is that it can only detect through cracks thus reducing the value that it can provide to a consumer. 
 	        \\
-	        \textbf{EMAT}
+	        \textbf{Electro Magnetic Acoustic Transducers (EMAT)}
 	        \\
 	        Electro Magnetic Acoustic Transducers (EMAT) are a non-contact ultrasonic testing technique that does not require a couplant. 
 	        The EMAT works by using magnetic fields to induce ultrasonic waves into the wall of the pipe.
-	        The waves that go through the pipewall when they return induce a current in the EMAT’s receiving coil.
-	        EMATs can be used to provide information about the thickness of the wall and wall loss due to damage such as corrosion. 
-	        The fact that it can provide information about defects within the walls of the pipe and that gas distribution companies already know how to use EMAT data is their risk models means that it has a major advantage. 
+	        The waves that go through the pipe wall and when they return induce a current in the EMAT’s receiving coil.
+	        EMAT can be used to provide information about the thickness of the wall and wall loss due to damage such as corrosion. 
+	        The fact that it can provide information about defects within the walls of the pipe and that gas distribution companies already know how to use EMAT data in their risk models means that it has a major advantage. 
 	        The downside is that on the robot it will only be able to be deployed at certain angles and will miss out on damage over the majority of the circumference of the pipe. 
 	        For this reason it  cannot be used alone.
 			\\
 			\textbf{Visual Sensing}
 			\\
-	        Visual sensing using computer vision techniques to visually identify with a camera damage to the interior of the pipe. 
-	        This has the benefit that the information produced is easy to interpret and the data collection can occur at a faster pace. % Get data 
-	        Further the camera equipment required for it is relatively uncomplex and inexpensive and would be required for the navigation of the robot and detection of object features anyway. 
+	        Visual sensing uses computer vision techniques to visually identify damage to the interior of the pipe. 
+	        This has the benefit of that the information produced is easy to interpret and the data collection can occur at a faster pace. % Get data 
+	        Moreover, the camera equipment required for it is relatively simple and inexpensive and would be required for the navigation of the robot and detection of object features anyway. 
 	        Further visual detection can be used with a wide range of diameters since the camera does not need to be in close proximity with the wall and it can also be used with any pipe material. 
-	        The downsides is that it is has lower precision. Further, its ability to accurately detect damage can be affected by lighting conditions and build up of dirt on the surface of the pipes. 
-	        On top of that it cannot detect internal defects in the pipe.
-	        Despite this, its adaptability to the different pipe environments meant that this would be taken forward for further consideration.
+	        The downsides are that it is has lower precision, its ability to accurately detect damage can be affected by lighting conditions and build up of dirt on the surface of the pipes and  that it cannot detect internal defects in the pipe.
+	        Despite this, its adaptability to the different pipe environments means that this will be taken forward for further consideration.
 	        \\
 	        \textbf{Laser Scanner}
 	        \\
 	        A laser scanner provides higher resolution information about the inner surface of pipes. % Give a resolution number 
 	        It allows the depth of pits and cracks to be determined and the integrity of different sections of the pipe. 
-	        From this information a laser scanner allows the company to know how much material is left, what the remaining life of the asset is and what the risk of leakage is. \supercite{2g_robotics}
-	        These can be used for a range of pipe diameters so are therefore adaptable. The downside of laser scanners compared to visual sensing is that it is a slow process to acquire detailed high-resolution information. 
+	        From this information a laser scanner allows the client to know how much material is left, what the remaining life of the asset is and what the risk of leakage is.\supercite{2g_robotics}
+	        These can be used for a range of pipe diameters so are  adaptable. The downside of laser scanners compared to visual sensing is that it is a slow process to acquire detailed high-resolution information. 
 	        For a 1 metre diameter pipe it was calculated the robot would need to stop every 0.37m and carry out a 360 degree scan that takes 6 minutes. 
 	        This scan covers 0.466m along the axis of the pipe. 
 	        This means that the average rate when the laser function is activated is 6.1cm of pipe length per minute. 
-	        This calculation was made using data from 2grobotics.\supercite{2g_robotics} [  
+	        This calculation was made using data from 2grobotics.\supercite{2g_robotics}
 	        \\
 	        The laser scanner therefore offers major advantages for providing more detailed information about the pipes than visual sensing. 
 	        However, because of its speed of acquiring data it cannot be used all the time if a large distance of pipe needs to be inspected.
@@ -686,26 +694,23 @@ BoldItalicFont=Arial Bold Italic.ttf
 	        \\
 	        Ideally metrics would be looked at to determine the accuracy of these techniques in the environment that the robot would be in. 
 	        This would involve looking at false positives, false negatives, recall and precision.
-	        However, since the robot is not constructed and there is currently no access to these environments this would not be possible.
+	        However, since the robot is not constructed and there is currently no access to these environments this would not be possible, and the decision would be made off the understanding of the technology, as described above.
 	        \\
-	        It has been decided that the robot would use a combination of laser scanning, visual detection and EMATs.
+	        It has been decided that the robot would use a combination of laser scanning, visual detection and EMAT sensors.
 	        The visual detection would allow the robot to move more quickly through the pipe where there is not any damage, saving time and providing extra range. 
 	        The EMAT can be deployed when that data is desired by the gas distribution company in order to provide information for their risk models. 
-	        There will be two modes for which the laser would be activated. These would be once the visual system detects damage  above a certain threshold and the other would be when it detects a joint. The laser scanner to extract greater resolution data about the damage or the joint. 
+	        There are  two modes for which the laser is activated. These are once the visual system detects damage  above a certain threshold and the other when it detects a joint. The laser scanner is used to extract greater resolution data about the damage or the joint. 
 	        This threshold will be decided after test runs are done with the partnered company and will be adapted based on the difference risk preferences of the different clients.
 	    	\\
 	        \subsubsection{Constraints imposed on the rest of the robot by the visual detection system}
-	        The visual detection system provides constraints on the processing of images. The FPS of the camera chosen is 40.
-	        The robot is moving along at $0.1ms^-1$. 
-	        Therefore to detect provide a detection every 1cm the robot must be able to process images at 10 FPS.
+	        The visual detection system provides constraints on the processing of images. The FPS of the camera chosen is 40 and the robot is moving along at $0.1ms^-1$, which that means to  provide a detection every 1cm the robot must be able to process images at 10 FPS.
 	        \\
-	        Firstly the inverse of the computation time for one frame would need to be less than frame rate otherwise there would be a backlog of images, which would require a large memory saving device prior to the processing of the images. 
-	        In case some images do occasionally take longer to be processed than the frame rate there is a small amount of memory allocated to saving the pre-processed images. 
-	        This uses a first in first out system.
+	        The inverse of the computation time for one frame needs to be less than the frame rate otherwise there would be a backlog of images, which would require a large memory saving device prior to the processing of the images. 
+	        In case some images do occasionally take longer to be processed than the frame rate there is a small amount of memory allocated to saving the pre-processed images, which uses a first in first out system.
 
 		\subsection[Communications]{Communications - Louis Emanuel}
 
-			Communication is an important capability for the autonomous robot as in order to operate it safely and efficiently, it's critical to know the whereabouts of the robot within the pipe at any given time. 
+			Communication is an important capability for the autonomous robot as, in order to operate it safely and efficiently, it's critical to know the whereabouts of the robot within the pipe at any given time. 
 			An additional and more complex requirement is also the ability for bidirectional communication so the robot can be updated on its position and given instructions when necessary. 
 			\\
 		    The difficulty arises in finding a suitable communication method that is capable of operating in the difficult pipeline environment. 
@@ -734,8 +739,8 @@ BoldItalicFont=Arial Bold Italic.ttf
 	        
 	        \begin{figure}[h]
 				\centering
-				\includegraphics[scale=1]{comms layout.pdf}
-				\caption{Communications layout} % This needs a citation for the source I think
+				\includegraphics[width=0.9\textwidth]{comms layout.pdf}
+				\caption{Communications layout}
 				\label{commsLayout}
 			\end{figure}
 	        
@@ -754,8 +759,6 @@ BoldItalicFont=Arial Bold Italic.ttf
 					F_0 = \mu_g L_{wire}   g \rho
 			\end{align}
 	        
-	        % Not sure about this value of F0
-	        
 	        Where $L_{wire}$ is the length of wire at current time, $\mu_g$ is the coefficient of friction between the cable and ground and $\rho$ is the mass per unit length of the cable.
 	        
 	        This equation is very simple and does not take into account the corners the robot is designed to navigate. 
@@ -767,7 +770,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 	
 			Where $\mu_c$ is the coefficient of friction between the cable and corners and $\alpha$ is the angle swept by the cable around the cylinder in radians. 
 		    Hence, in order to minimise this drag force, a solution must be found that satisfies the bandwidth capabilities whilst minimising the mass per length and friction coefficients.  
-		    In this case, a Fiber optic cable is better in almost every sense over alternatives. 
+		    In this case, a fiber optic cable is better in almost every sense over alternatives. 
 		    For example, a typical fiber cable weighs 4Lbs/1000ft, requires a power of 2W and is immune to noise. 
 		    In comparison, the next best alternative is copper wire which weighs 36Lbs/1000ft, requires >10W of power and is susceptible to EM interference [x].
 		    \\
@@ -790,7 +793,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 	        
 	        \begin{figure}[h]
 				\centering
-				\includegraphics[scale=1]{cablereel.png}
+				\includegraphics[width=0.8\textwidth]{cablereel.png}
 				\caption{Comparison of Existing Cable Reel solutions}
 				\label{comparisonReels}
 			\end{figure}
@@ -807,8 +810,8 @@ BoldItalicFont=Arial Bold Italic.ttf
 	        
 	        \begin{figure}[h]
 				\centering
-				\includegraphics[scale=0.7]{ELFtransmitter.jpg}
-				\caption{ELF Transmitter Structure} % This needs a citation for the source I think
+				\includegraphics[height=\imageheight]{ELFtransmitter.jpg}
+				\caption{ELF Transmitter Structure}
 				\label{ELF transmitter}
 			\end{figure}
 			
@@ -817,7 +820,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 		    
 		    \begin{figure}[h]
 				\centering
-				\includegraphics[scale=0.7]{blockreceiever.pdf}
+				\includegraphics[height=\imageheight]{blockreceiever.pdf}
 				\caption{ELF Receiver Block Diagram}
 				\label{ELFrec}
 			\end{figure}
@@ -830,17 +833,17 @@ BoldItalicFont=Arial Bold Italic.ttf
 	
 		\subsection{Materials \& Construction}
 		
-			Many of the gas-pipes that the robot is operating in will be pressurised. The robot must be designed so that it can withstand these pressures. To do this the outer casing of the main body of the robot must be made of a the correct material and the correct thickness. To do this the body will be modelled as a cylinder.
-		    From researching materials used by other robots used in pressurised environments it was clear that aluminium alloys, carbon fibre and titanium would be good candidates for the robot’s main body casing. Carbon fibre bodies are more complex and expensive to manufacture therefore it was decided not to use that. Aluminium alloys are cheaper than titanium and also had desirable properties for the environment.
+			Many of the gas-pipes that the robot is operating in will be pressurised and the robot must be designed so that it can withstand these pressures. To do this the outer casing of the main body of the robot must be made of a the correct material and the correct thickness.Moreover the environment can be corrosive which means the material needs to be durable.
+		    From researching materials used by other robots used in pressurised environments it was clear that aluminium alloys, carbon fibre and titanium would be good candidates for the robot’s main body casing. Carbon fibre bodies are more complex and expensive to manufacture therefore it was decided not to use this material. Aluminium alloys are cheaper than titanium and also have desirable properties for the environment.
 		    Specifically Aluminium Alloy 6082-T6 alloy will be used. It is stronger than the 6061 alloy and the T6 temper is also relatively easy to machine. [https://www.azom.com/article.aspx?ArticleID=2813]  It has been chosen over a 7XXX series alloy which is stronger because it is easier to machine and is weldable.[  https://www.metalsupermarkets.co.uk/differences-6082-and-7075-aluminium/] 
 		    
-		    A calculation applying the Lame equations found that the thickness of the body could be of the order of $10^-4$ in order to prevent failure due to yielding. This was therefore not a constraint on the thickness of the robot so it was decided to make it 5mm thick, in order to reduce weight but still provide structure.
+		   To calculate how thick the robot should be the robot's body was modelled as a cylinder. A calculation applying the Lame equations found that the thickness of the body could be of the order of $10^-4$ in order to prevent failure due to yielding. This was therefore not a constraint on the thickness of the robot so it was decided to make it 5mm thick, in order to reduce weight but still provide structure.
 	
 	\section{Product Software - ENG}
 		
-		\subsection[Inclination Detection]{Inclination Detection - Jim Laney}
+		\subsection[Inclination Detection]{Inclination Detection - Jim Laney} \label{poseCalculation}
 		
-			AccoBot is able to detect the inclination of the pipe it is in for calculation of the required leg force, as well as to aid in the mapping of the pipe.
+			AccoBot needs to be able to detect the inclination of the pipe it is in for calculation of the required leg force, as well as to aid in the mapping of the pipe.
 			While the AHRS can give the angle of AccoBot relative to the wider world, it is not guaranteed that the robot's body is parallel to the pipe.
 			As such, the angle between the pipe and AccoBot needs to be accounted for in order to correctly measure the pipe angle.
 			\\
@@ -869,7 +872,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 				\\
 				\alpha &= \frac{\phi_T}{\cos \left( \beta \right)}
 			\end{align}
-			Once the individual rotations of AccoBot are found, they can combine this with the AHRS data to find the pipe angle relative to the outside world.
+			Once the individual rotations of AccoBot are found, they can be combined with the AHRS data to find the pipe angle relative to the outside world.
 			\\
 			Working in 3D space, the AHRS returns rotations in a matrix $\mathbf{R}_{R,W}$, which gives the angle of AccoBot relative to the world.
 			In order to find $\mathbf{R}_{P,W}$, the rotation of the pipe relative to the world, a matrix $\mathbf{R}_{P,R}$ is created, which gives the rotations of the pipe, relative to AccoBot:
@@ -902,11 +905,11 @@ BoldItalicFont=Arial Bold Italic.ttf
 				\\
 				\psi_z &= \tan^{-1} \left( \frac{ \ \mathbf{R}_{P,W} \left[ 3,2 \right] \ }{\mathbf{R}_{P,W} \left[ 3,3 \right] } \right) \label{pipeZ}
 			\end{align}
-			Thus, in order to increase the efficiency of the algorithm, only the relevant entries of $\mathbf{R}_{P,W}$ need to be calculated, meaning that the number of computations required can be reduced to $\frac{5}{9}$ of the original value.
+			In order to increase the efficiency of the algorithm, only the relevant entries of $\mathbf{R}_{P,W}$ need to be calculated, meaning that the number of computations required can be reduced to $\frac{5}{9}$ of the original value.
 			The reliability of the found pipe angle is not guaranteed, as the angle of the legs can be affected by other factors, such as unevenness in the pipe wall.
-			As such, the value for the inclination of the pipe should be averaged out to give better results for pipe inclination, and giving a smoother projection of the map overall.
+			As such, the value for the inclination of the pipe should be time averaged to give better results for pipe inclination, and giving a smoother projection of the map overall.
 		
-		\subsection[Leg Actuation Control]{Leg Actuation Control - Jim Laney}
+		\subsection[Leg Actuation Control]{Leg Actuation Control - Jim Laney} \label{diameterAdaptation}
 		
 			AccoBot needs to be able to accurately control the length of its legs in order to maintain the correct normal force for operation.
 			The required linear actuator force for climbing vertically is given \equationref{reqMaxNorm}, which can be modified to find that:
@@ -919,7 +922,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 			\\
 			However, when the pipe inclination is zero - i.e travelling in a horizontal direction - \equationref{idealForce} breaks down and the required force $F$ becomes $0$.
 			The required normal force when travelling in the horizontal pipe is the weight $W$.
-			Thus the new equation for the normal force:
+			Thus, the new equation for the normal force is:
 			\begin{align}
 				\begin{split}
 					N &= \left( N_{max} - W \right) \sin \left( \psi_x \right) + W
@@ -934,16 +937,16 @@ BoldItalicFont=Arial Bold Italic.ttf
 				F &= \frac{ W \cos \left( \phi \right)}{ 2 \tan \left( \theta \right) } \left( \sin \left( \psi_x \right) \left( \frac{1}{3 \mu_{t,p}} - 1 \right) + 1 \right)
 			\end{align}
 			\\
-			Thus, if the weight of AccoBot is known, and the pipe inclination $\psi_x$ is estimated, as well as measuring the leg and foot angles $ \theta \ \& \ \phi$, the required actuator force can be estimated.
+			If the weight of AccoBot is known, and the pipe inclination $\psi_x$ is estimated, as well as measuring the leg and foot angles $ \theta \ \& \ \phi$, the required actuator force can be estimated.
 			This means that AccoBot can set a target actuator force at all times in order to ensure that it able to traverse the pipe.
 			\\
 			While sensors were initially considered to work out the pipe diameter, a much simpler solution was to use the linear actuators themselves. 
 			Since the required normal force is known, the actuators can be extended, updating the value of theta until the desired force is reached, using a $H_{\infty}$ controller.
-			Thus, the force can be controlled to the point where the target value is reached, and the pipe diameter can be estimated by finding the base angle $\theta$.
+			Therefore, the force can be controlled to the point where the target value is reached, and the pipe diameter can be estimated by finding the base angle $\theta$.
 		
 			\begin{align}
 				\cos \left( \theta \right) &= \cos \left( \theta_{min} \right) + \frac{E}{L}
-				\intertext{where E is the extension of a single actuator. \newline The pipe diameter can then be found as:}
+				\intertext{Where E is the extension of a single actuator. \newline The pipe diameter can then be found as:}
 				D_{pipe} &= D_r + \frac{3 L}{2} \sin \left( \cos ^{-1} \left( \theta \right) \right)
 				\\
 				&= D_r + \frac{3 L}{2} \sin \left( \cos ^{-1} \left( \cos \left( \theta_{min} \right) + \frac{E}{L} \right) \right)
@@ -961,7 +964,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 			\end{figure}
 		
 			 $H_{\infty}$ control was chosen as the system dynamics can be well modelled for the extension of the leg, and fast performance is required.
-			 This is because too little normal force is possible catastrophic, if AccoBot is travelling up a steeply inclined pipe, and too much normal force for too long could damage critical components.
+			 This is because too little normal force could be catastrophic, if AccoBot is travelling up a steeply inclined pipe, and too much normal force for too long could damage critical components.
 			 While the system is non-linear, most of the variables simply contribute as fixed values, with the system only being non-linear in $\theta$.
 			 However, in the region $10^\circ - 60^\circ, \sin \left( \theta \right)$ is relatively linear, so a linear control method was chosen.
 		
@@ -969,7 +972,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 		
 			AccoBot requires knowledge of where it is in the pipe, and being able to calculate the position of bends in the pipe is important.
 			AccoBot is designed to travel around bends autonomously, and then report back to the mapping software that it has turned a bend, as well as calculating the angle turned through.
-			When turning a bend, AccoBot uses angular encoders at the end of each leg to tell the individual leg bends $\phi_T$, $\phi_L$ \& $\phi_R$.
+			When turning a bend, AccoBot uses angular encoders at the end of each leg to tell the individual foot bends $\phi_T$, $\phi_L$ \& $\phi_R$.
 			These are detected from angular encoders connected to each leg link which are averaged, so $\phi_L = \frac{\phi_{L1} + \phi_{L2}}{2}$ and equivalent for the other legs.
 			AccoBot can then vary the speed of the tracks at the end of each leg in order to try and get the angles to be parallel, such that $\phi_L = \phi_R = \phi_T$.
 			This is done by setting the top leg angle $\phi_T$ as a reference, and controlling the speed using the difference between this and $\phi_R$ or $\phi_L$ with a PID controller.
@@ -978,11 +981,11 @@ BoldItalicFont=Arial Bold Italic.ttf
 			AccoBot is able to estimate the magnitude of the bend angle based on the distance travelled and the pipe diameter.
 			If the bend is in the horizontal plane, as shown in \hyperref[pipeAngle]{Figure \ref*{pipeAngle}(i)}, AccoBot has to consider the differences between the non vertical legs in order to determine bend angles and directions.
 			AccoBot can then integrate the speed of each track over the travel of the robot in order to determine the distance travelled.
-			When there is disparity between the measured distance by each of the legs, but all tracks are travelling at the same speed, it can be concluded that a bend has been turned, and AccoBot is again travelling straight.
+			When there is disparity between the distance travelled, as measured by each leg, but all tracks are travelling at the same speed, it can be concluded that a bend has been turned, and AccoBot is again travelling straight.
 			Once the bend angle has been determined, this difference can be subtracted in order to realign the values of the track distances covered so that future bends can be identified.
 			The inclination calculation also returns the angle of the pipe, which can be used to check the calculations, and ensure that the signs of the calculated bends are correct.
 			\\
-			If the leg rotation angle $\lambda = 90^\circ$, so that the side legs form a plane across the diameter of the pipe, the angle change can simply be found by using
+			If the leg rotation angle $\lambda = 90^\circ$, so that the side legs form a plane across the diameter of the pipe, the angle change can simply be found by using:
 			\begin{align}
 				d_{inner} &= \theta_{bend} \left( r_c  - \frac{ D_{pipe} }{2} \right)
 				\\
@@ -990,22 +993,22 @@ BoldItalicFont=Arial Bold Italic.ttf
 				\\
 				\implies \Delta d &= \theta_{bend} D_{pipe}
 			\end{align}
-			where d is the distance calculated from the integration of the track speed.
+			where d is the distance calculated from the integration of the track speed, and $\theta_{bend}$ is the estimated pipe bend angle.
 			\\
-			The robot legs are typically not going to be in this position, so instead the value of $\lambda$ needs to be factored in, which can be achieved by adjusting the effective pipe diameter:
+			The robot legs are typically not going to be in this position, so instead the value of $\lambda$ needs to be factored into the calculation of the pie bend angle, which can be achieved by adjusting the effective pipe diameter, $D_{eff}$:
 			\begin{align}
 				D_{eff} &= D_{pipe} \sin \left( \lambda \right)
 				\\
 				\Delta d &= \theta_{bend} D_{eff}
 				\\
 				\Delta d &= \theta_{bend} D_{pipe} \sin \left( \lambda \right)
-				\intertext{Thus the bend angle in the horizontal plane can be caluclated as}
+				\intertext{Thus the bend angle in the horizontal plane can be calculated as:}
 				\theta_{bend} &= \frac{d_{left} - d_{right}}{D_{pipe} \sin \left( \lambda \right)}
 			\end{align}
 			This means that the angle $\lambda$ cannot be $180^\circ$, since this would result in the angle being incalculable, since there is no differential between the two rotating tracks.
-			However, this position is obviously not possible, as the tracks cannot occupy the same space, and thus there will always be a differential to calculate the bend angle over.
+			Also, this position is obviously not possible, as the tracks cannot occupy the same space, and thus there will always be a differential to calculate the bend angle over.
 			\\
-			If the bend is instead in the vertical plane, also shown as \hyperref[pipeAngle]{Figure \ref*{pipeAngle}(i)}, only the top leg's distance will be different, as the two side legs should be moving around an equally long path.
+			If the bend is instead in the vertical plane, shown as \hyperref[pipeAngle]{Figure \ref*{pipeAngle}(i)}, only the top leg's distance will be different, as the two side legs should be moving around an equally long path.
 			The bend angle can thus be found by comparing the distance of the outer leg with the distance of the side legs, which must again be adjusted for $\lambda$.
 			Assuming an upwards bend:
 			\begin{align}
@@ -1035,11 +1038,11 @@ BoldItalicFont=Arial Bold Italic.ttf
 			\end{align}
 			\fontsize{11}{\baselineskip}
 			The sign of $\theta_{bend}$ can be determined by considering the sign of the differences between the top, left and right legs.
-			The leg which is on the outside of the bend will have the longest path, and the one which is on the inside will travel the shortest, which will help differentiate between the different values of $\xi$ \& $\theta_{bend}$.
-			This can then also be combined with the detected inclination to ensure AccoBot is aware of whether it is travelling upwards or downwards as a secondary check.
+			The leg which is on the outside of the bend will have the longest path, and the one which is on the inside will travel the shortest, which will allow AccoBot to differentiate between the different values of $\xi$ \& $\theta_{bend}$.
+			This is then combined with the detected inclination to ensure AccoBot is aware of whether it is travelling upwards or downwards as a secondary check.
 			\\
 			\equationref{alphaEq} is derived from a constraint that specified that the difference between $\xi$ and the right hand side is a multiple of $2 \pi$ (in radians).
-			Since $\xi$ is limited between $0^\circ$ and $90^\circ$, which are both less than $2 \pi$, this constraint sets the value of $\xi - (\ref*{alphaEq}) = 0$, allowing us to calculate $\xi$ directly as in \equationref{alphaEq}.
+			Since $\xi$ is limited between $0^\circ$ and $90^\circ$, which are both less than $2 \pi$, this constraint sets the value of $\xi - (\ref*{alphaEq}) = 0$, allowing $\xi$ to be directly calculated as in \equationref{alphaEq}.
 			\\
 			\equationref{generalTheta} can be validated by substituting in the previously explored cases.
 			\\
@@ -1071,17 +1074,17 @@ BoldItalicFont=Arial Bold Italic.ttf
 			If the foot angle $\phi$ is negative, no action is required, as the foot is in a concave section and the flexing and returning will be maintained by the torsional spring.
 			However, if the angle $\phi$ is positive, AccoBot is going over a bump, and a rotation of the front track is necessary.
 			\\
-			The servo motor is actuated until the current required increases above a certain limit, as this will occur when the track has hit a physical barrier, the pipe wall.
-			As well as doing this with a control system, there should also be a electrical short circuit to bypass the motor if any large currents are required, in order to prevent damage.
+			The servo motor is actuated until the current required increases above an experimentally derived limit, as this will occur when the track has hit a physical barrier, the pipe wall.
+			As well as doing this with a control system, there should also be a electrical short circuit to bypass the motor if any large currents occur, in order to prevent damage.
 			The servo motor then maintains the angle, and only needs to change it if the current is no longer at the level determined to mean that the front track is in contact with the pipe wall.
 			\\
-			In this position, AccoBot needs to determine whether the angle needs to be increased or decreased, in order to maintain contact.
+			When the active compliance joint is in contact with the pipe wall, AccoBot needs to determine whether the angle needs to be increased or decreased, in order to maintain contact.
 			Since it is preferable to have the flattest track profile, if the angle $\phi$ has not increased, or has decreased, then AccoBot will assume that the pipe has flattened out, and will attempt to return the front track to being parallel with the back two.
 			If instead the angle $\phi$ has become greater, AccoBot will once again increment the servo motor, to attempt to make contact with the pipe surface.
 			\\
 			The angle of the front track also needs to be limited, to prevent over rotation which could cause damage.
 			Since this method is designed to cover small levels of unevenness in the pipe wall, as well as providing better grip around bends, the maximum angle to be expected can be estimated through experimentation.
-			However, a limit of $45^\circ$ seems sensible as a first estimate without further testing and examination of pipe conditions.
+			However, an arbitrary limit of $45^\circ$ seems sensible as a first estimate without further testing and examination of pipe conditions.
 				
 		\subsection{Crack, Corrosion and Feature Detection}
 		
@@ -1093,11 +1096,11 @@ BoldItalicFont=Arial Bold Italic.ttf
 	        To decide how to do this, first the relative significance of the different factors of the detection system were considered. 
 	        Since there will be a cable that connects the robot to the ground station and there will be a power supply at the ground station, the power constraints are less important than if the robot had an on board power supply. 
 	        The time it takes to process an image is, however, important in order to process the images live, both to allow the robot appropriately respond to its surroundings and to save time. 
-	        The most important factor is the accuracy of the feature detections since this is the factor that the value provided to the client is based upon.
+	        The most important factor is the accuracy of the feature detection since this is the factor that the value provided to the client is based upon.
 	        Additionally, how the environment also poses constraints on the algorithm, through how it has poor lighting conditions and repetitive scenery should be considered. This would be done by preferably choosing algorithms that are proven to work in similar circumstances
 	        \\
 	        The metrics to judge the algorithms on are sensitivity, recall, false positives, negative positives and F1.
-	        Corrosion and crack detection need to have a high degree of sensitivity. 
+	        Corrosion and crack detection needs to have a high degree of sensitivity. 
 	        This is because it is important that no damage is missed. 
 	        It is better to have a large number of false positives than false negatives because the images that are flagged as having damage will be manually reviewed whereas those that are not will not be reviewed. 
 	        However, the algorithms should also be as precise as possible since too high a number of false positives would increase the amount of time required by humans to review the images, thus decreasing the value of the robot’s service.
@@ -1108,22 +1111,22 @@ BoldItalicFont=Arial Bold Italic.ttf
 	        \\
 	        First the WCCD and the AdaBoost Corrosion Detector were investigated since they have a much lower computational expense. 
 	        In a paper by Bonnin-Pascual et al\supercite{WCCD} these algorithms were applied to images of corrosion on internal surfaces, for example inside tanks. The WCCD classified images within 7.25ms and had a False Positive ratio of 9.23\% and False Negative of 5.99\%. Further it had a relatively simple training step of creating an HS histogram and removing pixels that were found to be 10\% lower than the maximum peak on the histogram.
-	        The AdaBoost Corrosion Detector on the other hand had a more complicated training step, longer processing time of 300-512ms, and a false positive ratio of 17.16\% and a false negative ratio of 3.39\%.\supercite{WCCD}  
-	        Because these ratios are for semantic segmentation and the algorithm only needs to determine whether there is corrosion within a frame, the difference in their improved false negative ratio for the AdaBoost Corrosion Detector is not worth the worse false positive ratio and longer processing time. 
+	        The AdaBoost Corrosion Detector on the other hand had a more complicated training step, a longer processing time of 300-512ms, and a false positive ratio of 17.16\% and a false negative ratio of 3.39\%.\supercite{WCCD}  
+	        Because these ratios are for semantic segmentation and the algorithm only needs to determine whether there is corrosion within a frame, the difference in the improved false negative ratio for the AdaBoost Corrosion Detector is not worth the worse false positive ratio and longer processing time. 
 	        Out of these it was decided, therefore, that the WCCD would be preferable.  \url{https://www.researchgate.net/publication/260006092_Corrosion_Detection_for_Automated_Visual_Inspection}
 	        \\
-	        For the CNN and wavelet NNs the paper “Evaluation of deep learning approaches based on convolutional neural networks for corrosion detection” by Atha et al\supercite{Corrosion7}  was reviewed. The best performing CNN based algorithm used single image fusion with a VGG16 fine-tuned algorithm. This provided recall of 98.81\% and precision of 98.64\%. The best performing wavelet NN algorithm provided recall of 93.01\% and Precision of 93.65\%. \supercite{Corrosion7} This showed that a CNN algorithm would outperform the wavelet NN algorithm. However the VGG16 took 256(ms) to classify 256 windows of size 128x128. Since the images being provided is 2048 x 2048 pixels this means it took 256 (ms) to process an image which would allow for 3.91 fps. The GPU used to achieve this performance was the NVIDIA TITAN X Pascal which has a thermal design power of 250W \supercite{Nvidia_Titan}[https://www.techpowerup.com/gpu-specs/titan-x-pascal.c2863] and has a theoretical Pixel rate of 147 GPixel/s and FP32 (float) performance of 10.97 TFLOPS.\supercite{Corrosion7} This power consumption is quite high, therefore a less powerful GPU would be preferable to be used which would mean the fps rate of classification would be reduced. For this reason the Corrosion7 network which can process an image in 33ms giving 30.3fps being processed would be better, given that its performance is not substantially less with 97.01\% Recall and 96.17\% Precision.\supercite{Corrosion7}[https://journals.sagepub.com/doi/10.1177/1475921717737051]
+	        For the CNN and wavelet NNs the paper “Evaluation of deep learning approaches based on convolutional neural networks for corrosion detection” by Atha et al\supercite{Corrosion7}  was reviewed. The best performing CNN based algorithm used single image fusion with a VGG16 fine-tuned algorithm. This provided recall of 98.81\% and precision of 98.64\%. The best performing wavelet NN algorithm provided recall of 93.01\% and precision of 93.65\%.\supercite{Corrosion7} This showed that a CNN algorithm would outperform the wavelet NN algorithm. However the VGG16 took 256(ms) to classify 256 windows of size 128x128. Since the images being provided are 2048 x 2048 pixels this means it took 256 (ms) to process an image which would allow for 3.91 fps. The GPU used to achieve this performance was the NVIDIA TITAN X Pascal which has a thermal design power of 250W\supercite{Nvidia_Titan} [https://www.techpowerup.com/gpu-specs/titan-x-pascal.c2863] and has a theoretical Pixel rate of 147 GPixel/s and FP32 (float) performance of 10.97 TFLOPS.\supercite{Corrosion7} This power consumption is quite high, therefore a less powerful GPU would be preferable to be used which would mean the fps rate of classification would be reduced. For this reason the Corrosion7 network which can process an image in 33ms giving 30.3fps being processed would be better, given that its performance is not substantially less with 97.01\% Recall and 96.17\% Precision.\supercite{Corrosion7} [https://journals.sagepub.com/doi/10.1177/1475921717737051]
 	        \\
 	        To determine whether to use the WCCD or the Corrosion7 algorithm, the datasets that they were tested on were examined. 
-	        The dataset of the Corrosion7 was primarily of corrosion in images well lit in natural light, and the paper also warned of a risk of overfitting. \supercite{Corrosion7} 
+	        The dataset of the Corrosion7 was primarily of corrosion in images well lit in natural light, and the paper also warned of a risk of overfitting.\supercite{Corrosion7} 
 	        The WCCD on the other hand was trained and tested on a dataset more similar to the images that the robot would be processing, these were images in non-natural light for example on the inside of storage tanks.\supercite{WCCD} 
 	        Therefore, since it is currently not possible to validate the data on the company's own dataset it was decided that the WCCD algorithm was more likely to transfer its performance to the data that would be collected. 
 	        Its potentially not that low false positive and false negative ratios are not concerning because this algorithm performs semantic segmentation. 
-	        Therefore if there is considerable corrosion to the extent it is concerning the algorithm may not pick up on all of the corrosion but since the main purpose is to highlight an image containing corrosion to the user and the accurate identification of the location of the corrosion in that image is an added bonus then it does not matter as long as some of the corrosion has been detected.
+	        Therefore, if there is considerable corrosion to the extent it is concerning, the algorithm may not pick up on all of the corrosion but since the main purpose is to highlight an image containing corrosion to the user and the accurate identification of the location of the corrosion in that image is an added bonus then it does not matter as long as some of the corrosion has been detected.
 	        \\
 		    The WCCD is split into two stages, each are weak classifiers. The first calculates the roughness of patches in the image by calculating the energy of the gray-level co-occurrence-matrix. If the energy of a patch is below a certain threshold the patch is passed onto the colour step of the algorithm. This looks at the image in Hue-Saturation-Value space. A training HS histogram is created which zeros the pixels that have a value 10\% below the largest peak. The algorithm then labels pixels that are near black and near white as not being corroded and the ones that are not labelled as this and have not been zeroed in training HS diagram are given a corrosion label.\supercite{WCCD}  
 		    \\
-	        In order to decide whether the computational expense of the WCCD could be reduced further the use of the roughness step alone on a data set was investigated by the company. To calculate the GLCM firstly each image was transformed into patches each 32 x32 pixels. The GLCM of the patch was calculated used the MATLAB gracomatrix function. The energy of this matrix is then calculated using the gracoprops function. These energies were then saved into a matrix. A for loop then went through the matrix made up of the energy of each patch and selected the patches that were below a threshold proposed in the paper. The company labelled the rusty pixels of 7 images of the inside of pipes. It then took 13 images of the inside of pipes with no rust and applied the algorithm to each of these sets. Ideally, it would have been tested on a data set of a larger number of images however these were the only appropriate ones that could be found through an internet search engine search. For the rust images the mean precision was 63.3\% and the mean recall was 74.3\%. These results were reasonable considering the algorithm only needed to detect if there is corrosion in the image. However, for non-rust images the mean false positive score was 29.87\% and there was a range of 86\%. This would mean that the robot would highlight too many images as being corroded which is undesirable. From this it was concluded that the training and colour-based part of the WCCD algorithm was necessary to produce the results.\supercite{WCCD}  
+	        In order to decide whether the computational expense of the WCCD could be reduced further the use of the roughness step alone on a data set was investigated by the company. To calculate the GLCM firstly each image was transformed into patches each 32 x32 pixels. The GLCM of the patch was calculated used the MATLAB \verb|gracomatrix| function. The energy of this matrix is then calculated using the \verb|gracoprops| function. These energies were then saved into a matrix. A for loop then went through the matrix made up of the energy of each patch and selected the patches that were below a threshold proposed in the paper. The company labelled the rusty pixels of 7 images of the inside of pipes. It then took 13 images of the inside of pipes with no rust and applied the algorithm to each of these sets. Ideally, it would have been tested on a data set of a larger number of images however these were the only appropriate ones that could be found through an internet search engine search. For the rust images the mean precision was 63.3\% and the mean recall was 74.3\%. These results were reasonable considering the algorithm only needed to detect if there is corrosion in the image. However, for non-rust images the mean false positive score was 29.87\% and there was a range of 86\%. This would mean that the robot would highlight too many images as being corroded which is undesirable. From this it was concluded that the training and colour-based part of the WCCD algorithm was necessary to produce the results.\supercite{WCCD}  
 
 			\begin{table}[h]
 				\centering
@@ -1150,18 +1153,18 @@ BoldItalicFont=Arial Bold Italic.ttf
 	        Within this paper three algorithm’s stood out due to them being the highest performing in one the $P_{region}$  $R_{region}$ and $F1_{region}$ metrics,
 	        % table
 	        \begin{align}
-	        	Precision = \frac{{\rm TP}_{region}}{{\rm TP}_{region}+{\rm FP}_{region}}\supercite{CrackGAN1}
+	        	\rm Precision = \frac{{\rm TP}_{region}}{{\rm TP}_{region}+{\rm FP}_{region}}\supercite{CrackGAN1}
 	        	\\
-	        	Sensitivity=\ \frac{{\rm TP}_{region}}{{\rm TP}_{region}+{\rm FN}_{region}}\supercite{CrackGAN1}
+	        	\rm Sensitivity=\ \frac{{\rm TP}_{region}}{{\rm TP}_{region}+{\rm FN}_{region}}\supercite{CrackGAN1}
 	        	\\
-	        	F1=\ \frac{2\ \times\ Precision\ \times Sensitivity}{Prection\ +\ Sensitivity}\supercite{CrackGAN1}
+	        	\rm F1=\ \frac{2\ \times\ \rm Precision\ \times \rm Sensitivity}{\rm Prediction\ +\ \rm Sensitivity}\supercite{CrackGAN1}
 	        \end{align}
 	    
 	       Where $TP_{region}$ is the true positive results, $FN_{region}$ is the false negative results and $FP_{region}$ is the false positive results. Since an important factor is that the algorithm does not miss any cracks the sensitivity factor is more important than precision. 
 	        Since CrackIT has a very low sensitivity score it was then removed from consideration. 
-	        In the pipes there will also be features such as dirt build up which may be characterized as cracks. 
-	        It is undesirable to categorize too many of these as cracks because that increase the amount of time required for a human to check the results.
-	        Therefore even though CrackForest has a slightly higher sensitivity than CrackGAN its substantially lower precision makes CrackGAN a more desirable algorithm. 
+	        In the pipes there will also be features such as dirt build up which may be characterised as cracks. 
+	        It is undesirable to categorise too many of these as cracks because that increase the amount of time required for a human to check the results.
+	        Therefore, even though CrackForest has a slightly higher sensitivity than CrackGAN, its substantially lower precision makes CrackGAN a more desirable algorithm. 
 	        This can be seen from its higher F1 score.
         	
         	\begin{table}[h]
@@ -1174,15 +1177,15 @@ BoldItalicFont=Arial Bold Italic.ttf
 	        Secondly CrackGAN is much more computationally efficient which will allow the robot to process the images more quickly and therefore classify video images at a better pace.\supercite{CrackGAN1}
 			\\
 			CrackGAN is a generative adversial network. 
-			It is an image-to-image translation network which involves a generative adversial loss that helps it solve an “All Black” problem which is seen in crack detection when only the background is detected.
+			It is an image-to-image translation network which involves a generative adversarial loss that helps it solve an “All Black” problem, which is seen in crack detection when only the background is detected.
 			\\
 			It uses the transfer of knowledge from a DC-GAN trained on cracked ground truth patches to provide the discriminator for the model. Because the DC-GAN has only been trained on crack images the network will always generate crack images which helps solve the “All Black” problem. Knowledge transfer is also used to pre-train the generators’ encoding part.\supercite{CrackGAN1} 
-	        The image is input into an Asymmetric U-Net. This algorithm was designed to be trained using a strategy that has a large amount of data augmentation in order to decrease the number of annotated training samples required.\supercite{U-Net} This has a series of downsampling convolving and ReLU stages going from 1 channel up to 512 channels. The layers then upsample the feature map through a series of de-convolving, convolving and ReLU layers. The activation function at the end of the last de-convolutional layer is a tanh function, this takes the 64 channels of features and transfers it into a 1-channel image which is then fed into the discriminator. The two sides of the U-Net are linked by 4 copy and concatenate links which copy across the feature map from the downsampling side of the architecture and concatenate it with the feature map of the same size on the upsampling side of the architecture. It is asymmetric because the output size is different to the input size.\supercite{U-Net}
+	        The image is input into an Asymmetric U-Net. This algorithm was designed to be trained using a strategy that has a large amount of data augmentation in order to decrease the number of annotated training samples required.\supercite{U-Net} This has a series of downsampling, convolving and ReLU stages going from 1 channel up to 512 channels. The layers then upsample the feature map through a series of de-convolving, convolving and ReLU layers. The activation function at the end of the last de-convolutional layer is a tanh function, this takes the 64 channels of features and transfers it into a 1-channel image which is then fed into the discriminator. The two sides of the U-Net are linked by 4 copy and concatenate links which copy across the feature map from the downsampling side of the architecture and concatenate it with the feature map of the same size on the upsampling side of the architecture. It is asymmetric because the output size is different to the input size.\supercite{U-Net}
 	        \\
     		\textbf{Training of the DC-GAN}
     		\\
-   			The first stage is to train the DC-GAN. It uses a generative model to produce fake data and the algorithm looks to maximise two different objective functions.\supercite{CrackGAN1} This pre-trained discriminator provides an adversarial loss function and is then put at the end of an asymmetric U-net generator. The problem here is that the DC-GAN discriminator has only be trained using crack patches in order to stop the “All Black” scenario. But CrackGAN needs to be able to process both cracked and non-cracked images. Using an asymmetric U-Net generator allows non-cracked translation with only cracked-image inputs because it allows a larger image to be input which has patches which are cracked and parts which are non-cracked. This is then down sampled by the asymmetric U-Net network so that its output is the same size as the required input to the discriminator. It then uses dilated ground truths in the L1 pixel loss function, $L_{pixel\ \ }$. This function is used to make sure that the generated crack patterns are similar to the non generated ones. The images are dilated to ensure that the crack locations are definitely covered. This combination with the the DC-GAN adversarial loss function,$\ L_{adv\ \ \ }$  allows the production of the overall objective function which is desired to be optimised by Crack-GAN,
-		    $L_{final\ \ }=L_{adv\ \ \ }+\ \lambda L_{pixel\ \ }$
+   		    The first stage is to train the DC-GAN. It uses a generative model to produce fake data and the algorithm looks to maximise two different objective functions.\supercite{CrackGAN1} This pre-trained discriminator provides an adversarial loss function and is then put at the end of an asymmetric U-net generator. The problem here is that the DC-GAN discriminator has only be trained using crack patches in order to stop the “All Black” scenario. But CrackGAN needs to be able to process both cracked and non-cracked images. Using an asymmetric U-Net generator allows non-cracked translation with only cracked-image inputs because it allows a larger image to be input which has patches which are cracked and parts which are non-cracked. This is then down sampled by the asymmetric U-Net network so that its output is the same size as the required input to the discriminator. It then uses dilated ground truths in the L1 pixel loss function, $L_{pixel}$. This function is used to make sure that the generated crack patterns are similar to the non generated ones. The images are dilated to ensure that the crack locations are definitely covered. This combination with the DC-GAN adversarial loss function,$L_{adv}$  allows the production of the overall objective function which is desired to be optimised by CrackGAN,
+		    $L_{final}=L_{adv}+lambda L_{pixel}$
 		    \supercite{CrackGAN}
 			\supercite{CrackGAN1}
 		
@@ -1190,9 +1193,11 @@ BoldItalicFont=Arial Bold Italic.ttf
 				\centering
 				\begin{multicols}{3}
 					\includegraphics[width=5cm]{CrackGan_Overview.png}
-					\caption{Overview of CrakGAN. Figure taken from \cite{CrackGAN}}
+					\caption{Overview of CrackGAN. Figure taken from \cite{CrackGAN}}
 					\label{crackGAN_Overview}
+					
 					\columnbreak
+					
 					\includegraphics[width=5cm]{Generative_CPO_CrackGan.png}
 					\caption{Figure taken from \cite{CrackGAN1}}
 					\label{Generative_CPO_CrackGan}
@@ -1200,7 +1205,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 					\columnbreak
 					
 					\includegraphics[width=5cm]{assymmetric_unet.PNG}
-					\caption{Structure of Assymetric U-net and how it feeds into detector. Figure taken from \cite{CrackGAN1}}
+					\caption{Structure of Asymmetric U-net and how it feeds into detector. Figure taken from \cite{CrackGAN1}}
 					\label{assymmetric_unet}
 				\end{multicols}
 			\end{figure}	
@@ -1210,7 +1215,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 			There are several features inside the pipes which are important to detect. 
 			Firstly the location of pipes connecting to the pipe that the robot is in need to be localised. This function can be used for creating an accurate map of the pipes.
 			Secondly the location of the joints need to be determined because these are the parts of the pipe most prone to damage and the robot needs to be able to stop in front of each one in order to ensure a detailed image is captured. 
-			Thirdly there may be obstacles in the pipes such as equipment that was left there when the pipes were layed.
+			Thirdly there may be obstacles in the pipes such as equipment that was left there when the pipes were laid.
 			\\
 	        It is important to know the location of these objects within the image, therefore object classification is not sufficient. 
 	        Between object detection, semantic segmentation, instance segmentation and panoptic segmentation\supercite{segmentation}, object detection is preferable because segmentation algorithms tend to be more computationally expensive and the added value of pixel labels is not worth it. 
@@ -1221,16 +1226,15 @@ BoldItalicFont=Arial Bold Italic.ttf
 	        Secondly, being able to implement the algorithm in real time would mean that the objects location can be known more assuredly since it would not be moving a large amount between frames, this also helps with the object tracking. 
 	        Further there will be scale change and motion blur, as well as changes in lighting.
 	        \\
-	        Four main algorithm’s were considered. 
-	        Single Shot Detector, Faster R-CNN, Yolov1 and Yolov3. 
-	        The processing speed of Faster R-CNN was determined to be undesirably slow therefore it was decided not to be used. 
+	        Four main algorithms were considered: Single Shot Detector, Faster R-CNN, Yolov1 and Yolov3. 
+	        The processing speed of Faster R-CNN was determined to be undesirably slow, therefore it was decided not to be used. 
 	        The fastest of the algorithms is Yolov1. However it is ineffective in identifying small objects, therefore it was decided not to be used. 
 	        When comparing the Single Shot Detector and Yolov3 it was found that both could identify small objects. 
 	        The Yolov3 however was slighting faster in implementation and had a slightly higher accuracy in a test on MS-COCO when running on a Pascal Titan X GPU.\supercite{YOLO}[https://www.sciencedirect.com/science/article/pii/S0167926019301762]
 	        \\
 	        For these reasons it was decided to use the Yolov3.
 	        
-	        YOLO models are characterised by the fact that they pass a complete image through a neural network once. This allows them to be much faster than R-CNN because the latter uses time-consuming selective search to create a large number of region proposals and then has to pass each of these regions through the network.\supercite{YOLO2} \supercite{R-CNN} YOLO splits the image into a grid and then generates within this grid a certain number of bounding boxes which each have a class probability and offset values associated to them. If the probability is above a certain threshold then the algorithm predicts that the object of ac certain class is located within that bounding box.\supercite{Object_detection} 
+	        YOLO models are characterised by the fact that they pass a complete image through a neural network once. This allows them to be much faster than R-CNN because the latter uses time-consuming selective search to create a large number of region proposals and then has to pass each of these regions through the network.\supercite{YOLO2} \supercite{R-CNN} YOLO splits the image into a grid and then generates within this grid a certain number of bounding boxes which each have a class probability and offset values associated to them. If the probability is above a certain threshold then the algorithm predicts that the object of a certain class is located within that bounding box.\supercite{Object_detection} 
 	        \\
 	        YOLOv3 improves upon its predecessors by using logistic regression to predict bounding boxes.\supercite{YOLOV3} It also introduces short-cuts in the convolutional layers.
 	        YOLOv3 is made of a feature detector called Darknet-53 which consists of 53 convolutional layers which are of sizes 3x3 and 1x1 and then 53 detector layers, followed by a detection neural network. \supercite{YOLOV3}
@@ -1238,7 +1242,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 	        \\
 	        YOLOv3 has to make two separate sets of predictions: what the coordinates of a bounding box should be and then what the class of the object is that is inside the bounding box.\supercite{YOLOV3} To do the former the model creates anchor boxes for each of the predictors and then predicts an objectness score for each of the bounding boxes compared to these prior boxes using logistic regression. This objectness score looks at the Intersection Of Union (IOU) between the ground truth and the predicted bounding box.\supercite{YOLOV2}\supercite{YOLOV3} Using anchor boxes facilitates the detection of multiple objects at multiple scales.\supercite{Anchor_Boxes} Anchor boxes also increase the speed of the algorithm because it removes the need for a sliding window. 
 	        \\
-	        In order to choose the size and shapes of these anchor boxes k-means clustering with k=5 is used on the training set bounding boxes.\supercite{YOLOV2} [  https://arxiv.org/pdf/1612.08242.pdf]  K-means clustering chooses cluster centres randomly and then measure the distances between each of the points to the cluster centre and assigns the points to the cluster centre that it is nearest to. It then calculates the mean score and creates new clusters based on these scores. It iteratively optimises the cluster in order to reduce the distance scores.\supercite{k-means-clustering} The k value is picked by calculating the variation scores for each of the k values and then choosing the k value that causes a large variation reduction before when an increase in k has a markedly smaller effect on the reduction of variation. 
+	        In order to choose the size and shapes of these anchor boxes k-means clustering with k=5 is used on the training set bounding boxes.\supercite{YOLOV2} [https://arxiv.org/pdf/1612.08242.pdf] K-means clustering chooses cluster centres randomly and then measure the distances between each of the points to the cluster centre and assigns the points to the cluster centre that it is nearest to. It then calculates the mean score and creates new clusters based on these scores. It iteratively optimises the cluster in order to reduce the distance scores.\supercite{k-means-clustering} The k value is picked by calculating the variation scores for each of the k values and then choosing the k value that causes a large variation reduction before when an increase in k has a markedly smaller effect on the reduction of variation. 
 	
 	        
 	        \subsubsection{Object Tracking}
@@ -1250,7 +1254,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 	        SORT is an algorithm that does this. 
 	        It tracks images across frames aiming to maximise the intersection of union metric. 
 	        Bewley et al \supercite{object_tracking} demonstrated that SORT had a much higher speed than similarly accurate algorithms, which confirmed that it would be the ideal algorithm to use.\supercite{object_tracking} It can be seen from \figref{object_tracking_comp} that SORT is much more accurate than any of the other real time algorithms.
-	        % image
+	        
          	\begin{figure}[h]
 				\centering
 				\includegraphics[width=10cm] {comparison_object_tracking.png}
@@ -1259,11 +1263,11 @@ BoldItalicFont=Arial Bold Italic.ttf
 			\end{figure}
 			
         \subsubsection{Training}
-	        There are very few freely available images on the internet of corrosion inside pipes, cracks inside pipes and objects found inside pipes. Therefore in order to train the corrosion and crack algorithms they will be pretrained with cracks and corrosion images datasets that are not from inside pipes. The corrosion image dataset will be the one from \cite{WCCD} and the crack image dataset will be the one from \cite{CrackGAN1}.
+	        There are very few freely available images on the internet of corrosion inside pipes, cracks inside pipes and objects found inside pipes. Therefore, in order to train the corrosion and crack algorithms they will be pretrained with cracks and corrosion images datasets that are not from inside pipes. The corrosion image dataset will be the one from \cite{WCCD} and the crack image dataset will be the one from \cite{CrackGAN1}.
 	        \\
 	        Once this has been done, the company has spoken to Synthotech who offered to provide the images that they have collected of their work inside gas pipes in order to create a training set. The data set will then also be increased through two methods. Firstly, through the development partnership with a gas distribution company the company will be able to gain access to model rigs and abandoned pipelines. Secondly, for the first few jobs the robot will have to be operated manually whilst collecting data. The non-labelled data-sets not acquired from Synthotech will be manually labelled.
 	        \\
-	        Once these data sets have been collected they will be split into training and testing sets. In order to find the best tuning parameters and to the test the models have been used in the algorithms cross validation will be used. An example of the former is how the WCCD model requires different thresholds to be chosen for the HSV values when classifying pixels as corrosion. Cross validation involves splitting the data set into k folds. One is made the validation fold and the other k-1 are training folds.\supercite{Cross_Validation} The performance of this set is calculated. Then the validation fold is iterated through the k folds and the same process is carried out k-1 more times. The average performance is used to evaluate the model used. The advantage of this compared to the holdout method is that increasing the number of folds reduces the variance which is worth the increased computational cost.\supercite{Cross_Validation}\supercite{Cross_Validation2} However if the number of folds is increased too much then the bias is too high. Thus k will be chosen to be 5 in order to gain a trade off between variance bias and computation time.\supercite{Cross_Validation_Tradeoff} Another benefit of the cross validation model is that the performance is not affected by which fold is chosen to validate instead of testing because all the folds have a turn at being the validation fold. \supercite{Cross_Validation}
+	        Once these data sets have been collected they will be split into training and testing sets. In order to find the best tuning parameters and to test the models have been used in the algorithms cross validation will be used. An example of the former is how the WCCD model requires different thresholds to be chosen for the HSV values when classifying pixels as corrosion. Cross validation involves splitting the data set into k folds. One is made the validation fold and the other k-1 are training folds.\supercite{Cross_Validation} The performance of this set is calculated. Then the validation fold is iterated through the k folds and the same process is carried out k-1 more times. The average performance is used to evaluate the model used. The advantage of this compared to the holdout method is that increasing the number of folds reduces the variance which is worth the increased computational cost.\supercite{Cross_Validation}\supercite{Cross_Validation2} However if the number of folds is increased too much then the bias is too high. Thus k will be chosen to be 5 in order to gain a trade off between variance bias and computation time.\supercite{Cross_Validation_Tradeoff} Another benefit of the cross validation model is that the performance is not affected by which fold is chosen to validate instead of testing because all the folds have a turn at being the validation fold. \supercite{Cross_Validation}
 	        
 		\subsection[Mapping and Location]{Mapping and Location - Joshua Gei}
 
@@ -1271,15 +1275,15 @@ BoldItalicFont=Arial Bold Italic.ttf
 
 		\subsubsection{Landmark detection}
 	        In order to improve the accuracy of the odometry the robot needs to be able to identify certain landmarks. 
-	        Through the way that the robot navigates corners, the odometers will be able to detect that a corner is being navigated. 
-	        However since the purpose of his extra odometry is to be able to make corrections to errors in the mechanical odometry another method should also be used.
+	        Through the way that the robot navigates corners, the odometers will be able to detect that a corner is being navigated.
+	        However since the purpose of this extra odometry is to be able to make corrections to errors in the mechanical odometry another method should also be used.
 	        \\
 	        The most simple solution to this is to place ultrasonic detectors on the sides of the robot. 
 	        This allows the robot to detect the distance between it and the side of the wall. 
 	        When the distance increases then the robot knows that it is going around a bend. 
 	        The downside to this solution is that if there are any builds up on the pipe wall or the pipe is deformed then it may not register since the distance to the wall would not change as expected.
 	        \\
-	        A laser spot array and camera would use an array of laser projected onto the wall. 
+	        A laser spot array and camera would use an array of lasers projected onto the wall. 
 	        The distances between the dots would be measured and this would allow for landmarks to be assessed. 
 	        This an effective solution in a well known environment. 
 	        However, the dimensions of the pipe needs to be known exactly for the calculations to be accurate, which means that this is a solution that does not provide the flexibility desired.
@@ -1298,8 +1302,8 @@ BoldItalicFont=Arial Bold Italic.ttf
 	       	The major downside to this design is that it requires the addition of a rotating laser. 
 	       	This would both increase the mechanical complexity and power requirements of the robot by requiring a motor to power the rotating mechanism. 
 	       	It would also introduce a constraint on the speed of the robot due to the robots speed needing to be a function of the rotational speed of the laser, for it to rotate a sufficient number of times to build up a picture of the laser shadow. 
-	       	Therefore, it was decided to use a less mechanically complex solution also proposed by Lee et al which uses just an array of LEDs to project light, the shape of the light shadow is then assessed to detect the bends in the curve. 
-	       	This solution is more subject to noise requires a greater software complexity for identification because it cannot use the simple number assigning algorithm used in the laser solution. 
+	       	Therefore, it was decided to use a less mechanically complex solution, also proposed by Lee et al, which uses just an array of LEDs to project light, the shape of the light shadow is then assessed to detect the bends in the curve. 
+	       	This solution is more subject to noise and requires a greater software complexity for identification because it cannot use the simple number assigning algorithm used in the laser solution. 
 	       	However, this is preferred to the mechanical complexity. 
 	       	For these reasons this is the solution that our robot design will use.
 			% Table comparing landmark spotting cases
@@ -1314,7 +1318,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 	          
     		\begin{figure}[h]
 				\centering
-				\includegraphics[scale=1]{Systems-overall.pdf}
+				\includegraphics[width = 0.9\textwidth]{Systems-overall.pdf}
 				\caption{System Architecture}
 				\label{overalls}
 			\end{figure}
@@ -1331,7 +1335,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 		    
 		    \begin{figure}[h]
 				\centering
-				\includegraphics[scale=1]{Attenuation.png}
+				\includegraphics[height = \imageheight]{Attenuation.png}
 				\caption{ELF Attenuation Finite Element Analysis}
 				\label{ELFAttenuation}
 			\end{figure}
@@ -1340,18 +1344,18 @@ BoldItalicFont=Arial Bold Italic.ttf
 			
 			\textbf{Filter}:
 	        One potential solution in order to overcome this challenge is the use of a simple filter and amplifier circuit.
-	        The sensors are wide-band antennas and many other frequency components are received together. This is a problem as low signal to noise ratio is a disadvantage for tracing and localization algorithm.
-	        Therefore, band-pass filter with high gain and high quality factor is one possible solution.
+	        The sensors are wide-band antennas and many other frequency components are received together. This is a problem as low signal to noise ratio is a disadvantage for tracing and localisation algorithm.
+	        Therefore, a band-pass filter with high gain and high quality factor is one possible solution.
 	        \\
-	        \hspace*{3ex}\figref{filterDesign} highlights the function of a sensor circuit. 
+	        \hspace*{3ex}\figref{filterDesign} highlights the function of a sensor circuit.
 	        The output of the sensor is sent to filter and amplifier to detect the useful signal. 
-	        In this system, five-grade active filter is designed in order to get high gain and advanced quality.
+	        In this system, a five-grade active filter is designed in order to get high gain and advanced quality.
 	        The filter consists of five segments including amplifier I (high pass filter), band pass filter I, amplifier II (band pass filter), band pass filter II and amplifier III (high pass filter).
 	        The output signal then consists of the emitted signal separated from the other frequency components. 
 	        
 	        \begin{figure}[h]
 				\centering
-				\includegraphics[scale=1.5]{Filtering.jpg}
+				\includegraphics[width = 0.7\textwidth]{Filtering.jpg}
 				\caption{Filter Design} % This needs a citation for the source I think
 				\label{filterDesign}
 			\end{figure}
@@ -1359,38 +1363,38 @@ BoldItalicFont=Arial Bold Italic.ttf
 			Unfortunately, in order to attain a more ideal filter, a higher order filter must be used.
 			This presents an issue as the impulse response is longer which pushes the latency higher and hence decreases accuracy in localisation. 
 			Another issue is demonstrated in \figref{SNRPower}.
-			The normalized power spectrum of three different signals, including noiseless ELF signals, narrow-band noise and ELF signals with noise are shown. 
+			The normalised power spectrum of three different signals, including noiseless ELF signals, narrow-band noise and ELF signals with noise are shown. 
 			Since the frequency of narrow-band noise is concentrated at 23 Hz, it is difficult to discriminate between ELF signals and noise by frequency domain, which indicates that the frequency-domain information may not be useful for the detection. 
 			Thus, the performance of the time-frequency analysis based filtering method is lower than a time-domain characteristic based FDT method.
 	
 	         \begin{figure}[h]
 				\centering
 				\includegraphics[height=\imageheight]{SNRPower.png}
-				\caption{Normalized power spectrum when SNR is 0 dB and speed is 15 m/s.}
+				\caption{Normalised power spectrum when SNR is 0 dB and speed is 15 m/s.}
 				\label{SNRPower}
 			\end{figure}
 		    
 		    \textbf{Fast Decision Tree (FDT)}:
 			Following the argument against the time-frequency based method outlined above, an improved solution is a time-domain method followed using a Fast Decision Tree. 
 			\\
-	    	\hspace*{3ex}The overall architecture of the algorithm is shown in \figref{FDTFlowcahrt}. 
-	    	Firstly, a data fusion model was implemented in order to get a better signal representation by fusing the envelope decay rates through a least squares method. 
+	    	\hspace*{3ex}The overall architecture of the algorithm is shown in \figref{FDTFlowchart}. 
+	    	Firstly, a data fusion model is implemented in order to get a better signal representation by fusing the envelope decay rates through a least squares method. 
 	    	In this case, the envelope decay rates are the rate of the decay of the envelopes of the received X and Y axis ELF signals. 
 	    	Then, a Fast Decision Tree (FDT) algorithm is proposed to detect the ELF signals. 
-	    	The FDT first estimates the fused envelope decay rate to maximize the orthogonal signal power of ELF signals, and the maximized orthogonal signal power is used as the test statistic for the signal detection, which provides an excellent detection performance.
+	    	The FDT first estimates the fused envelope decay rate to maximise the orthogonal signal power of ELF signals, and the maximised orthogonal signal power is used as the test statistic for the signal detection, which provides an excellent detection performance.
 	        
 	         \begin{figure}[h]
 				\centering
-				\includegraphics[scale=0.12]{FDT.png}
-				\caption{Flow chart of FDT method } % This needs a citation for the source I think
-				\label{FDTFlowcahrt}
+				\includegraphics[width=0.8\textwidth]{FDT.png}
+				\caption{Flow chart of FDT method }
+				\label{FDTFlowchart}
 			\end{figure}
 			
 			One of the main advantages of this approach is the low latency. 
 			The fast calculation process of the FDT method removes the need for large matrix multiplication in the frequency domain. 
 			This is particularly important as relaying the robots position as fast as possible ensures the GPS position it receives is as accurate as possible. 
 			\\
-	    	\hspace*{3ex}Through following a time-domain method, the analysis of the normalized power spectrum suggests that it will improve detection performance over a time-frequency domain method. 
+	    	\hspace*{3ex}Through following a time-domain method, the analysis of the normalised power spectrum suggests that it will improve detection performance over a time-frequency domain method. 
 	    	This is validated through field testing on a PIG containing an ELF transmitter of frequency 23Hz. 
 	    	Upon testing, the FDT method is close to the upper theoretical bound and the difference between them is less than 5\%  when SNR is 0 dB.
 	    	The experimental results further validate that the proposed FDT method can detect the short transient very weak ELF signals in real time. 
@@ -1400,7 +1404,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 			Once the receiver has filtered the ELF signals, it must then use a localisation algorithm in order to obtain the global position of the robot. In our case, two methods of localisation will be considered. The criteria for assessment is practicality, accuracy and latency. 
 			
 			\textbf{Single Sensor Design}\\
-			One simple design involves using a single filter and sensor module. This solution is commonly used for pig tracking in the above ground pipeline. As the robot passes the transmitter, the ELF waves induce a spike in the magnetic field detected by the receiver. This simple solution allows the location of the robot to be precisely determined when the position of the pipe is known relative to the receiver i.e directly below it. Along with excellent accuracy, the method also allows extremely low latency as little localisation processing is required. Further, given that only one sensor is required, the receiver is simple and cheap to design. \\
+			One simple design involves using a single filter and sensor module. This solution is commonly used for PIG tracking in the above ground pipeline. As the robot passes the transmitter, the ELF waves induce a spike in the magnetic field detected by the receiver. This simple solution allows the location of the robot to be precisely determined when the position of the pipe is known relative to the receiver i.e directly below it. Along with excellent accuracy, the method also allows extremely low latency as little localisation processing is required. Further, given that only one sensor is required, the receiver is simple and cheap to design. \\
 	    	\hspace*{3ex}However, in the case of our robot, inspecting underground piping means that the pipe position is not always known relative to the robot's position. Further, if we were to discern the position of underground piping from maps, no further accuracy would be added by using an external localisation system over using the internal localisation system. 
 	
 	        \textbf{Multiple Sensor Design}
@@ -1416,7 +1420,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 				\label{localisation}
 			\end{figure}
 			
-			The outlined algorithm presents a simple solution to localisation that improves upon the single sensor design. However, the model does make some simplifying assumptions. Firstly, the attenuation effects in the material above the pipeline is ignored. This assumption is reasonable given the low conductivity of soil and air compares to the pipe. Additionally, the sensor also relies on the fact that the pipeline is of constant thickness. This creates accuracy problems if the pipeline is of different thicknesses. Therefore, one possible extension of this algorithm is to consider a way to account for this variation. 
+			The outlined algorithm presents a simple solution to localisation that improves upon the single sensor design. However, the model does make some simplifying assumptions. Firstly, the attenuation effects in the material above the pipeline is ignored. This assumption is reasonable given the low conductivity of soil and air compared to the pipe. Additionally, the sensor also relies on the fact that the pipeline is of constant thickness. This creates accuracy problems if the pipeline is of different thicknesses. Therefore, one possible extension of this algorithm is to consider a way to account for this variation. 
 
 	\section{Estimated Cost \& Weight - ENG}
 		
@@ -1426,36 +1430,42 @@ BoldItalicFont=Arial Bold Italic.ttf
 		% Also get estimated weight from selected components?
 		\subsection[Locomotion]{Locomotion - Jim Laney}
 		
-			In order to determine suitable components, the main parts of the locomotion system which require acquisition must be considered.
-			The parts which will be considered here are the track modules, the linear actuators, the internal rotation motors and the legs and gears.
+			In order to determine suitable components, the main parts of the locomotion system were considered.
+			The parts which will be considered here are the track modules, the linear actuators, the internal rotation motors, the legs and gears.
+			\\
+			\textbf{Track Modules}
 			\\
 			For the track module, the best reference point was the Inuktun Minitrac, a larger version of the Inuktun Microtrac module used by Ciszewski et al.\supercite{ciszewski2015design} for their testing of a pipe inspection robot.
 			These cost £7,900 each, and three are required for each leg of AccoBot, bringing the overall cost to £71,100.
-			However these modules are over specified, as each has a pull rating of roughly 30 kg for continuous duty\supercite{inuktunTracks}, meaning AccoBot can weight up to 270 kg, which would be an unrealistic and impractical figure to aim for.
+			However these modules are over specified, as each has a pull rating of roughly 30 kg for continuous duty\supercite{inuktunTracks}, meaning AccoBot can weigh up to 270 kg, which would be an unrealistic and impractical figure to aim for.
 			Each module can be provided in either aluminium, brass or steel, with the main difference being the weight.
 			Aluminium was chosen, as it is the lightest of the three, but each module still weighs 5.7 kg taking the track weight to 51.3 kg for all 9 track modules.
 			As this is quite heavy, a different design could be considered, with a motor driving the tracks instead, so a new system can be designed to minimise the weight.
 			Additionally, while discussing the pricing and operation with a representative from Eddyfi Technologies, it was made clear that the Minitrac is no longer for sale for commercial uses, as they found that they were often being used in products which compete with Eddyfi's own pipe inspection robots.
 			However, these track modules give an indication of the eventual cost to expect for AccoBot if using prebuilt modules.
 			\\
+			\textbf{Linear Actuators}
+			\\
 			The sample linear actuators chosen were selected as they have 200 N of force output and a potentiometer to measure the extension of the actuator\supercite{rsproLinear}.
 			Using \equationref{maxWeight}, reproduced below, values for the worst case scenario can be estimated.
 			\begin{align*}
 				W &= \frac{6 \mu_{t,p} F \tan \left( \theta \right)}{\cos \left( \phi \right)}
 			\end{align*}
-			The worst case scenario occurs when when $\mu =$ 1.21\supercite{sato2011development}, $\theta = 10^\circ$ and $\phi = 0^\circ$, as stated before.
-			This gives us a maximum weight of 528.5 N = 53.9 kg, which is quite large, although comparatively small compared to the estimated weight of 9 Inuktun MiniTrac modules, hence why they would be considered inappropriate.
+			The greatest force is required when $\mu =$ 1.21\supercite{sato2011development}, $\theta = 10^\circ$ and $\phi = 0^\circ$, as stated before.
+			This gives a maximum weight constraint of 528.5 N = 53.9 kg, although comparatively small compared to the estimated weight of 9 Inuktun MiniTrac modules, hence why they would be considered inappropriate.
 			With a safety margin of 1.5 for the linear actuator output, limiting their output to 130 N, the maximum weight becomes 343.5 N = 35.0 kg which is still reasonable and significantly larger than similar robots.
-			These cost £121.46 - £132.02 each depending on quantity, but the lower price can be used as this is for 10 or more actuators, which is less than 2 robots. 
+			These cost £121.46 - £132.02 each depending on quantity, but the lower price can be used as this is for 10 or more actuators, which is less than 2 robots.
 			Thus the actuator cost for a single AccoBot would be £728.76 since 2 linear actuators are used for each leg, meaning a total of 6.
 			The overall weight of these linear actuators would be 0.504 kg, which is negligible compared to the weight of most of the other components, as well as the estimated weight of the AccoBot shell.
 			\\
-			The next part to consider is the motor used for rotation of the legs relative to the body. There is no specifications required for this at the moment, but a high torque motor would be ideal.
+			\textbf{Rotational Motors}
+			\\
+			The next part to consider is the motor used for rotation of the legs relative to the body. There is no know required torque for this component, but a high torque motor would be ideal.
 			A sample product which is both relatively small and high torque was selected\supercite{rsproRotation} as it has a maximum output torque (at stall) of 1.46 Nm.
 			The diameter of the actual motor is only 42.8 mm, meaning that there is plenty of space to use a larger more powerful motor if testing reveals that it will be necessary.
 			The cost of these drives is £141.84 per motor, and 2 are required for the main body of AccoBot.
 			Since similar motors could be used as the RC servo motors in the active compliance joint, another 3 would be included in AccoBot, bringing the total cost for 5 rotation motors to £709.20.
-			\\
+			
 			\begin{figure}[h]
 				\centering
 				\begin{multicols}{3}
@@ -1472,30 +1482,33 @@ BoldItalicFont=Arial Bold Italic.ttf
 					\label{longLinkCAD}
 				\end{multicols}
 			\end{figure}
+
+			\textbf{Manufactured Components}
+			\\
 			The remaining components of the locomotion system were estimated using the 3D CAD models, shown in \hyperref[gearCAD]{Figures \ref*{gearCAD}, \ref*{shortLinkCAD} \& \ref*{longLinkCAD}} to estimate their volume.
 			The leg pieces were assumed to be made out of stainless steel, and the gear was to be made of aluminium.
 			The density of stainless steel is 7900 kg m\textsuperscript{-3}\supercite{HLT}, so the longer link weighs 0.653 kg and the shorter link weighs 0.350 kg.
 			Thus, a single leg, which is made up of 2 short links and 2 longer links, weighs 2.00 kg, bringing the total contribution of the three legs to 6.02 kg for the whole robot.
-			The density of aluminium was assumed to be 2700 kg m\textsuperscript{-3}\supercite{HLT}, which makes the weight of a single gear 3.42 kg, and there are 4 inside AccoBot, bring the total weight up to 13.68 kg.
+			The density of aluminium was assumed to be 2700 kg m\textsuperscript{-3}\supercite{HLT}, which makes the weight of a single gear 3.42 kg, and there are 4 inside AccoBot, bringing the total weight up to 13.68 kg.
 			This could be mitigated by refining the design, as this is a very rough sketch of the gear, and is probably thicker than would be necessary in reality.
 		
 		\subsection{Power}
 		
 		\subsection{Sensing}
 		
-	  		\begin{figure}[h]
+	  		\begin{table}[h]
 				\centering
-				\includegraphics[scale=1]{sensor hardware.PNG}
+				\includegraphics[width = 0.8\textwidth]{sensor hardware.PNG}
 				\caption{Costs and weights of sensor hardware}
 				\label{sensorHardware}
-			\end{figure}
+			\end{table}
 			
 		\subsection{Communications}
 			Having outlined the communication hardware earlier, it is now necessary to determine the cost and weight for each component. Again, where an existing component’s cost or weight is not available online, an estimate will be made using similar products as references. 
 			
 			\textbf{Cable}\\
-			From the hardware analysis of the cable, it is justified that the tensile stress the cable will experience is far less than the maximum tensile stress of even a thin 5mm kevlar pure cable. In the interest of weight, it is desired that the cable therefore be as thin as possible whilst maintaining a safety factor of at least a factor of 10 in tension. Further, given the minimum bend radius for optical fibre is often suggested as being 20X that of the diameter, a smaller radius will ensure this criteria is met.\\
-	    	\hspace*{3ex}Fibre optic company MacArtney offers a solution which meets these requirements. The cable consist of 4 inner single core fibre optic cables which are then reinforced with kevlar braiding. The overall cable is 9.1mm thick, weighs 91kg/km and offers a tensile strengths of 2.5kn. The cable also requires a minimum bend radius of 110mm which is suitable for our robot. \\
+			From the hardware analysis of the cable, it is justified that the tensile stresses the cable will experience are far less than the maximum tensile stress of even a thin 5mm kevlar pure cable. In the interest of weight, it is desired that the cable therefore be as thin as possible whilst maintaining a safety factor of at least 10 in tension. Further, given the minimum bend radius for optical fibre is often suggested as being 20X that of the diameter, a smaller radius will ensure this criteria is met.\\
+	    	\hspace*{3ex}Fibre optic company MacArtney offers a solution which meets these requirements. The cable consist of 4 inner single core fibre optic cables which are then reinforced with kevlar braiding. The overall cable is 9.1mm thick, weighs 91kg/km and offers a tensile strengths of 2.5kN. The cable also requires a minimum bend radius of 110mm which is suitable for our robot. \\
 	    	\hspace*{3ex}In terms of price, the wire costs £ xxx and a total of 1000m are required for the operation of our robot. This brings the overall weight to 91Kg at a cost of £ xxx 
 	
 	        \textbf{ELF Transmitter}\\
@@ -1504,11 +1517,10 @@ BoldItalicFont=Arial Bold Italic.ttf
 	    
 	        \textbf{Other Costs}\\
 	
-	        
 	        Since the cable reel and ELF receivers are not carried by the robot, their weight is not a consideration here. However, the price of these hardware components is important in order to assess the total cost of the robot. \\
-		    \hspace*{3ex}As outlined in the previous section, the price of the identified cable reel that is going to be used is £ xxx. The price of the receivers is more complicated to calculatem. The total cost of the receivers is dependent on the accumulated errors of the internal localisation system. Given the internal errors become significant over a distance greater than xm, it is required to have a receiver every xm in order to correct this error. Again, through using the company ProPipe as a reference for their above ground receivers, an estimated cost per receiver of £ xxx can be made. Therefore, over a distance of 1000m, the total cost would be £ xxx. 
+		    \hspace*{3ex}As outlined in the previous section, the price of the identified cable reel that is going to be used is £ xxx. The price of the receivers is more complicated to calculate. The total cost of the receivers is dependent on the accumulated errors of the internal localisation system. Given the internal errors become significant over a distance greater than xm, it is required to have a receiver every xm in order to correct this error. Again, through using the company ProPipe as a reference for their above ground receivers, an estimated cost per receiver of £ xxx can be made. Therefore, over a distance of 1000m, the total cost would be £ xxx. 
 		    
-		    The cost of the outer body material was estimated to be £68.37. It weight will be 23.7 kg because it is made of Aluminium Alloy 6082-T6 which has a density of 2.7g/cm\[^3\]. The thickess of the body is 5mm and it's length is 1253mm and diameter is 436.4mm.
+		    The cost of the outer body material was estimated to be £68.37. It weight will be 23.7 kg because it is made of Aluminium Alloy 6082-T6 which has a density of 2.7g cm\textsuperscript{-3}. The thickness of the body is 5mm and it's length is 1253mm and diameter is 436.4mm.
 
 		\subsection{External Hardware}
 			% Does not need to be included in the weight calc obviously
@@ -1580,12 +1592,12 @@ BoldItalicFont=Arial Bold Italic.ttf
 			Another important standard is ISO 15649:2001\supercite{iso15649} which specifies required design and construction parameters for gas pipelines, as well as requirements for pipeline inspection.
 			This will greatly influence the requirements for AccoBot, and while many of the necessary safety features for inspection have been considered, the standard will formalise this and emphasise any which are missing.
 		
-		\subsection[Traditional  \& Autonomous Pipe Inspection Companies]{Traditional \& Autonomous Pipe Inspection Companies - Louis Emanuel}
-            Both traditional and autonomous gas pipe inspection companies have an active interest and influence on the operation of our autonomous pipe inspection robot as they are competitors to our product offering currently or have great potential to be in the future. Traditional gas inspection companies concern the firms such as ProPipe that operate PIG’s. Whilst autonomous inspection companies refers to the firms similar to our product offering such as CISBOT. \\
+		\subsection[Traditional \& Autonomous Pipe Inspection Companies]{Traditional \& Autonomous Pipe Inspection Companies - Louis Emanuel}
+            Both traditional and autonomous gas pipe inspection companies have an active interest and influence on the operation of our autonomous pipe inspection robot as they are competitors to our product offering currently or have great potential to be in the future. Traditional gas inspection companies concern the firms such as ProPipe that operate PIGs. Whilst autonomous inspection companies refers to the firms similar to our product offering such as CISBOT. \\
             \hspace*{3ex}The following section analyses the interest and power of these stakeholders before considering how to manage the relationships.
             
             \textbf{Interest}\\
-            Firstly, considering traditional gas inspection companies, the PIG’s that are operated currently are unsuitable for use in the urban environment our robot is designed for. However, firms in the industry like ProPipe have been established since 1998 in comparison to CISBOT (2013). This extensive experience coupled with their already established customer network would facilitate a swift move into the autonomous inspection market. Therefore, it is reasonable to believe these firms are closely monitoring the developments of any firms in the market. \\
+            Firstly, considering traditional gas inspection companies, the PIGs that are operated currently are unsuitable for use in the urban environment our robot is designed for. However, firms in the industry like ProPipe have been established since 1998 in comparison to CISBOT (2013). This extensive experience coupled with their already established customer network would facilitate a swift move into the autonomous inspection market. Therefore, it is reasonable to believe these firms are closely monitoring the developments of any firms in the market. \\
             \hspace*{3ex}Now considering the autonomous pipe inspection robots, the current market leader CISBOT has no large competitors in the London market. And so it is unlikely CISBOT has refined both its technology and business model given the monopoly it has enjoyed. Therefore, it is also reasonable to expect CISBOT and similar firms to monitor our progress in order to react and perhaps mimic the technology we offer. 
             
             \textbf{Power}\\
@@ -1614,8 +1626,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 		\subsection[General Public]{General Public - Louis Emanuel}
 			The general public is also a stakeholder that must be carefully considered due to the fact that the robot will be operating in densely populated urban environments. The general public primarily consists of the people who are located near to the gas pipeline undergoing inspection by our robot.
 			
-			\textbf{Interest}
-			
+			\textbf{Interest}\\
 	        The interests of the public can be broadly broken down into environmental benefits and transport disruption.\\
 		    \hspace*{3ex}Environmental interests concern the potential damage posed by leaking gas pipes. For example, currently in Boston the state’s aging natural gas pipelines are riddled with about 20,000 potentially dangerous and environmentally damaging leaks, many decades old. In fact Audrey Schulman, the president of Home Energy Efficiency Team, quoted  “The leaks are potentially explosive, kill trees, harm human health, and release an extraordinarily destructive greenhouse gas”. Therefore, as with this example, it is in the general public's interest that our robot is successful. \\
 	        \hspace*{3ex}Similarly, the general public also has an active interest that the inspection of the pipes create minimum transport disruption. This is particularly important given the heavy traffic regions in which we will be operating. 
@@ -1650,18 +1661,20 @@ BoldItalicFont=Arial Bold Italic.ttf
 				Thus these manufacturers have greater power over companies which have on board image processing, and can dictate the cost and functionality of  products.
 				As such, these suppliers offer the greatest threat to the in-pipe robotics industry.
 				\\
-				Within the fibre optic industry in the UK there are only 3 major companies\supercite{neve2020fibreoptic}, which have a total market share of $22.8$\%, but of these only Leviton and Prysmian are possible suppliers.
+				Within the fibre optic industry in the UK there are only 3 major companies\supercite{neve2020fibreoptic}, which have a total market share of 22.8\%, but of these only Leviton and Prysmian are possible suppliers.
 				The rest of the industry is made up of much smaller firms who supply niche products for optical fibres, so there are a maximum of 3 or 4 suppliers.
 				This means that these companies will also exert significant pressure on the in pipe robotics industry, but still do not have the level of influence that the GPU manufacturers do.
 				\\
 				Finally, the threat of forward vertical integration is practically non-existent, due to the large variety of suppliers.
 				While there are a few key suppliers who exert significant influence over the industry, none of these are in a position to easily move into the in-pipe inspection industry as they would be required to have many of the same suppliers that current companies do.
+				\\
+				The overall supplier threat for the in-pipe robotics industry is low because of the wide variety of suppliers and the difficulty of forward vertical integration.
 						
 			\subsubsection{Power of Buyers}
 			
 			\subsubsection{Threat of Substitutes - Jim Laney}
 				
-				The threat of substitutes in the in-pipe inspection robot industry is medium, as there are many established substitutes which currently dominate pipe inspection services.
+				The threat of substitutes in the in-pipe inspection robot industry is high, as there are many established substitutes which currently dominate pipe inspection services.
 				\\
 				The main threat is the manual inspection of pipelines as these can inspect all kinds of pipes, just like robotic solutions and have a much lower up front cost.
 				As well as this, manual inspection has the advantage of familiarity as it is an established practice which gas pipe companies know they can rely on.
@@ -1682,10 +1695,11 @@ BoldItalicFont=Arial Bold Italic.ttf
 				\\
 				Another significant substitute is the use of pipeline models to predict damage in order to decide when to replace pipes, rather than using inspection techniques.
 				This reduces the requirement for inspection solutions in general, as models can be used to predict when pipes will fail meaning inspection is no longer required.
-				However, inspection is still needed in order to provide initial data for the model, and models are still not particularly accurate at predicting failure timings\supercite{zakikhani2020review}.
+				However, inspection can still be used to provide data for models, and models are still not particularly accurate at predicting failure timings\supercite{zakikhani2020review}.
 				In particular, models typically consider limited causes of failure, most often corrosion or third party damage, and only consider a single failure mode for the pipe, or instead not differentiating between failure modes.
-				As well as this, current failure prediction models are not generalised, and require either extensive historical data which will not always be available or are designed to predict the failure of a single case study pipeline.
-				As well as this, all pipeline failure models are conservative estimates, meaning they suggest damage will occur before it is feasible, and as such lead to loss of profit, and also lead to pipes having to be disconnected for repairs which may not be necessary.
+				As well as this, current failure prediction models are not generalised, and require either extensive historical data, which will not always be available, or are designed to predict the failure of a single case study pipeline\supercite{zakikhani2020review}.
+				As well as this, all pipeline failure models are conservative estimates, meaning they suggest damage will occur before it is feasible, and as such lead to loss of profit due to unnecessary excavations.
+				Conservative estimates also lead to pipes having to be disconnected for repairs which may not be necessary.
 				Thus the threat of substitution entirely by models of pipe failure is low, but the likelihood of in pipe robots working alongside failure models to help verify and improve them is higher, slightly reducing the market size for inspections.
 			
 			\subsubsection{Rivalry Among Existing Competitors - Louis Emanuel}
@@ -1701,12 +1715,12 @@ BoldItalicFont=Arial Bold Italic.ttf
 		        \hspace*{3ex}The impact of switching costs on competitive rivalry depends entirely on the business model of our robot. For example, an outsourcing approach in which the customer hires the robot and an operating team will have far lower switching costs than purchasing the robot outright and training an internal team to operate it. Looking at current competitors, ULC’s CISBOT is not sold outright, but operates using service contracts. Therefore, the switching costs are currently low in the industry which suggests a higher intensity of rivalry. Although, this may be favourable for a new entrant. 
 		
 		        \textbf{Differentiation}\\
-		        The degree of differentiation also determines how intense the competition will be. If a firm in the market is offering highly differentiated products that other organizations cannot easily imitate or copy, then it will face relatively less competition.\\
-		        \hspace*{3ex}Again, considering the overall in-pipe inspection market, since PIG’s are incapable of currently operating in the urban pipeline environment our robot will be inspecting, we have a distinct differentiated capability. However, Cadent is capable of operating in this environment and also offers a pipe fixing capability. Whilst our robot does not offer this, it does offer automated capabilities and at a significantly lower price. Therefore, given our different offering to current firms in the industry, we would expect a lower threat of rivalry. 
+		        The degree of differentiation also determines how intense the competition will be. If a firm in the market is offering highly differentiated products that other organisations cannot easily imitate or copy, then it will face relatively less competition.\\
+		        \hspace*{3ex}Again, considering the overall in-pipe inspection market, since PIGs are incapable of currently operating in the urban pipeline environment our robot will be inspecting, we have a distinct differentiated capability. However, Cadent is capable of operating in this environment and also offers a pipe fixing capability. Whilst our robot does not offer this, it does offer automated capabilities and at a significantly lower price. Therefore, given our different offering to current firms in the industry, we would expect a lower threat of rivalry. 
 		        
 		        \textbf{Fixed Costs}\\
 		        The specific costs a firm faces to operate in a market can also affect how intense the threat of rivalry is. Costs that can increase rivalry include high fixed costs and high storage expenses. To cover these, competitors in a market will need to operate at high capacity and this is likely to intensify competition.\\
-		        \hspace*{3ex}Considering the in-pipe inspection market, the small size of robots and PIG’s means that only a small amount of storage space is needed. Also, the small production volumes suggest that the manufacturing resources required are low. However, one significant fixed cost for the industry may be interest payments associated with creating the robots. Given the complex technology, robots like CISBOT are priced at \$1 million. This could be problematic as given the service contract business model it operates, this investment will likely not be recuperated for a significant period of operation. Despite this, the robot we offer is far cheaper and so the contribution of costs to the threat of rivalry are low. 
+		        \hspace*{3ex}Considering the in-pipe inspection market, the small size of robots and PIGs means that only a small amount of storage space is needed. Also, the small production volumes suggest that the manufacturing resources required are low. However, one significant fixed cost for the industry may be interest payments associated with creating the robots. Given the complex technology, robots like CISBOT are priced at \$1 million. This could be problematic as given the service contract business model it operates, this investment will likely not be recuperated for a significant period of operation. Despite this, the robot we offer is far cheaper and so the contribution of costs to the threat of rivalry are low. 
 		        
 		        \textbf{Conclusion}\\
 		        Overall, from an analysis of the key factors that Porter outlined as contributing to a high level of rivalry, the threat level is determined as low. The only exception being the low switching costs currently in the industry. However, for our robot attempting to penetrate the market, this factor may be favourable due to the current monopoly CISBOT has. Given this low threat of rivalry, we can conclude that the industry has a high profit potential.
@@ -1730,11 +1744,11 @@ BoldItalicFont=Arial Bold Italic.ttf
 	        	\end{figure}
 				
 				Another significant advantage our customers have is technical knowledge. SGN for example has over 85 years of experience working in the gas distribution industry. Therefore, in order to compete, new firms must acquire personnel with knowledge of the complex processes involved in construction, maintenance and replacement of gas pipes. \\
-				One of the most significant barriers to entry is the regulation and relationships current companies have with regulators and suppliers. Looking at the big four gas networks, each is heavily regulated by Ofgem. Further, in order to distribute gas, a license must be obtained which limits the amount of revenue gas distribution companies can recover from customers. This thereby makes the profit margins even smaller for new entrants. \\
+				One of the most significant barriers to entry is the regulation and relationships current companies have with regulators and suppliers. Looking at the big four gas networks, each is heavily regulated by OFGEM. Further, in order to distribute gas, a license must be obtained which limits the amount of revenue gas distribution companies can recover from customers. This thereby makes the profit margins even smaller for new entrants. \\
 	            \hspace*{3ex}Another key factor is the relationship gas distributors have with suppliers. Ultimately, without relationships with gas suppliers such as British Power, the gas distribution companies are incapable of supplying gas to customers. And consequently the success of our customers is heavily reliant on maintaining strong relationships gas suppliers.
 
 			    \textbf{Conclusion}\\
-                In conclusion, the threat of new entrants in the gas distribution industry is determined to be low as currently the barriers to entry are very high. In fact, the regulator Ofgem states on their website that they serve to regulate the gas distribution industry because ‘Gas Distribution Networks are natural monopolies’. These natural monopolies have an overwhelming advantage over potential competitors
+                In conclusion, the threat of new entrants in the gas distribution industry is determined to be low as currently the barriers to entry are very high. In fact, the regulator OFGEM states on their website that they serve to regulate the gas distribution industry because ‘Gas Distribution Networks are natural monopolies’. These natural monopolies have an overwhelming advantage over potential competitors
         \subsection[Rivalry Among Existing Competitors]{Rivalry Among Existing Competitors}
                 Each of these firms have a natural monopoly. This means that the level of competition between them is incredibly small. Since each run their own distribution networks and have their own customers that no other of the competing firms can gain access to there is little rivalry and there is little consumer base overlap. The natural monopoly in fact means that many of the companies are looking to increase cooperation with other firms in order to work on developing solutions together.\supercite{SGN-GD2} [  https://www.sgnfuture.co.uk/wp-content/uploads/2019/12/SGN-RIIO-GD2-Business-Plan.pdf]
                 However, there are a IGTs (Independent Gas Transporters) who compete for work on the modification of gas pipelines which has increased competition in the industry. Their size is much smaller, so they do not provide much of a rivalry threat but it does provide some level of competition in some areas.\supercite{Gas_Distribution_Industry} 
@@ -1768,7 +1782,7 @@ BoldItalicFont=Arial Bold Italic.ttf
                 Ability for buyer to substitute or switch
                 The gas suppliers have no substitutes however the end consumers do. As discussed in the threat of substitution section there are increasing number of alternatives to using gas for consumers and therefore alternatives to using the gas distribution company’s services. The switching costs for ground heat pumps however are quite high, costing £13,000- £35,000\supercite{Heat_Pump_Cost} $[  https://www.greenmatch.co.uk/heat-pump/ground-source-heat-pump/ground-source-heat-pump-prices]$ which is a significant investment for most consumers. There are also reasonably high switching costs for moving away from gas boilers, it costs £1,500-£2,500 for an electric boiler and £7,000 - £13,000 for a biomass boiler.\supercite{boiler_cost} $[  https://www.greenmatch.co.uk/blog/2018/08/new-boiler-cost]$  This therefore is not a very high threat.
                 Regulation
-                The above discussion highlights how buyer power is reasonably low. The government has counterbalanced this through regulation. OfGem regulates the revenue that gas distribution companies can generate and thus the amount that they can charge. This means that the gas distribution companies cannot leverage the natural monopolies they have to extract the full economic profit potential that they could provide.
+                The above discussion highlights how buyer power is reasonably low. The government has counterbalanced this through regulation. OFGEM regulates the revenue that gas distribution companies can generate and thus the amount that they can charge. This means that the gas distribution companies cannot leverage the natural monopolies they have to extract the full economic profit potential that they could provide.
                 From this it can be seen that the threat from buyer’s is low. Even though the product is undifferentiated and the consumers have high price sensitivity the fact that the gas distribution companies have natural monopolies and there are a large number buyers means that they pose a low threat to the gas distribution companies. Regulation does however mean that the gas distribution companies cannot exploit this lack of buyer power.
                 Conclusion
                 In conclusion the threat of substitution is the largest threat in the industry. The threat of entry is the next largest due to acquisition of gas distribution networks from companies elsewhere in the global industry.  Threat of rivalry is next because with the growth of independent distributors there is a chance for more firms to develop the know-how to provide certain services for cheaper than the larger distributors, thus reducing the profitability of the industry. Because of this slight increase in competition the threat of buyers when they are seeking the modification services or new gas pipes is relatively high but is virtually non-existent for when paying for the service of using the gas pipes. The next most significant threat is that of suppliers because although the significance is likely small there is the potential that those that provide some of the specialist equipment that is required for repairs could negotiate greater prices. The least significant threat is the threat of entry. This is because of the large barriers there are to entry and also the large costs there are associated with entry combined with the capped revenue that firms in the industry can gain.
@@ -1776,13 +1790,13 @@ BoldItalicFont=Arial Bold Italic.ttf
                 In response to the increasing threat of substitutes the gas distribution companies are moving away from gas distribution towards hydrogen distribution in order to provide a greener alternative. The company will therefore need to be able to adapt its technology to solve the problems that this brings. It is likely to be similar due to the fact that in many cases the same gas pipes will be used. Get data. 
                 The low threat of rivalry between firms and large amount of cooperation may mean that firms would be willing to share specialist equipment. This would  reduce the viability of selling the robot. The capping of revenues by the regulatory firms due to the low buyer power means that the gas distribution companies are incentivised to find ways to lower costs. This means they are willing to invest money and time into partnering with firms that can increase the efficiencies of their operations, this provides an opportunity for the firm.
                 The few providers of specialist robotics equipment means provides the company with greater power over the GDCs which gives it greater pricing powers and also helps with partnering with the firms in the initial development of the product.
-        \section[Future of Customer Industry - EEM]{Future of Customer Industry - Louis Emanuel} % Possibly should come after customer P5F?
+        \section[Future of Customer Industry - EEM]{Future of Customer Industry - Louis Emanuel}
 		
     		From the analysis of our customers industry, it was concluded that the level of competitive intensity will not inhibit the profitability of the companies in the near term. However, in order to assess the long term viability of our robot, it is necessary to look into further detail at the macro trends that could shape the industry in the future.\\
     	    \hspace*{3ex}Therefore, the following section will assess the challenges the industry faces, possible alternatives and the route to sustainability. Finally, we will also consider how these factors could impact the success of our business in the long term. 
     	    
     	    \textbf{The Challenge}\\
-            In order to tackle climate change, the government has set a target to have net zero carbon emissions by 2050. This means in 2050, we can no longer burn natural gas in our homes and businesses. In order to achieve this goal, decarbonizing heat must be achieved. This is particularly important when you consider that one third of current CO2 emissions come from heating our homes and offices. However, this poses a significant challenge for current solutions as natural gas is used as the main method of heating for 85\% of UK homes.\\
+            In order to tackle climate change, the government has set a target to have net zero carbon emissions by 2050. This means in 2050, we can no longer burn natural gas in our homes and businesses. In order to achieve this goal, decarbonising heat must be achieved. This is particularly important when you consider that one third of current CO2 emissions come from heating our homes and offices. However, this poses a significant challenge for current solutions as natural gas is used as the main method of heating for 85\% of UK homes.\\
             \hspace*{3ex}This challenge is faced largely by the target customers of our business. Collectively, Cadent Gas LTD, Wales and West Ltd, SGN and Northern Gas Networks Ltd supply natural gas to over 22.1 million homes and businesses across the UK. Therefore, these distribution networks operated by our customers must be adapted to the new solutions that arise. 
     
             \textbf{Current solutions}\\
@@ -1793,7 +1807,7 @@ BoldItalicFont=Arial Bold Italic.ttf
             
             Biomethane: 
             Another solution with potential to dramatically change the industry is the increased use of Biomethane which is produced from organic waste material in biogas plants. Since it is chemically identical to natural gas, biomethane has the same applications as natural gas including space and water heating, fuel and electricity generation. Therefore, one of the biggest advantages of using Biomethane is the fact that it can use the existing gas distribution infrastructure without any adjustments. In terms of sustainability, technically biomethane is carbon neutral as the carbon produced when burning is equal to that absorbed by the organic material when it grew. Also, unlike methane, harmful gases are not released into the atmosphere.\\
-    	    \hspace*{3ex}However, despite the promise of Biomethane, scaling production is inherently difficult and is not economically viable on a large scale. Even if all organic waste could be collected, the amount of methane produced would not be enough to meet demand. Therefore, it is likely Biomethane will act as an addition to other solutions. According to Ofgem, connecting to local distribution networks is the best option for producers of biomethane. Although they also stated that this “raises a number of questions, including how the low pressure network can accommodate injections of biomethane, especially during the summer months; who is going to pay for the investment needed to allow the network to take biomethane throughout the year; and ensuring the quality of biomethane entering the network is the same as the rest of the gas already in the network.” As a result, grid connection costs are extremely high.\\
+    	    \hspace*{3ex}However, despite the promise of Biomethane, scaling production is inherently difficult and is not economically viable on a large scale. Even if all organic waste could be collected, the amount of methane produced would not be enough to meet demand. Therefore, it is likely Biomethane will act as an addition to other solutions. According to OFGEM, connecting to local distribution networks is the best option for producers of biomethane. Although they also stated that this “raises a number of questions, including how the low pressure network can accommodate injections of biomethane, especially during the summer months; who is going to pay for the investment needed to allow the network to take biomethane throughout the year; and ensuring the quality of biomethane entering the network is the same as the rest of the gas already in the network.” As a result, grid connection costs are extremely high.\\
         	\hspace*{3ex}In summary, as with hydrogen, integrating Biomethane into the distribution system will require heavy investment. Although these costs will likely be lower than integrating Hydrogen as it only requires injection into the preexisting grid. But if implemented successfully, Biomethane could provide a significant proportion of the carbon neutral energy needed by 2050.
     
     		\textbf{What Are Our Customers Doing?}\\
@@ -1865,16 +1879,16 @@ BoldItalicFont=Arial Bold Italic.ttf
      	
      	In order to assess how suitable the business was to take forward, several risks were considered for both severity and likelihood.
      	\\
-     	Due to the large initial cost to create a prototype robot, PipeDream is particularly vulnerable to economic downturn.
-     	As well as this, the first year or two will have high spending, and the business will most likely operate at a loss, which can be alleviated by ensuring a partnership with one of the gas networks.
+     	Due to the large initial cost to create a prototype robot, PipeDream is particularly vulnerable to economic downturn in the first years of operation, when sufficient capital has not yet been generated by the business itself.
+     	As well as this, the first year or two will have high spending, and the business will most likely operate at a loss, which can be compensated for by ensuring a partnership with one of the gas networks.
      	Also, it is important to remain aware of the risk of similar products coming to market at the same time as AccoBot, since these will take away from the number of jobs which AccoBot can embark on.
      	Once again, partnering with a gas network will help to reduce the risk of this, allowing PipeDream to be more confident in the projected revenue for the first few years.
-     	Another factor which allows us to be more robustly able to deal with financial issues is the fact that PipeDream produces a single product, which is much less likely to fail due to the significant investment in research and development, and a customer base where the industry is almost monopolistic.
+     	Another factor which allows PipeDream to be more robustly able to deal with financial issues is the fact that PipeDream produces a single product, which is much less likely to fail due to the significant investment in research and development, and a customer base where the industry is almost monopolistic, so a customer gained is unlikely to go out of business.
      	\\
-     	Another substantial business risk is the regulation and safety concerns around working within gas pipelines.
+     	A further business risk is the regulation and safety concerns around working within gas pipelines.
      	While AccoBot has been designed to meet all current UK regulations, there  is always a risk of the introduction of new legislation which may limit AccoBot's effectiveness.
-     	As well as this, gas networks are considered to be at fault if a third party causes damage, if it can be shown that they have not "exercised all due diligence"\supercite{hse1996guide}, and as such it is imperative that AccoBot conforms to all regulations strictly.
-     	As well as this, the high level of regulation of the gas industry makes moving into new markets a significantly more difficult process, as new regulations have to be followed, and new standards must be checked and followed.
+     	Additionally, gas networks are considered to be at fault if a third party causes damage, if it can be shown that they have not "exercised all due diligence"\supercite{hse1996guide}, and as such it is imperative that AccoBot conforms to all regulations strictly.
+     	As well as this, the high level of regulation of the gas industry makes moving into new geographical markets a significantly more difficult process, as new regulations have to be followed, and new standards must be checked and followed.
      	This problem is further exacerbated by the fact that other markets, such as the United States, have regulations and standards which differ between states\supercite{pless2011making}.
      	\\
      	Another risk to PipeDream is that of data security.
