@@ -246,7 +246,7 @@ BoldItalicFont=Arial Bold Italic.ttf
         
 	        Once PipeDream identified GDCs as the likely clients, and therefore key stakeholders, it was decided to speak to people in at these companies. It was decided to reach out to both those who worked closely with gas pipes in order to understand their pains, jobs and potential gains and also to reach out to innovation managers who would be in charge of making the decision as to whether they would partner with the company.
 	        \\
-	         PipeDream spoke to Thomas Barrett a Network Engineer at Cadent and to David Ransome, an Engineering Services Manager at Cadent. In the latter group we spoke to Lucy Mason, Innovation Manager at Wales \& West Utilities, Michael Charlton, Innovation Implementation Manager at Northern Gas Networks, Gordon McMillan, Innovation Project Officer at SGN and Andrew Newton who was Innovation Portfolio Manager at Cadent until June 2020.
+	         PipeDream spoke to Thomas Barrett a Network E  ngineer at Cadent and to David Ransome, an Engineering Services Manager at Cadent. In the latter group we spoke to Lucy Mason, Innovation Manager at Wales \& West Utilities, Michael Charlton, Innovation Implementation Manager at Northern Gas Networks, Gordon McMillan, Innovation Project Officer at SGN and Andrew Newton who was Innovation Portfolio Manager at Cadent until June 2020.
 	        \\
 	        Andrew Newton highlighted  Andrew Newton highlighted that the robot should be able to navigate bends and that most small size pipes have already been replaced and that the bigger mains in cities are more costly and difficult to repair. Therefore we further investigated these types of pipes. Additionally he said that the capital outlay to buy a robot would be “prohibitive”. 
 	        \\
@@ -643,6 +643,8 @@ BoldItalicFont=Arial Bold Italic.ttf
             This is important when the accuracy is the most important factor. 
             Furthermore, it can be seen from \tableref{rotary_encoders_comparison} \& \figref{rotary_encoders_graph} that TMR sensors are the most sensitive, which provides greater resolution. What is more, because it produces a high output, it does not require extra amplification, reducing cost and complexity. 
             
+            In particular the ASR022ABZ Noncontact TMR Encoder Sensor was chosen because it provides all the necessary performance for an appropriate price and weight.
+            
             \begin{table}[h]
 					\centering
 						\includegraphics[width=0.8\textwidth] {AMR_comparison table_formatted}
@@ -667,6 +669,9 @@ BoldItalicFont=Arial Bold Italic.ttf
             It was decided to use the AHRS because it provided attitude values and suffers less drift than the IMU due to its application of a Kalman filter. 
             The INS is more expensive but can provide more accurate information if regular GNSS information is available. 
             However this is not available, therefore the extra expense would not be justified. For this reason an AHRS was chosen to be used.
+            
+            In particular the Ellipse 2 Micro AHRS was picked.
+            This was because it is light and compact, with a weight of 10g and size of 26.8 x 19.8 x 9.5 mm. \supercite{Ellipse_Ahrs}
             \\
             
             
@@ -708,9 +713,12 @@ BoldItalicFont=Arial Bold Italic.ttf
 	        Capacitive encoders are also more compact than optical and magnetic encoders and are less expensive\supercite{Encoders}. 
 	        They have a downside of being prone to electrical interference, however modern packages housing the encoders make this less significant than the noise that the other encoders face.\supercite{Encoders}
 	        \\
-	        \tableref{odometer_comparison} compares the metrics that it need to be considered when choosing which type to use. 
+	        \tableref{odometer_comparison} compares the metrics that need to be considered when choosing which type to use. 
 	        Due to the relative inexpense of these compared to other parts of the robot, cost was not considered to be a factor worth considering. 
 	        From this decision matrix it was decided to use a capacitive odometer. 
+	        
+	        It was decided to specificallu use the AMT31 Series which cost £6 each and weight 15.7g because it again provided the necessary performance for a good price and weight.
+	        
 	        \begin{table}[h]
 						\centering
 							\includegraphics[width=0.9\textwidth]{Encoder comparison table}
@@ -718,7 +726,20 @@ BoldItalicFont=Arial Bold Italic.ttf
 							\label{odometer_comparison}
 					\end{table}
 					
-    	        \subsubsection{Visual Sensors for Localisation - Joshua Gei}
+	  %Having chosen the types of sensors here the specific components will be specified. The angular sensor is a TMR sensor in particular the ASR022ABZ Noncontact TMR Encoder Sensor was chosen. This is because it provides all the necessary performance for an appropriate price and weight. The odometer encoder was chosen for similar reasons. It was decided to use the AMT31 Series which cost £6 each and weight 15.7g. For the AHRS the Ellpise 2 Micro was chosen due to its small size and weight combined with its reported high quality. For the EMAT sensor the Oympuse EMAT E110-SB was chosen because it comes with software and appropriate interfaces to process the data that it collects.
+       	%	In particular the Ellipse 2 Micro AHRS was picked.
+           %  This is because it is light and compact. It has a weight of 10g and size of 26.8 x 19.8 x 9.5 mm. \supercite{Ellipse_Ahrs}
+       	  		\begin{table}[H]
+       	  		
+       	  		\centering
+       	  		\includegraphics[scale=0.7]{smaller component sensor table}
+       				\caption{Costs and weights of sensor hardware}
+       				\label{sensorHardware}
+       			\end{table}				
+					
+	
+					
+        \subsubsection{Visual Sensors for Localisation - Joshua Gei}
 	        Visual sensors are required for two primary purposes: 1) Localisation and Mapping, and 2) Crack and Corrosion detection. Both purposes require different camera functionalities, hence it was decided to have two sets of cameras that serve each purpose separately. The visual sensors required for localisation will be discussed here, and the crack and corrosion detection sensors in the next section. 
 	        \\ \hspace*{3ex}The robot needs to be able to know its location in real-time while travelling through the pipeline and determine the 3D pose of cracks detected, in order to generate the leakage map with pinpoint locations and orientations of cracks in the pipeline. A localisation algorithm fusing wheel and visual odometry, alongside GPS location information from communications sensors, will be used to achieve this, elaborated in Section 6.9.
             \\ \hspace*{3ex}Appropriate visual sensors would therefore be required in order to obtain video feeds suitable for the visual odometry (VO) portions of localisation. A key element for accurate 3D localisation with VO is obtaining depth images, which are image channels in which each pixel relates to a distance between the image plane and the corresponding object in the RGB image\supercite{visualodometry}. This provides necessary information on shape and position related parameters, and can be achieved using 3D sensors, or industrial RGB-D (Depth) cameras.
@@ -731,16 +752,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 	        From a research study that performed localisation on an in-pipe sewage robot, a combination of 7 RGB-D cameras were used to accurately map the locations of faults in the sewer networks\supercite{sewerpaper}. We will be implementing a similar system for AccoBot with six cameras for localisation: 3 RGB-D industrial cameras at the front of the robot and 3 behind the robot, to provide both visual and depth information for VO. The camera used will be the smallest and lightest industrial RGB-D currently commercially available, the Helios Time of Flight IMX556 3D Camera, which specifications are shown in \figref{robotcamera}. 
 	        \\ \hspace*{3ex}For each direction, the robot has a camera parallel to the ground and two cameras facing downwards and sideways to visualize closer range obstacles. 
 	        
-	        Having chosen the types of sensors here the specific components will be specified. The angular sensor is a TMR sensor in particular the ASR022ABZ Noncontact TMR Encoder Sensor was chosen. This is because it provides all the necessary performance for an appropriate price and weight. The odometer encoder was chosen for similar reasons. It was decided to use the AMT31 Series which cost £6 each and weight 15.7g. For the AHRS the Ellpise 2 Micro was chosen due to its small size and weight combined with its reported high quality. For the EMAT sensor the Oympuse EMAT E110-SB was chosen because it comes with software and appropriate interfaces to process the data that it collects.
-       		In particular the Ellipse 2 Micro AHRS was picked.
-             This is because it is light and compact. It has a weight of 10g and size of 26.8 x 19.8 x 9.5 mm. \supercite{Ellipse_Ahrs}
-       	  		\begin{table}[H]
-       	  		
-       	  		\centering
-       	  		\includegraphics[scale=0.7]{smaller component sensor table}
-       				\caption{Costs and weights of sensor hardware}
-       				\label{sensorHardware}
-       			\end{table}
+	      
        			
        			From earlier analysis of the visual sensors, it was determined that two sets of cameras will be used for the robots, namely six RGB-D cameras for localisation and mapping, and one high resolution, high frame-rate camera for crack and corrosion detection. 
        					
@@ -1026,10 +1038,10 @@ BoldItalicFont=Arial Bold Italic.ttf
     				\label{drill2}
 				\end{multicols}
 			\end{figure}
-		This drill system was developed by IPSCO Tubulars on request by CISBOT\supercite{ipsco}, and takes less than 5 minutes to make a cut into a typical Tier 3 pipeline, at a 45 degree cutting angle with a 4” shell cutter and a ¾” end mill to catch coupon.
+		This drill system was developed by IPSCO Tubulars on request by CISBOT\supercite{IPSCO}, and takes less than 5 minutes to make a cut into a typical Tier 3 pipeline, at a 45 degree cutting angle with a 4” shell cutter and a ¾” end mill to catch coupon.
         \\ \hspace*{3ex}Since there is already an existing functional drill system, PipeDream will purchase the drill system from IPSCO, and have in our inventory a roughly 1:1 ratio of drill systems to AccoBots. 
 		\subsubsection{External Launch System}
-	    The launch system will primarily comprise of a no-blow pressurised launch tube that launches AccoBot into the pipelines through the hole made by the drill. The pressurised system enables AccoBot to enter the pipeline without the gas supply being disrupted, and no-blow ensures that operators in close proximity to the launch tube are safe during launch. The launch tube will also act as a retrieval tool for AccoBot after it completes its inspection of the pipeline, similar to a standard PIG Trap that retrieve PIGs after they finish inspection\supercite{pigtrap}. 
+	    The launch system will primarily comprise of a no-blow pressurised launch tube that launches AccoBot into the pipelines through the hole made by the drill. The pressurised system enables AccoBot to enter the pipeline without the gas supply being disrupted, and no-blow ensures that operators in close proximity to the launch tube are safe during launch. The launch tube will also act as a retrieval tool for AccoBot after it completes its inspection of the pipeline, similar to a standard PIG Trap that retrieve PIGs after they finish inspection\supercite{pigTrap}. 
 
     \textbf{Design Specifications}
     \\The launch tube has to be designed in line with the National Grid’s specifications for pressure vessels fitted onto the National Transmission System and gas distribution networks\supercite{NTSstandards}. Hence, the launch tube will be rated up to 100 bar(g) and includes an industry standard quick closure door system – which enables the window of gas leakage to be minimised\supercite{launchtubestandards}.
