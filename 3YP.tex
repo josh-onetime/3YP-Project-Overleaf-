@@ -388,102 +388,40 @@ BoldItalicFont=Arial Bold Italic.ttf
 			\end{multicols}
 		\end{figure}
 	
-	\section[Solution Evaluation - EEM]{Solution Evaluation (EEM) - Jim Laney} \label{solutionEvaluation}
+	\section[Value Proposition - EEM]{Value Proposition (EEM) - Jim Laney} \label{solutionEvaluation}
 	
-		The design of AccoBot was influencedby the issues discovered through market research, as shown in \tableref{solutionTable}.
+		The design of AccoBot was influenced by the issues highlightedby market research.
 		A particular focus was the usage of AccoBot where existing competitors cannot operate, fitting into the white space of the market; fast, adaptable pipe inspection.
 		
-		%\setlength{\tabcolsep}{13pt}	% Space 11 pts around the edges for readability
-		%\renewcommand{\arraystretch}{1.4}	% Space at the top and bottom of rows for readability
+		One of the main pains that GDCs face is the slow and disruptive nature of manual inspection.
+		Manual methods require extensive pipeline excavation, at great expense to the gas distribution company, which also disrupts the general public, increasing their negative opinion of the GDC.
+		Additionally gas must be turned off during manual inspections for safety, increasing network downtime and incurring a financial loss for the gas distribution company, exacerbated by the slow speed of manual inspection.
+		Manual pipe inspection requires highly trained individuals to inspect the pipes, who must travel to the location in order to perform the inspection.
+		AccoBot relieves these pains, as it only required a small excavation be made for the launch tube, and is thus less disruptive than manual methods.
+		As well as this, AccoBot can operate within an active pipeline, meaning the gas can remain running and money can continue to be made by the gas distribution companies.
+		The operators for AccoBot do not need to be trained to inspeect pipelines, and only need to be trained in operation of the launch tube and monitoring of AccoBot, which requires a lower salary.
+		Human error is reduced by the use of computational methods, and images which are marked as damaged or corroded can be shared with experts in order to reduce travel time for expensive employees.
 		
-		\definecolor{rowGrey}{HTML}{F2F2F2}		% Defines the grey for the row with a hex code
-		\definecolor{headerBlue}{HTML}{77CEEF}	% Defines the blue for the header with a hex code
+		When a pipeline is considered for decommissioning using a computational model, it is not known whether the pipes are actually damaged, which is another cause of losses for GDCs.
+		Since pipeline interiors are unseen, and any given sign of failure can have many causes, repairing pipeline faults can be difficult and expensive.
+		The location of the fault is unknown, so widespread excavation of the pipeline is required to find the number of faults, and their locations and causes, which is slow and expensive for the gas distribution company.
+		AccoBot can be used to inspect pipelines which have been marked by models as requiring replacement, either verifying the model, or gathering additional data to improve the model of the pipeline to reduce false positives.
+		AccoBot can also be used in locations where a fault is known to have ocurred, but the location and cause are unknown.
+		Its computer vision and sensing system allows it to identify causes of pipeline damage, and the GPS system allows the location to be narrowed down in order for precise excavations to be made for repairs, saving money and reducing both the scale and duration of disruption.
 		
-		{\RaggedRight
+		As an additional feature provided by AccoBot is the mapping of pipelines, identifying the locations of third party connections which GDCs may not always be aware of.
+		This information is useful when third parties are excavating pipeline areas, as it reduces the likelihood of damage to the pipe, and prevents the overlap of old pipes and new pipes being placed in the same area.
+		Additionally, when pipes are being replaced with smaller polyethylene pipes, the old pipes are not always removed, leading to a risk of obstruction by third party pipes due to lack of information about their locations.
+		Again, AccoBot can mark and locate these connections creating up to date and accurate maps of the pipeline, which can be performed alongside it's usual inspection routine.
 		
-		\begin{longtable}[c]{| m{0.45\textwidth} | m{0.45\textwidth} |}
-		
-			\hline
-			\rowcolor{headerBlue} \textbf{Current Issue} & \textbf{Solution}\\
-			\hline
-			\endfirsthead
-
-			\hline
-			\rowcolor{headerBlue} \textbf{Current Issue} & \textbf{Solution}\\
-			\hline
-			\endhead
-			
-			\hline
-			\caption{Comparison of existing issues for the Gas Pipe Industry and how AccoBot solves them}
-			\endlastfoot
-			
-			\hline
-			\rowcolor{rowGrey}
-			When a pipeline is considered for decommissioning, it is not known whether they are actually damaged, so functional pipes can be replaced, and money is wasted. 
-			& 
-			AccoBot can be used to inspect pipelines before decommissioning to check if pipes are damaged, or can continue to be used. 
-			This information can also update the models of pipeline damage to improve accuracy.
-			\\
-			\hline
-			\rowcolor{rowGrey}
-			Manual methods require extensive pipeline excavation, at great expense to the gas distribution company.
-			This also disrupts the general public, increasing their negative opinion of the gas distribution company.
-			& 
-			AccoBot requires one small excavation for the launch tube, which less expensive and disruptive than excavating the entire section of pipeline.
-			\\
-			\hline
-			\rowcolor{rowGrey}
-			The gas must be turned off during manual inspections for safety, increasing network downtime and incurring a financial loss for the gas distribution company, exacerbated by the slow speed of manual inspection.
-			&
-			As humans are not directly involved in the inspection of the pipeline, safety concerns are reduced by using AccoBot.
-			The robot can operate within an active gas pipe, eliminating network downtime and reducing losses.
-			Autonomous in-pipe inspection is also faster than manual methods and human error is avoided.
-			\\
-			\hline
-			\rowcolor{rowGrey}
-			Manual pipe inspection requires highly trained individuals to inspect the pipes, who must travel to the location in order to perform the inspection.
-			& 
-			AccoBot uses operators who are not highly trained in inspection methods, and only have to be trained to operate the launch tube and monitor AccoBot.
-			The data can then be shared with experts who are not present at the excavation, saving time and reducing the travel required for expensive expert employees.
-			\\
-			\hline
-			\rowcolor{rowGrey}
-			Since pipeline interiors are unseen, and any given sign of failure can have many causes, repairing pipeline faults can be difficult and expensive.
-			The location of the fault is unknown, so widespread excavation of the pipeline is required to find the number of faults, and their locations and causes, which is slow and expensive for the gas distribution company.
-			& 
-			AccoBot can be used to identify the exact issue with a pipe, allowing the gas pipe companies to prepare the correct tools and supplies to repair the issue.
-			The location of the issue is also identified and returned to the gas company, further reducing the cost as only one excavation is required for each pipe fix.
-			\\
-			\hline
-			\rowcolor{rowGrey}
-			Existing pipeline maps are not always accurate, and exact locations and pipe information is not always well recorded, especially for third party pipes such as those installed by Independent Gas Transporters.
-			This information is important for third party excavations for infrastructure installation to avoid pipeline damage.
-			& 
-			AccoBot maps the location of the pipeline accurately, using the communications module and the localisation algorithm.
-			This creates accurate maps of the pipeline system, and can be performed quickly since other functions, such as damage detection, do not need to occur.
-			This can also be performed as part of a wider scan for damage of the pipeline.
-			\\
-			\hline
-			\rowcolor{rowGrey}
-			When pipes are being replaced with smaller polyethylene pipes, the old pipes are not always removed.
-			There is a risk of obstruction by third party pipes due to lack of information about their locations.
-			& 
-			AccoBot can map and mark connecting pipes and obstacles when travelling inside the pipe, using its cameras to identify and locate branches and connections.
-			\\
-			\hline
-			\rowcolor{rowGrey} Current robotic solutions, such as CISBOT, are designed for non-autonomous pipeline repair, so operators require training, increasing the cost of use.
-			Current unmanned inspection techniques, such as PIGs, are unable to operate in pipelines with bends or variable diameters, so they are useless in more complex pipelines, such as those in urban environments.
-			PIGs are also passive, meaning they are driven by the gas pressure and the pipe angle, and can only inspect pipes in one direction.
-			&
-			AccoBot is designed for autonomous inspection, so it is cheaper and quicker to use for this purpose than more specialised robots, such as CISBOT.
-			AccoBot can also travel in both directions, so only one excavation is required.
-			It can adapt to different pipe diameters, and is able to navigate bends autonomously, meaning it is adaptable for more complex pipelines.
-			It can also climb pipes at any angle, as well as calculating the angle of the pipe for use in mapping.
-			\label{solutionTable}
-		\end{longtable}
-		}
-		
-		
+		AccoBot provides a service which does not currently exist in the market, as existing robotic solutions, such as CISBOT, are designed for non-autonomous pipeline repair.
+		Operators require training, increasing the cost of use, and joints are repaired indiscriminately, meaning GDCs are often payng for an unecessary service.
+		Current unmanned inspection techniques, such as PIGs, are unable to operate in pipelines with bends or variable diameters, making them useless in urban pipelines.
+		PIGs are also passive, meaning they are driven by the gas pressure and the pipe angle, and can only inspect pipes in one direction, requiring two excavations for both entry and exit.
+		AccoBot is designed for autonomous inspection, so it is cheaper and quicker to use for this purpose than more specialised robots, such as CISBOT.
+		AccoBot can also travel in both directions, so only one excavation is required, and can also climb pipes at any angle, as well as calculating the angle of the pipe for use in mapping.
+		It can adapt to different pipe diameters, and is able to navigate bends autonomously, meaning it is adaptable for more complex pipelines.
+				
 		\section{Product Hardware - ENG}
 	
 		\subsection[Locomotion]{Locomotion - Jim Laney} \label{Lomcotion}
