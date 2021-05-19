@@ -82,22 +82,27 @@ BoldItalicFont=Arial Bold Italic.ttf
 		\fontsize{20pt}{22pt}\selectfont
 		B3 THIRD YEAR PROJECT
 		
-		TEAM PIPEDREAM
+		TEAM PipeDream
 		
 		\vspace*{1cm}
 		
 		\fontsize{12pt}{14pt}\selectfont		
 		ENGINEERING, ENTREPRENEURSHIP AND MANAGEMENT PATHWAY
 		
-		\vspace*{1.5cm}
+		\vspace*{0.5cm}
 		
 		\rule{0.95\textwidth}{1pt}
 
-		\fontsize{22pt}{24pt}\selectfont
-		Designing an Autonomous In-Pipe Robot
-		\vspace*{-1cm}
+		\fontsize{20pt}{22pt}\selectfont
+		Designing an Autonomous In-Pipe Inspection Robot
+		
+		\fontsize{12pt}{14pt}\selectfont
+		Designing an Autonomous Service Robot
+		
+		%\vspace*{-1cm}
+		
 		\rule{0.95\textwidth}{1pt}
-				
+		
 		\vspace*{1.5cm}
 				
 		\fontsize{12pt}{14pt}\selectfont
@@ -121,7 +126,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 	\pagestyle{empty}
 	
 	\setlength{\headheight}{18pt}
-	\fancyhead[l]{\includegraphics[height=\baselineskip]{pipeDreamLogoSmall.png}}
+	\fancyhead[l]{\includegraphics[height=\baselineskip]{PipeDreamLogoSmall.png}}
 	
 	\setlength{\columnsep}{1.5cm} % Increases column separation for the TOC
 	\setlength{\columnseprule}{0.5pt} % Sets thickness of the separation line
@@ -272,11 +277,11 @@ BoldItalicFont=Arial Bold Italic.ttf
 
     \section{Market Research - EEM}
     
-        Once a potential problem was identified, market research was carried out in order to specify the problem, and validate the existence and size of a market for a potential solution. 
+     Once a potential problem was identified, market research was carried out in order to specify the problem, and validate the existence and size of a market for a potential solution. 
         \\
         \hspace*{2ex}Firstly, it was determined that PipeDream would begin operating in the UK market, due to familiarity with legislation, availability of connections and funding, and being in closest proximity to PipeDream's base of operations in Oxford. 
         \\
-        \hspace*{2ex}It was identified that GDCs in the UK to be PipeDream's key customers. In the UK, there are four key GDCs - SGN, Northen Gas Networks (NGN), Cadent Gas, and Wales and West Utilities (WWU), each operating as the sole gas distributor in their respective areas of operation, shown in \figref{distrit0}. 
+        \hspace*{2ex}It was identified that GDCs in the UK will be PipeDream's key customers. In the UK, there are four key GDCs - SGN, Northen Gas Networks (NGN), Cadent Gas, and Wales and West Utilities (WWU), each operating as the sole gas distributor in their respective areas of operation, shown in \figref{distrit0}. 
 
         \subsection[Primary Market Research]{Primary Market Research - Montgomery Beresford} \label{primaryresearch}
             \begin{floatingfigure}[r]{0.4\textwidth}
@@ -285,21 +290,18 @@ BoldItalicFont=Arial Bold Italic.ttf
     		    \caption{GDC areas of operation\supercite{Gas_Distribution_Industry}}
         	    \label{distrit0}
     	    \end{floatingfigure}
-            There is little detailed freely available information about the UK gas distribution industry, therefore once PipeDream identified GDCs as the likely clients, it was important to speak to people in their industry. Therefore PipeDream spoke to both innovation manages who are in charge of making the decision about partnering with PipeDream, which is discussed in \sectref{go-to}, and to those those who worked closely with gas pipes in order to understand their pains, jobs and potential gains
-             The findings of this primary market research were used as a basis for the further research and analysis that is presented throughout the report, and were confirmed by research into sources such as GDC business plans and spending projections\supercite{SGN-GD2}, and third-party analysis of the industry\supercite{Gas_Distribution_Industry} were researched which corroborated the findings of these interviews. Moreover, the primary sources did not contradict each other and consistently reinforced what was heard from others, highlighting that this evidence is credible.
+   There is little detailed freely available information about the UK gas distribution industry, therefore once PipeDream identified GDCs as the likely clients, it was important to speak to people in their industry. Therefore PipeDream spoke to both innovation manages who are in charge of making the decisions about working with PipeDream, which is discussed in \sectref{go-to}, and to those those who worked closely with gas pipes in order to understand their pains, jobs and potential gains.
+             The findings of this primary market research were used as a basis for the further research and analysis that is presented throughout the report, and were confirmed by research into sources such as GDC business plans and spending projections\supercite{SGN-GD2}, and third-party analysis of the industry\supercite{Gas_Distribution_Industry}. Moreover, the primary sources did not contradict each other and consistently reinforced what was heard from others, highlighting that this evidence is credible.
 	        \begin{floatingfigure}[r]{0pt} \end{floatingfigure}
-	        \vspace*{-\baselineskip}
             \hspace*{2ex}In the first group PipeDream spoke to Thomas Barrett\supercite{Barret} a Network Engineer at Cadent and to David Ransome\supercite{Ransome}, an Engineering Services Manager at Cadent. In the second group Luccy Mason, Innovation Manager at Wales \& West Utilities, Michael Charlton, Innovation Implementation Manager at Northern Gas Networks, Gordon McMillan\supercite{McMillan}, Innovation Project Officer at SGN and Andrew Newton\supercite{Newton} who was Innovation Portfolio Manager at Cadent until June 2020 were spoken to.
 	        \\
             \hspace*{2ex}Andrew Newton highlighted that the robot should be able to navigate bends and that most small size pipes have already been replaced and that the bigger mains in cities are more costly and difficult to repair. Therefore it was decided to further investigate these types of pipes. Additionally, he said that the capital outlay to buy a robot would be “prohibitive”\supercite{Newton}, which informed PipeDream's strategy, revenue model and pricing discussed in \sectref{businessmodel} .%\sectref{strategy} and \sectref{businessmodel}.
 	        \\
             \hspace*{2ex}Thomas Barrett said that being able to inspect a live gas pipe without isolating it would make the robot “invaluable”\supercite{Barret}, which informed AccoBot's design. Andrew Newton further highlighted that, because the atmosphere is almost 100\% CH\textsubscript{4}, the robot’s interaction with the live gas conditions is not a big risk, but that the most dangerous part is the insertion of the robot, so it was decided to work with an experienced supplier to provide the launch tube system.
 	        \\
-            \hspace*{2ex}Additionally, competitors ULC and Synthotech, whom are analysed in \sectref{competitorAnalysis}, were spoken to gain an understanding of how existing robotic solutions fit into the industry. ULC suggested that larger gas distribution pipes of diameters 16-36 inches in urban areas would likely be the best part of the market to find a niche, confirming the findings from the interviews with employees at the GDCs. The contact said that to provide value the robot would be able to travel in both directions, map the pipe, assess the conditions and detect potential leaks\supercite{ULC_interview}. He also confirmed that using visual sensing combined with machine learning would be a viable and valuable inspection method, which Synthotech corroborated. %Discussions with Synthotech resulted in them offering to provide video and images to train the machine vision algorithms.
-	        \\
-            \hspace*{2ex}Secondary market research found that the majority of Tier 1 and Tier 2 pipes had already been replaced\supercite{SGN-GD2}, which backed up the findings from the primary research that PipeDream should focus on Tier 3 pipes. 
-            \\
-            \hspace*{2ex}Through this research it was possible to find the segment in the market that PipeDream would be able to provide the most value to and therefore have the greatest competitive advantage. This segment was Tier 3 iron distribution pipes that were either inaccessible to competitor robots or were too costly for other robots to fix.
+            \hspace*{2ex}Additionally, competitors ULC and Synthotech, whom are analysed in \sectref{competitorAnalysis}, were spoken to gain an understanding of how existing robotic solutions fit into the industry. ULC suggested that larger gas distribution pipes of diameters 16-36 inches in urban areas would likely be the best part of the market to find a niche, confirming the findings from the interviews with employees at the GDCs. The contact said that to provide value the robot should be able to travel in both directions, map the pipe and assess the conditions\supercite{ULC_interview}. He also confirmed that using visual sensing combined with machine learning would be a viable and valuable inspection method, which Synthotech corroborated. %Discussions with Synthotech resulted in them offering to provide video and images to train the machine vision algorithms.
+	        \\  \hspace*{2ex}
+           Through this research PipeDream identified the market segment in which it would provide most value and have the greatest competitive advantage. This segment was Tier 3 iron distribution pipes that were either inaccessible to competitor robots or were too costly for other robots to fix.
 %	 AccoBot has several applications which means that it will be operating in several small niches of the market. However for the revenue model PipeDream has assumed that initially only one of these applications are used. This is the function of inspecting joints to locate exactly which joints need to be replaced in a stretch of pipeline that would have all been replaced. 
 
 %	Currently it is estimated that 30.8km of pipeline need to be replaced each year for the next 5 years. This has been calculated using the fact that SGN plans to replace 6.15km\supercite{SGN_Southern}\supercite{SGN_Scotland} and that NGN plans to replace 10.2km per year\supercite{NGN_decisions}. It was then assumed that the other two GDCs would have the same proportion of their pipelines as SGN that need replacing. Since joint failures are the most common failure it is likely that a large majority of these could be fixed by replacing the joints. In Tier 3 pipes there are roughly 0.275 joints per metre of pipeline\supercite{SGN_Southern} therefore it is estimated that there are 8474 joints that will be being removed by replacing the pipeline. Applying the £414.40 price per joint to these joints would give a market size of £3.5m. This form of revenue will be used for the revenue projections.
@@ -334,20 +336,20 @@ BoldItalicFont=Arial Bold Italic.ttf
 	        
      	\subsubsection[ULC]{ULC - Montgomery Beresford}
      	
-     	ULC is a large technology company headquartered in New York that mainly produces gas industry robots\footnote{It roughly has \$40m of annual revenue\supercite{SPX_acquisition}}. It was acquired for £96.13m by SPX in 2020 for an EV/Revenue of multiple of 3.375$\times$, showing that there are companies looking to acquire companies similar to PipeDream\supercite{SPX_multiple}. SPX has an annual revenue of £1.07 billion and 4500 employees who work in 17 countries, providing ULC with the resources and reach to expand into more markets globally\supercite{SPX_acquisition}. ULC is a large company with 160 employees and  15 robots which have covered over 145m km of pipeline\supercite{ULC_news}. Its flagship robot is CISBOT which seals joints in underground pipes.% They outsource some of their engineering design and manufacturing to soloosion.\supercite{soloosian}
-     	
+     	ULC is a large technology company headquartered in New York with 160 employees, that mainly produces gas industry robots\footnote{It roughly has \$40m of annual revenue\supercite{SPX_acquisition}}. It has 15 robots which have covered over 145m km of pipeline\supercite{ULC_news}. Its flagship robot is CISBOT which seals joints in underground pipes. It is owned by SPX which has a large multinational company, providing ULC with the resources and reach to expand into more markets globally\supercite{SPX_acquisition}. % They outsource some of their engineering design and manufacturing to soloosion.\supercite{soloosian}
+     	    \pagebreak
 	        \textbf{Strengths}
 	        \\
-	        One of ULC's major strengths is its existing partnerships with Cadent and SGN. ULC is therefore a known commodity in a risk adverse industry, which means they are more likely to be trusted with future jobs. The relationships are also more likely to fast track their future technologies along the GDC's innovation pipelines. 
+	        One of ULC's major strengths is its existing partnerships with Cadent and SGN. ULC is therefore a known authority in a risk adverse industry, which means they are more likely to be trusted with future jobs. The relationships are also more likely to fast track their future technologies along the GDC's innovation pipelines. 
 	        \\
-            \hspace*{2ex}Secondly since ULC is a large company it benefits from economies of scale. There is a fixed set of costs that it can cover from multiple revenue streams from different robots in different locations. This size allows them to put a significant amount of resources to R\&D which allows them to have first-mover advantages, such as with CISBOT, and to maintain their competitiveness as the s-curve develops. Moreover, they have a large amount of expertise in their staff, and the number of jobs that they do means that they can develop their know-how much more quickly than smaller firms\supercite{Barney}.
+            \hspace*{2ex}Secondly, since ULC is a large company it benefits from economies of scale. For example, it has a fixed set of costs that it can cover from multiple revenue streams from different robots in different locations. This size also allows them to put a significant amount of resources to R\&D which allows them to have first-mover advantages, such as with CISBOT, and to maintain their competitiveness as the s-curve develops. Moreover, they have a large amount of expertise in their staff, and the number of jobs that they do means that they can develop their know-how much more quickly than smaller firms\supercite{Barney}.
 	        They have also hired staff from GDCs  such as their Head of Business Development who was formerly at SGN. This gives ULC a strong understanding of how the industry works.
 	        \\
             \hspace*{2ex}Being owned by SPX provides ULC with a global reach. They will have access to SPX's distribution channels which will make it easier for ULC to expand existing markets and enter new ones.
 	        
 	        \textbf{Weaknesses}
 	        \\
-	        The size of ULC does bring some disadvantages. It may mean that there are slower to adapt to changes in the market\supercite{ULC_Slow}. Moreover, since they have business activities involving drones and robotic excavation systems\supercite{ULC_news} the company's energy is spread across many different applications which may cause them to lose an edge in the in-pipe robot inspection market. Also, their flagship robot is prohibitively expensive for some firms, with it being valued at £1m.
+	        The size of ULC does bring some disadvantages. It may mean that there are slower to adapt to changes in the market\supercite{ULC_Slow}. Moreover, since they have business activities involving drones and robotic excavation systems\supercite{ULC_news} the company's energy is spread across many different applications which may cause them to lose an edge in the in-pipe robot inspection market. Also, their flagship robot is prohibitively expensive for some firms, with it being valued at £714,000.
 	        
 	        \textbf{Opportunities}
 	        \\
@@ -358,12 +360,12 @@ BoldItalicFont=Arial Bold Italic.ttf
 	        ULC's CISBOT is expensive to hire and therefore the number of instances where its application in the UK is cost effective is declining. CISBOT can only be used in iron gas pipes, and the reduction in these, as will be discussed in the \sectref{customerFuture}, is a threat to this revenue stream. Lastly, as will be discussed in \sectref{industryP5F}, there is a high threat of market entry, so the market is likely to become more competitive due to new entrants such as PipeDream.
             \begin{table}[h]
 				\centering
-				\includegraphics[width=0.8\textwidth]{ULC_robot_comparison_formatted}
+				\includegraphics[width=0.8\textwidth]{updated competitor analysis table.png}
 				\caption{ULC Robotics product features compared to AccoBot's\supercite{ULC_Robots}}
 				\label{ULCFeatures}
 			\end{table}
 			\\
-            \hspace*{2ex}This analysis is limited in how it does not take into account any potential products that either of these firms might be currently developing. Thus it does not identify how PipeDream might have to behave around these firms in the future. However, it clearly highlights that the high expense of ULC's CISBOT provides a potential for PipeDream to use a cost leadership strategy, as discussed in \sectref{strategy}. From this analysis it was also decided not to target the US market because ULC already has substantial competitive advantages in that market. Furthermore, ULC's extensive know how encouraged PipeDream to take the strategy of focusing on one product, in order to focus resources and time on building the know-how surrounding that product\supercite{Barney}. %ULC's economies of scale also factored into how PipeDream set up its value chain in \sectref{valueChain}, for example PipeDream would not be able to afford to have as many in house activities as ULC.
+            \hspace*{2ex}This analysis is limited in how it does not take into account any potential products that either of these firms might be currently developing. Thus it does not identify how PipeDream might have to behave around these firms in the future. However, it clearly highlights that the high expense of ULC's CISBOT provides a potential for PipeDream to use a cost leadership strategy, as discussed in \sectref{strategy}. From this analysis it was also decided not to target the US market because ULC already has substantial competitive advantages in that market. Furthermore, ULC's extensive know how encouraged PipeDream to take the strategy of focusing on one product, in order to focus resources and time on building the know-how surrounding that product\supercite{Barney}.  %ULC's economies of scale also factored into how PipeDream set up its value chain in \sectref{valueChain}, for example PipeDream would not be able to afford to have as many in house activities as ULC.
 %	        ULC is a technology company headquartered in New York that produces gas industry robots. It roughly has \$40m of annual revenue.\supercite{SPX_acquisition} It was acquired for \$135m by SPX in 2020 for an EV/Revenue of multiple of 3.375x, showing that there are companies looking to acquire companies similar to PipeDream\supercite{SPX_multiple}.  SPX has an annual revenue of \$1.5 billion and 4500 employees who work in 17 countries, providing ULC with the resources and reach to expand into more markets globally\supercite{SPX_acquisition}. ULC is a large company with 160 employees and  15 robots which have covered over 145m km of pipeline.\supercite{ULC_news} Its flagship robot is CISBOT which seals joints in underground pipes. They outsource some of their engineering design and manufacturing to soloosion.\supercite{soloosian}
 %	        \textbf{Strengths}
 %	        One of ULC's major strengths is its existing partnerships with Cadent and SGN. ULC is therefore a known commodity in a risk adverse industry, which means they are more likely to be trusted with future jobs. The relationships are also more likely to fast track their future technologies along the GDC's innovation pipelines. 
@@ -424,7 +426,7 @@ BoldItalicFont=Arial Bold Italic.ttf
         \hspace*{2ex}Currently it is estimated that 30.8km of pipeline need to be replaced by the UK GDCs each year for the next 5 years\footnote{This was calculated using the fact that SGN plans to replace 6.15km per year\supercite{SGN_Southern}\supercite{SGN_Scotland} and that NGN plans to replace 10.2km per year\supercite{NGN_decisions}. It was then assumed that the other two GDCs would have the same proportion of their pipelines as SGN that need replacing, using the the total Tier 3 pipeline lengths from \tableref{SOM}.}. Since joint failures are the most common failure it is likely that a large majority of these could be fixed by replacing the joints. This means that in Tier 3 pipes it was estimated that 8474 joints will be removed each year by replacing the pipeline\footnote{This was calculated by knowing that on average there are 0.275 joints per metre of pipeline\supercite{SGN_Southern}}. %therefore it is estimated that there are 8474 joints that will be being removed by replacing the pipeline. 
         Applying the £414.40 per joint price, which is discussed in \sectref{pricing}  to these joints would give a market size of £3.5m. This form of revenue will be used for the revenue projections.
         \\
-        \hspace*{2ex}In addition to this it is known concretely that SGN spent £7.2m on robotic intervention in 2020\supercite{SGN_Southern}\supercite{SGN_Scotland}. Using this as a proxy for the amount GDCs spend on robotic intervention, weighting the amount spent by each of the four GDCs proportional to their total pipeline length under management and then summing these budgets up gives the total market spend on robotic intervention a year at £29m. Therefore \textbf{the total potential market in the UK would be £35.5m.} This is somewhat smaller than the top-down estimate of £57.6m, possibly because the analysis was limited to joint damage jobs, as well as the assumption made in top-down analysis assumes that all in-pipe inspection in the UK market tier 3 gas distribution pipes. 
+        \hspace*{2ex}In addition to this it is known concretely that SGN spent £7.2m on robotic intervention in 2020\supercite{SGN_Southern}\supercite{SGN_Scotland}. Using this as a proxy for the amount GDCs spend on robotic intervention, weighting the amount spent by each of the four GDCs proportional to their total pipeline length under management and then summing these budgets up gives the total market spend on robotic intervention a year at £29m. Therefore \textbf{the total potential market in the UK would be £35.5m.} This is somewhat smaller than the top-down estimate of £57.6m, possibly because the analysis was limited to joint damage jobs, as well as the assumption made in top-down analysis which assumes that all in-pipe inspection in the UK market is in Tier 3 gas distribution pipes. 
         %if we do this number of jobs then we can get this part of the market
     
     \subsubsection[Projected Market Penetration]{Projected Market Penetration - Joshua Gei}\label{marketPenSect}
@@ -721,16 +723,16 @@ BoldItalicFont=Arial Bold Italic.ttf
 		
 		\subsubsection{Angular Sensors}
             		
-            For the angular sensors, whose use are described in \sectref{Lomcotion}, magnetoresistive sensors and hall effect sensors were investigated. The benefits of magnetoresistive sensors are that they are highly accurate, are not sensitive to noise caused by external vibrations, are very small and are energy efficient. However, they do not always measure 360 degrees rotations and can be sensitive to temperature fluctuations. Meanwhile, Hall effect sensors have the advantage of being able to measure 360 degrees of motion, but they are not as accurate as magnetoresistive sensors. Since in this application accuracy is the most important factor and 360 degrees measurement is not required magnetoresistive sensors are used.
+       For the angular sensors, whose use are described in \sectref{Lomcotion}, magnetoresistive sensors and Hall effect sensors were investigated. The benefits of magnetoresistive sensors are that they are highly accurate, are not sensitive to noise caused by external vibrations, are very small and are energy efficient. However, they do not always measure 360 degrees rotations and can be sensitive to temperature fluctuations. Meanwhile, Hall effect sensors have the advantage of being able to measure 360 degrees of motion, but they are not as accurate as magnetoresistive sensors. Since in this application accuracy is the most important factor and 360 degrees measurement is not required magnetoresistive sensors are used.
            \begin{floatingfigure}[r]{0.6\textwidth}
 					\centering
 					\includegraphics[width=0.57\textwidth] {AMR_comparison table_formatted}
 					\captionof{table}{Table comparing different angular encoders}
 					\label{rotary_encoders_comparison}
 			\end{floatingfigure}
-            \hspace*{2ex}There are three main types of magnetoresistive sensors that had to be considered. These are anisotropic magnetoresistive sensors (AMR), tunnel- magnetoresistive sensors (TMR) and giant magnetoresistive sensors (GMR). \tableref{rotary_encoders_comparison} compares them, where MR is the magnetoresistance ratio, which describes how sensitive the sensor is to changing its electrical resistance with changes in external magnetic fields.
+            \hspace*{2ex}There are three main types of magnetoresistive sensors: anisotropic magnetoresistive sensors (AMR), tunnel- magnetoresistive sensors (TMR) and giant magnetoresistive sensors (GMR) which are compared in \tableref{rotary_encoders_comparison} compares them.
             \begin{floatingfigure}[r]{0pt} \end{floatingfigure}
-            \hspace*{2ex}TMR sensors were chosen because they have less age deterioration and less temperature drift than AMR and GMR sensors, meaning they are more accurate and because accuracy is the most important factor in this consideration. Furthermore, it can be seen from \tableref{rotary_encoders_comparison} that TMR sensors are the most sensitive given they have the highest magnetoresistance ratio (MR), which describes how sensitive the sensor is to changing its electrical resistance with changes in external magnetic fields\supercite{magnetoresistance}, which provides greater resolution. Additionally, because it produces a high output, it does not require extra amplification, reducing cost and complexity.
+\hspace*{2ex}TMR sensors were chosen because they have less age deterioration and less temperature drift than AMR and GMR sensors, meaning they are more accurate and because accuracy is the most important factor in this consideration. They are also the most sensitive which provides greater resolution.
             %For the angular sensors, whose use are described in \sectref{Lomcotion}, magnetoresistive sensors and hall effect sensors were investigated. 
          %   The benefits of magnetoresistive sensors are that they are highly accurate, not sensitive to noise caused by external vibrations, very small and are energy efficient.
       %      However they do not always measure 360 rotations and can be sensitive to temperature fluctuations. 
@@ -900,9 +902,9 @@ BoldItalicFont=Arial Bold Italic.ttf
 	        
 	        \subsection[Damage Sensing]{Damage Sensing - Montgomery Beresford}
 	        
-	        For the robot to solve the problems discussed in \sectref{solutionEvaluation} it must be able to identify damage within the pipes.
+	     For the robot to solve the problems discussed in \sectref{solutionEvaluation} it must be able to identify damage within the pipes.
 	        AccoBot will be primarily used in cast iron pipes, within which corrosion and cracks are the major categories of damage found\supercite{Failure_pipes}\supercite{Failure_pipes2}.
-	        AccoBot will also need provide information about the location of connecting pipes, joints, valves and other objects within the pipes, so a detection system that can do both would be useful.
+	        AccoBot will also need to provide information about the location of connecting pipes, joints, valves and other objects within the pipes, so a detection system that can do both would be useful.
 	        \\
             \hspace*{2ex}In order to determine how to detect the damage three main steps were used. 
 	        Firstly determining the type of sensor to use and therefore the type of data that will be processed. 
@@ -917,8 +919,8 @@ BoldItalicFont=Arial Bold Italic.ttf
 	
 	   \textbf{Type of Damage Sensors}\label{damagesensors}
 	        
-        When deciding on what technique to use to detect damage, and therefore what type of sensor is required, metrics would ideally be looked at to determine the accuracy of these techniques in the environment that the robot will be in. This would involve creating a rig to test the different techniques and then looking at their false positives, false negatives, recall and sensitivity ratios. However, since the robot is not constructed and there is currently no access to these environments this is not possible,  which means that the decision was made from an analysis of the technology, as is discussed below. PipeDream looked at magnetic flux leakage, piezoceramic ultrasonic transducer detection, eddy current testing, electromagnetic acoustic transducers, visual sensing and laser scanning as potential techniques.
-\\\hspace*{2ex}
+        When deciding on what technique to use to detect damage, and therefore what type of sensor is required, metrics would ideally be looked at to determine the accuracy of these techniques in the environment that the robot will be in. This would involve creating a rig to test the different techniques and then looking at their false positives, false negatives, recall and sensitivity ratios. However, since the robot is not constructed and there is currently no access to these environments this is not possible,  which means that the decision was made from an analysis of the technology, as is discussed below. PipeDream looked at magnetic flux leakage, piezoceramic ultrasonic transducer detection, electromagnetic acoustic transducers, visual sensing and laser scanning as potential techniques.
+        \\\hspace*{2ex}
 	        \textbf{Magnetic Flux Leakage (MFL)} uses an array of sensors placed on arms in a circular configuration. The array has magnets that produce a magnetic field that flows through the pipes between the poles of each arm of the array. A flux sensor is placed between the poles of the magnets and detects variation in the flux due to damage and stress. This flux increases for tensile stresses and decreases for compressive stresses\supercite{MFL_explanation}.
 	        \\
             \hspace*{2ex}This type of detection is beneficial because it can detect stresses in the material which might predict damage in the future and it can detect damage within the pipe wall. It is also less sensitive to surface conditions compared to ultrasonic detection which is useful when considering that there may be dirt build up on the walls.
@@ -929,7 +931,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 	        \\
             \hspace*{2ex}However, PUT detection requires a couplant fluid between the sensor and the wall\supercite{UT_explanation}. This would make it difficult to adapt to different diameters and would require the robot to be supplied with a fluid, something that would reduce its range considerably, and it would not be desirable to introduce a foreign fluid into live gas pipes. Furthrmore, it needs to be calibrated with the thickness of the pipe which, in a pipe system in which there is imperfect information and the pipe thickness changes as the diameter changes, makes PUT not feasible.
 	       \\\hspace*{2ex}
-	        \textbf{Eddy Current Testing (ECT)} uses a probe that produces an alternating magnetic field using an electromagnet. This induces an eddy current in the wall of the pipe. The eddy current is then measured, providing information about the integrity of the wall\supercite{ECT}. ECT has the benefit of being non-contact\supercite{Corrosion}, and it has an advantage over MFL because it can be used in both ferromagnetic and non-ferromagnetic material for surface inspection. However, ECT is more sensitive to differing permeability of the wall than MFL and the data is therefore harder to interpret\supercite{MFL_explanation}. Besides this, ECT is another technique which requires the sensor to be in close proximity to the wall which would make it hard to adapt to different diameters, therefore, it was decided against\supercite{ECT}.
+	       % \textbf{Eddy Current Testing (ECT)} uses a probe that produces an alternating magnetic field using an electromagnet. This induces an eddy current in the wall of the pipe. The eddy current is then measured, providing information about the integrity of the wall\supercite{ECT}. ECT has the benefit of being non-contact\supercite{Corrosion}, and it has an advantage over MFL because it can be used in both ferromagnetic and non-ferromagnetic material for surface inspection. However, ECT is more sensitive to differing permeability of the wall than MFL and the data is therefore harder to interpret\supercite{MFL_explanation}. Besides this, ECT is another technique which requires the sensor to be in close proximity to the wall which would make it hard to adapt to different diameters, therefore, it was decided against\supercite{ECT}.
 	        \\\hspace*{2ex}
 	        \textbf{Electromagnetic Acoustic Transducers (EMAT)} are used in a non-contact ultrasonic testing technique that does not require a couplant. The EMAT works by using magnetic fields to induce ultrasonic waves into the wall of the pipe. The waves that go through the pipe wall and when they return induce a current in the EMAT’s receiving coil\supercite{EMAT}. EMAT can be used to provide information about wall loss due to damage such as corrosion\supercite{EMAT}, and also about defects within the walls which is a major advantage. Its downside is that on AccoBot it will only be able to be deployed at certain angles and will miss out on damage over the majority of the circumference of the pipe. For this reason it cannot be used alone.
 	        \\\hspace*{2ex}	
@@ -941,7 +943,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 	        \\
             Based on this discussion and analysis it was decided that the robot will use a combination of laser scanning, visual detection and EMAT sensors. The visual detection will allow the robot to move more quickly through the pipe where there is not as much damage, saving time and providing extra range. The EMAT sensors can be deployed when that data is desired by the GDC to provide information for their risk models. They will be placed on the side of each of the tracks, close to the wall. There are two modes for which the laser will be activated to extract data of greater resolution data. These are once the visual system detects damage above a certain threshold and the other is when it detects a joint. This threshold will be decided after test runs are done with the partnered company and will be adapted based on the difference risk preferences of the different clients.
             \\
-            \hspace*{2ex}This visual detection system however provides constraints on the processing of images. AccoBot moves at 0.1ms\textsuperscript{−1}, which means that if the robot were to process an image every 1 cm, AccoBot must be able to process images at 10 FPS. Therefore visual detection algorithms were chosen in \sectref{visual} to have as small as classification time as possible.
+            \hspace*{2ex}This visual detection system provides constraints on the processing of images. AccoBot moves at 0.1ms\textsuperscript{−1}, which means that if the robot were to process an image every 1 cm, AccoBot must be able to process images at 10 FPS. Therefore visual detection algorithms were chosen in \sectref{visual} to have as small as classification time as possible.
 	 %       \textbf{Magnetic Flux Leakage (MFL)}
 	  %      Magnetic Flux Leakage uses an array of sensors placed on arms in a circular configuration. 
 	   %     The array has magnets which produce a magnetic field that flows through the pipes between the poles of each arm of the array.
@@ -1076,15 +1078,16 @@ BoldItalicFont=Arial Bold Italic.ttf
 	        Given the size constraints and interference challenges, acoustic and magnetic methods are unsuitable for this application. 
 	        Instead, ELF communication is used which is currently capable of travelling through up to 20m of soil. 
 	        This allows the location to be determined, and fed back to the robot through the wiring in order to compensate for the accumulated locating error generated in the on board AHRS.
-	        \begin{floatingfigure}[r]{0.45\textwidth}
-				\centering
-				\includegraphics[width=0.42\textwidth]{comms layout}
-				\caption{Communications layout}
-				\label{commsLayout}
-			\end{floatingfigure}
-    
+			
+			\pagebreak
+			
 	        \textbf{Communication Map}
-	        \\
+   	    	\begin{floatingfigure}[r]{0.45\textwidth}
+   				\centering
+   				\includegraphics[width=0.42\textwidth]{comms layout}
+   				\caption{Communications layout}
+   				\label{commsLayout}
+   			\end{floatingfigure}
 	        \figref{commsLayout} provides an overview of the communication architecture that was decided upon. 
 	        Starting from the operator, an optical fibre which is capable of bidirectional communication is fed down to the robot by an automatic cable reel. 
 	        On board the robot is an ELF transmitter which pulses ELF waves at 22Hz to to the receivers above ground. 
@@ -1095,14 +1098,13 @@ BoldItalicFont=Arial Bold Italic.ttf
 %				\caption{Communications layout}
 %				\label{commsLayout}
 %			\end{figure}
-			\begin{floatingfigure}[r]{0pt} \end{floatingfigure}
-			
+			    
             \textbf{Wired Connection}
-	        \\
+   			\begin{floatingfigure}[r]{0pt} \end{floatingfigure}
 	        The wired communication line presents a challenge for the locomotion of the robot. 
 	        In order to satisfy the communication requirements, it must deliver data at a suitable rate without creating substantial friction along the pipe and around corners. 
 	        The proposed solution uses an optical fibre with a Kevlar outer coating. 
-	        Through making assumptions of a taut cable, not touching the ground and travelling at a steady speed, the initial equation for drag exhibited at the first bend the robot meets is: 
+	        Through making assumptions of a taut cable, not touching the ground and travelling at a steady speed, the initial equation for drag exhibited at the first bend the robot meets is:
 	        \begin{align}
 					F_0 = \mu_c R_{Bend} \phi g \rho
 			\end{align}
@@ -1165,6 +1167,8 @@ BoldItalicFont=Arial Bold Italic.ttf
 			\begin{floatingfigure}[r]{0pt} \end{floatingfigure}
 		    \hspace*{2ex}Again, with difficulty estimating the cost of individual components, the price of PolyEurope’s solution is taken as a comparison. This solution provides an upper estimate to the cost of the transmitter as £23,000. 
 			
+			\pagebreak
+			
 			\textbf{ELF Receiver}
 			
 			\begin{floatingfigure}[r]{0.5\textwidth}
@@ -1175,7 +1179,6 @@ BoldItalicFont=Arial Bold Italic.ttf
 			\end{floatingfigure}
 			The receivers above ground are excited via electromagnetic induction when the ELF waves are incident upon it. Each receiver consists of an array of sensors, batteries, GPS and 5G cellular communication. The array of sensors is used for localisation purposes, this allows the position of the pipe to be determined. The sensors are also mounted with a signal processing unit which features a filtering unit whose purpose is to discern the emitted ELF signal from background noise. The GPS is necessary in order to determine the global position of the robot once it has been located via the localisation algorithm. Also equipped is a 5G cellular communication antenna. This allows the calculated position coordinates to be transmitted to the operator where it can be combined with the localisation software in order to determine the robots position. Finally, the onboard batteries ensure the receivers are portable. The receiver block diagram is show in \figref{ELFrec}.
 	        \begin{floatingfigure}[r]{0pt} \end{floatingfigure}
-	        
             \hspace*{2ex}Since the cable reel and ELF receivers are not carried by the robot, their weight is not a consideration here. However, the price of these hardware components is important in order to assess the total cost of the robot.
             \\
 			\hspace*{2ex}As outlined in the previous section, the price of the identified cable reel that is going to be used is £20,795.00. The price of the receivers is more complicated to calculate as the total cost is dependent on the accumulated errors of the internal localisation system. Given that these internal errors may become significant over a certain distances, it is required that receivers are placed periodically in order to correct for this. However, this distance is something that can only be determined through testing of the robot empirically. Through using the company ProPipe as a reference for their above ground receivers, an estimated cost per receiver of £6000 can be made.
@@ -1239,7 +1242,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 				\end{multicols}
 			\end{figure}
 			\\
-            \hspace*{2ex}It is likely that CISBOT’s launch tube could also be used by AccoBot with slight design tweaks, as both robots have similar diameters and are used for the same types of pipelines. Additionally, both are cabled robots, with CISBOT’s Umbilical Management System using powered cables\supercite{CISBOTUMS} similar to AccoBot's Automatic Cable Reel system. Hence, the launch tube could be procured from PremTech, with small design modifications to suit AccoBot.
+            \hspace*{2ex}It is likely that CISBOT’s launch tube could also be used by AccoBot with slight design tweaks, as both robots have similar diameters and are used for the same types of pipelines. Additionally, both are cabled robots, with CISBOT’s Umbilical Management System using powered cables\supercite{CISBOTUMS} similar to AccoBot's Automatic Cable Reel system (discussed in \sectref{commmshardware}). Hence, the launch tube could be procured from PremTech, with small design modifications to suit AccoBot.
             
 		\subsubsection{Operator Control System}
 		
@@ -1272,40 +1275,39 @@ BoldItalicFont=Arial Bold Italic.ttf
             \hspace*{2ex}From researching materials used by other robots used in pressurised environments aluminium alloys, carbon fibre and titanium stood out as good candidates for this. Carbon fibre bodies are the most complex and expensive to manufacture so were not used material. Aluminium alloys are cheaper than titanium and are good at withstanding corrosive environments, so it was decided to use one.
 		    Specifically Aluminium Alloy 6082-T6 alloy will be used. It is stronger than the 6061 alloy and the T6 temper makes it easier to machine\supercite{Aluminium_Alloys}. A 6XXX series alloy was chosen over a 7XXX series alloy, which is stronger, because it is easier to machine and is weldable\supercite{Aluminium_Alloys_differences}.
 		    \\
-            \hspace*{2ex}To calculate how thick the casing should be the AccoBot's body was modelled as a cylinder. A calculation applying the Lamé equations\supercite{lame} found that the thickness of the body could be of the order of $10^{-4}$ in order to prevent failure due to yielding. This was therefore not a constraint on the thickness of the robot so it was decided to make it 5mm thick, reducing weight whilst not being flimsy.
-		   \\
-            \hspace*{2ex}This combined with the analysis in \sectref{Lomcotion} meant that the casing will have a length of 700mm, a thickness of 5mm and a diameter of 202.5mm. The density of 6082-T6 is 2.7gcm\textsuperscript{-3} so the casing's weight will be 6.02 kg.
+            \hspace*{2ex}To calculate how thick the casing should be the AccoBot's body was modelled as a cylinder. A calculation applying the Lamé equations\supercite{lame} found that the thickness of the body could be of the order of $10^{-4}$ in order to prevent failure due to yielding. This was therefore not a constraint on the thickness of the robot so it was decided to make it 5mm thick, reducing weight whilst not being flimsy. This combined with the analysis in \sectref{Lomcotion} meant that the casing will have a length of 700mm, a thickness of 5mm and a diameter of 202.5mm.  6082-T6's density is 2.7gcm\textsuperscript{-3} so the casing will weigh 6.02 kg.
 		   %The cost of the outer body material was estimated to be £68.37. It weight will be 23.7 kg because it is made of Aluminium Alloy 6082-T6 which has a density of 2.7g cm\textsuperscript{-3}. The thickness of the body is 5mm and it's length is 1253mm and diameter is 436.4mm.
 		   
    		\subsection[Total Cost and Weight of Robot]{Total Cost and Weight of Robot - Louis Emanuel}
-
-   		    The total cost of the robot is £162,900 which is broken down in \figref{costbreakdown} for the separate component sections. This is significantly cheaper than the current market leader CISBOT, whose price is £714,000. Therefore, the cost leadership component of PipeDream's strategy discussed in \sectref{strategy} is justified. 
-         Of course, it should be noted that many of the prices used for this robot are based on single unit purchases and upper estimates. Consequently, it is expected that this price could be reduced further once PipeDream has established itself and is completing significantly more jobs as outlined in \sectref{financialModels}. 
+   		
+		    \begin{floatingfigure}[r]{0.35\textwidth}
+				\centering
+				\includegraphics[width=0.32\textwidth]{costBreakdown}
+				\caption{Breakdown of the costs of the robot, rounded up to the nearest £100}
+				\label{costbreakdown}
+			\end{floatingfigure}
+		    The total cost of the robot is £162,900 which is broken down in \figref{costbreakdown} for the separate component sections. This is significantly cheaper than the current market leader CISBOT, whose price is £714,000. Therefore, the cost leadership component of PipeDream's strategy discussed in \sectref{strategy} is justified. 
+	     	Of course, it should be noted that many of the prices used for this robot are based on single unit purchases and upper estimates. Consequently, it is expected that this price could be reduced further once PipeDream has established itself and is completing significantly more jobs as outlined in \sectref{financialModels}. 
 %            \begin{figure}[h]
 %				\centering
 %				\includegraphics[width=0.47\textwidth]{costBreakdown}
 %				\caption{Breakdown of the costs of the robot, rounded up to the nearest £100}
 %				\label{costbreakdown}
 %			\end{figure}
-   		
-   	    \begin{floatingfigure}[r]{0.5\textwidth}
-			\centering
-			\includegraphics[width=0.47\textwidth]{costBreakdown}
-			\caption{Breakdown of the costs of the robot, rounded up to the nearest £100}
-			\label{costbreakdown}
-		\end{floatingfigure}
-        \hspace*{2ex}The total weight of the robot is 77.6kg with the bulk of it being due to the 51kg track motors necessary for the locomotion as shown in \sectref{trackDetails}. This is significantly lighter than GRAID, which weighs 240kg\supercite{graidweight}, but heavier than CISBOT that weighs 39kg\supercite{cisbotweight}. AccoBot is slightly heavier than CISBOT due to having the ability to turn corners and travel up slopes which requires more powerful motors. Therefore, GRAID who also turns corners and travels up slopes is a fairer comparison which demonstrates AccoBot's relatively lightweight design. 
-            \begin{figure}[h]
+            \begin{floatingfigure}[r]{0pt} \end{floatingfigure} 
+	        \hspace*{2ex}The total weight of the robot is 77.6kg with the bulk of it being due to the 51kg track motors necessary for the locomotion as shown in \sectref{trackDetails}. This is significantly lighter than GRAID, which weighs 240kg\supercite{graidweight}, but heavier than CISBOT that weighs 39kg\supercite{cisbotweight}. AccoBot is slightly heavier than CISBOT due to having the ability to turn corners and travel up slopes which requires more powerful motors. Therefore, GRAID who also turns corners and travels up slopes is a fairer comparison which demonstrates AccoBot's relatively lightweight design. 
+            \begin{table}[h]
 				\centering
 				\includegraphics[width=0.6\textwidth]{weightsbreaks.png}
 				\caption{Breakdown of the mass of the robot}
 				\label{massbreakdown}
-			\end{figure}
+			\end{table}
+			\vspace{-\baselineskip}
         %Something about discounting track motor weight since it is so large - without tracks it is only 44 kg - since estimated max is 53.9 this is manageable
     
 	\section{Product Software - ENG}
 		\subsection[Software Architecture] {Software Architecture - Louis Emanuel}
-            \begin{floatingfigure}[r]{0pt} \end{floatingfigure}  
+ 
             \figref{overalls} outlines the overall software layout for the robot. The main sections are the in-robot subsystems which consists of the sensors and computational functions carried out on board, and the external systems which the robot communicates with via an optical fibre.
     		\begin{figure}[h]
 				\centering
@@ -1317,7 +1319,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 	        \hspace*{2ex}The decision to house different components on board or off board is based on the computational power required, desired latency and housing size. For example, actuation and control requires minimal latency in order to navigate the pipes accurately and so is housed on board. In comparison, map generation is not necessary for operation, and so can be computed off board in order to reduce housing space and heating losses in the robot.
 	        \\
 	        \hspace*{2ex}In terms of the in-robot sub-systems, the data from the sensors has two destinations. Firstly, the AHRS and rotary sensor data is sent to the computer GPU for processing. The function of the GPU is to feedback control the locomotion hardware and pass on the generated pipe characteristics data to the transmission module. The NVIDIA GeForce 1080 Ti GPU was chosen for this application as it powerful enough to do real time classification of the visual data.
-	         The remaining sensors data generated on board Accobot is sent straight to the transmission module in order to be more efficiently processed externally.
+	         The remaining sensors data generated on board AccoBot is sent straight to the transmission module in order to be more efficiently processed externally.
 	         \\
 	        \hspace*{2ex}The external sub systems contain the localisation algorithm that along with the communications module determines the global position of the robot as described in \sectref{localisationSection}. Also contained is the object detection and map generation software that take the sensor data collected from the in-robot sub-systems as input.
 	        \\
@@ -1430,7 +1432,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 				\\
 				&= D_r + \frac{3 L}{2} \sin \left( \cos ^{-1} \left( \cos \left( \theta_{min} \right) + \frac{E}{L} \right) \right)
 			\end{align}
-            \\
+			\\
 	        \hspace*{2ex}\figref{legDiagram} is reproduced as \figref{legDiagramRep} for reference of variables used.
 %			\begin{figure}[h]
 %				\centering
@@ -1438,20 +1440,20 @@ BoldItalicFont=Arial Bold Italic.ttf
 %				\caption{Labelled Diagram indicating angles referenced in the text}
 %				\label{legDiagramRep}			
 %			\end{figure}
-			\begin{floatingfigure}[r]{0.3\textwidth}
-				\centering
-				\includegraphics[width = 0.27\textwidth]{legDiagram}
-				\caption{Labelled Diagram indicating angles referenced in the text}
-				\label{legDiagramRep}
-			\end{floatingfigure}
+			\\
 	        \hspace*{2ex}$H_{\infty}$ control was chosen because the leg extension dynamics can be well modelled, and fast performance is required.
 		    This is because too little normal force will cause issues, if AccoBot is travelling up a steeply inclined pipe, and too much normal force for too long will damage critical components.
 			While the system is non-linear, most of the variables contribute as constants in practice, with the system only being non-linear in $\theta$.
 			 In the region $10^\circ - 60^\circ, \sin \left( \theta \right)$ is almost linear, so a linear control method is suitable.
 		
 		\subsection[Bend Behaviour]{Bend Behaviour - Jim Laney}
-			
-			\begin{floatingfigure}[r]{0pt} \end{floatingfigure}
+		
+   			\begin{floatingfigure}[r]{0.3\textwidth}
+   				\centering
+   				\includegraphics[width = 0.27\textwidth]{legDiagram}
+   				\caption{Labelled Diagram indicating angles referenced in the text}
+   				\label{legDiagramRep}
+   			\end{floatingfigure}
 			AccoBot is designed to travel around bends autonomously, and then report back to the mapping software that it has turned a bend, as well as calculating the angle the bend turns through.
 			When turning a bend, AccoBot uses angular encoders at the end of each leg to find the individual foot bends $\phi_T$, $\phi_L$ \& $\phi_R$.
 			These are detected from angular encoders connected to each of the two short leg links.
@@ -1459,7 +1461,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 			AccoBot then varies the speed of the tracks at the end of each leg to make the foot angles parallel, such that $\phi_L = \phi_R = \phi_T$.
 			This is performed by setting the top leg angle $\phi_T$ as a reference, and using the difference between this and $\phi_R$ or $\phi_L$ with a PID controller to set the foot speed.
 			This controller only needs a very low natural frequency, as quick changes in the foot angle are likely due to surface unevenness, which should be dealt with by the active compliance joint rather than considered as a bend.
-            \\
+   			\begin{floatingfigure}[r]{0pt} \end{floatingfigure}
 	        \hspace*{2ex}AccoBot estimates the magnitude of the bend angle based on the distance travelled and the pipe diameter.
 			If the bend is in the horizontal plane, as shown in \hyperref[pipeAngle]{Figure \ref*{pipeAngle}(i)}, AccoBot has to consider the differences between the non vertical legs in order to determine the bend angle and direction.
 			AccoBot then integrates the speed of each track over the travel of the robot in order to determine the distance travelled.
@@ -1468,6 +1470,8 @@ BoldItalicFont=Arial Bold Italic.ttf
 			The pipe inclination, calculated in \sectref{poseCalculation}, also returns the angle of the pipe, which can be used to verify the calculations, and ensure that the signs of the calculated bends are correct.	
 			\\
 	        \hspace*{2ex}The angle change is simple to find when the legs are perpendicular to the bend, but the leg rotation angle $\lambda$ needs to be factored in to the calculation, which is achieved using an effective pipe diameter, $D_{e}$:
+			
+			\vspace{-\baselineskip}
 			
 			\begin{align}
 				d_{inner} &= \theta_{bend} \left( r_c  - \frac{ D_{e} }{2} \right)
@@ -1635,7 +1639,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 		
 		For cracks to be detected it was recognised that cracks are morphological objects that can have undefined dimensions, which makes them hard to identify using object detection. It would also be useful to highlight the location of a crack within an image, which meant that image classification would not suffice\supercite{morphological}. This led to semantic segmentation being chosen to detect the cracks. 
 		\\
-        \hspace*{2ex}A paper authored by Zhang et al\supercite{CrackGAN1} compared several semantic segmentation algorithms for detecting cracks. Within this paper three algorithms, none of these which require specialised camera equipment, stood out due to them being the highest performing in precision, sensitivity and the F1 metric\supercite{CrackGAN1}.
+        \hspace*{2ex}A paper authored by Zhang et al\supercite{CrackGAN1} compared several semantic segmentation algorithms for detecting cracks. Within this paper three algorithms, none of these which require specialised camera equipment, stood out due to them being the highest performing\supercite{CrackGAN1}.
 		%	For crack detection it would be useful information to highlight the location of the crack within the image.
 		%	For this reason an image classification algorithm would not suffice. 
 		%	Cracks are morphological objects that can have undefined dimensions which is a property that makes them hard to identify using object detection.\supercite{morphological}
@@ -1733,20 +1737,20 @@ BoldItalicFont=Arial Bold Italic.ttf
 	       % YOLOv3 improves upon its predecessors by using logistic regression to predict bounding boxes,\supercite{YOLOV3} and  by introducing short-cuts in the convolutional layers.
 	       % YOLOv3, whose architecture can be seen in \figref{YOLOv3_image} is made of a feature detector called Darknet-53 which consists of 53 convolutional layers which are of sizes 3x3 and 1x1 and then 53 detector layers, followed by a detection neural network.\supercite{YOLOV3}
 	      %  The Darknet-53 down samples the image by a stride of 32, this is passed through a 4 detection layer branch and and is also upscaled to stride 16 through another branch. This feature map is concatenated with the smaller feature map before it is again passed through detection layers, which is done again for stride 8. This means that there is detection applied at three different scales. This is what improves its accuracy at small scales compared to the earlier YOLO versions. It uses logistic classifiers instead of softmax because it does not want to assume that the classes are mutually exclusive.\supercite{YOLOV3}
+            \\
+            \hspace*{2ex}YOLOv3, whose architecture can be seen in \figref{YOLOv3_image}, is made of a feature detector called Darknet-53\supercite{YOLOV3} which first downsamples the image to three separate scales, at each scale the input is passed through detection layers which create a feature map. These feature maps are concatenated together meaning detection is applied at three different scales, improving its accuracy at small scales compared to the earlier YOLO versions.
 	        \begin{floatingfigure}[r]{0.5\textwidth}
 				\centering
 			    \includegraphics[width=0.47\textwidth]{Network-architecture-of-YOLOv3_W640.jpg}
 			    \caption{YOLOv3 architecture. Figure from \cite{YOLOv3_image}}
 			    \label{YOLOv3_image}
 			\end{floatingfigure}
-            \hspace*{2ex}YOLOv3, whose architecture can be seen in \figref{YOLOv3_image}, is made of a feature detector called Darknet-53\supercite{YOLOV3} which first downsamples the image to three separate scales, first to a stride of 32, then 16, and then 8; at each scale the input is passed through detection layers which create a feature map. These feature maps are concatenated together meaning detection is applied at three different scales, improving its accuracy at small scales compared to the earlier YOLO versions.
-			\begin{floatingfigure}[r]{0pt} \end{floatingfigure}
-			\hspace*{2ex}For its purpose YOLOv3 has to make two separate sets of predictions: what the coordinates of a bounding box should be and then what the class of the object is that is inside the bounding box\supercite{Anchor_Boxes}. To do the former the model produces anchor boxes, choosing the size and shapes of them by using a k-means clustering training step\supercite{k-means-clustering}. These anchor boxes facilitate the detection of multiple objects at different scales\supercite{YOLOV2}, and also increase the speed of the algorithm because they remove the need for a sliding window as used in R-CNN algorithms.
+			\hspace*{2ex} YOLOv3 produces anchor boxes to predict the coordinates of bounding boxes, choosing the size and shapes of them by using a k-means clustering training step\supercite{k-means-clustering}. These anchor boxes facilitate the detection of multiple objects at different scales\supercite{YOLOV2}, and also increase the speed of the algorithm because they remove the need for a sliding window as used in R-CNN algorithms.
 	       % YOLOv3 has to make two separate sets of predictions: what the coordinates of a bounding box should be and then what the class of the object is that is inside the bounding box.\supercite{YOLOV3} To do the former the model creates anchor boxes for each of the predictors and then predicts an objectness score for each of the bounding boxes compared to these prior boxes using logistic regression. This objectness score looks at the Intersection Of Union (IOU) between the ground truth and the predicted bounding box.\supercite{YOLOV2}\supercite{YOLOV3} Using anchor boxes facilitates the detection of multiple objects at different scales,\supercite{Anchor_Boxes} and they also increase the speed of the algorithm because it removes the need for a sliding window as used in R-CNN algorithms. 
 	       % In order to choose the size and shapes of these anchor boxes k-means clustering with k=5 is used on the training set bounding boxes.\supercite{YOLOV2} K-means clustering chooses cluster centres randomly and then measure the distances between each of the points to the cluster centre and assigns the points to the cluster centre that it is nearest to. It then calculates the mean score and iteratively optimises the locations of the clusters in order to reduce the distance scores.\supercite{k-means-clustering} The k value is picked by calculating the variation scores for each of the k values and then choosing the k value that causes a large variation reduction when the k+1 value has significantly smaller effect on the reduction of variation. 
 	       
 	        \subsubsection{Object Tracking}
-
+			\begin{floatingfigure}[r]{0pt} \end{floatingfigure}
 	        In order to ensure that the robot knows that the same object that is identified in two subsequent images is the same object some form of tracking is required. Optical flow, which tracks features between subsequent frames was considered, however, this would require additional features to be extracted from the image. SORT is more preferable because it makes use of the object detection that has already taken place and produced bounding boxes. It does this by tracking bounding boxes across frames aiming to maximise the intersection of union metric. Bewley et al\supercite{object_tracking} demonstrated that SORT had a much higher speed than similarly accurate algorithms, which confirmed that it would be the ideal algorithm to use\supercite{object_tracking}.
 	       % In order to ensure that the robot knows that the same object that is identified in two subsequent images is the same object some form of tracking is required. 
 	        %Optical flow, which tracks features between subsequent frames was considered, however, this would require certain features to be extracted from the image. 
@@ -1809,9 +1813,9 @@ BoldItalicFont=Arial Bold Italic.ttf
 			
 		\subsection[Communications]{Communications - Louis Emanuel}
 		    
-		    \begin{floatingfigure}[r]{0.4\textwidth}
+		    \begin{floatingfigure}[r]{0.35\textwidth}
 				\centering
-				\includegraphics[width = 0.37\textwidth]{Attenuation}
+				\includegraphics[width = 0.32\textwidth]{Attenuation}
 				\caption{ELF Attenuation Finite Element Analysis\supercite{FDT}}
 				\label{ELFAttenuation}
 			\end{floatingfigure}
@@ -1824,11 +1828,9 @@ BoldItalicFont=Arial Bold Italic.ttf
 		    The figure highlights that the amplitude decreases exponentially as the thickness and burial depth increase linearly.
 
 			\subsubsection{Signal Processing}
-			
-		    \begin{floatingfigure}[r]{0pt} \end{floatingfigure}
-		    
+
 			\textbf{Filter}
-			\\
+		    \begin{floatingfigure}[r]{0pt} \end{floatingfigure}
 	        One potential solution in order to overcome the challenge of detecting heavily attenuated signals is the use of a simple filter and amplifier circuit.
 	        The sensors are wide-band antennas so many other frequency components are received together. This is a problem as it creates a low signal to noise ratio which reduces the accuracy of localisation.
 	        Therefore, a band-pass filter with high gain and high quality factor is one possible solution.
@@ -1838,18 +1840,19 @@ BoldItalicFont=Arial Bold Italic.ttf
 	        The output signal then consists of the emitted signal separated from the other frequency components. 
 	        
 	        \begin{figure}[h]
-				\centering
-				\includegraphics[width = 0.7\textwidth]{Filtering.jpg}
-				\caption{Filter Design} % This needs a citation for the source I think
-				\label{filterDesign}
+				\begin{minipage}{0.6\linewidth}
+    				\centering
+				    \includegraphics[width = 0.9\textwidth]{Filtering.jpg}
+   				    \caption{Filter Design} % This needs a citation for the source I think
+    				\label{filterDesign}
+				\end{minipage}
+				\begin{minipage}{0.3\linewidth}
+    				\centering
+				    \includegraphics[width=0.9\textwidth]{SNRPower}
+    				\caption{Normalised power spectrum when SNR is 0 dB and speed is 15 m/s}
+    				\label{SNRPower}
+				\end{minipage}
 			\end{figure}
-			
-			\begin{floatingfigure}[r]{0.4\textwidth}
-				\centering
-				\includegraphics[width=0.37\textwidth]{SNRPower}
-				\caption{Normalised power spectrum when SNR is 0 dB and speed is 15 m/s}
-				\label{SNRPower}
-			\end{floatingfigure}
             \hspace*{2ex}Unfortunately, in order to attain a more ideal filter, a higher order filter must be used.
 			This presents an issue as the impulse response of the higher order filter is longer which increases the latency and hence decreases accuracy in localisation. 
 			Another issue is demonstrated in \figref{SNRPower} for which the normalised power spectrum of three different signals, including noiseless ELF signals, narrow-band noise and ELF signals with noise are shown. 
@@ -1868,7 +1871,7 @@ BoldItalicFont=Arial Bold Italic.ttf
 	    	The FDT first estimates the fused envelope decay rate to maximise the orthogonal signal power of ELF signals, and the maximised orthogonal signal power is used as the test statistic for the signal detection, which provides an excellent detection performance.
 	         \begin{figure}[h]
 				\centering
-				\includegraphics[width=0.9\textwidth]{sensors£DT}
+				\includegraphics[width=0.8\textwidth]{sensors£DT}
 				\caption{Flow chart of FDT method\supercite{FDT}}
 				\label{FDTFlowchart}
 			\end{figure}
@@ -1897,9 +1900,9 @@ BoldItalicFont=Arial Bold Italic.ttf
 			\\
 		    Given the challenge with localising the robot without accurate knowledge of the pipes positioning, an improved solution will use multiple sensors in order to locate the robot. With this solution, no prior knowledge of the pipe location is needed as the receiver is capable of calculating the relative distance to the robot and its rotation to each axis. Then, the algorithm will again use the GPS capabilities of the receiver in order to calculate the robot's global positioning.
 			
-			\begin{floatingfigure}[r]{0.35\textwidth}
+			\begin{floatingfigure}[r]{0.4\textwidth}
 				\centering
-				\includegraphics[width=0.32\textwidth]{localisation}
+				\includegraphics[width=0.37\textwidth]{localisation}
 				\caption{Geometry of Buried Pipeline\supercite{ELFTransmitter}}
 				\label{localisation}
 			\end{floatingfigure}
@@ -1939,9 +1942,9 @@ BoldItalicFont=Arial Bold Italic.ttf
        \\ \hspace*{2ex}\textbf{gmapping}: A widely used algorithm in SLAM, which also uses a particle filter for model-based estimation, but only using visual odometry\supercite{gmapping}
         \\
        \hspace*{2ex} The results are shown in \figref{localisationExamples}. The red line indicates the mapping produced by the proposed method, which accurately followed the path of the robot as it moved underground. This illustrates the significantly higher accuracy this method has in an environment of underground inspection with high visual symmetry, where many localisation algorithms are unreliable. Hence, given the similarity of the use case with underground sewer inspection, it was determined to use this algorithm.
-	   \begin{figure}[h]
+	   \begin{figure}[H]
 			\centering
-			\includegraphics[width=0.5\textwidth]{localisationalgocomparison.jpg}
+			\includegraphics[width=0.4\textwidth]{localisationalgocomparison.jpg}
 			\caption{Three examples of localisation results are plotted as obtained by the proposed method, gmapping and ORBSLAM-2 in red, blue and purple, respectively. The output map generated by the gmapping method is also represented. A and B are the points the robot actually went through\supercite{ELFTransmitter}}
 			\label{localisationExamples}
 		\end{figure}
@@ -2068,7 +2071,8 @@ w_{\text {edge }}=\frac{1}{\sigma_{a} \sqrt{2 \pi}} e^{-\frac{\left(\theta_{r}-\
 		
 		\subsection[Industry Value Chain]{Industry Value Chain: Understanding the Gas Industry - Joshua Gei}\label{valueChainSection}
 		
-		The business analysis will begin with a look at the Gas Industry value chain as a whole, in order to identify which specific areas PipeDream will be competing in, and identify the main stakeholders. Following this, a more in-depth analysis of the specific industry (the in-pipe robotic solutions market) and the customer industry will be undertaken using Porter’s Five Forces, and the interests and impact of the various stakeholders will be assessed. 
+		The business analysis will begin with a look at the Gas Industry value chain as a whole, in order to identify which specific areas PipeDream will be competing in, and identify the main stakeholders. Following this, a more in-depth analysis of the specific industry (the in-pipe robotic solutions market) and the customer industry will be undertaken using Porter’s Five Forces, and the interests and impact of the various stakeholders will be assessed.
+		\pagebreak
         \\
         \hspace*{2ex}A broad overview of the Gas Industry in the UK is shown in \figref{Industry Value Chain}.
 		\begin{figure}[h]
@@ -2245,15 +2249,16 @@ w_{\text {edge }}=\frac{1}{\sigma_{a} \sqrt{2 \pi}} e^{-\frac{\left(\theta_{r}-\
 			    
                 In conclusion, the threat of new entrants in the gas distribution industry is determined to be low as currently the barriers to entry are very high. In fact, the regulator OFGEM states on their website that they serve to regulate the gas distribution industry because ‘Gas Distribution Networks are natural monopolies’\supercite{OFGEMquote}. These natural monopolies have an overwhelming advantage over potential competitors
         
-         \subsubsection[Rivalry Among Existing Competitors]{Rivalry Among Existing Competitors - Montgomery Beresford}
+               
+          \subsubsection[Rivalry Among Existing Competitors]{Rivalry Among Existing Competitors - Montgomery Beresford}
 %                    Porter suggests that the number of competing firms, the relative size and influence of these firms, the growth rate of the industry and product differentiation are key factor for analysing the threat of rivalry in the industry\supercite{Barney}. These factors are considered in turn. 
-                The firms are natural monopolies which sets the baseline level of competition between the firms to be incredibly low. However,
-                there is some competition created by the firms competing through rate petitions to the regulatory bodies. Those that can convince the bodies that they are justified in having a higher rate can have a higher revenue. Furthermore, there is competition for an annual innovation fund discussed in \sectref{GDCstakeholders}, although this competition has little significant impact on the economic success of the firms.
+                The GDCs are natural monopolies which sets the baseline level of competition between the firms to be incredibly low. However,
+                there is some competition created by the firms competing through rate petitions to the regulatory bodies. Those that can convince the bodies that they are justified in having a higher rate can have a higher revenue.% Furthermore, there is competition for an annual innovation fund discussed in \sectref{GDCstakeholders}, although this competition has little significant impact on the economic success of the firms.
                 \\ 
-                \hspace*{2ex}The fact there are a small number of firms reduces the threat of this rivalry, but the fact that they are all of similar size and influence has an increasing effect. What's more the decline in size of the market, with annual revenue predicted to decrease by - 0.7\% annually from 2021 to 2026\supercite{Gas_Distribution_Industry}, shows that the market is saturated, which would typically lead to strategies such a price cutting to steal market share from competitors and increase the threat of competition.
+                  \hspace*{2ex}The fact there are a small number of firms reduces the threat of this rivalry, but the fact that they are all of similar size and influence has an increasing effect. What's more the decline in size of the market, with annual revenue predicted to decrease by - 0.7\% annually from 2021 to 2026\supercite{Gas_Distribution_Industry}, shows that the market is saturated, which would typically lead to strategies such a price cutting to steal market share from competitors and increase the threat of competition.
                  Additionally, the service that the GDCs offer, transporting gas, has few ways of product differentiation, which would in most circumstances lead to high threat of rivalry since it would lead to price cutting\supercite{Gas_Distribution_Industry}.
                  \\
-                 \hspace*{2ex}However, each firm run their own distribution networks and have their own customers that no other of the competing firms can gain access to. This means there is little consumer overlap and therefore it is almost impossible to steal market share from each other, which also means that the price cutting does not occur. The threat of rivalry is so low in fact that firms are cooperating together to develop technological solutions\supercite{SGN-GD2}. For these reasons the threat of rivalry is very low for the GDCs.
+                 \hspace*{2ex}However, each firm runs their own distribution networks and have their own customers that no other of the competing firms can gain access to so it is almost impossible to steal market share. The threat of rivalry is so low in fact that firms are cooperating together to develop technological solutions\supercite{SGN-GD2}.
            
                 
                 
@@ -2274,7 +2279,7 @@ w_{\text {edge }}=\frac{1}{\sigma_{a} \sqrt{2 \pi}} e^{-\frac{\left(\theta_{r}-\
 
         \subsubsection[Threat of Substitutes]{Threat of Substitutes - Montgomery Beresford} \label{customerSubstitutes}
         
-                The threat of substitution comes from the different ways in which the consumers may heat their homes. The major threat of substitution comes from electricity, with it being increasingly used to heat homes, in fact by 2050 it is forecast that electric systems will provide over 70\% of space heat\supercite{heating_tech}. This shift towards electricity is driven by several factors such as improving technology and government legislation requiring new homes have a minimum EPC Level C. Currently gas and central heating is highly dominant, with 85\% using gas to heat homes, 6\% oil, 3\% electric storage, 2\% electric not storage and 1\% electric portable heaters\supercite{heating}. It is likely however that government legislation will come into place that will ban gas boilers being installed from 2025. Instead, households must either use electric heating or hydrogen and hybrid boilers; which will be a strong catalyst in increasing the threat of substitution to gas. 
+                 The threat of substitution comes from the different ways in which the consumers may heat their homes. The major threat of substitution comes from electricity, with it being increasingly used to heat homes. In fact by 2050 it is forecast that electric systems will provide over 70\% of space heat\supercite{heating_tech}. This shift towards electricity is driven by several factors such as improving technology and government legislation requiring new homes have a minimum EPC Level C. Another catalyst is that government legislation will likely ban gas boilers being installed from 2025.% Instead
               %  \hspace*{2ex}Moreover, ground heat pumps are another substitute to the gas industry. This market is set to double by 2025\supercite{Delta} providing an alternative for people wanting to heat their homes. %consider removing this next bit
             %    This technology also has the benefit of appearing more environmentally friendly which is an increasingly important factor in decisions made by consumers and businesses. Yue\supercite{Environmental} found that increasing consumers' environmental responsibility their green consumption intentions, making the “greener” substitutes more of a threat.
                 %This technology also has the benefit of appearing more environmentally friendly which is an increasingly important factor in decisions made by consumers and businesses. Yue et al in “Impact of Consumer Environmental Responsibility on Green Consumption Behaviour in China: The Role of Environmental Concern and Price Sensitivity”\supercite{Environmental} found that enhancing consumers environmental responsibility and environmental concern increased their green consumption intentions. Thus making the “greener” substitutes to gas more of a threat.
@@ -2282,7 +2287,7 @@ w_{\text {edge }}=\frac{1}{\sigma_{a} \sqrt{2 \pi}} e^{-\frac{\left(\theta_{r}-\
                 \hspace*{2ex}However, the gas distribution networks are already preparing for this pivot by working on introducing hydrogen into their networks for example Cadent’s HyDeploy project, discussed further in \sectref{futureForecast}. 
                 % SGN is developing a hydrogen pipeline to supply Aberdeen which would initially be 20\% hydrogen but would be increased to 100\% hydrogen, as discusssed in \sectref{forecast}.\supercite{Cadent_Plan}
               % Furthermore, the ban on future new developments having gas boilers\supercite{boiler_ban} is likely to be a larger threat to the IGTs that focus on new development connections and the larger gas distirbution networks will at first not be too affected due to centrally heated homes being unlikely to change boilers straight away, but over the next decade this does pose a large threat to the industry.
-                For these reasons the threat of substitutions is high which is why the firms are finding new ways to leverage their assets as discussed in \sectref{customerFuture}.% This will most likely be through the use of hydrogen, but even then, this faces a battle with ground heat pump and electric substitutes.
+                For these reasons the threat of substitutions is high which is why the firms are finding new ways to leverage their assets.% This will most likely be through the use of hydrogen, but even then, this faces a battle with ground heat pump and electric substitutes.
 
      
 		\subsubsection[Power of Suppliers]{Power of Suppliers - Montgomery Beresford}
@@ -2294,14 +2299,13 @@ w_{\text {edge }}=\frac{1}{\sigma_{a} \sqrt{2 \pi}} e^{-\frac{\left(\theta_{r}-\
 		        %This type of threat is therefore quite low for the large network companies.
                 \\
                 \hspace*{2ex}However, GDCs do purchase specialist equipment such as CISBOT. There are very few suppliers of each of these specialist equipment which gives them greater power. These firms are limited however in the price they charge by the pricing of substitute methods. Furthermore, all of these suppliers have a very different set of expertise to the GDCs and there is therefore next to no threat of forward vertical integration.
-                For this reason there is likely a low to medium risk from threat of suppliers.
+                For this reason there is likely a low to medium risk from power of suppliers.
 
 		
 		\subsubsection[Power of Buyers]{Threats of Buyers - Montgomery Beresford}
 		
-		        In order to asses the power of buyers the following factors were investigated: the number of buyers; the differentiability of the products sold; the sensitivity of buyers to price; the ease with which the buyer can switch to substitutes; government regulation\supercite{Barney}.
-		        \\ 
-		        \hspace*{2ex}The value chain, as described earlier in \sectref{valueChainSection} involves gas suppliers, the consumers and E\&P companies. The E\&P companies have little buying power over the GDCs because the GDCs have regional monopolies so if the E\&P companies want to get gas in a certain location, they have no choice but to use that GDC. Below the buying power of gas suppliers and gas consumers, who are indirect buyers, are analysed. %The buying power of the gas-suppliers and consumers is more complex and was therefore analysed in more detail.
+		       % In order to asses the power of buyers the following factors were investigated: the number of buyers; the differentiability of the products sold; the sensitivity of buyers to price; the ease with which the buyer can switch to substitutes; government regulation\supercite{Barney}.
+		        The value chain, as described earlier in \sectref{valueChainSection} involves gas suppliers, the consumers and E\&P companies. The E\&P companies have little buying power over the GDCs because the GDCs have regional monopolies so if the E\&P companies want to get gas in a certain location, they have no choice but to use that GDC. Below the buying power of gas suppliers and gas consumers, who are indirect buyers, are analysed. %The buying power of the gas-suppliers and consumers is more complex and was therefore analysed in more detail.
                % GDCs are paid by gas shippers to transport gas to homes and businesses. Gas suppliers, who are second-tier customers, buy gas from shippers to provide to their customers, who are the consumers, and it is the shippers responsibility to see that it reaches these homes. The prices that the GDCs charge are passed onto the gas consumers. The first-tier buyer are the shippers. They have little buying power over the gas distribution networks because the gas distribution firms have regional monopolies so if the shippers want to get gas to a certain location, they have no choice but to use that distribution network. Below the buyer power of gas suppliers and gas consumers are analysed.
               %  \textb
                % \\
@@ -2330,8 +2334,7 @@ w_{\text {edge }}=\frac{1}{\sigma_{a} \sqrt{2 \pi}} e^{-\frac{\left(\theta_{r}-\
                 \\
                 \hspace*{2ex}
            %     \textbf{Regulation}
-              %  \\
-                This discussion highlights how buyer power is reasonably low, which the government has counterbalanced through regulation. OFGEM regulates the revenue that GDCs can generate and thus the amount that they can charge. This means that the GDCs cannot leverage the natural monopolies they have to extract the full economic profit potential that they could obtain.
+             Therefore buyer power is reasonably low, which the government has counterbalanced through regulation so that the GDCs cannot leverage the natural monopolies they have to extract the full economic profit potential that they could obtain.
                 %From this it can be seen that the threat from buyers is low. Even though the product is undifferentiated and the consumers have high price sensitivity the fact that the GDCs have natural monopolies and there are a large number of buyers means that they pose a low threat to the GDCs. Regulation does however mean that the GDCs cannot exploit this lack of buyer power.
                  
                 
@@ -2347,9 +2350,9 @@ w_{\text {edge }}=\frac{1}{\sigma_{a} \sqrt{2 \pi}} e^{-\frac{\left(\theta_{r}-\
                
            \subsubsection{Significance for PipeDream - Montgomery Beresford} \label{pricingpower}
            
-                In response to the increasing threat of substitutes the GDCs are moving away from natural gas distribution towards hydrogen distribution in order to provide a greener alternative. The company will therefore need to be able to adapt its technology to solve the problems that this brings. It is likely to be similar due to the fact that in many cases the same gas pipes will be used and the company would be working with the same GDCs with the same established practices. This is discussed in more detail in \sectref{customerFuture}
+                In response to the increasing threat of substitutes the GDCs are moving away from natural gas distribution towards hydrogen distribution in order to provide a greener alternative. The company will therefore need to be able to adapt its technology to solve the problems that this brings. It is likely to be similar due to the fact that in many cases the same gas pipes will be used and the company would be working with the same GDCs with the same established practices. This is discussed in \sectref{customerFuture}
                 \\ 
-                \hspace*{2ex}The low threat of rivalry between firms and large amount of cooperation may mean that firms would be willing to share specialist equipment. This would  reduce the viability of selling AccoBot since if AccoBot is sold to one firm that firm may just lease it out to others, this will be discussed further in \sectref{revenue_model}. 
+                \hspace*{2ex}The low threat of rivalry between firms and large amount of cooperation may mean that firms would be willing to share specialist equipment. This would  reduce the viability of selling AccoBot since if AccoBot is sold to one firm that firm may just lease it out to others, this is discussed in \sectref{revenue_model}. 
                 \\
                 \hspace*{2ex}The capping of revenues by the regulatory firms due to the low buyer power means that the GDCs are incentivised to find ways to lower costs. This means they are willing to invest money and time into partnering with firms that can increase the efficiencies of their operations, providing an opportunity for PipeDream. This would also be a factor that would make a cost leadership strategy favourable, which is discussed in \sectref{strategy}.
                 The few providers of specialist robotics equipment provides the company with greater power over the GDCs which gives it greater pricing powers, a factor which is taken into account in the pricing analysis in \sectref{pricing}, and also helps with partnering with the GDCs in the initial development of the product, which is discussed in \sectref{go-to}. 
@@ -2562,6 +2565,7 @@ w_{\text {edge }}=\frac{1}{\sigma_{a} \sqrt{2 \pi}} e^{-\frac{\left(\theta_{r}-\
 			It is also significantly easier to get the funding for gas projects rather than electricity projects, as the competition is significantly smaller - in 2020 there were only 2 applications, both of which were funded.
 			Therefore providing a compelling reason for PipeDream to receive NIC funding for AccoBot will be incredibly important in order to secure funding for development.
 			
+			\pagebreak
 			\textbf{Energy Networks Association (ENA)}
 			\\
 			The ENA is the industry body for all the energy suppliers in the UK \& Ireland, allowing them to publish guidance for safe operation in their pipes.
@@ -2698,15 +2702,15 @@ w_{\text {edge }}=\frac{1}{\sigma_{a} \sqrt{2 \pi}} e^{-\frac{\left(\theta_{r}-\
            
     \subsubsection{Evaluating Direct or Indirect to Customer Strategies}
     
-    One of the advantages of supplying the companies that supply the GDCs, such as Synthotech and ULC, who will be called middlemen, thus selling indirectly to the GDCs, is the middlemen have pre-existing relationships with the buyers. For example, Synthotech has worked on projects with SGN, and ULC has worked for both SGN and Cadent. In an industry that is risk adverse and has many protocols for the adoption of new technology, providing the product through a middleman that is already trusted by the firm and understands how some of the customers’ processes work is invaluable. Another advantage is that these firms often have a presence in larger markets. For example ULC have a presence in the US\supercite{SPX_acquisition}. By supplying such a firm PipeDream would gain access to its global distribution channels as well as have the authority of its reputation. PipeDream would also gain access to ULC’s robotics expertise thus helping the AccoBot to be further developed, which would help maintain PipeDream's competitive advantage. Additionally, the firm would not have to spend as much on business activities such as sales and marketing because these middlemen would cover these costs.
+     One of the advantages of supplying the companies that supply the GDCs, such as Synthotech and ULC, who will be called middlemen, thus selling indirectly to the GDCs, is that the middlemen have pre-existing relationships with the buyers. For example, Synthotech has worked on projects with SGN, and ULC has worked for both SGN and Cadent. In an industry that is risk adverse and has many protocols for the adoption of new technology, providing the product through a middleman that is already trusted by the firm and understands how some of the customers’ processes work is valuable. Another advantage is that these firms often have a presence in larger markets. For example ULC have a presence in the US\supercite{SPX_acquisition}. By supplying such a firm PipeDream would gain access to its global distribution channels as well as have the authority of its reputation. PipeDream would also gain access to ULC’s robotics expertise thus helping the AccoBot to be further developed, which would help maintain PipeDream's competitive advantage.
     \\
     \hspace*{2ex}Furthermore, since these firms have developed know-how in this area and have economies of scale they would be able to carry out some activities more efficiently, making more value available in the value chain. The financial risk would be mostly taken by the middlemen since they will have acquired the product and it would be their responsibility to create value from it. Similarly, a greater amount of operational risk will be taken on the middlemen since they will have to find ways to sell the product or service to the buyers. This set up would also be more beneficial than selling direct to the buyers for PipeDream in terms of cashflow because the period between paying the suppliers to manufacture the robot and the middlemen purchasing the robot will likely be shorter due to the middlemen having less complex organisational structures and protocols when making technology decisions. 
     \\
     \hspace*{2ex}The downside of selling to middlemen is that the middlemen would be an extra link in the value chain, potentially reducing the amount of value that can be captured by PipeDream. In addition to this, it is not clear whether such middlemen would be willing to buy a product developed by a third party, and, even if they were, the relatively small UK market size could mean that they would not purchase enough to make PipeDream viable. Additionally, this strategy gives these middlemen, who otherwise would be competitors, access to the AccoBot IP, which could accelerate imitation.
     \\
-    \hspace*{2ex}With this considered, it should also be considered how there are several compelling reasons for going directly to the end users, a strategy effectively exploited by firms such as Dell\supercite{business_model}. Not only does this cut out the middleman and allow PipeDream to capture more value but it allows the firm to interface directly with the buyers. One advantage of this is that it provides PipeDream with more information that would allow it to update and improve its product so that it can stay on top of the technological curve, provide more value to its customers, and maintain its competitive advantages. In addition to this, by developing a direct relationship with the client the company would potentially be able to increase repeat buying. Yanamandram and White (2007)\supercite{customers} showed that organisations do not swap providers of products and services for five main reasons, one of which is interpersonal relationships. The middlemen would be incentivised to develop these relationships for not just AccoBot but also there other products. Additionally, Blut\supercite{B2Brelations} highlights how increase switching costs increases customer retention. By owning the relationship PipeDream will be in a better position to make strategic decisions to increase switching costs, whereas a middleman would be be incentivised to provide any of its other products to the customer in order to retain the customer. 
+     \hspace*{2ex}With this considered, it should also be considered how there are several compelling reasons for going directly to the end users, a strategy effectively exploited by firms such as Dell\supercite{business_model}. Not only does this cut out the middleman and allow PipeDream to capture more value but it allows the firm to interface directly with the buyers. One advantage of this is that it provides PipeDream with more information that would allow it to update and improve its product so that it can stay on top of the technological curve, provide more value to its customers, and maintain its competitive advantages. In addition to this, by developing a direct relationship with the client the company would potentially be able to increase repeat buying. Yanamandram and White (2007)\supercite{customers} showed that organisations do not swap providers of products and services for five main reasons, one of which is interpersonal relationships. The middlemen would be incentivised to develop these relationships for not just AccoBot but also there other products. Also owning the relationship without a middleman PipeDream will be in a better position to make strategic decisions to increase switching costs.\supercite{B2Brelations}
     \\
-    \hspace*{2ex}Therefore, although selling to middlemen would increase the ease of entry into the market and would potentially also increase the ease of adoption and initial market penetration, such a strategy would not be a sustainable business model because it would decrease the control the company has in positioning itself in the market and in developing the know-how required to maintain a competitive advantage. Therefore, it was decided to go directly to the GDCs.
+    \hspace*{2ex}Therefore, despite the advantages of selling to middlemen such a strategy would not be a sustainable business model because it would decrease the control the company has in positioning itself in the market and in developing the know-how required to maintain a competitive advantage, so it was decided to go directly to the GDCs.
 
 
   %          One strategy would be for PipeDream to go directly to the users, another strategy would be to supply the firms that provide products and services to these end users, these will be called middlemen.
@@ -2720,7 +2724,7 @@ w_{\text {edge }}=\frac{1}{\sigma_{a} \sqrt{2 \pi}} e^{-\frac{\left(\theta_{r}-\
             
             \subsubsection{Direct to Market Revenue Model}\label{revenuemodel}
             
-            When deciding what direct to customer revenue model to use, there are 3 main potential revenue models to consider. These are selling the product directly, leasing the product and using a Robot-as-a-Service (RaaS) revenue model.
+            When deciding what direct to customer revenue model to use, there were 3 main potential revenue models to consider. These are selling the product directly, leasing the product and using a Robot-as-a-Service (RaaS) revenue model.
          \\ 
             \hspace*{2ex}
             It was decided to use a RaaS model, which is one where the customer pays PipeDream to carry out contracted jobs using AccoBot, therefore paying for not just the robot but for PipeDream to operate it. The reasons for this are discussed in the rest of the section.
@@ -2738,29 +2742,25 @@ w_{\text {edge }}=\frac{1}{\sigma_{a} \sqrt{2 \pi}} e^{-\frac{\left(\theta_{r}-\
    %         Once the capital expenditure to manufacture the robot has been made, there is little variable cost for each job. In a scenario where PipeDream sold the robot to two different firms, firm A and B, and  firm A needed a robot for a job in week one and  firm B needed it for a job in week two, assuming there is no collaboration between the companies, then two robots would be required for this. This would have involved the firm paying on two occasions the manufacturing costs of the robot. However if the robot was provided as a service the firm would be able to generate revenue from both of these jobs with just one robot and therefore halve the manufacturing costs. In this way the RaaS model increase profitability for the company by exploiting these efficiencies. \supercite{monetise_RaaS}
             \\ 
             \hspace*{2ex}
+        \hspace*{2ex}
             Selling AccoBot was also considered.
             One advantage of this model is that it would decrease the previously mentioned cash flow problem by decreasing the gap between paying suppliers and being paid. Another is that it commits the client to paying for the cost of the robot thus reducing the risk that the client may use it only for a few jobs via the RaaS model, therefore not allowing AccoBot to generate its full potential lifetime value for PipeDream.
             \\
-            \hspace*{2ex}There are, however, much more significant disadvantages to this model. Selling the robots upfront allocates much of the financial and operational risk to the client. Having purchased AccoBot, GDCs would have to ensure that the robot provides value for them for the rest of the robot’s lifetime and if it does not perform as desired it is the client that suffers losses. This model also increases barrier to adoption by requiring the client to make a large up front capital expenditure. Andrew Newton, Innovation Portfolio Manager at Cadent until 2020, said that “the capital outlay to buy such a complex machine [...] was prohibitive” with regards to a competitor’s robot. 
+            \hspace*{2ex} The disadvantages are however more significant. Selling the robots upfront allocates much of the financial and operational risk to the client. This increases barrier to adoption by requiring the client to make a large up front capital expenditure. Andrew Newton, Innovation Portfolio Manager at Cadent until 2020, said that “the capital outlay to buy such a complex machine [...] was prohibitive.”
             \\
-            \hspace*{2ex}Moreover, according to Bhaskaran\supercite{leasing_strategy}, a company that is selling is incentivised to increase supply so that it can sell more units, however an increased supply in a limited market causes the price to decrease, therefore buyers are incentivised to wait when making purchases, which could limit the rate of adoption of AccoBot in the industry. Another major disadvantage of selling the robot is that there is quite a large degree of collaboration between the GDCs as highlighted in \sectref{customerIndustry}, meaning between them they could purchase one robot and share it, causing lost revenue. Therefore, by providing the robot as a service the PipeDream is able to maintain a monopoly on the capabilities that it provides, creating scarcity and thus allowing it to charge higher prices, which is exploited in \sectref{pricing}.
+        \hspace*{2ex}Moreover, according to Bhaskaran\supercite{leasing_strategy}, a company that is selling is incentivised to increase supply to sell more units, which can cause the price to decrease, therefore buyers are incentivised to wait when making purchases, limiting the rate of adoption. Another major disadvantage of selling the robot is that there is quite a large degree of collaboration between the GDCs as highlighted in \sectref{customerIndustry}, meaning between them they could purchase one robot and share it, causing lost revenue. Therefore, by providing the robot as a service the PipeDream is able to maintain a monopoly on the capabilities that it provides, creating scarcity and thus allowing it to charge higher prices, which is exploited in \sectref{pricing}.
      %       Selling the robots upfront allocates much of the financial and operational risk to the client. Having purchased the robot they would have to ensure that the robot provides value for them for the rest of the robot's lifetime and if it does not perform as desired it is the client that suffers losses. This model also creates an obstacle for doing business with the client since it would require a large up front capital cost. This would not only create a financial obstacle but also an organisational one because it would require the decision to use the robot to be approved by more areas of the client’s organisation which would slow down adoption. Andrew Newton, Innovation Portfolio Manager at Cadent until 2020, said that “the capital outlay to buy such a complex machine […] was prohibitive” with regards to a competitors’ robot. However, for PipeDream, by selling the robot, the gap between paying suppliers and being paid is minimised thus reducing capital requirements and providing capital to reinvest into the business. Further, this model locks the client in and means that the company can be more sure of a certain revenue when a deal is reached with a client.  
-            
       %       According to Bhaskaran\supercite{leasing_strategy} a company is selling it is incentivised to increase supply so that it can sell more units, however an increased supply in a limited market causes the price to decrease, therefore buyers are incentivised to wait when making purchases.
        %     Another major disadvantage of selling the robot is that there is quite a large degree of collaboration between the GDCs. Therefore it is likely that if two of the companies became trained in using the robot then if for example Cadent needed a robot when SGN had extra capacity then SGN would be likely to offer to loan the robot to Cadent for that job, which would result in lost revenue.
       %      Thus by providing the robot as a service the company is able to maintain a monopoly on the capabilities that it provides, creating scarcity and thus allowing it to charge higher prices. 
             %The RaaS model was therefore chosen because it increased the ease of adoption for the customer, increasing the likelihood of gaining market share and at the same time reduced costs by reducing the amount of CAPEX required to manufacture the robots. These advantages are worth the extra risk that such a model puts on PipeDream.
-           Additionally, leasing AccoBot, which brings a hybrid of the advantages and disadvantages from the two previous models, was looked at. By leasing it PipeDream takes on more of the financial risk, therefore increasing ease of adoption. This brings with it the same initial cash flow problems as RaaS but includes the advantage that a lease would guarantee a set amount of revenue for a certain period of time by locking in the client in a contract. One disadvantage would be that the client would have unchecked access to the robot and might therefore be able to reverse engineer it or provide access to it to their other partners such as ULC. Another disadvantage would be that the GDC would take on operational risk and would have to train their employees on how to use the robot which would decrease the ease of adoption. Furthermore, since the lease would mean exclusive use in order to service the four GDCs at least four different robots would be required. This would increase CAPEX for the company, since in the RaaS model it would be possible to service all of them with just two AccoBots. It was judged that these  disadvantages compared to RaaS outweighed the advantage of a more predictable revenue.
-           
-            \textbf{Conclusion}
             \\
-           The RaaS model was therefore chosen because it increased the ease of adoption for the customer (the most important stakeholder), increasing the likelihood of gaining market share and at the same time reduced costs by reducing the amount of CAPEX required to manufacture the robots. These advantages are worth the extra risk that such a model puts on PipeDream. This conclusion was validated through an interview with a manager of innovation at WWU, who said that "a robot with a high capital cost and that would take great expertise to operate would probably work better as a service offering," thus de-risking PipeDream's revenue model assumptions.
-           
-           \textbf{Secondary Revenue Model - Licensing}
+            \hspace*{2ex}
+           Additionally, leasing AccoBot, which brings a hybrid of the advantages and disadvantages from the two previous models, was looked at. By leasing it PipeDream takes on more of the financial risk, therefore increasing ease of adoption. This brings with it the same initial cash flow problems as RaaS but includes the advantage that a lease would guarantee a set amount of revenue for a certain period of time by locking in the client in a contract. One disadvantage would be that the client would have unchecked access to the robot and might therefore be able to reverse engineer it or provide access to it to their other partners such as ULC. Another disadvantage would be that the GDC would take on operational risk and would have to train their employees on how to use the robot which would decrease the ease of adoption. Furthermore, since the lease would mean exclusive use in order to service the four GDCs at least four different robots would be required, increasing CAPEX since in the RaaS model only two AccoBots would be required. It was judged that these disadvantages compared to RaaS outweighed the advantage of a more predictable revenue.
            \\
-           A secondary revenue stream will also be generated through licensing once IP protection is secured, whose use is discussed in \sectref{IPstrategy}. 
-           The pricing of these licenses will be dependent on the potential for economic profit and the risks that the licensee will have in each market. %The later on in PipeDream's business cycle this occurs the
-           To minimise risk for the licensee, and therefore increase the uptake and potential returns for PipeDream, the payment for the licence will be a revenue share. %The licenses will be exclusive for geographic regions and will only be active for a certain number of years based on how long it takes to allow the company to make their desired returns on investment, which will be evaluated based on the market and licensee context.
+            \hspace*{2ex}
+           The RaaS model was therefore chosen because it increased the ease of adoption for the customer (the most important stakeholder), increasing the likelihood of gaining market share and at the same time reduced costs by reducing the amount of CAPEX required to manufacture the robots. These advantages are worth the extra risk that such a model puts on PipeDream. A contact at WWU validated this, saying a service would "work better".% This conclusion was validated through an interview with a manager of innovation at WWU, who said that "a robot with a high capital cost and that would take great expertise to operate would probably work better as a service offering," thus de-risking PipeDream's revenue model assumptions.
+           %e exclusive for geographic regions and will only be active for a certain number of years based on how long it takes to allow the company to make their desired returns on investment, which will be evaluated based on the market and licensee context.
             
             \subsection[Pricing]{Pricing - Montgomery Beresford} \label{revenue_model}\label{pricing}
                     
@@ -2768,15 +2768,15 @@ w_{\text {edge }}=\frac{1}{\sigma_{a} \sqrt{2 \pi}} e^{-\frac{\left(\theta_{r}-\
                  \\
             \hspace*{2ex}
                 To reach a price for the service with the top down approach both the value for the GDCs provided by the robot and the price charged by competitors for similar services were taken into account. 
-                It was determined that it costs GDCs between £670,000 to £11,100,000\footnote{The price they are willing to pay depends on complex factors fed into a cost benefit analysis} to replace 1km of pipe\supercite{SGN_Scotland} and to replace just all of these joints manually it would cost £2m\footnote{It costs the GDCs between £7269 and £9305 to fix a joint via non robotic processes\supercite{NYT}}.
-	            On the other hand, it would cost a GDC £797,500\footnote{It was estimated that ULC charges £2901 per joint repaired\supercite{NYT}} to hire ULC\supercite{NYT}, PipeDream's closest competitor, to fix all the joints in a 1km job and that GDCs would have been willing to pay up to £1.37m\footnote{NGN said that they would be willing to pay £5000 per joint operation\supercite{NGN}} to do this.
+                It was determined that it costs GDCs between £670,000 to £11,100,000\footnote{The price they are willing to pay depends on complex factors fed into a cost benefit analysis} to replace 1km of pipe\supercite{SGN_Scotland} and to replace just of the joints manually in 1km of pipe it would cost £2m\footnote{It costs the GDCs between £7269 and £9305 to fix a joint via non robotic processes\supercite{NYT}}.
+	            It was also found that it would cost a GDC £797,500\footnote{It was estimated that ULC charges £2901 per joint repaired\supercite{NYT}} to hire ULC\supercite{NYT}, PipeDream's closest competitor, to fix all the joints in a 1km job and that GDCs would have been willing to pay up to £1.37m\footnote{NGN said that they would be willing to pay £5000 per joint operation\supercite{NGN}} to do this.
 	            \\
             \hspace*{2ex}
-                The lower bound of the pricing was taken to be the price required to provide returns equal to the predicted weighted average cost of capital of 10.29\%.  This would set the price at £229 per joint. The upper bound, would be £2371 per joint which would make hiring PipeDream cost the same as replacing the pipeline, using a conservative estimation of £670,000 for the cost for GDCs to replace 1km of pipeline. To decide where in this range to place the price, three factors were taken into account. Firstly, that ULC repairs joints as opposed to just inspecting them, which means they provide more value, so AccoBot would likely need to charge less than this. On the other hand, AccoBot has many advantages over ULC which gives it high pricing power, as discussed in \sectref{pricingpower}, which allows PipeDream to charge prices that provide super normal returns. Taking into account this and the desire to reduce barriers to adoption, £414.40 per joint was picked as the price, weighting the pricing more towards reducing the barrier to adoption. At this price it would not only be £664,939 cheaper for the GDC to hire PipeDream for a 1km job instead of ULC\footnote{This is looking at a job along a 1km stretch of pipeline and assuming that on average there are 2 joint failures and 275 joints in 1 km\supercite{SGN_Southern}. It would cost £113,960 to hire PipeDream and then £18,601 to manually fix the joints detected as damaged. By inspecting the pipes it allows the GDC to discriminately fix only the failed joints reducing cost}, but it would also make hiring PipeDream between £537,439 and £10.9m cheaper for the GDC than the GDC  replacing the pipe, which is an incredibly significant cost saving for the GDCs, showing that PipeDream clearly provides significant value to its clients. This combined with being substantially cheaper than the major competitor will allow PipeDream to quickly gain market share.
+                The lower bound of the pricing was taken to be the price required to provide returns equal to the predicted weighted average cost of capital of 10.29\%.  This would set the price at £229 per joint. The upper bound, would be £2371 per joint which would make hiring PipeDream cost the same as replacing the pipeline, using a conservative estimation of £670,000 for the cost for GDCs to replace 1km of pipeline. To decide where in this range to place the price, three factors were taken into account. Firstly, the fact that ULC repairs joints as opposed to just inspecting them, which means they provide more value, so AccoBot would likely need to charge less than this. On the other hand, AccoBot has many advantages over ULC which gives it high pricing power, as discussed in \sectref{pricingpower}, which allows PipeDream to charge prices that provide super normal returns. Taking into account this and the desire to reduce barriers to adoption, £414.40 per joint was picked as the price, weighting the pricing more towards reducing the barrier to adoption. At this price it would be £664,939 cheaper for the GDC to hire PipeDream for a 1km job instead of ULC\footnote{This is looking at a job along a 1km stretch of pipeline and assuming that on average there are 2 joint failures and 275 joints in 1 km\supercite{SGN_Southern}. It would cost £113,960 to hire PipeDream and then £18,601 to manually fix the joints detected as damaged. By inspecting the pipes it allows the GDC to discriminately fix only the failed joints reducing cost}, and it would make hiring PipeDream between £537,439 and £10.9m cheaper for the GDC than the GDC  replacing the pipe, showing that PipeDream provides significant value to its clients. This combined with being substantially cheaper than the major competitor will allow PipeDream to quickly gain market share.
                % \hspace*{2ex}ULC provides extra value compared to PipeDream by sealing the joints, however, they also seal joints which do not need to be sealed reducing the extent of the value this provides, %although this does provide some value in extending the life time of the pipes.
 	           % Since AccoBot only inspects the pipes the price would therefore have to be a fraction of this
 	            %From, this it can be seen that by charging £414 per joint PipeDream both reduces costs for the GDCs, hence providing value, and it is substantially cheaper than the major competitor. %Which is why £414.40 per joint was chosen to be the default charge.
-	           This model is limited in that the estimates for the ULC pricing were made from a single data point.\footnote{The assumption is however reasonable since it was from a reliable source and the job was carried out in a similar market to PipeDream’s.} Furthermore, despite the costs of replacing the whole pipeline being concrete and taken from records of SGN expenditure, they result from two averages taken across different sets of years and are clearly very variable which introduces uncertainty, hence why the lower bound was picked. These limitations played a role in why pricing was set to lower end of the available scale.
+	         %  This model is limited in that the estimates for the ULC pricing were made from a single data point.\footnote{The assumption is however reasonable since it was from a reliable source and the job was carried out in a similar market to PipeDream’s.} Furthermore, despite the costs of replacing the whole pipeline being concrete and taken from records of SGN expenditure, they result from two averages taken across different sets of years and are clearly very variable which introduces uncertainty, hence why the lower bound was picked. These limitations played a role in why pricing was set to lower end of the available scale.
                    % \hspace*{2ex}ULC provides extra value compared to PipeDream by sealing the joints, however, they also seal joints which do not need to be sealed reducing the extent of the value this provides, %although this does provide some value in extending the life time of the pipes.
 	         %   Since AccoBot only inspects the pipes the price would therefore have to be a fraction of this. Despite this AccoBot has many advantages which gives it high pricing power, as discussed in \sectref{pricingpower}. Taking this into account it was decided to charge 1/7th of ULC's charge. This was chosen because it reduces the barrier to adoption as much as possible whilst being high enough to provide returns above the predicted cost of capital of 10.29\%. This places the pricing at £414.40 per joint. At this price it would be £664,939 cheaper for the GDC to hire PipeDream for a 1km job instead of ULC, because by inspecting the pipes it allows the GDC to discriminately fix only the failed joints.\footnote{This is looking at a job along a 1km stretch of pipeline and assuming that on average there are 2 joint failures and 275 joints in 1 km.\supercite{SGN_Southern} It would cost £113,960 to hire PipeDream and then £18,601 to manually fix the joints detected as damaged.} It could potentially be ~£1.87m cheaper than the company replacing all of the joints manually in some areas. From, this it can be seen that by charging £414 per joint PipeDream both reduces costs for the GDCs, hence providing value, and it is substantially cheaper than the major competitor. %Which is why £414.40 per joint was chosen to be the default charge.
             %	            In order to estimate a price for the service both the value provided by the robot and the price charged by competitors for similar services were taken into account. Currently for the GDCs costs between £7269 and £9305 to fix a joint via non robotic processes\supercite{NYT}. It was estimated that ULC charges £2901 per joint repaired,\supercite{NYT} and NGN says that they would be willing to pay £5000 per joint operation.\supercite{NGN} 
@@ -2792,8 +2792,8 @@ w_{\text {edge }}=\frac{1}{\sigma_{a} \sqrt{2 \pi}} e^{-\frac{\left(\theta_{r}-\
            \subsection[Operational Model]{Operational Model - Montgomery Beresford}
 	        
 	       %In order to establish the initial partnership PipeDream will hold conversations with the innovation managers, some of whom have already been spoken to. Having established a partnership the use of the robot throughout the company's network will depend upon PipeDream's success in the innovation programme. 
-	       Once a GDC has agreed to use the service PipeDream will operate in the following way.
-	       The GDC will book times for which they would like to use the service. For a job the operations team will drive from PipeDream’s HQ with the equipment in the van to the location. Depending on the size of the job and the distance from PipeDream’s HQ the employees may or may not then stay in that location overnight. This was the model  decided upon instead of multiple around the country because it required manufacturing fewer robots for the predicted demand for jobs if there were multiple robots many would not be in use for much of the time, reducing their return on investment.%across the country for much of that time a robot would not be used, thus each robot would have a lower return on investment.
+	       %Once a GDC has agreed to use the service PipeDream will operate in the following way.
+	       The GDC will book times for which they would like to use the service. For a job the operations team will drive from PipeDream’s HQ with the equipment in the van to the location. Depending on the size of the job and the distance from HQ the employees may or may not then stay in that location overnight. %This was the model  decided upon instead of multiple around the country because it required manufacturing fewer robots for the predicted demand for jobs if there were multiple robots many would not be in use for much of the time, reducing their return on investment.%across the country for much of that time a robot would not be used, thus each robot would have a lower return on investment.
           %  Having worked on several jobs at one gas distribution company the company will then seek to begin working with the other companies. This would be achieved through company demonstration days as well as inviting representatives of the companies to see the work that the company does in the field. Having secured work with each company, sales staff would look to highlight to these companies the other possible applications of the robot in order to expand out of the initial beach head market niche. This would be into areas such as providing mapping and detection of features applications.
     
     	\subsection[Firm Analysis Using VRIO]{Firm Analysis Using VRIO- Joshua Gei} \label{vrioAnalysisSection}
@@ -2929,10 +2929,10 @@ w_{\text {edge }}=\frac{1}{\sigma_{a} \sqrt{2 \pi}} e^{-\frac{\left(\theta_{r}-\
     \hspace*{2ex}
     %To project the revenues, the number of jobs for each year were projected and the price of £414.40 per joint inspected was applied to them.\footnote{This assumed an average job length of 500m and 02.75 joints per m\supercite{SGN_Southern}. Then a model of which GDCs would become clients when was made and it was assumed that there would be a growth in the amount of pipeline inspected at that GDC following the pattern of growth seen by SGN’s expenditure on robotic intervention in the period of 2015-2020.\supercite{SGN_Southern}This involved the first client being Cadent with only 3 jobs so that Cadent could assess the effectiveness without committing too much financially. These 3 jobs would correspond to 13\% of the potential available jobs at Cadent. The discussed pattern was then extended to the other firms who were assumed to become clients at times according to current interest in in pipe robotic inspection.SGN and NGN were assumed to sign up to start working in year 4, again starting with 13\% of the potential jobs and applying the same growth pattern. SGN and NGN were picked since they have already shown their willingness to work with robotic solutions. In year 7 Wales \& West Utilities is then assumed to start, with the same assumptions of starting jobs and growth as for the other companies.   A bear case was created by suppressing the growth rates and assuming that SGN becomes a client in year 5 and NGN becomes a client in year 6. A bull case was created by increasing the growth rates and by assuming WWU becomes a client in year 5.}
     To project the revenue generated, the number of jobs were projected and then multiplied by the revenue per job. It was assumed that the average job would have a length of 500 m and that there are 0.275 joints per m\supercite{SGN_Southern}, and the charge per joint inspected was set to £414.40.
-    To project jobs, it was assumed that initially PipeDream would have jobs with just Cadent in the first year, and this would be a smaller number of jobs, 3, so that  Cadent would be able to assess the effectiveness without committing too much financially. This would correspond to 13\% of the potential available jobs at Cadent. It was then assumed  that the annual growth in the amount of pipeline inspected would follow the pattern of growth seen by SGN’s expenditure on robotic intervention in the period of 2015-2020\supercite{SGN_Southern}.
-    The other firms were assumed to become clients at times according to current interest in in pipe robotic inspection. SGN and NGN were assumed to sign up for the service in year 4, again starting with 13\% of the potential jobs and applying the same growth pattern as for Cadent. SGN and NGN were picked since they have already shown their willingness to work with robotic solutions. In year 7 Wales \& West Utilities is then assumed to start, with the same assumptions of starting jobs and growth as for the other companies. A bear case was created by suppressing the growth rates and assuming that SGN and NGN become clients in year 5 and year 6 respectively. A bull case was created by increasing the growth rates and by assuming WWU becomes a client in year 5.
+    To project jobs, it was assumed that initially PipeDream would have jobs with just Cadent in year 3, and this would be a smaller number of jobs, 3, so that  Cadent would be able to assess the effectiveness without committing too much financially. This would correspond to 13\% of the potential available jobs at Cadent. It was then assumed  that the annual growth in the amount of pipeline inspected would follow the pattern of growth seen by SGN’s expenditure on robotic intervention in the period of 2015-2020\supercite{SGN_Southern}.
+  The other firms were assumed to become clients at times according to current interest in in-pipe robotic inspection. SGN and NGN were assumed to sign up for the service in year 4 and WWU in year 7, again starting with 13\% of the potential jobs and applying the same growth pattern as for Cadent. SGN and NGN were picked  for year 4 since they have already shown their willingness to work with robotic solutions.\footnote{ A bear case was created by suppressing the growth rates and assuming that SGN and NGN become clients in year 5 and year 6 respectively. A bull case was created by increasing the growth rates and by assuming WWU becomes a client in year 5.}.
     \\ 
-    \hspace*{2ex}The number of robots required was decided by assuming a worst case scenario where a job takes 2 weeks to complete, as was calculated in \sectref{simulation}. A second robot would be required when the number of weeks of jobs required exceeds 50 week, which is predicted to occur in year 6. Each robot will require a team of two, consisting of a robotics technician and someone who will be trained to operate the robot in circumstances where the automation failed. Other costs were leasing a van to transport the robots in, rental of office space as well as the salaries of non-operational staff\footnote{These were assumed to initially include a senior engineer, a CTO and a CEO. Once the company started generating revenue sales staff and business development staff will also be hired.}. The robot is paid for via CAPEX\footnote{This was deducted from the taxable profit. The depreciation is linear over 10 years and this depreciation cost is added onto the taxable profit due to the CAPEX being deducted from it} but it will also generate a maintenance expense\footnote{Maintenance costs were calculated by drawing a parallel to cars. The average cost of a car in the UK is £33,000 and the maintenance cost per year is £400.44, 1.2\% of the overall cost of the car. Parts for cars are likely cheaper due to mass production so a safety factor of 1.5 was introduced and maintenance costs were projected to be 1.8\% of the total value of the robot.}.  R\&D spending is quite high following the findings of \sectref{valueChainanal} and it steadily grows over the years\footnote{R\&D costs would involve the salaries of those working on the project, utilities cost, rent and extra materials}. Costs were assumed to be £20,000 in Year 1 and then grown at annual rate based on projected revenue growth.
+    \hspace*{2ex}The number of robots required was decided by assuming a worst case scenario where a job takes 2 weeks to complete, as was calculated in \sectref{simulation}. A second robot would be required in year 6. Each robot will require a team of two, consisting of a robotics technician and someone who will be trained to operate the robot in circumstances where the automation failed. Other costs will include leasing a van to transport the robots in, rental of office space as well as the salaries of non-operational staff\footnote{These were assumed to initially include a senior engineer, a CTO and a CEO. Once the company started generating revenue sales staff and business development staff will also be hired.}. The robot is paid for via CAPEX\footnote{This was deducted from the taxable profit. The depreciation is linear over 10 years and this depreciation cost is added onto the taxable profit due to the CAPEX being deducted from it} but it will also generate a maintenance expense\footnote{Maintenance costs were calculated by drawing a parallel to cars. The average cost of a car in the UK is £33,000 and the maintenance cost per year is £400.44, 1.2\% of the overall cost of the car. Parts for cars are likely cheaper due to mass production so a safety factor of 1.5 was introduced and maintenance costs were projected to be 1.8\% of the total value of the robot.}.  R\&D spending is quite high following the findings of \sectref{valueChainanal} and it steadily grows over the years\footnote{R\&D costs would involve the salaries of those working on the project, utilities cost, rent and extra materials}. These costs were assumed to be £20,000 in Year 1 and then grown at annual rate based on projected revenue growth.
     \begin{table}[h]
 					\centering
 				\begin{multicols}{2}
@@ -2949,7 +2949,8 @@ w_{\text {edge }}=\frac{1}{\sigma_{a} \sqrt{2 \pi}} e^{-\frac{\left(\theta_{r}-\
 					\label{forecast_costs}
 						\end{multicols}
 				\end{table}
-    \hspace*{2ex}Using the projections a potential valuation for the company was calculated to be in the range of £2.7m to £6.2m in the base case, and £1.7 to £4.2m and £4.1m to £10.3m for the bear and bull case respectively\footnote{This was done by using a DCF to calculate the NPV of the free cashflow to the firm over 10 years and applying a EV/Revenue and EV/EBITDA multiple to the year 10 metrics.The weighted average cost of capital (WACC) for this was taken to be 10.29\%. This was based off the financing being 100\% equity and using the Capital Asset Pricing Model with the Risk Free Rate taken as 0.0174 (the 10 Year Treasury Rate)\supercite{Treasury}, the Beta as 1.5 (Based on SPX’s Beta)\supercite{SPX_Beta} and the Market Risk Premium as 0.057\supercite{Risk_Premium}. An EV/Revenue multiple of 1.9 and an EV/EBITDA multiple of 13.73\supercite{SPX_multiple} were used to give the valuation range.} This analysis is limited by the many assumptions that were required to project future demand. The pricing assumption is especially large. A sensitivity analysis was therefore done on the pricing and the WACC. If the WACC was as high as 17\% the lower valuation bound would be £1.54m and if the pricing was as low as £300 per joint this would be £1.51m, highlighting that PipeDream’s returns are robust.
+    \\
+    \hspace*{2ex}Using the projections, a potential valuation for the company was calculated to be in the range of £2.7m to £6.2m in the base case, and £1.7 to £4.2m and £4.1m to £10.3m for the bear and bull cases respectively\footnote{This was done by using a DCF to calculate the NPV of the free cashflow to the firm over 10 years and applying a EV/Revenue and EV/EBITDA multiple to the year 10 metrics.The weighted average cost of capital (WACC) for this was taken to be 10.29\%. This was based off the financing being 100\% equity and using the Capital Asset Pricing Model with the Risk Free Rate taken as 0.0174 (the 10 Year Treasury Rate)\supercite{Treasury}, the Beta as 1.5 (Based on SPX’s Beta)\supercite{SPX_Beta} and the Market Risk Premium as 0.057\supercite{Risk_Premium}. An EV/Revenue multiple of 1.9 and an EV/EBITDA multiple of 13.73\supercite{SPX_multiple} were used to give the valuation range.}. This analysis is limited by the many assumptions that were required to project future demand. The pricing assumption is especially large. A sensitivity analysis was therefore done on the pricing and the WACC. If the WACC was as high as 17\% the lower valuation bound would be £1.54m and if the pricing was as low as £300 per joint this would be £1.51m, highlighting that PipeDream’s returns are robust.
  	     %       \begin{table}[h]
 		%			\centering
 		%			\includegraphics[width=0.9\textwidth]{7 year fcf forecast.png}
@@ -3007,8 +3008,7 @@ w_{\text {edge }}=\frac{1}{\sigma_{a} \sqrt{2 \pi}} e^{-\frac{\left(\theta_{r}-\
 	     %   \end{floatingfigure}
 	%	\hspace*{2ex}It was decided to finance the company through raising equity, because the company's future cash flows are uncertain and the equipment  is highly specialist and therefore might therefore not be accepted as collateral for raising debt.
 		\\ 
-        \hspace*{2ex}To maintain liquidity and fund the company it was determined from the financial projections that there will need to be a series of 3 financing rounds. £260,000 will be raised before operations start in Year 1, £170,000 before the start of Year 2 and £100,000 before the start of Year 3. This is based off providing a 1 year runway for each financing round bar the last. \\ 
-        \hspace*{2ex}This analysis is limited by the findings of the financial projections and the assumptions these were made on. PipeDream should therefore seek to raise more than this in order to cover any hidden costs or under performance.%\figref{liquidity} illustrates this. 
+        \hspace*{2ex}To maintain liquidity and fund the company it was determined from the financial projections that there will need to be a series of 3 financing rounds. £260,000 will be raised before operations start in Year 1, £170,000 before the start of Year 2 and £100,000 before the start of Year 3. This is based off providing a 1 year runway for each financing round bar the last. Because this analysis is based on the uncertainties of the financial projections PipeDream should seek to raise more than this in order to cover any under performance.%\figref{liquidity} illustrates this. 
 	    %\begin{floatingfigure}[r]{0pt} \end{floatingfigure}
 	   % \hspace*{2ex}\This analysis is limited by the findings of the financial projections and the assumptions these were made on. PipeDream should therefore seek to raise more than this in order to cover any hidden costs or under performance.
  
@@ -3016,7 +3016,7 @@ w_{\text {edge }}=\frac{1}{\sigma_{a} \sqrt{2 \pi}} e^{-\frac{\left(\theta_{r}-\
             
           %  Then the company would look to leverage the relationship of PipeDream founders with investment firms such as University Impact  and Cordovan Capital to find the appropriate partners to raise venture capital from.
             
-           
+           \pagebreak
 			    
 		\subsection[Business Risk Assessment]{Business Risk Assessment - Jim Laney}
 		
@@ -3065,10 +3065,10 @@ w_{\text {edge }}=\frac{1}{\sigma_{a} \sqrt{2 \pi}} e^{-\frac{\left(\theta_{r}-\
         The industry, its stakeholders and the longevity of the customer industry have all been explored in order to give the best picture of AccoBot's viability, and it was decided that PipeDream will operate as a B2B company with the GDCs as the main customer.
         The threats within the in-pipe robotics industry were evaluated from both a new entrant's perspective, where the large amount of product differentiation and wide variety of suppliers is a boon, and when PipeDream is an incumbent firm defending a held position, where the developed relationships with GDCs would allow PipeDream to maintain a strong hold over its market share.
         It was also important to consider the safety and longevity of the customer industry as the success of PipeDream is so intrinsically related to it.
-        The customer industry comprises GDCs, which are natural monopolies, each operating in separate geographic areas of operation, and hence have consistent revenues and will remain as stable customers to PipeDream. Additionally, the industry is developing to more green solutions such as biomethane or hydrogen, both of which AccoBot can be adapted to work alongside.
+        The customer industry comprises GDCs, which are natural monopolies each operating in separate geographic areas of operation, and hence have consistent revenues and will remain as stable customers to PipeDream. Additionally, the industry is developing to more green solutions such as biomethane or hydrogen, both of which AccoBot can be adapted to work alongside.
         Considering the main stakeholders, other than the gas distribution campanies, the regulatory bodies held a significant amount of power, as they define the terms which AccoBot must work within, and PipeDream's competitiors, other pipe inspection companies, who can provide support as well as indicating trends.
         PipeDream will use a Robot-as-a-Service revenue model to maximise profit, and increase the attractiveness of AccoBot to future customers.
-        This has been shown to provide super-normal profits in our modelling of the companies future, and requires less capital outlay, meaning a larger fraction of the funding can be generated from grants and accelerators.
+        This has been shown to provide super-normal profits when modelling the company's future, and requires less capital outlay, meaning a larger fraction of the funding can be generated from grants and accelerators.
         PipeDream can maintain its competitive advantage using both a product differentiation approach, due to the many novel features in the design, and a cost leadership approach, which gives it greater market penetration due to the lack of customer risk from the RaaS business model.
         PipeDream can enter the market using a strong connection with a GDC, elevating AccoBot from a proof-of-concept to a business ready product using their industry knowledge and development program.
         Finally, the possible business risks were explored, with mitigation being discussed to avoid issues such as regulatory issues and operational risks.
